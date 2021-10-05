@@ -1,4 +1,4 @@
-const connectionString = 'mongodb+srv://javiergongora:DBatlas7769@cluster0.4jwbh.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+const connectionString = 'mongodb+srv://javiergongora:<yourpassword>@cluster0.4jwbh.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 
 const mongoose = require('mongoose')
 const userSchema = require('./userSchema.js')
