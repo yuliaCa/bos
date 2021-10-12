@@ -1,0 +1,10 @@
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.flexRow {
+  display: flex;
+  flex-direction: row;
+  gap: 10%;
+}
