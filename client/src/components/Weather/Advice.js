@@ -8,7 +8,7 @@ const Advice = ({weatherCode}) => {
 
   useEffect(() => {
     setAdvice(AdviceList[weatherCode]);
-  })
+  }, [weatherCode])
   
   return (
     <div>
