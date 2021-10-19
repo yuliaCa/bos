@@ -45,21 +45,23 @@ const Weather = () => {
   }, []);
 
   return (
-    <div className={styles.weatherSection}>
-      <p className={styles.time}>{`${time}`}</p>
-      <div className={styles.gridCol}>
-        <img src={`${iconURL}${icon}.png`} alt="weather icon" />
-        <p className={styles.temp}>{`${temp}℃`}</p>
-        <div>
-          <div>{`${hum}%`}</div>
-          <div>Humidity</div>
-        </div>
-        <div>
-        <p>{airQ}</p>
-        <p>Air Quality Index</p>
+    <div className={styles.section}>
+      <div className={styles.weatherSection}>
+        <p className={styles.time}>{`${time}`}</p>
+        <div className={styles.gridCol}>
+          <img className={styles.weatherIcon} src={`${iconURL}${icon}.png`} alt="weather icon" />
+          <p className={styles.temp}>{`${temp}℃`}</p>
+          <div>
+            <p>{`${hum}%`}</p>
+            <p>Humidity</p>
+          </div>
+          <div>
+            <p>{airQ}</p>
+            <p>Air Quality Index</p>
+          </div>
         </div>
       </div>
-      <Advice weatherCode={`_${icon}`} />
+      <Advice className={styles.adviceText} weatherCode={`_${icon}`} />
     </div>
   );
 };
