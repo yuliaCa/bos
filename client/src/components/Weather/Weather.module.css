@@ -1,3 +1,10 @@
+.section {
+  background-color: rgb(237, 237, 237);
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  margin-top: 2rem;
+}
+
 .weatherSection {
   margin: 1rem 10%;
   background-color: gainsboro;
@@ -24,8 +31,16 @@
   font-size: 3rem;
 }
 
+.weatherIcon {
+  max-width: 80%;
+  margin: 0 auto;
+}
+
 span {
   border: 0;
   border-style: none;
-  
+}
+
+.adviceText {
+  color: red;
 }

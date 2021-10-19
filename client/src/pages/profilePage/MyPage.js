@@ -9,7 +9,7 @@ function MyPage() {
   let city = "Vancouver";
 
   return (
-    <>
+    <div className={styles.myPageSection}>
       <h1 className={styles.heading}>My Page</h1>
       <div className={styles.userSection}>
         <div className={styles.profileImage} />
@@ -29,9 +29,9 @@ function MyPage() {
         </div>
       </div>
       <Weather />
-      {/* <WeatherChart />
-      <UsageChart /> */}
-    </>
+      <WeatherChart />
+      <UsageChart />
+    </div>
   );
 }
 

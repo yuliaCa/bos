@@ -1,47 +1,39 @@
+import styles from "./UsageChart.module.css";
 import React from "react";
-import { Bar } from "react-chartjs-2";
+import { Bar } from "react-chartjs-3";
 
 const UsageChart = () => {
-  const data = {
-    labels: ["1", "2", "3", "4", "5", "6"],
-    datasets: [
-      {
-        label: "# of Red Votes",
-        data: [12, 19, 3, 5, 2, 3],
-        backgroundColor: "rgb(255, 99, 132)",
-      },
-      {
-        label: "# of Blue Votes",
-        data: [2, 3, 20, 5, 1, 4],
-        backgroundColor: "rgb(54, 162, 235)",
-      },
-      {
-        label: "# of Green Votes",
-        data: [3, 10, 13, 15, 22, 30],
-        backgroundColor: "rgb(75, 192, 192)",
-      },
-    ],
-  };
-
-  const options = {
-    scales: {
-      y: {
-        stacked: true,
-        ticks: {
-          beginAtZero: true,
-        },
-      },
-      x: {
-        stacked: true,
-      },
-    },
-  };
   return (
-    <>
-      <canvas>
-        <Bar data={data} options={options} />
-      </canvas>
-    </>
+    <div className={styles.chartStyle}>
+      <Bar
+        data={{
+          labels: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+          datasets: [
+            {
+              label: "Products Usage",
+              data: [4, 2, 3, 3, 4, 4, 2],
+              backgroundColor: "rgba(255, 206, 86, 0.3)",
+              borderColor:"rgba(255, 206, 86, 1)",
+              borderWidth: 1,
+            },
+          ],
+        }}
+        height={400}
+        width={600}
+        options={{
+          maintainAspectRatio: false,
+          scales: {
+            yAxes: [
+              {
+                ticks: {
+                  beginAtZero: true,
+                },
+              },
+            ],
+          },
+        }}
+      />
+    </div>
   );
 };
 
