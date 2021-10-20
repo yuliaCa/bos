@@ -11,7 +11,7 @@ function InsightsSection(props) {
             </div>
 
             <div className={styles.right}>
-                <img className={styles.image} src={props.src} alt={props.alt}/>   
+                <img className={styles.insightsImage} src={props.src} alt={props.alt}/>   
             </div>
         </div> 
     )
