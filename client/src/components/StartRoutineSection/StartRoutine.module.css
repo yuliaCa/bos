@@ -1,0 +1,24 @@
+.startRoutineOuter {
+    display: flex;
+    flex-direction: column;
+    background-color: lightgrey;
+    padding: 5%;
+}
+
+h2 {
+    align-self: start;
+    margin-left: 27%;
+}
+
+.startRoutineInner {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 0 25%;
+}
+
+.register a {
+    text-decoration: none;
+    color: black;
+}
+
