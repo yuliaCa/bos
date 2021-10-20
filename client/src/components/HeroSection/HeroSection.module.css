@@ -18,7 +18,7 @@ p {
     grid-column: 2 / 3;
 }
 
-.image {
+.heroImage {
     height: auto;
     max-width: 100%;
 }

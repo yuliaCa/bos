@@ -11,7 +11,7 @@ function HeroSection(props) {
             </div>
 
             <div className={styles.heroRight}>
-                <img className={styles.image} src={props.src} alt={props.alt}/>   
+                <img className={styles.heroImage} src={props.src} alt={props.alt}/>   
             </div>
         </div> 
     )
