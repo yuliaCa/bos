@@ -11,6 +11,7 @@ import FeaturesPage from "./pages/FeaturesPage";
 import ContactPage from "./pages/ContactPage";
 import ProfilePage from "./pages/ProfilePage";
 import TeamPage from "./pages/TeamPage";
+import RegistrationPage from "./pages/RegistrationPage"
 
 import Navbar from "./components/NavBar/Navbar";
 
@@ -49,6 +50,9 @@ function App() {
           </Route>
           <Route path="/tos">
             <TosPage />
+          </Route>
+          <Route path="/registration">
+            <RegistrationPage />
           </Route>
         </Switch>
         <Footer />
