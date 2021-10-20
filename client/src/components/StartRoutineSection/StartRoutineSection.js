@@ -6,7 +6,7 @@ function StartRoutineSection() {
   
     return (
         <div className={styles.startRoutineOuter}>
-            <h2>Start Your Routine Today</h2>
+            <h2 className={styles.startRoutineHeader}>Start Your Routine Today</h2>
             
             <div className={styles.startRoutineInner}>
                 <input className={styles.nameInput} id="username" type="text" placeholder="Your Name"></input>
