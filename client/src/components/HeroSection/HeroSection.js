@@ -4,13 +4,13 @@ import styles from './HeroSection.module.css';
 function HeroSection(props) {
   
     return (
-        <div className={styles.outer}>
-            <div className={styles.left}>
+        <div className={styles.heroOuter}>
+            <div className={styles.heroLeft}>
                 <h2>{props.heading}</h2>
                 <p>{props.bodytext}</p>
             </div>
 
-            <div className={styles.right}>
+            <div className={styles.heroRight}>
                 <img className={styles.image} src={props.src} alt={props.alt}/>   
             </div>
         </div> 
