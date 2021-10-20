@@ -1,0 +1,9 @@
+.heading {
+  width: 100%;
+  background-color: rgb(168, 167, 167);
+}
+
+.userInput {
+  display: flex;
+  justify-content: space-around;
+}

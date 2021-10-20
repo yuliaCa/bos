@@ -9,7 +9,11 @@ import "./App.css";
 import HomePage from "./pages/HomePage";
 import FeaturesPage from "./pages/FeaturesPage";
 import ContactPage from "./pages/ContactPage";
+
 import ProfilePage from "./pages/ProfilePage";
+import MyPage from './pages/profilePage/MyPage';
+import MyRoutines from './pages/profilePage/MyRoutines';
+
 import TeamPage from "./pages/TeamPage";
 
 import Navbar from "./components/NavBar/Navbar";
