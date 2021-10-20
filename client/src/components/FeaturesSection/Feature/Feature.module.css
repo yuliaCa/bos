@@ -1,0 +1,15 @@
+.section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.featHeader, .featBodyText {
+    width: 200px;
+}
+
+.featureImage {
+    height: 200px;
+    width: 200px;
+}
