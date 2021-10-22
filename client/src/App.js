@@ -7,7 +7,7 @@ import "./App.css";
 // Switch component helps us navigate to the path that matches EXACTLY the path indicated.
 
 import HomePage from "./pages/HomePage";
-import FeaturesPage from "./pages/FeaturesPage";
+import FeaturesPage from "./pages/FeaturesPage/FeaturesPage";
 import ContactPage from "./pages/ContactPage";
 
 import ProfilePage from "./pages/ProfilePage";
