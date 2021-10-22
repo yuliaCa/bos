@@ -10,7 +10,7 @@ function FeatureInfoSection2(props) {
                 <h2>{props.heading}</h2>
                 <p>{props.bodytext}</p>
                 <button>
-                    <Link to='/registration'>{props.buttonTitle}</Link>
+                    <Link to='/login'>{props.buttonTitle}</Link>
                 </button>
             </div>
 
