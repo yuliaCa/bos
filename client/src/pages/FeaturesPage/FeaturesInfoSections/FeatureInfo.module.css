@@ -1,11 +1,10 @@
-.heroOuter {
+.featureOuter {
     display: grid;
     grid-template-columns: 1fr 1fr;
     padding: 2%;
-    background-color: rgb(199, 188, 188);
 }
 
-.heroLeft {
+.sectionLeft {
     grid-column: 1 / 2;
 }
 
@@ -14,12 +13,16 @@ p {
     padding: 5%;
 }
 
-.heroRight {
+.sectionRight {
     grid-column: 2 / 3;
 }
 
-.heroImage {
+.feat1_3Image {
     height: auto;
     max-width: 100%;
 }
 
+button a { 
+    text-decoration: none;
+    color: black;
+}
