@@ -1,5 +1,6 @@
 import styles from './MyRoutines.module.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { axios } from 'axios';
 import ProductCard from './MyRoutine/ProductCard';
 
 function MyRoutines() {
@@ -8,6 +9,34 @@ function MyRoutines() {
     const categoryHandler = (event) => {
         setCategory(event.target.value);
     }
+    const [chosenProduct, setProduct] = useState("")
+    const productHandler = (event) => {
+        setProduct(event.target.value)
+    }
+    const [listProducts, setlistProducts] = useState([]);
+    useEffect(() => {
+        var axios = require("axios").default;
+
+        var options = {
+            method: 'GET',
+            url: 'https://sephora.p.rapidapi.com/products/search',
+            params: { q: `${chosenProduct}` },
+            headers: {
+                'x-rapidapi-host': 'sephora.p.rapidapi.com',
+                'x-rapidapi-key': '89632d8bb4mshf551a65abbd5eb0p1e8542jsn5fc07151d88c'
+            }
+        };
+
+        axios.request(options).then(function (response) {
+
+            setlistProducts(response.data.products)
+            console.log(listProducts)
+
+        }).catch(function (error) {
+            console.error(error);
+        });
+
+    })
 
     let productObj = {
         category: 'Cleanser',
@@ -22,11 +51,14 @@ function MyRoutines() {
 
             <div className={styles.userInput}>
                 <select value="category" onChange={categoryHandler}>
-                    <option>api category 1</option>
-                    <option>api category 2</option>
-                    <option>api category 3</option>
+                    <option>Cleanser</option>
+                    <option>Moisturizer</option>
+                    <option>Treatments</option>
+                    <option>Masks</option>
+                    <option>Eyecare</option>
+                    <option>Sunscreen</option>
                 </select>
-                <input type="text" placeholder="Product Name"></input>
+                <input type="text" placeholder="Product Name" onChange={productHandler}></input>
                 or
                 <select value="select product" >
                     <option>api product 1</option>
@@ -35,7 +67,11 @@ function MyRoutines() {
                 </select>
                 <button>Add Product</button>
             </div>
+            <div>
+                <ul>
 
+                </ul>
+            </div>
             <ProductCard productInfo={productObj} />
 
         </div>
