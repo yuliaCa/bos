@@ -1,6 +1,6 @@
 import React from 'react';
-import FeatureInfoSection from "../../components/FeaturesInfoSections/FeatureInfo";
-import FeatureInfo2Section from "../../components/FeaturesInfoSections/FeatureInfo2";
+import FeatureInfoSection from "./FeaturesInfoSections/FeatureInfo";
+import FeatureInfo2Section from "./FeaturesInfoSections/FeatureInfo2";
 import StartRoutineSection from "../../components/StartRoutineSection/StartRoutineSection";
 
 function FeaturesPage() {

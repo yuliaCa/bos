@@ -1,8 +1,8 @@
 import React from 'react';
-import HeroSection from "../components/HeroSection/HeroSection";
-import FeaturesSection from "../components/FeaturesSection/FeaturesSection";
-import InsightsSection from "../components/InsightsSection/InsightsSection";
-import StartRoutineSection from "../components/StartRoutineSection/StartRoutineSection";
+import HeroSection from "./HeroSection/HeroSection";
+import FeaturesSection from "./FeaturesSection/FeaturesSection";
+import InsightsSection from "./InsightsSection/InsightsSection";
+import StartRoutineSection from "../../components/StartRoutineSection/StartRoutineSection";
 
 function HomePage() {
     return <div>

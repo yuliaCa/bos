@@ -6,7 +6,7 @@ import "./App.css";
 
 // Switch component helps us navigate to the path that matches EXACTLY the path indicated.
 
-import HomePage from "./pages/HomePage";
+import HomePage from "./pages/HomePage/HomePage";
 import FeaturesPage from "./pages/FeaturesPage/FeaturesPage";
 import ContactPage from "./pages/ContactPage";
 
@@ -14,6 +14,7 @@ import ProfilePage from "./pages/ProfilePage";
 
 import TeamPage from "./pages/TeamPage";
 import RegistrationPage from "./pages/RegistrationPage"
+import LoginPage from "./pages/LoginPage/LoginPage"
 
 import Navbar from "./components/NavBar/Navbar";
 
@@ -55,6 +56,9 @@ function App() {
           </Route>
           <Route path="/registration">
             <RegistrationPage />
+          </Route>
+          <Route path="/login">
+            <LoginPage />
           </Route>
         </Switch>
         <Footer />

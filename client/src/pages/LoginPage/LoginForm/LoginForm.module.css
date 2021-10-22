@@ -1,0 +1,43 @@
+.LoginFormSection {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat 5(1fr);
+    padding: 15%;
+}
+
+.inputEmail {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    width: 25vw;
+    height: 3vh;
+    margin: 3%;
+
+}
+
+.inputPassword {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    width: 25vw;
+    height: 3vh;
+    margin: 3%;
+}
+
+.checkRemember {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+}
+
+.forgotPassword {
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+}
+
+.loginButton {
+    grid-column: 1 / 2;
+    grid-row: 4 / 5;
+}
+
+.registerLink {
+    grid-column: 1 / 1;
+    grid-row: 5 / 6;
+}

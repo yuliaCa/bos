@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Features.module.css';
-import Feature from "../FeaturesSection/Feature/Feature";
+import Feature from "./Feature/Feature";
 import { Link } from 'react-router-dom';
 
 function FeaturesSection() {

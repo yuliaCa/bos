@@ -1,0 +1,16 @@
+.WelcomeSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 5%;
+}
+
+.welcomeHeader, .welcomeBodyText {
+    width: 200px;
+}
+
+.welcomeImage {
+    height: 200px;
+    width: 200px;
+}
