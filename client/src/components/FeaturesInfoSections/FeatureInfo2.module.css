@@ -1,0 +1,20 @@
+.featureOuter {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 2%;
+}
+
+p {
+    text-align: left;
+    padding: 5%;
+}
+
+.feat2Image {
+    height: auto;
+    max-width: 100%;
+}
+
+button a { 
+    text-decoration: none;
+    color: black;
+}
