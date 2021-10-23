@@ -1,9 +1,16 @@
 import styles from './ProductCard.module.css';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import { FaTrash } from 'react-icons/fa';
 
 function ProductCard(props) {
 
+    const [productIsUsed, setProductUsedState] = useState(false)
+
+    const productUsedBtnHandler = () => {
+
+        setProductUsedState(productIsUsed ? false : true);
+    }
 
     return (
 
@@ -14,6 +21,7 @@ function ProductCard(props) {
                 <h5>{props.productInfo.name}</h5>
                 <Link>Product Details</Link>
                 <FaTrash />
+                <button onClick={productUsedBtnHandler}>{productIsUsed ? 'Used' : 'Use Product'}</button>
             </div>
 
         </div>
