@@ -59,16 +59,6 @@ function MyRoutines() {
                     <option>Masks</option>
                     <option>Eyecare</option>
                     <option>Sunscreen</option>
-<<<<<<< HEAD
-=======
-                </select>
-                <input type="text" placeholder="Product Name" onChange={productHandler}></input>
-                or
-                <select value="select product" >
-                    <option>api product 1</option>
-                    <option>api product 2</option>
-                    <option>api product 3</option>
->>>>>>> origin/yulia
                 </select>
 
                 <SearchInput />
