@@ -33,8 +33,11 @@ function MyRoutines() {
                 <button>Add Product</button>
             </div>
 
-            <ProductCard productInfo={productObj} />
-
+            <div className={styles.productsGrid}>
+                <ProductCard productInfo={productObj} />
+                <ProductCard productInfo={productObj} />
+                <ProductCard productInfo={productObj} />
+            </div>
         </div>
     )
 }
