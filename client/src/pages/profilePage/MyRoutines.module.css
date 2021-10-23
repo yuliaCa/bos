@@ -12,6 +12,20 @@
   width: 90%;
   margin: auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   grid-gap: 2%;
+}
+
+.selectAll {
+  margin: 4%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.selectAllLabel {
+  width: 15%;
+}
+
+.selectAllInput {
+  width: 20%;
 }

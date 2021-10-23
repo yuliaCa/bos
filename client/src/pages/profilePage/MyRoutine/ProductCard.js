@@ -21,7 +21,7 @@ function ProductCard(props) {
                 <h5>{props.productInfo.name}</h5>
                 <Link>Product Details</Link>
                 <FaTrash />
-                <button onClick={productUsedBtnHandler}>{productIsUsed ? 'Used' : 'Use Product'}</button>
+                <button className={styles.useButton} onClick={productUsedBtnHandler}>{productIsUsed ? 'Used' : 'Use Product'}</button>
             </div>
 
         </div>

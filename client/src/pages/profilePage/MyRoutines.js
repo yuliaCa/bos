@@ -33,11 +33,18 @@ function MyRoutines() {
                 <button>Add Product</button>
             </div>
 
+            <div className={styles.selectAll}>
+                <label className={styles.selectAllLabel}> Select All
+                <input className={styles.selectAllInput} type="radio" />
+                </label>
+            </div>
+
             <div className={styles.productsGrid}>
                 <ProductCard productInfo={productObj} />
                 <ProductCard productInfo={productObj} />
                 <ProductCard productInfo={productObj} />
             </div>
+            <button>Save</button>
         </div>
     )
 }
