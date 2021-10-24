@@ -1,5 +1,5 @@
-const connection = require("./connection.js");
-const DailyLog = require("./models/dailyLogSchema.js");
+const connection = require("../connection.js");
+const UserProfile = require("../models/userProfileSchema.js");
 
 
 connection.on('open', () => {
@@ -9,7 +9,7 @@ connection.on('open', () => {
     let EmailAddress = process.argv[2];
 
     const loadDocument = async EmailAddress => {
-        const result = await DailyLog.find({ userEmailAddress: EmailAddress.toLowerCase() }).exec();
+        const result = await UserProfile.find({ emailAddress: EmailAddress.toLowerCase() }).exec();
 
         if (result == "") {
             console.log("no record");
@@ -17,10 +17,11 @@ connection.on('open', () => {
             console.log("fetched: ", result);
         }
 
+
     }
 
     loadDocument(EmailAddress)
-        .catch(error => console.log(error))
-        .finally(() => process.exit());
+        .catch(error => console.log(error));
+    //.finally(() => process.exit());
 
 });

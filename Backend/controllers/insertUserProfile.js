@@ -1,5 +1,5 @@
-const connection = require("./connection.js");
-const UserProfile = require("./models/userProfileSchema.js");
+const connection = require("../connection.js");
+const UserProfile = require("../models/userProfileSchema.js");
 
 
 connection.on('open', () => {
@@ -22,7 +22,7 @@ connection.on('open', () => {
     }
 
     saveDocument(newUserProfile)
-        .catch(error => console.log(error))
-        .finally(() => process.exit());
+        .catch(error => console.log(error));
+    //.finally(() => process.exit());
 
 });

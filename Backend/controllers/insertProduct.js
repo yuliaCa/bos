@@ -1,5 +1,5 @@
-const connection = require("./connection.js");
-const product = require("./models/productSchema.js");
+const connection = require("../connection.js");
+const product = require("../models/productSchema.js");
 
 
 connection.on('open', () => {
@@ -9,7 +9,7 @@ connection.on('open', () => {
     let newProduct = new product({
         productName: "NEW ADDED PRODUCT NAME",
         description: "DESCRIPTION OF THE PRODUCT",
-        category: "CATEGORY ONE"
+        category: "CATEGORY WWWWE"
     });
 
     const saveDocument = async productDocument => {
@@ -24,7 +24,7 @@ connection.on('open', () => {
     }
 
     saveDocument(newProduct)
-        .catch(error => console.log(error))
-        .finally(() => process.exit());
+        .catch(error => console.log(error));
+    //.finally(() => process.exit());
 
 });

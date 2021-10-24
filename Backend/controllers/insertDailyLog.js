@@ -1,5 +1,5 @@
-const connection = require("./connection.js");
-const DailyLog = require("./models/dailyLogSchema.js");
+const connection = require("../connection.js");
+const DailyLog = require("../models/dailyLogSchema.js");
 
 
 connection.on('open', () => {
@@ -33,7 +33,7 @@ connection.on('open', () => {
     }
 
     saveDocument(newDailyLog)
-        .catch(error => console.log(error))
-        .finally(() => process.exit());
+        .catch(error => console.log(error));
+    //.finally(() => process.exit());
 
 });

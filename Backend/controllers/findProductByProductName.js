@@ -1,5 +1,5 @@
-const connection = require("./connection.js");
-const product = require("./models/productSchema.js");
+const connection = require("../connection.js");
+const product = require("../models/productSchema.js");
 
 
 connection.on('open', () => {
@@ -21,7 +21,7 @@ connection.on('open', () => {
     }
 
     loadDocument(ProductName)
-        .catch(error => console.log(error))
-        .finally(() => process.exit());
+        .catch(error => console.log(error));
+    //.finally(() => process.exit());
 
 });
