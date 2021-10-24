@@ -8,7 +8,6 @@ function ProductCard(props) {
     const [productIsUsed, setProductUsedState] = useState(false)
 
     const productUsedBtnHandler = () => {
-
         setProductUsedState(productIsUsed ? false : true);
     }
 
@@ -18,10 +17,14 @@ function ProductCard(props) {
             <h3>{props.productInfo.category}</h3>
             <div className={styles.productCard}>
                 <img className={styles.productImg} src={props.productInfo.image} />
+
                 <h5>{props.productInfo.name}</h5>
+
                 <Link>Product Details</Link>
+
                 <FaTrash />
-                <button className={styles.useButton} onClick={productUsedBtnHandler}>{productIsUsed ? 'Used' : 'Use Product'}</button>
+
+                <button className={styles.useButton} onClick={productUsedBtnHandler}>{productIsUsed || props.checkAll ? 'Used' : 'Use Product'}</button>
             </div>
 
         </div>

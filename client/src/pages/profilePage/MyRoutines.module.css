@@ -29,3 +29,9 @@
 .selectAllInput {
   width: 20%;
 }
+
+.saveButton {
+  width: 15%;
+  padding: 1%;
+  margin: 3%;
+}
