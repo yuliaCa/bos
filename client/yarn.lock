@@ -9692,6 +9692,11 @@
     "regenerator-runtime" "^0.13.7"
     "whatwg-fetch" "^3.4.1"
 
+"react-datalist-input@^2.2.1":
+  "integrity" "sha512-svp3kuNngAheL5+b8l99MNuNyLwmB/mDAwqC9eC2rRgJ4DhEilgGNcVm9M6l9DxVcMv7QQ6+8cJT2XVX69TRhg=="
+  "resolved" "https://registry.npmjs.org/react-datalist-input/-/react-datalist-input-2.2.1.tgz"
+  "version" "2.2.1"
+
 "react-dev-utils@^11.0.3":
   "integrity" "sha512-dx0LvIGHcOPtKbeiSUM4jqpBl3TcY7CDjZdfOIcKeznE7BWr9dg0iPG90G5yfVQ+p/rGNMXdbfStvzQZEVEi4A=="
   "resolved" "https://registry.npmjs.org/react-dev-utils/-/react-dev-utils-11.0.4.tgz"

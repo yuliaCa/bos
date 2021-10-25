@@ -2,7 +2,6 @@
 // ********************* This page is the code for Firebase Initialization ********************
 // ********************************************************************************************
 
-'use strict';
 
 console.log("Connected to firebase.js");
 

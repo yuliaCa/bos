@@ -5,51 +5,64 @@ import axios from 'axios';
 function RegistrationPage() {
 
     const [input, setInput] = useState({
-    fullname: '',
-    emailAddress: '',
-    cityLocation: '',
-    gender: '',
-    skintype: [''],
-    concerns: ['']
+    fullname:'',
+    emailAddress:'',
+    cityLocation:'',
+    gender:'',
+    dry:false,
+    normal:false,
+    combination:false,
+    sensitive:false,
+    acne:false,
+    dryness:false,
+    oilyness:false,
+    blemishes:false,
+    pores: false,
+    "dark spots":false,
+    "red lines":false,
+    "fine lines":false
   })
   
   function handleChange(event) {
-
-    const {name, value} = event.target;
+    const isCheckbox = event.target.type === 'checkbox';
+    let {name, value} = event.target;
 
     setInput(prev => {
       return {
-      ...prev, [name] : value
+      ...prev, [name]: value = isCheckbox ? event.target.checked : value
       }
     })
   }
 
   function handleClick(event) {
     event.preventDefault();
+
     const newProfile = {
       fullname: input.fullname,
       emailAddress: input.emailAddress,
       cityLocation: input.cityLocation,
       gender: input.gender,
       skintype: 
-      [input.skintype.dry, 
-       input.skintype.normal,
-       input.skintype.combination,
-       input.skintype.sensitive
-      ],
+      {
+        dry: input.dry, 
+        normal: input.normal,
+        combination: input.combination,
+        sensitive: input.sensitive
+      },
       concerns: 
-      [input.concerns.acne,
-       input.concerns.dryness,
-       input.concerns.oilyness,
-       input.concerns.blemishes,
-       input.concerns["dark spots"],
-       input.concerns.pores,
-       input.concerns["red lines"],
-       input.concerns["fine lines"],
-       input.concerns.none
-      ]
-    }    
-    axios.post('http://localhost:8080/', newProfile)
+      {
+        acne: input.acne,
+        dryness: input.dryness,
+        oilyness: input.oilyness,
+        blemishes: input.blemishes,
+        "dark spots": input["dark spots"],
+        pores: input.pores,
+        "red lines": input["red lines"],
+        "fine lines": input["fine lines"]
+      }
+    } 
+    console.log(newProfile);  
+    axios.post('http://localhost:8080/register', newProfile)
   }
 
   return (
@@ -82,31 +95,34 @@ function RegistrationPage() {
               <input onChange={handleChange} id="cityLocation" name="cityLocation" placeholder="i.e. Vancouver" pattern="[A-Za-z]+" autoComplete="off" value={input.cityLocation} required />
             </label>
 
-            <datalist onChange={handleChange} name="gender" value={input.gender}>
-              <legend>Gender</legend>
-              <option defaultValue="male" />
-              <option value="female" />
-              <option value="binary" />
-              <option value="other" />
-            </datalist>
+            <label htmlFor="gender">
+              Gender
+            <select onChange={handleChange} name="gender">
+            <option value="">--Please choose an option--</option>
+              <option value="male">male</option>
+              <option value="female">female</option>
+              <option value="binary">binary</option>
+              <option value="other">other</option>
+            </select>
+            </label>
             
             <fieldset>
               <legend>What is your skin type?</legend>
               
               <label>Dry
-                <input onChange={handleChange} type="checkbox" value={input.skintype.dry} name="skintype" />
+                <input onChange={handleChange} type="checkbox" name="dry" />
               </label>
               <label>Normal
-                <input onChange={handleChange} type="checkbox" value={input.skintype.normal} name="skintype" />
+                <input onChange={handleChange} type="checkbox" name="normal" />
               </label>
                 <label>Oily
-              <input onChange={handleChange} type="checkbox" value={input.skintype.oily} name="skintype" />
+              <input onChange={handleChange} type="checkbox" name="oily" />
                 </label>
               <label>Combination
-                <input onChange={handleChange} type="checkbox" value={input.skintype.combination} name="skintype" />
+                <input onChange={handleChange} type="checkbox" name="combination" />
               </label>
               <label>Sensitive
-                <input onChange={handleChange} type="checkbox" value={input.skintype.sensitive} name="skintype" />
+                <input onChange={handleChange} type="checkbox" name="sensitive" />
               </label>
 
             </fieldset>
@@ -115,35 +131,35 @@ function RegistrationPage() {
               <legend>What are your concerns?</legend>
               <label>
                 Acne
-                <input onChange={handleChange} type="checkbox" value={input.skintype.acne} name="concerns" />
+                <input onChange={handleChange} type="checkbox" name="acne" />
               </label>
               <label>
                 Dryness
-                <input onChange={handleChange} type="checkbox" value={input.skintype.dryness} name="concerns" />
+                <input onChange={handleChange} type="checkbox" name="dryness" />
               </label>
               <label>
                 Oilyness
-                <input onChange={handleChange} type="checkbox" value={input.skintype.oilyness} name="concerns" />
+                <input onChange={handleChange} type="checkbox" name="oilyness" />
               </label>
               <label>
                 Blemishes
-                <input onChange={handleChange} type="checkbox" value={input.skintype.blemishes} name="concerns" />
+                <input onChange={handleChange} type="checkbox" name="blemishes" />
               </label>
               <label>
                 Dark Spots
-                <input onChange={handleChange} type="checkbox" value={input.skintype["dark spots"]} name="concerns" />
+                <input onChange={handleChange} type="checkbox" name="dark spots" />
               </label>
               <label>
                 Pores
-                <input onChange={handleChange} type="checkbox" value={input.skintype.pores} name="concerns" />
+                <input onChange={handleChange} type="checkbox" name="pores" />
               </label>
               <label>
                 Red Lines
-              <input onChange={handleChange} type="checkbox" value={input.skintype["red lines"]} name="concerns" />
+              <input onChange={handleChange} type="checkbox" name="red lines" />
               </label>
               <label>
                 Fine Lines
-              <input onChange={handleChange} type="checkbox" value={input.skintype["fine lines"]} name="concerns" />
+              <input onChange={handleChange} type="checkbox"  name="fine lines" />
               </label>
             </fieldset>
 

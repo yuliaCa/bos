@@ -9,16 +9,16 @@ const postProfile = (req, res) => {
         gender: req.body.gender,
         skintype: req.body.skintype,
         concerns: req.body.concerns
-    })
+    });
 
     newProfile.save()
     .then(result => {
        
-        console.log("profile successfully saved in Mongo: " + result)
+        res.status(201).json(result)
     })
     .catch(error =>
 
-        console.error("profile not saved in Mongo: " + error)
+       res.status(500).json(error)
     );
 }
 

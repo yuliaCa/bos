@@ -14,4 +14,5 @@ app.use(express.urlencoded({extended:true}));
 
 const router = require('./Backend/routes/index');
 
-app.use('/',router);
+app.use('/', router);
+
