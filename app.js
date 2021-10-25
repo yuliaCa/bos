@@ -13,9 +13,8 @@ connected.on('open', () => {
 
 
 ////////////////////////////Route////////////////////////////
-app.locals.data = require("./data.json");
 const router = require("./Backend/routes/index.js");
-app.use("/api", router);
+app.use("/", router);
 /////////////////////////////////////////////////////////////
 
 

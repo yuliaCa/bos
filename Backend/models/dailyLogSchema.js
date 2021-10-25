@@ -12,8 +12,9 @@ const productSubSchema = new dbSchema({
 const dailyLogSchema = new dbSchema({
     //_id: ObjectId auto generate
     userEmailAddress: { type: String, lowercase: true, required: true },
-    objMorningRoutineLog: [productSubSchema]
-        // objEveningRoutineLog: { type: dbSchema.Types.DocumentArray }
+    objMorningRoutineLog: [productSubSchema],
+    objEveningRoutineLog: [productSubSchema],
+    dailyLogDate: { type: Date, default: Date.now }
 });
 
 // .model('name of the model', schemaName, 'Mongoose collection name')
