@@ -3,3 +3,13 @@
   height: auto;
   margin: 20px;
 }
+
+.productCard {
+  background-color: rgb(206, 205, 205);
+}
+
+.useButton {
+  display: block;
+  width: 30%;
+  margin: 3% auto;
+}
