@@ -11603,15 +11603,7 @@
   "resolved" "https://registry.npmjs.org/tslib/-/tslib-1.14.1.tgz"
   "version" "1.14.1"
 
-<<<<<<< HEAD
-"tslib@^2.0.3", "tslib@^2.1.0":
-=======
-<<<<<<< HEAD
-"tslib@^2.0.0", "tslib@^2.0.3":
-=======
-"tslib@^2.0.3", "tslib@^2.1.0":
->>>>>>> dev
->>>>>>> 757f6f2a28fe0da0421713a047f2d1e486685c3b
+"tslib@^2.0.0", "tslib@^2.0.3", "tslib@^2.1.0":
   "integrity" "sha512-hcVC3wYEziELGGmEEXue7D75zbwIIVUMWAVbHItGPx0ziyXxrOMQx4rQEVEV45Ut/1IotuEvwqPopzIOkDMf0A=="
   "resolved" "https://registry.npmjs.org/tslib/-/tslib-2.1.0.tgz"
   "version" "2.1.0"
