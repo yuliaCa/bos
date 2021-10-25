@@ -8,10 +8,12 @@ connection.on('open', () => {
 
     let newUserProfile = new UserProfile({
 
-        emailAddress: process.argv[2],
-        fullname: process.argv[3]
-            //gender: process.argv[4],
-            //birthDate: process.argv[5]
+        fullname: req.body.fullname,
+        emailAddress: req.body.emailAddress,
+        cityLocation: req.body.cityLocation,
+        gender: req.body.gender,
+        skintype: req.body.skintype,
+        concerns: req.body.concerns
 
     });
 

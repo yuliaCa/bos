@@ -7,9 +7,9 @@ function LoginForm() {
     return (
         
     <div className={styles.LoginFormSection}>
-        <form>
-            <input className={styles.inputEmail} type="email" name="email" placeholder="e-mail" />
-            <input className={styles.inputPassword} type="text" name="password" placeholder="password" />
+    
+            <input className={styles.inputEmail} id="loginEmail" type="email" name="email" placeholder="e-mail" required />
+            <input className={styles.inputPassword} id="loginPassword" type="text" name="password" placeholder="password" required />
             
             <label className={styles.checkRemember}>Remember Me<input type="checkbox" /> </label>
 
@@ -19,7 +19,6 @@ function LoginForm() {
 
             <p className={styles.registerLink}><Link to="/registration">Register here</Link></p>
        
-        </form>
     </div>
         
     )

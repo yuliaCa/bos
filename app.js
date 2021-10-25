@@ -5,8 +5,13 @@ app.use(cookieParser);
 app.use(express.json());
 const connected = require("./Backend/connection.js");
 
-
 connected.on('open', () => {
     console.log("Connected to Atlas!");
     const server = app.listen(8080, () => console.log("Listening"));
 });
+
+app.use(express.urlencoded({extended:true}));
+
+const router = require('./Backend/routes/index');
+
+app.use('/',router);
