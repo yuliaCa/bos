@@ -1,6 +1,6 @@
 const Userprofile = require("../models/userProfileSchema");
 
-const postProfile = (req, res) => {
+postProfile = (req, res) => {
 
     let newProfile = new Userprofile({
         fullname: req.body.fullname,
