@@ -1,22 +1,28 @@
 const express = require("express");
 const app = express();
-const cookieParser = require("cookie-parser");
-app.use(cookieParser);
-app.use(express.json());
+const morgan = require('morgan');
+//const cookieParser = require("cookie-parser");
 const connected = require("./Backend/connection.js");
+const PORT = process.env.PORT || 8080;
 
 
-connected.on('open', () => {
-    console.log("Connected to Atlas!");
-    const server = app.listen(8080, () => console.log("Listening"));
-});
+//app.use(cookieParser);
+app.use(express.json());
+app.use(morgan('tiny'));
 
+
+app.get('/api/test', (req, res) => {
+    const message = {
+        message: 'Welcome to BOS server.'
+    };
+    res.json(message);
+})
 
 ////////////////////////////Route////////////////////////////
 const router = require("./Backend/routes/index.js");
 app.use("/", router);
 /////////////////////////////////////////////////////////////
 
-
-////////////////////////////Controller///////////////////////
-/////////////////////////////////////////////////////////////
+connected.on('open', () => {
+    app.listen(8080, () => console.log("Listening"));
+});
