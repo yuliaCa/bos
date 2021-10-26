@@ -1,8 +1,5 @@
 const Products = require("../models/productSchema.js");
 
-
-postNewProduct
-
 exports.getProductsByCategory = (req, res) => {
 
     Products.find({ category: req.params.productCategory }).exec()
@@ -30,10 +27,24 @@ exports.getProducts = (req, res) => {
 
 
 
-exports.postDailyLogByDay = (req, res) => {
-    DailyLog.findOne({ userEmailAddress: req.body.userEmailAddress }).exec()
-        .then(results => {
-            res.status(200).json(results);
+exports.postNewProduct = (req, res) => {
+
+
+    let newProduct = new Products({
+        productName: req.body.productName,
+        images: req.body.images,
+        brandName: req.body.brandName,
+        description: req.body.description,
+        category: req.body.category
+    });
+
+    newProduct.save().then(result => {
+            res.status(201).json({
+                data: newProduct,
+                url: `/product/${newProduct._id}`
+            });
         })
         .catch(error => res.status(500).send(error));
+
+
 };
