@@ -7,7 +7,7 @@ const { getUserProfile, getUserProfileByEmail, postNewUserProfile } = require(".
 router
     .get("/", getUserProfile)
     .get("/:id", getUserProfileByEmail)
-    .post("/register", postNewUserProfile);
+    .post("/", postNewUserProfile);
 
 //res.send(req.app.locals.data.userProfile[req.params.id]);
 module.exports = router;

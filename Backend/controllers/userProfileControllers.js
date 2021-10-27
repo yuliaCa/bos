@@ -25,9 +25,19 @@ exports.postNewUserProfile = (req, res) => {
         userEmailAddress: req.params.userEmail,
         objMorningRoutineLog: req.body.morningRoutineLog,
         objEveningRoutineLog: req.body.eveningRoutineLog,
-        fullname: { type: String, required: true },
-        gender: { type: String },
-        birthDate: { type: Date, default: Date.now }
+        fullname: req.body.fullname,
+        gender: req.body.gender,
+        birthDate: req.body.birthDate,
+        cityLocation: req.body.cityLocation,
+        dry: req.body.dry,
+        normal: req.body.normal,
+        combination: req.body.combination,
+        sensitive: req.body.sensitive,
+        acne: req.body.acne,
+        dryness: req.body.dryness,
+        oilyness: req.body.oilyness,
+        blemishes: req.body.blemishes,
+        pores: req.body.pores,
     });
 
     newuserProfile.save().then(result => {

@@ -6,7 +6,7 @@ const dailyLogRouter = require("./dailyLog.js");
 
 router.use("/profile", userProfileRouter);
 router.use("/profile", productRouter);
-router.use("/registration", userProfileRouter);
+router.use("/register", userProfileRouter);
 router.use("/myroutine", productRouter);
 router.use("/myroutine", dailyLogRouter);
 

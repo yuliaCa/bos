@@ -1,38 +1,40 @@
 {
-  "name": "bos",
-  "version": "1.0.0",
-  "description": "Bureau of Skincare - skincare routine tracker.",
-  "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon app.js",
-    "start": "node app.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/yuliaCa/bos.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/yuliaCa/bos/issues"
-  },
-  "homepage": "https://github.com/yuliaCa/bos#readme",
-  "dependencies": {
-    "axios": "^0.24.0",
-    "chart.js": "^2.9.4",
-    "concurrently": "^6.3.0",
-    "cookie-parser": "^1.4.5",
-    "dotenv": "^10.0.0",
-    "express": "^4.17.1",
-    "mongoose": "^6.0.9",
-    "morgan": "^1.10.0",
-    "react-chartjs-3": "^2.7.7",
-    "react-charts": "^2.0.0-beta.7",
-    "react-icons": "^4.3.1"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.13"
-  }
+    "name": "bos",
+    "version": "1.0.0",
+    "description": "Bureau of Skincare - skincare routine tracker.",
+    "main": "app.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "nodemon app.js",
+        "client": "cd client && npm start",
+        "dev": "concurrently \"node app.js\" \"npm run client\""
+    },
+
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/yuliaCa/bos.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/yuliaCa/bos/issues"
+    },
+    "homepage": "https://github.com/yuliaCa/bos#readme",
+    "dependencies": {
+        "axios": "^0.24.0",
+        "chart.js": "^2.9.4",
+        "concurrently": "^6.3.0",
+        "cookie-parser": "^1.4.5",
+        "dotenv": "^10.0.0",
+        "express": "^4.17.1",
+        "mongoose": "^6.0.9",
+        "morgan": "^1.10.0",
+        "react-chartjs-3": "^2.7.7",
+        "react-charts": "^2.0.0-beta.7",
+        "react-icons": "^4.3.1"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.13"
+    }
 }
