@@ -5,9 +5,9 @@ const productRouter = require("./product.js");
 const dailyLogRouter = require("./dailyLog.js");
 
 router.use("/profile", userProfileRouter);
-router.use("/profile", productRouter);
+router.use("/profile/products", productRouter);
 router.use("/register", userProfileRouter);
-router.use("/myroutine", productRouter);
+router.use("/myroutine/products", productRouter);
 router.use("/myroutine", dailyLogRouter);
 
 module.exports = router;
