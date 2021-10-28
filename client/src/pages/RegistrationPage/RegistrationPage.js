@@ -66,15 +66,11 @@ function RegistrationPage() {
 
     return (
 
-        <
-        div >
-        <
-        form className = { styles.RegistrationFormSection } >
+        <div>
+        <form className = { styles.RegistrationFormSection } >
 
-        <
-        label htmlFor = "name" >
-        Name <
-        input onChange = { handleChange }
+        <label htmlFor = "name" >
+        Name <input onChange = { handleChange }
         type = "text"
         id = "name"
         name = "fullname"
@@ -82,191 +78,152 @@ function RegistrationPage() {
         pattern = "[A-Za-z]+"
         autoComplete = "off"
         value = { input.fullname }
-        required / >
-        <
-        /label>
+        required />
+        </label>
 
-        <
-        label htmlFor = "email" >
-        Email <
-        input onChange = { handleChange }
+        <label htmlFor = "email" >
+        Email <input onChange = { handleChange }
         type = "email"
         id = "email"
         name = "emailAddress"
         placeholder = "sidney@bosmail.com"
         autoComplete = "off"
         value = { input.emailAddress }
-        required / >
-        <
-        /label>
+        required />
+        </label>
 
-        <
-        label htmlFor = "password" >
-        Password <
-        input type = "password"
+        <label htmlFor = "password" >
+        Password <input type = "password"
         id = "password"
         name = "password"
         placeholder = "Password (min 8 characters)"
         minLength = "8"
         autoComplete = "off"
-        required pattern = "[A-Za-z0-9!#$%]+" / >
-        <
-        /label>
+        required pattern = "[A-Za-z0-9!#$%]+" />
+        </label>
 
-        <
-        label htmlFor = "confirmPassword" >
-        Confirm Password <
-        input type = "password"
+        <label htmlFor = "confirmPassword" >
+        Confirm Password <input type = "password"
         id = "confirmPassword"
         name = "confirm"
         autoComplete = "off"
         placeholder = "Confirm Password"
-        required / >
-        <
-        /label>
+        required />
+        </label>
 
-        <
-        label htmlFor = "cityLocation" >
-        City Location <
-        input onChange = { handleChange }
+        <label htmlFor = "cityLocation" >
+        City Location <input onChange = { handleChange }
         id = "cityLocation"
         name = "cityLocation"
         placeholder = "i.e. Vancouver"
         pattern = "[A-Za-z]+"
         autoComplete = "off"
         value = { input.cityLocation }
-        required / >
-        <
-        /label>
+        required />
+        </label>
 
-        <
-        label htmlFor = "gender" >
-        Gender <
-        select onChange = { handleChange }
+        <label htmlFor = "gender" >
+        Gender <select onChange = { handleChange }
         name = "gender" >
-        <
-        option value = "" > --Please choose an option-- < /option> <
-        option value = "male" > male < /option> <
-        option value = "female" > female < /option> <
-        option value = "binary" > binary < /option> <
-        option value = "other" > other < /option> < /
-        select > <
-        /label>
+        <option value = "" > --Please choose an option-- </option> 
+        <option value = "male" > male </option> 
+        <option value = "female" > female </option> 
+        <option value = "binary" > binary </option> 
+        <option value = "other" > other </option> 
+        </select> 
+        </label>
 
-        <
-        fieldset >
-        <
-        legend > What is your skin type ? < /legend>
+        <fieldset>
+        <legend> What is your skin type ? </legend>
 
-        <
-        label > Dry <
-        input onChange = { handleChange }
+        <label> Dry 
+            <input onChange = { handleChange }
         type = "checkbox"
-        name = "dry" / >
-        <
-        /label> <
-        label > Normal <
-        input onChange = { handleChange }
+        name = "dry" />
+        </label> 
+        <label> Normal 
+            <input onChange = { handleChange }
         type = "checkbox"
-        name = "normal" / >
-        <
-        /label> <
-        label > Oily <
-        input onChange = { handleChange }
+        name = "normal" />
+        </label> 
+        <label > Oily 
+            <input onChange = { handleChange }
         type = "checkbox"
-        name = "oily" / >
-        <
-        /label> <
-        label > Combination <
-        input onChange = { handleChange }
+        name = "oily" />
+        </label> 
+        <label> Combination 
+            <input onChange = { handleChange }
         type = "checkbox"
-        name = "combination" / >
-        <
-        /label> <
-        label > Sensitive <
-        input onChange = { handleChange }
+        name = "combination" />
+        </label> 
+        <label> Sensitive <input onChange = { handleChange }
         type = "checkbox"
-        name = "sensitive" / >
-        <
-        /label>
+        name = "sensitive" />
+        </label>
 
-        <
-        /fieldset>
+        </fieldset>
 
-        <
-        fieldset >
-        <
-        legend > What are your concerns ? < /legend> <
-        label >
-        Acne <
-        input onChange = { handleChange }
+        <fieldset>
+        <legend> What are your concerns ? </legend> 
+        <label>
+        Acne 
+        <input onChange = { handleChange }
         type = "checkbox"
-        name = "acne" / >
-        <
-        /label> <
-        label >
-        Dryness <
-        input onChange = { handleChange }
+        name = "acne" />
+        </label> 
+        <label>
+        Dryness 
+        <input onChange = { handleChange }
         type = "checkbox"
-        name = "dryness" / >
-        <
-        /label> <
-        label >
-        Oilyness <
-        input onChange = { handleChange }
+        name = "dryness" />
+        </label> 
+        <label>
+        Oilyness 
+        <input onChange = { handleChange }
         type = "checkbox"
-        name = "oilyness" / >
-        <
-        /label> <
-        label >
-        Blemishes <
-        input onChange = { handleChange }
+        name = "oilyness" />
+        </label> 
+        <label>
+        Blemishes 
+        <input onChange = { handleChange }
         type = "checkbox"
-        name = "blemishes" / >
-        <
-        /label> <
-        label >
-        Dark Spots <
-        input onChange = { handleChange }
+        name = "blemishes" />
+        </label> 
+        <label>
+        Dark Spots 
+        <input onChange = { handleChange }
         type = "checkbox"
-        name = "dark spots" / >
-        <
-        /label> <
-        label >
-        Pores <
-        input onChange = { handleChange }
+        name = "dark spots" />
+        </label> 
+        <label>
+        Pores 
+        <input onChange = { handleChange }
         type = "checkbox"
-        name = "pores" / >
-        <
-        /label> <
-        label >
-        Red Lines <
-        input onChange = { handleChange }
+        name = "pores" />
+        </label> 
+        <label>
+        Red Lines 
+        <input onChange = { handleChange }
         type = "checkbox"
-        name = "red lines" / >
-        <
-        /label> <
-        label >
-        Fine Lines <
-        input onChange = { handleChange }
+        name = "red lines" />
+        </label> 
+        <label>
+        Fine Lines 
+        <input onChange = { handleChange }
         type = "checkbox"
-        name = "fine lines" / >
-        <
-        /label> < /
-        fieldset >
+        name = "fine lines" />
+        </label> 
+        </fieldset>
 
-        <
-        button onClick = { handleClick }
+        <button onClick = { handleClick }
         type = "submit"
         name = "register"
-        id = "submit" > Register < /button>
+        id = "submit" > Register </button>
 
-        <
-        button type = "reset" > Reset fields < /button> < /
-        form >
+        <button type = "reset" > Reset fields </button> 
+        </form>
 
-        <
-        /div>
+        </div>
 
     )
 }
