@@ -30,7 +30,7 @@ const data = {
   datasets: [
     {
       type: "bar",
-      label: "Temperature C",
+      label: "Temperature °C",
       backgroundColor: "rgba(243, 186, 124, 0.5)",
       borderColor: "rgba(243, 186, 124, 0)",
       borderWidth: 0,
