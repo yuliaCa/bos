@@ -10,7 +10,6 @@ const productSubSchema = new dbSchema({
 });
 
 const dailyLogSchema = new dbSchema({
-    //_id: ObjectId auto generate
     userEmailAddress: { type: String, required: true },
     dailyLogDate: { type: Date, default: Date.now },
     objMorningRoutineLog: [productSubSchema],

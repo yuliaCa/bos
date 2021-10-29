@@ -13,7 +13,7 @@ exports.getDailyLogByUserEmail = (req, res) => {
 exports.postDailyLogByDay = (req, res) => {
 
     let newDailyLog = new DailyLog({
-        userEmailAddress: req.params.userEmailAddress,
+        userEmailAddress: req.body.userEmailAddress,
         objMorningRoutineLog: req.body.objMorningRoutineLog,
         objEveningRoutineLog: req.body.objEveningRoutineLog,
         dailyLogDate:  req.body.dailyLogDate,
@@ -22,7 +22,7 @@ exports.postDailyLogByDay = (req, res) => {
     newDailyLog.save().then(result => {
             res.status(201).json({
                 data: newDailyLog,
-                url: `/profile/routine/${newDailyLog._id}`
+                url: `/dailyroutine/${newDailyLog._id}`
             });
         })
         .catch(error => res.status(500).send(error));
