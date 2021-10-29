@@ -30,7 +30,7 @@ const data = {
   datasets: [
     {
       type: "bar",
-      label: "Temperature",
+      label: "Temperature C",
       backgroundColor: "rgba(243, 186, 124, 0.5)",
       borderColor: "rgba(243, 186, 124, 0)",
       borderWidth: 0,
@@ -38,7 +38,7 @@ const data = {
     },
     {
       type: "line",
-      label: "Humidity",
+      label: "Humidity %",
       borderColor: "rgb(209, 152, 136)",
       borderWidth: 2,
       fill: false,

@@ -67,6 +67,7 @@ const UsageChart = () => {
                 stacked: true,
                 ticks: {
                   beginAtZero: true,
+                  stepSize: 1,
                 },
                 gridLines: {
                   display: true,
