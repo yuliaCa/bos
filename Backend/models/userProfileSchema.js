@@ -3,7 +3,7 @@ const dbSchema = mongoose.Schema;
 
 
 const productSubSchema = new dbSchema({
-    productName: { type: String, required: true },
+    productName: { type: String},
     images: { type: [String] },
     brandName: { type: String },
     description: { type: String },
@@ -24,14 +24,14 @@ const concernsSubSchema = new dbSchema({
     oilyness: { type: Boolean, default: false },
     blemishes: { type: Boolean, default: false },
     //"dark spots": input["dark spots"],
-    pores: { type: Boolean, default: false },
+    pores: { type: Boolean, default: false }
     //"red lines": input["red lines"],
     //"fine lines": input["fine lines"]
 });
 
 
 let userProfileSchema = new dbSchema({
-    emailAddress: { type: String, lowercase: true, required: true },
+    userEmailAddress: { type: String, required: true },
     fullname: { type: String, required: true },
     gender: { type: String },
     cityLocation: { type: String },
@@ -39,7 +39,8 @@ let userProfileSchema = new dbSchema({
     concerns: [concernsSubSchema],
     birthDate: { type: Date, default: Date.now },
     objMorningRoutineLog: [productSubSchema],
-    objEveningRoutineLog: [productSubSchema],
+    objEveningRoutineLog: [productSubSchema]
+
 });
 
 // .model('name of the model', schemaName, 'Mongoose collection name')

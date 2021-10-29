@@ -21,25 +21,23 @@ exports.getUserProfileByEmail = (req, res) => {
 
 exports.postNewUserProfile = (req, res) => {
 
+    console.log(req.body.userEmailAddress);
+    console.log(req.body.fullname);
+
+
     let newuserProfile = new userProfile({
-        userEmailAddress: req.params.userEmail,
-        objMorningRoutineLog: req.body.morningRoutineLog,
-        objEveningRoutineLog: req.body.eveningRoutineLog,
+        userEmailAddress: req.body.userEmailAddress,
         fullname: req.body.fullname,
         gender: req.body.gender,
-        birthDate: req.body.birthDate,
         cityLocation: req.body.cityLocation,
-        dry: req.body.dry,
-        normal: req.body.normal,
-        combination: req.body.combination,
-        sensitive: req.body.sensitive,
-        acne: req.body.acne,
-        dryness: req.body.dryness,
-        oilyness: req.body.oilyness,
-        blemishes: req.body.blemishes,
-        pores: req.body.pores,
+        skintype: req.body.skintype,
+        concerns: req.body.concerns,
+        birthDate: req.body.birthDate,
+        objMorningRoutineLog: req.body.objMorningRoutineLog,
+        objEveningRoutineLog: req.body.objEveningRoutineLog
     });
 
+  
     newuserProfile.save().then(result => {
             res.status(201).json({
                 data: newuserProfile,
