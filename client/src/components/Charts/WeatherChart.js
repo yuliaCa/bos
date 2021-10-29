@@ -2,7 +2,7 @@ import styles from "./WeatherChart.module.css";
 import React from "react";
 import { Bar } from "react-chartjs-3";
 
-const randT = () => Math.round(Math.random() * 31);
+const randT = () => Math.round(Math.random() * 35);
 const randH = () => Math.round(Math.random() * 100);
 
 let temperatureData = [
@@ -67,26 +67,27 @@ const WeatherChart = () => {
           scales: {
             xAxes: [
               {
-                gridLines: false,
+                gridLines: {
+                  display: true,
+                  drawBorder: true,
+                  drawOnChartArea: false,
+                },
               },
             ],
             yAxes: [
-              {
-                position: "right",
-                ticks: {
-                  beginAtZero: true,
-                  steps: 3,
-                  stepsValue: 33,
-                  max: 99,
-                },
-                gridLines: false,
-                suggestedMax: 35,
-              },
               {
                 position: "left",
                 ticks: {
                   beginAtZero: true,
                 },
+                gridLines: {
+                  display: true,
+                  drawBorder: true,
+                  drawOnChartArea: false,
+                },
+              },
+              {
+                display: false,
                 gridLines: false,
               },
             ],
