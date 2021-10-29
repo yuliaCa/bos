@@ -1,3 +1,4 @@
+const validator = require('../validationMiddleware');
 const express = require('express');
 const router = express.Router();
 
@@ -7,7 +8,7 @@ const { getUserProfile, getUserProfileByEmail, postNewUserProfile } = require(".
 router
     .get("/", getUserProfile)
     .get("/:id", getUserProfileByEmail)
-    .post("/", postNewUserProfile);
+    .post("/", validator.registration, postNewUserProfile);
 
 //res.send(req.app.locals.data.userProfile[req.params.id]);
 module.exports = router;
