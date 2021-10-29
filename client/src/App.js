@@ -13,7 +13,7 @@ import ContactPage from "./pages/ContactPage";
 import ProfilePage from "./pages/ProfilePage";
 
 import TeamPage from "./pages/TeamPage";
-import RegistrationPage from "./pages/RegistrationPage"
+import RegistrationPage from "./pages/RegistrationPage/RegistrationPage"
 import LoginPage from "./pages/LoginPage/LoginPage"
 
 import Navbar from "./components/NavBar/Navbar";
