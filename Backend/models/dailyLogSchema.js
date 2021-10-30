@@ -1,10 +1,8 @@
 const mongoose = require("mongoose");
 const dbSchema = mongoose.Schema;
 
-
-
 const productSubSchema = new dbSchema({
-    productName: { type: String, required: true },
+    productName: { type: String},
     images: { type: [String] },
     brandName: { type: String },
     description: { type: String },
@@ -12,11 +10,10 @@ const productSubSchema = new dbSchema({
 });
 
 const dailyLogSchema = new dbSchema({
-    //_id: ObjectId auto generate
-    userEmailAddress: { type: String, lowercase: true, required: true },
+    userEmailAddress: { type: String, required: true },
+    dailyLogDate: { type: Date, default: Date.now },
     objMorningRoutineLog: [productSubSchema],
-    objEveningRoutineLog: [productSubSchema],
-    dailyLogDate: { type: Date, default: Date.now }
+    objEveningRoutineLog: [productSubSchema]
 });
 
 // .model('name of the model', schemaName, 'Mongoose collection name')
