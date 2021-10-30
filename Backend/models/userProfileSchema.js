@@ -23,10 +23,10 @@ const concernsSubSchema = new dbSchema({
     dryness: { type: Boolean, default: false },
     oilyness: { type: Boolean, default: false },
     blemishes: { type: Boolean, default: false },
-    //"dark spots": input["dark spots"],
-    pores: { type: Boolean, default: false }
-    //"red lines": input["red lines"],
-    //"fine lines": input["fine lines"]
+    dark_spots: { type: Boolean, default: false },
+    pores: { type: Boolean, default: false },
+    red_lines: { type: Boolean, default: false },
+    fine_lines: { type: Boolean, default: false }
 });
 
 
