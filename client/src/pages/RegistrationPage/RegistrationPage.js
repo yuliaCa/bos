@@ -69,8 +69,9 @@ function RegistrationPage() {
         <div>
         <form className = { styles.RegistrationFormSection } >
 
-        <label htmlFor = "name" >
+        <label htmlFor = "name" className = { styles.fullnameLabel } >
         Name <input onChange = { handleChange }
+        className = { styles.fullnameInput }
         type = "text"
         id = "name"
         name = "fullname"
@@ -81,19 +82,21 @@ function RegistrationPage() {
         required />
         </label>
 
-        <label htmlFor = "email" >
+        <label htmlFor = "email" className = { styles.emailLabel } >
         Email <input onChange = { handleChange }
+        className = { styles.emailInput }
         type = "email"
         id = "email"
         name = "emailAddress"
-        placeholder = "sidney@bosmail.com"
+        placeholder = "sidney.crosby@gmail.com"
         autoComplete = "off"
         value = { input.emailAddress }
         required />
         </label>
 
-        <label htmlFor = "password" >
+        <label htmlFor = "password" className = { styles.passwordLabel } >
         Password <input type = "password"
+        className = { styles.passwordInput }
         id = "password"
         name = "password"
         placeholder = "Password (min 8 characters)"
@@ -102,8 +105,9 @@ function RegistrationPage() {
         required pattern = "[A-Za-z0-9!#$%]+" />
         </label>
 
-        <label htmlFor = "confirmPassword" >
+        <label htmlFor = "confirmPassword" className = { styles.passwordCfmLabel } >
         Confirm Password <input type = "password"
+        className = { styles.passwordCfmInput }
         id = "confirmPassword"
         name = "confirm"
         autoComplete = "off"
@@ -111,8 +115,9 @@ function RegistrationPage() {
         required />
         </label>
 
-        <label htmlFor = "cityLocation" >
+        <label htmlFor = "cityLocation" className = { styles.locationLabel } >
         City Location <input onChange = { handleChange }
+        className = { styles.locationInput }
         id = "cityLocation"
         name = "cityLocation"
         placeholder = "i.e. Vancouver"
@@ -122,10 +127,11 @@ function RegistrationPage() {
         required />
         </label>
 
-        <label htmlFor = "gender" >
+        <label htmlFor = "gender" className = { styles.genderLabel } >
         Gender <select onChange = { handleChange }
+        className = { styles.genderInput }
         name = "gender" >
-        <option value = "" > --Please choose an option-- </option> 
+        <option value = "" > --Please Select-- </option> 
         <option value = "male" > male </option> 
         <option value = "female" > female </option> 
         <option value = "binary" > binary </option> 
@@ -133,94 +139,110 @@ function RegistrationPage() {
         </select> 
         </label>
 
-        <fieldset>
-        <legend> What is your skin type ? </legend>
+     
+        <legend className = { styles.skintypeLabel } > What is your skin type ? </legend>
 
-        <label> Dry 
+        <label className = { styles.dryLabel } > Dry 
             <input onChange = { handleChange }
+        className = { styles.Checkbox }
         type = "checkbox"
         name = "dry" />
         </label> 
-        <label> Normal 
+        <label className = { styles.normalLabel } > Normal 
             <input onChange = { handleChange }
+        className = { styles.Checkbox }
         type = "checkbox"
         name = "normal" />
         </label> 
-        <label > Oily 
+        <label className = { styles.oilyLabel } > Oily 
             <input onChange = { handleChange }
+        className = { styles.Checkbox }
         type = "checkbox"
         name = "oily" />
         </label> 
-        <label> Combination 
+        <label className = { styles.combinationLabel } > Combination 
             <input onChange = { handleChange }
+        className = { styles.Checkbox }
         type = "checkbox"
         name = "combination" />
         </label> 
-        <label> Sensitive <input onChange = { handleChange }
+        <label className = { styles.sensitiveLabel } > Sensitive 
+            <input onChange = { handleChange }
+        className = { styles.Checkbox }
         type = "checkbox"
         name = "sensitive" />
         </label>
 
-        </fieldset>
+    
 
-        <fieldset>
-        <legend> What are your concerns ? </legend> 
-        <label>
+      
+        <legend className = { styles.concernsLabel } > What are your concerns ? </legend> 
+        <label className = { styles.acneLabel } >
         Acne 
         <input onChange = { handleChange }
+        className = { styles.Checkbox }
         type = "checkbox"
         name = "acne" />
         </label> 
-        <label>
+        <label className = { styles.drynessLabel } >
         Dryness 
         <input onChange = { handleChange }
+        className = { styles.Checkbox }
         type = "checkbox"
         name = "dryness" />
         </label> 
-        <label>
+        <label className = { styles.oilynessLabel } >
         Oilyness 
         <input onChange = { handleChange }
+        className = { styles.Checkbox }
         type = "checkbox"
         name = "oilyness" />
         </label> 
-        <label>
+        <label className = { styles.blemishesLabel } >
         Blemishes 
         <input onChange = { handleChange }
+        className = { styles.Checkbox }
         type = "checkbox"
         name = "blemishes" />
         </label> 
-        <label>
+        <label className = { styles.darkspotsLabel } >
         Dark Spots 
         <input onChange = { handleChange }
+        className = { styles.Checkbox }
         type = "checkbox"
         name = "dark spots" />
         </label> 
-        <label>
+        <label className = { styles.poresLabel } >
         Pores 
         <input onChange = { handleChange }
+        className = { styles.Checkbox }
         type = "checkbox"
         name = "pores" />
         </label> 
-        <label>
+        <label className = { styles.redlinesLabel } >
         Red Lines 
         <input onChange = { handleChange }
+        className = { styles.Checkbox }
         type = "checkbox"
         name = "red lines" />
         </label> 
-        <label>
+        <label className = { styles.finelinesLabel } >
         Fine Lines 
         <input onChange = { handleChange }
+        className = { styles.Checkbox }
         type = "checkbox"
         name = "fine lines" />
         </label> 
-        </fieldset>
+      
 
         <button onClick = { handleClick }
+        className = { styles.buttonRegister }
         type = "submit"
         name = "register"
         id = "submit" > Register </button>
 
-        <button type = "reset" > Reset fields </button> 
+        <button type = "reset" 
+        className = { styles.buttonReset } > Reset fields </button> 
         </form>
 
         </div>
