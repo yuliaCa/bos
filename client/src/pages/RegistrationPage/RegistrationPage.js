@@ -1,3 +1,9 @@
+// To set up Firebase login, we referenced the source code from 
+// https://github.com/Devalo/Firebase-auth-react-express-mongodb
+
+//import functions from Firebase authentication SDK
+import * as firebase from '../../authentication';
+
 import React, { useState } from 'react';
 import styles from './RegistrationPage.module.css';
 import axios from 'axios';
@@ -8,6 +14,8 @@ function RegistrationPage() {
     const [input, setInput] = useState({
         fullname: '',
         userEmailAddress: '',
+        password: '',
+        ConfirmPassword:'',
         cityLocation: '',
         gender: '',
         dry: false,
@@ -37,7 +45,29 @@ function RegistrationPage() {
     }
 
     function handleClick(event) {
+        
         event.preventDefault();
+
+        if (input.password === input.ConfirmPassword) {
+
+            firebase.createUserWithEmailAndPassword(firebase.auth, input.userEmailAddress, input.password)
+            .then((userCredential) => {
+            const user = userCredential.user;
+            firebase.updateProfile(firebase.auth.currentUser, {
+                displayName: input.fullname,
+                photoURL: ""
+            }).then(() => {
+                console.log("user registered " + user)
+            }).catch((error) => {
+                console.error(`There was an error creating profile: ${error}`);
+            });
+            })
+            .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.error(`There was an error signing up: ${errorCode}, ${errorMessage}`);
+            });
+        }
 
         const newProfile = {
             fullname: input.fullname,
@@ -62,7 +92,9 @@ function RegistrationPage() {
             }
         }
         console.log(newProfile);
+
         axios.post('/', newProfile);
+
     }
 
     return (
@@ -96,21 +128,25 @@ function RegistrationPage() {
         </label>
 
         <label htmlFor = "password" className = { styles.passwordLabel } >
-        Password <input type = "password"
+        Password <input onChange = { handleChange }
+        type = "password"
         className = { styles.passwordInput }
+        value = { input.password }
         id = "password"
         name = "password"
         placeholder = "Password (min 8 characters)"
         minLength = "8"
         autoComplete = "off"
-        required pattern = "[A-Za-z0-9!#$%]+" />
+        required pattern = "[A-Za-z0-9]+" />
         </label>
 
         <label htmlFor = "confirmPassword" className = { styles.passwordCfmLabel } >
-        Confirm Password <input type = "password"
+        Confirm Password <input onChange = { handleChange }
+        type = "password"
         className = { styles.passwordCfmInput }
+        value = { input.ConfirmPassword }
         id = "confirmPassword"
-        name = "confirm"
+        name = "ConfirmPassword"
         autoComplete = "off"
         placeholder = "Confirm Password"
         required />
