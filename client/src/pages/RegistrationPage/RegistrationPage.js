@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import styles from './RegistrationPage.module.css';
 import axios from 'axios';
 
+
 function RegistrationPage() {
 
     const [input, setInput] = useState({
         fullname: '',
-        emailAddress: '',
+        userEmailAddress: '',
         cityLocation: '',
         gender: '',
         dry: false,
@@ -18,9 +19,9 @@ function RegistrationPage() {
         oilyness: false,
         blemishes: false,
         pores: false,
-        "dark spots": false,
-        "red lines": false,
-        "fine lines": false
+        dark_spots: false,
+        red_lines: false,
+        fine_lines: false
     })
 
     function handleChange(event) {
@@ -40,7 +41,7 @@ function RegistrationPage() {
 
         const newProfile = {
             fullname: input.fullname,
-            emailAddress: input.emailAddress,
+            userEmailAddress: input.userEmailAddress,
             cityLocation: input.cityLocation,
             gender: input.gender,
             skintype: {
@@ -54,14 +55,14 @@ function RegistrationPage() {
                 dryness: input.dryness,
                 oilyness: input.oilyness,
                 blemishes: input.blemishes,
-                "dark spots": input["dark spots"],
+                dark_spots: input.dark_spots,
                 pores: input.pores,
-                "red lines": input["red lines"],
-                "fine lines": input["fine lines"]
+                red_lines: input.red_lines,
+                fine_lines: input.fine_lines
             }
         }
         console.log(newProfile);
-        axios.post('/register', newProfile);
+        axios.post('/', newProfile);
     }
 
     return (
@@ -87,10 +88,10 @@ function RegistrationPage() {
         className = { styles.emailInput }
         type = "email"
         id = "email"
-        name = "emailAddress"
+        name = "userEmailAddress"
         placeholder = "sidney.crosby@gmail.com"
         autoComplete = "off"
-        value = { input.emailAddress }
+        value = { input.userEmailAddress }
         required />
         </label>
 
@@ -210,7 +211,7 @@ function RegistrationPage() {
         <input onChange = { handleChange }
         className = { styles.Checkbox }
         type = "checkbox"
-        name = "dark spots" />
+        name = "dark_spots" />
         </label> 
         <label className = { styles.poresLabel } >
         Pores 
@@ -224,14 +225,14 @@ function RegistrationPage() {
         <input onChange = { handleChange }
         className = { styles.Checkbox }
         type = "checkbox"
-        name = "red lines" />
+        name = "red_lines" />
         </label> 
         <label className = { styles.finelinesLabel } >
         Fine Lines 
         <input onChange = { handleChange }
         className = { styles.Checkbox }
         type = "checkbox"
-        name = "fine lines" />
+        name = "fine_lines" />
         </label> 
       
 
