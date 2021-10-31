@@ -119,3 +119,10 @@ signOut(auth).then(() => {
   console.error("Error signing out, ", error.message);
   alert(error.message);
 });
+
+// *********** New User Registration *******************
+
+exports.register = function() {
+
+}
+

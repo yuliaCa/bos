@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import styles from './RegistrationPage.module.css';
 import axios from 'axios';
 
+
 function RegistrationPage() {
 
     const [input, setInput] = useState({
         fullname: '',
-        emailAddress: '',
+        userEmailAddress: '',
         cityLocation: '',
         gender: '',
         dry: false,
@@ -18,9 +19,9 @@ function RegistrationPage() {
         oilyness: false,
         blemishes: false,
         pores: false,
-        "dark spots": false,
-        "red lines": false,
-        "fine lines": false
+        dark_spots: false,
+        red_lines: false,
+        fine_lines: false
     })
 
     function handleChange(event) {
@@ -40,7 +41,7 @@ function RegistrationPage() {
 
         const newProfile = {
             fullname: input.fullname,
-            emailAddress: input.emailAddress,
+            userEmailAddress: input.userEmailAddress,
             cityLocation: input.cityLocation,
             gender: input.gender,
             skintype: {
@@ -54,14 +55,14 @@ function RegistrationPage() {
                 dryness: input.dryness,
                 oilyness: input.oilyness,
                 blemishes: input.blemishes,
-                "dark spots": input["dark spots"],
+                dark_spots: input.dark_spots,
                 pores: input.pores,
-                "red lines": input["red lines"],
-                "fine lines": input["fine lines"]
+                red_lines: input.red_lines,
+                fine_lines: input.fine_lines
             }
         }
         console.log(newProfile);
-        axios.post('/register', newProfile);
+        axios.post('/', newProfile);
     }
 
     return (
@@ -69,8 +70,9 @@ function RegistrationPage() {
         <div>
         <form className = { styles.RegistrationFormSection } >
 
-        <label htmlFor = "name" >
+        <label htmlFor = "name" className = { styles.fullnameLabel } >
         Name <input onChange = { handleChange }
+        className = { styles.fullnameInput }
         type = "text"
         id = "name"
         name = "fullname"
@@ -81,19 +83,21 @@ function RegistrationPage() {
         required />
         </label>
 
-        <label htmlFor = "email" >
+        <label htmlFor = "email" className = { styles.emailLabel } >
         Email <input onChange = { handleChange }
+        className = { styles.emailInput }
         type = "email"
         id = "email"
-        name = "emailAddress"
-        placeholder = "sidney@bosmail.com"
+        name = "userEmailAddress"
+        placeholder = "sidney.crosby@gmail.com"
         autoComplete = "off"
-        value = { input.emailAddress }
+        value = { input.userEmailAddress }
         required />
         </label>
 
-        <label htmlFor = "password" >
+        <label htmlFor = "password" className = { styles.passwordLabel } >
         Password <input type = "password"
+        className = { styles.passwordInput }
         id = "password"
         name = "password"
         placeholder = "Password (min 8 characters)"
@@ -102,8 +106,9 @@ function RegistrationPage() {
         required pattern = "[A-Za-z0-9!#$%]+" />
         </label>
 
-        <label htmlFor = "confirmPassword" >
+        <label htmlFor = "confirmPassword" className = { styles.passwordCfmLabel } >
         Confirm Password <input type = "password"
+        className = { styles.passwordCfmInput }
         id = "confirmPassword"
         name = "confirm"
         autoComplete = "off"
@@ -111,8 +116,9 @@ function RegistrationPage() {
         required />
         </label>
 
-        <label htmlFor = "cityLocation" >
+        <label htmlFor = "cityLocation" className = { styles.locationLabel } >
         City Location <input onChange = { handleChange }
+        className = { styles.locationInput }
         id = "cityLocation"
         name = "cityLocation"
         placeholder = "i.e. Vancouver"
@@ -122,10 +128,11 @@ function RegistrationPage() {
         required />
         </label>
 
-        <label htmlFor = "gender" >
+        <label htmlFor = "gender" className = { styles.genderLabel } >
         Gender <select onChange = { handleChange }
+        className = { styles.genderInput }
         name = "gender" >
-        <option value = "" > --Please choose an option-- </option> 
+        <option value = "" > --Please Select-- </option> 
         <option value = "male" > male </option> 
         <option value = "female" > female </option> 
         <option value = "binary" > binary </option> 
@@ -133,94 +140,110 @@ function RegistrationPage() {
         </select> 
         </label>
 
-        <fieldset>
-        <legend> What is your skin type ? </legend>
+     
+        <legend className = { styles.skintypeLabel } > What is your skin type ? </legend>
 
-        <label> Dry 
+        <label className = { styles.dryLabel } > Dry 
             <input onChange = { handleChange }
+        className = { styles.Checkbox }
         type = "checkbox"
         name = "dry" />
         </label> 
-        <label> Normal 
+        <label className = { styles.normalLabel } > Normal 
             <input onChange = { handleChange }
+        className = { styles.Checkbox }
         type = "checkbox"
         name = "normal" />
         </label> 
-        <label > Oily 
+        <label className = { styles.oilyLabel } > Oily 
             <input onChange = { handleChange }
+        className = { styles.Checkbox }
         type = "checkbox"
         name = "oily" />
         </label> 
-        <label> Combination 
+        <label className = { styles.combinationLabel } > Combination 
             <input onChange = { handleChange }
+        className = { styles.Checkbox }
         type = "checkbox"
         name = "combination" />
         </label> 
-        <label> Sensitive <input onChange = { handleChange }
+        <label className = { styles.sensitiveLabel } > Sensitive 
+            <input onChange = { handleChange }
+        className = { styles.Checkbox }
         type = "checkbox"
         name = "sensitive" />
         </label>
 
-        </fieldset>
+    
 
-        <fieldset>
-        <legend> What are your concerns ? </legend> 
-        <label>
+      
+        <legend className = { styles.concernsLabel } > What are your concerns ? </legend> 
+        <label className = { styles.acneLabel } >
         Acne 
         <input onChange = { handleChange }
+        className = { styles.Checkbox }
         type = "checkbox"
         name = "acne" />
         </label> 
-        <label>
+        <label className = { styles.drynessLabel } >
         Dryness 
         <input onChange = { handleChange }
+        className = { styles.Checkbox }
         type = "checkbox"
         name = "dryness" />
         </label> 
-        <label>
+        <label className = { styles.oilynessLabel } >
         Oilyness 
         <input onChange = { handleChange }
+        className = { styles.Checkbox }
         type = "checkbox"
         name = "oilyness" />
         </label> 
-        <label>
+        <label className = { styles.blemishesLabel } >
         Blemishes 
         <input onChange = { handleChange }
+        className = { styles.Checkbox }
         type = "checkbox"
         name = "blemishes" />
         </label> 
-        <label>
+        <label className = { styles.darkspotsLabel } >
         Dark Spots 
         <input onChange = { handleChange }
+        className = { styles.Checkbox }
         type = "checkbox"
-        name = "dark spots" />
+        name = "dark_spots" />
         </label> 
-        <label>
+        <label className = { styles.poresLabel } >
         Pores 
         <input onChange = { handleChange }
+        className = { styles.Checkbox }
         type = "checkbox"
         name = "pores" />
         </label> 
-        <label>
+        <label className = { styles.redlinesLabel } >
         Red Lines 
         <input onChange = { handleChange }
+        className = { styles.Checkbox }
         type = "checkbox"
-        name = "red lines" />
+        name = "red_lines" />
         </label> 
-        <label>
+        <label className = { styles.finelinesLabel } >
         Fine Lines 
         <input onChange = { handleChange }
+        className = { styles.Checkbox }
         type = "checkbox"
-        name = "fine lines" />
+        name = "fine_lines" />
         </label> 
-        </fieldset>
+      
 
         <button onClick = { handleClick }
+        className = { styles.buttonRegister }
         type = "submit"
         name = "register"
         id = "submit" > Register </button>
 
-        <button type = "reset" > Reset fields </button> 
+        <button type = "reset" 
+        className = { styles.buttonReset } > Reset fields </button> 
         </form>
 
         </div>
