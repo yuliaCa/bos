@@ -1,5 +1,6 @@
 import styles from './MyRoutines.module.css';
-import { useState } from 'react';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
 import Select from 'react-select';
 import ProductCard from './MyRoutine/ProductCard';
 import SearchInput from './MyRoutine/ProductAutocomplete/SearchInput';
@@ -16,6 +17,23 @@ function MyRoutines() {
         image: 'https://images.unsplash.com/photo-1621102828690-70cc661c92b3?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Y2xlYW5zZXJ8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60'
     }
 
+    const [loadedProducts, setLoadedProducts] = useState([]);
+
+
+
+
+    useEffect(() => {
+
+        axios.get('/products')
+            .then(results => {
+                console.log(results.data)
+                setLoadedProducts(results.data);
+            })
+            .catch(error => console.log(error));
+
+    }, [])
+
+
     const [checkedAll, setCheckedAll] = useState(false);
 
     const checkAllHandler = () => {
@@ -31,6 +49,8 @@ function MyRoutines() {
         { label: "Sunscreen", value: "sunscreen" }
 
     ]
+
+
 
     return (
         <div>
@@ -51,9 +71,17 @@ function MyRoutines() {
             </div>
 
             <div className={styles.productsGrid}>
-                <ProductCard productInfo={productObj} checkAll={checkedAll} />
-                <ProductCard productInfo={productObj} checkAll={checkedAll} />
-                <ProductCard productInfo={productObj} checkAll={checkedAll} />
+                {loadedProducts.map((eachProduct) => (
+                    <ProductCard
+                        key={eachProduct._id}
+                        id={eachProduct._id}
+                        image={eachProduct.images}
+                        category={eachProduct.productCategory}
+                        name={eachProduct.productName}
+                        description={eachProduct.productDescription}
+
+                    />
+                ))}
             </div>
             <button className={styles.saveButton}>Save</button>
         </div>

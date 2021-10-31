@@ -14,13 +14,13 @@ function ProductCard(props) {
     return (
 
         <div>
-            <h3>{props.productInfo.category}</h3>
+            <h3>{props.category}</h3>
             <div className={styles.productCard}>
-                <img className={styles.productImg} src={props.productInfo.image} />
+                <img className={styles.productImg} src={props.image} />
 
-                <h5>{props.productInfo.name}</h5>
+                <h5>{props.name}</h5>
 
-                <Link>Product Details</Link>
+                <Link to='/product-details'>Product Details</Link>
 
                 <FaTrash />
 
