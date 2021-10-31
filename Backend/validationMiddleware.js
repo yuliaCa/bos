@@ -21,7 +21,7 @@ exports.registration = (req,res,next) => {
             'any.required':'Please enter a password.',
             'string.pattern.base':'Password should include letters, numbers and special characters such as "!#$%".'
         }),
-        confirm: Joi.ref('password'),
+        ConfirmPassword: Joi.ref('password'),
 
         cityLocation: Joi.string().trim().min(1).max(30).empty('').required().messages({
             'string.min':'Name should at least be 1 character.',

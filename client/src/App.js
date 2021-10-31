@@ -1,6 +1,13 @@
 // import logo from './logo.svg';
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import React, { useState } from 'react';
+import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 import "./App.css";
+
+//import functions from Firebase authentication SDK
+// To set up Firebase, we referenced the source code from 
+// https://github.com/Devalo/Firebase-auth-react-express-mongodb
+
+import * as firebase from './authentication';
 
 // Route component checks all paths and returns ALL results that start with matching path. This would result in nested pages. Not always the desired outcome.
 
@@ -25,7 +32,24 @@ import TosPage from "./pages/TosPage";
 import Footer from "./components/Footer/Footer";
 
 function App() {
+  
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  firebase.onAuthStateChanged(firebase.auth, (user) => {
+    return user ? setIsLoggedIn(true) : setIsLoggedIn(false);
+  });  
+  
+  const signOut = () => {
+  
+  firebase.signOut(firebase.auth).then(() => {
+    console.log("sign out successful");
+  }).catch((error) => {
+    console.error("Error signing out, ", error.message);
+  });
+  };
+
   return (
+
     <div className="App">
       <BrowserRouter>
         <Navbar />
@@ -57,11 +81,25 @@ function App() {
           <Route path="/registration">
             <RegistrationPage />
           </Route>
-          <Route path="/login">
-            <LoginPage />
-          </Route>
         </Switch>
-        <Footer />
+
+      {!isLoggedIn ? (
+        <>
+        <Switch>
+        <Route path="/login">
+          <LoginPage />
+        </Route>
+        </Switch>
+        </>
+      ) : (
+          <>
+        <span onClick={signOut}>
+          <Link to="#">Sign out</Link>
+        </span>
+          </>
+        )}
+
+        <Footer/>
       </BrowserRouter>
     </div>
   );
