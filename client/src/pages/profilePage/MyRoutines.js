@@ -1,8 +1,9 @@
 import styles from './MyRoutines.module.css';
-import { useState, useEffect } from 'react';
-
+import { useState } from 'react';
+import Select from 'react-select';
 import ProductCard from './MyRoutine/ProductCard';
 import SearchInput from './MyRoutine/ProductAutocomplete/SearchInput';
+
 
 function MyRoutines() {
 
@@ -21,21 +22,22 @@ function MyRoutines() {
         setCheckedAll(checkedAll ? false : true)
     }
 
+    const categoryOptions = [
+        { label: "Cleanser", value: "cleanser" },
+        { label: "Moisturizer", value: "moisturizer" },
+        { label: "Treatment", value: "treatment" },
+        { label: "Mask", value: "mask" },
+        { label: "Eyecare", value: "eyecare" },
+        { label: "Sunscreen", value: "sunscreen" }
 
+    ]
 
     return (
         <div>
             <h1 className={styles.heading}>Morning Routine  </h1>
 
             <div className={styles.userInput}>
-                <select value="category" >
-                    <option>Cleanser</option>
-                    <option>Moisturizer</option>
-                    <option>Treatments</option>
-                    <option>Masks</option>
-                    <option>Eyecare</option>
-                    <option>Sunscreen</option>
-                </select>
+                <Select options={categoryOptions} />
 
                 <SearchInput />
 
