@@ -57,7 +57,7 @@ function RegistrationPage() {
                 displayName: input.fullname,
                 photoURL: ""
             }).then(() => {
-                console.log("user registered " + user)
+                console.log("user registered: " + firebase.auth.currentUser.uid)
             }).catch((error) => {
                 console.error(`There was an error creating profile: ${error}`);
             });

@@ -18,7 +18,7 @@ function LoginForm() {
         firebase.signInWithEmailAndPassword(firebase.auth, email.trim(), password.trim())
         .then((user) => {
             if (user) {
-              console.log("logged in!");
+              console.log("logged in! User ID: " + firebase.auth.currentUser.uid);
             }
           })
         .catch((error) => {
