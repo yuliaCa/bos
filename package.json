@@ -9,7 +9,6 @@
         "client": "cd client && npm start",
         "dev": "concurrently \"node app.js\" \"npm run client\""
     },
-
     "repository": {
         "type": "git",
         "url": "git+https://github.com/yuliaCa/bos.git"
@@ -28,6 +27,7 @@
         "cookie-parser": "^1.4.5",
         "dotenv": "^10.0.0",
         "express": "^4.17.1",
+        "joi": "^17.4.2",
         "mongoose": "^6.0.9",
         "morgan": "^1.10.0",
         "react-chartjs-3": "^2.7.7",

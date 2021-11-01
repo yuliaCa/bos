@@ -4,7 +4,7 @@ import Weather from "../../components/Weather/Weather.js";
 import WeatherChart from "../../components/Charts/WeatherChart";
 import UsageChart from "../../components/Charts/UsageChart";
 
-function MyPage() {
+function MyPage(props) {
   let skinTypes = ["Normal", "Acne", "Redness", "Pores"];
   let city = "Vancouver";
 
@@ -15,7 +15,7 @@ function MyPage() {
         <div className={styles.profileImage} />
         <div className={styles.profileData}>
           <ul>
-            <li>User Name</li>
+            <li>{`${props.displayName} ${props.email}`}</li>
             <li>
               <FaMapMarkerAlt />
               {city}
