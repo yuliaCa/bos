@@ -9,17 +9,7 @@ import SearchInput from './MyRoutine/ProductAutocomplete/SearchInput';
 function MyRoutines() {
 
 
-
-    let productObj = {
-        category: 'Cleanser',
-        name: 'testProductName',
-        description: 'test product description',
-        image: 'https://images.unsplash.com/photo-1621102828690-70cc661c92b3?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Y2xlYW5zZXJ8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60'
-    }
-
     const [loadedProducts, setLoadedProducts] = useState([]);
-
-
 
 
     useEffect(() => {
@@ -79,11 +69,11 @@ function MyRoutines() {
                         category={eachProduct.productCategory}
                         name={eachProduct.productName}
                         description={eachProduct.productDescription}
-
+                        checkAll={checkedAll}
                     />
                 ))}
             </div>
-            <button className={styles.saveButton}>Save</button>
+            <button className={styles.saveButton} >Save</button>
         </div>
     )
 }
