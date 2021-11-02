@@ -24,9 +24,9 @@ const TeamPage = () => {
         role: "UX/UI Design",
         intro:
           "Has a background of web and graphic design and project management . Will work on UX and UI.",
-        link1: "link1",
-        link2: "link2",
-        link3: "link3",
+        link1: "#",
+        github: "false",
+        link2: "#",
       },
       {
         src: "https://picsum.photos/500/300",
@@ -34,9 +34,9 @@ const TeamPage = () => {
         role: "Backend Developer",
         intro:
           "Has a background developing back-end in software application and database programming. Will work on back-end development and database programming that includes coding data related functions and data mapping.",
-        link1: "link1",
-        link2: "link2",
-        link3: "link3",
+        link1: "#",
+        github: "true",
+        link2: "#",
       },
       {
         src: "https://picsum.photos/500/300",
@@ -44,9 +44,9 @@ const TeamPage = () => {
         role: "Full-Stack Developer",
         intro:
           "Has a Bachelor of Science in Organizational Psychology, with experience in corporate eLearning and medical imaging. Will work on the backend and frontend development.",
-        link1: "link1",
-        link2: "link2",
-        link3: "link3",
+        link1: "#",
+        github: "true",
+        link2: "#",
       },
       {
         src: "https://picsum.photos/500/300",
@@ -54,9 +54,9 @@ const TeamPage = () => {
         role: "PM & UI/UX Designer",
         intro:
           "Has a background of Communications in Marketing and Business Marketing. Will work on UX mainly for this project. As a PM, my role is to communicate with Tyler and Tomoko on behalf of our group and communicate better within our teammates.",
-        link1: "link1",
-        link2: "link2",
-        link3: "link3",
+        link1: "#",
+        github: "false",
+        link2: "#",
       },
       {
         src: "https://picsum.photos/500/300",
@@ -64,9 +64,9 @@ const TeamPage = () => {
         role: "Full-Stack Developer",
         intro:
           "Has a background in Hospitality Management.  In collaboration with other developers, creating the React app at the front-end and connecting it with the back-end technologies, such as MongoDB.",
-        link1: "link1",
-        link2: "link2",
-        link3: "link3",
+        link1: "#",
+        github: "true",
+        link2: "#",
       },
       {
         src: "https://picsum.photos/500/300",
@@ -74,9 +74,9 @@ const TeamPage = () => {
         role: "UX/UI Designer & Graphic Designer",
         intro:
           "Has a background in graphic design, working in a design studio and as a marketing designer in the marketing department.",
-        link1: "link1",
-        link2: "link2",
-        link3: "link3",
+        link1: "#",
+        github: "false",
+        link2: "#",
       },
       {
         src: "https://picsum.photos/500/300",
@@ -84,9 +84,9 @@ const TeamPage = () => {
         role: "Full-Stack Developer",
         intro:
           "Background in Finance and Real Estate.  I will offer my past knowledge and experience in investing to develop a profitable and viable business model for this application.  I will be working alongside the other 3 developers to code the front- and back-end, focusing mainly on functionality and performance.",
-        link1: "link1",
-        link2: "link2",
-        link3: "link3",
+        link1: "#",
+        github: "true",
+        link2: "#",
       },
     ]);
   }, []);
@@ -108,8 +108,8 @@ const TeamPage = () => {
             role={member.role}
             bodytext={member.intro}
             link1={member.link1}
+            github={member.github}
             link2={member.link2}
-            link3={member.link3}
           />
         ))}
       </div>
