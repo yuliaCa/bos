@@ -1,7 +1,8 @@
-.section {
+.featureSection {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     padding: 10%;
+    background-color: #FCF9F6;
 }
 
 .feat1 {
@@ -10,14 +11,38 @@
 
 button, .feat2 {
     grid-column: 2 / 3;
+    justify-self: center;
 }
 
 .feat3 {
     grid-column: 3 / 4;
 }
 
-.register a {
+.featureSection .register {
+    background-color: #67392A;
+    border-radius: 10px;
+    height: 4vh;
+    width: 14vw;
+}
+
+.featureSection .register:hover {
+    background-color: #96807A;
+    opacity: 50%;
+}
+
+.featureSection .register:active {
+    background-color: #F8F5F0;
+    border: 2px solid #96807A;
+}
+
+
+
+.featureSection .register a {
     text-decoration: none;
-    color: black;
+    color: white;
+}
+
+.featureSection .register a:active {
+    color: #96807A;
 }
 

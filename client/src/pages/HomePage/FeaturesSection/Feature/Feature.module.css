@@ -1,8 +1,18 @@
-.section {
+.singleSection {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+.singleSection h3 {
+    margin-top: 38px;
+    text-align: center;
+}
+
+.singleSection p {
+    padding: 0;
+    margin-bottom: 75px;
 }
 
 .featHeader, .featBodyText {

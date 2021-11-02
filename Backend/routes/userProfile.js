@@ -11,7 +11,6 @@ router
     .put("/addProductMorning", putNewProductMorning)
     .put("/addProductEvening", putNewProductEvening)
     .delete("/deleteProduct", deleteProduct)
-    // .post("/", validator.registration, postNewUserProfile);
-    .post("/", postNewUserProfile);
-//res.send(req.app.locals.data.userProfile[req.params.id]);
+    .post("/", validator.registration, postNewUserProfile);
+
 module.exports = router;

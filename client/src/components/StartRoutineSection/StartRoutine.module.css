@@ -1,24 +1,58 @@
 .startRoutineOuter {
     display: flex;
     flex-direction: column;
-    background-color: lightgrey;
+    background-color: #F7EDE1;
     padding: 5%;
 }
 
 .startRoutineHeader {
     align-self: start;
-    margin-left: 27%;
+    margin-left: 22.15vw;  
+    font-weight: 600;
+    margin-bottom: 30px;
+    color: #67392A;
 }
 
 .startRoutineInner {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    margin: 0 25%;
+    justify-content: start;
+    margin: 0 22vw;
 }
 
-.register a {
+.startRoutineInner .register {
+    background-color: #67392A;
+    border-radius: 10px;
+    height: 4vh;
+    width: 12vw;
+}
+
+.startRoutineInner .register:hover {
+    background-color: #96807A;
+    opacity: 50%;
+}
+
+.startRoutineInner .register:active {
+    background-color: #F8F5F0;
+    border: 2px solid #96807A;
+}
+
+
+
+.startRoutineInner .register a {
     text-decoration: none;
-    color: black;
+    color: white;
 }
 
+.startRoutineInner .register a:active {
+    color: #96807A;
+}
+
+.startRoutineInner .nameInput, .startRoutineInner .emailInput {
+   width: 13vw;
+   height: 3.5vh;
+   border: 1px solid #96807A;
+   border-radius: 8px;
+   align-self: center;
+   margin-right: 2vw;
+}

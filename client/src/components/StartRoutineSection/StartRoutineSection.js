@@ -9,11 +9,11 @@ function StartRoutineSection() {
             <h2 className={styles.startRoutineHeader}>Start Your Routine Today</h2>
             
             <div className={styles.startRoutineInner}>
-                <input className={styles.nameInput} id="username" type="text" placeholder="Your Name"></input>
-                <input className={styles.emailInput} id="useraddress" type="text" placeholder="Email Address"></input>
+                <input className={styles.nameInput} id="username" type="text" placeholder="  Your Name"></input>
+                <input className={styles.emailInput} id="useraddress" type="text" placeholder="  Email Address"></input>
 
                 <button className={styles.register}>
-                <Link to='/registration'>Get Started</Link>
+                <Link to='/registration'>ADD PRODUCT</Link>
                 </button>
             </div>
         </div> 
