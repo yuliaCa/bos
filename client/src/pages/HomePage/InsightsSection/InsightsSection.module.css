@@ -2,23 +2,28 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     padding: 2%;
-    background-color: rgb(184, 147, 92);
+    background-color: white;
 }
 
 .left {
     grid-column: 1 / 2;
 }
 
-p {
+.left p {
     text-align: left;
-    padding: 5%;
+    padding: 3vh 5vw;
+    color: #67392A;
+}
+
+.left h2  {
+    text-align: center;
+    color: #67392A;
+    font-weight: 600;
 }
 
 .right {
     grid-column: 2 / 3;
+    justify-self: center;
 }
 
-.insightsImage {
-    height: 300px;
-    width: 300px;
-}
+

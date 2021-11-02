@@ -1,4 +1,38 @@
-.App {
+@import url(https://fonts.googleapis.com/css?family=Sora:100,200,300,regular,500,600,700,800);
+@import url(https://fonts.googleapis.com/css?family=Khula:300,regular,600,700,800);
+
+/* Main typography and sizes */
+
+body {
+    font-family: Khula;
+    font-size: 16px;  
+}
+
+caption {
+    font-size: 14px;
+}
+
+h1, h2, h3 {
+    font-family: Sora;  
+}
+
+h1 {
+  font-size: 32px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+h3 {
+  font-size: 19px;
+  font-weight: 300;
+}
+
+
+/* Generic APP settings */
+
+/* .App {
   text-align: center;
 }
 
@@ -41,4 +75,4 @@ ol, ul {
   list-style: none;
   margin: 0;
   padding: 0;
-}
+} */

@@ -8,9 +8,9 @@ function Navbar() {
     // first div is for logo
     return (
         <header className={styles.header}>
-            <div>
-                LOGO
-            </div>
+           
+            <img src="https://s3-us-west-2.amazonaws.com/bos-skincare/logo/logo.svg" alt="Footer Logo" />
+          
             <nav className={styles.flexRow}>
                 <ul className={styles.flexRow}>
                     <li>
@@ -22,14 +22,11 @@ function Navbar() {
                     <li>
                         <Link to='/team'>Team</Link>
                     </li>
+                  
                     <li>
-                        <Link to='/contact'>Contact</Link>
-                    </li>
-                    <li>
+                          
                         <Link to='/profile'>Profile</Link>
-                    </li>
-                    <li>
-                        <div>icon</div>
+                
                     </li>
                 </ul>
             </nav>
