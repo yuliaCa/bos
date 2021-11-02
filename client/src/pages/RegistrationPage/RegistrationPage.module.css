@@ -1,8 +1,7 @@
 .RegistrationFormSection {
     display: grid;
     grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 
-    1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     border: 1px solid black;
     margin: 2% 15%;
     height: 60vh;
@@ -368,17 +367,4 @@
     color: white;
 }
 
-.buttonReset {
-    grid-column: 3 / 7;
-    grid-row: 14 / 15;
-    height: 4vh;
-    width: 25vw;
-    justify-self: center;
-    color: white;
-    background-color:#67392A;
-}
 
-.buttonReset:hover {
-    background-color:#B68B7D;
-    color: white;
-}

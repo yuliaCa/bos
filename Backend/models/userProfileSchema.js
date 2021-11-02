@@ -35,8 +35,8 @@ let userProfileSchema = new dbSchema({
     fullname: { type: String, required: true },
     gender: { type: String },
     cityLocation: { type: String },
-    skintype: [skintypeSubSchema],
-    concerns: [concernsSubSchema],
+    skintype: skintypeSubSchema,
+    concerns: concernsSubSchema,
     birthDate: { type: Date, default: Date.now },
     objMorningRoutineLog: [productSubSchema],
     objEveningRoutineLog: [productSubSchema]
