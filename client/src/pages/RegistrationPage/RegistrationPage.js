@@ -93,7 +93,12 @@ function RegistrationPage() {
         }
         console.log(newProfile);
 
-        axios.post('/', newProfile);
+        axios.post('/register', newProfile)
+        .catch(error => {
+            if (error.response) {
+                console.log(error.response.data);
+            }
+        });
 
     }
 
@@ -171,7 +176,7 @@ function RegistrationPage() {
         <option value = "" > --Please Select-- </option> 
         <option value = "male" > male </option> 
         <option value = "female" > female </option> 
-        <option value = "binary" > binary </option> 
+        <option value = "binary" > non-binary </option> 
         <option value = "other" > other </option> 
         </select> 
         </label>
@@ -278,8 +283,6 @@ function RegistrationPage() {
         name = "register"
         id = "submit" > Register </button>
 
-        <button type = "reset" 
-        className = { styles.buttonReset } > Reset fields </button> 
         </form>
 
         </div>
