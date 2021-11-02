@@ -57,7 +57,7 @@ function Autocomplete({ suggestions }) {
 
     return (
         <div>
-            <input className= {styles.autoCompleteInput} type="text" onChange={onChangeHandler}
+            <input type="text" onChange={onChangeHandler}
                 value={input} />
             {showSuggestions && input && <SuggestionsListComponent />}
         </div>
