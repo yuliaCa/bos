@@ -1,18 +1,33 @@
 import React from "react";
 import styles from "./MemberCard.module.css";
+import { BsLinkedin } from "react-icons/bs";
+import { BsGithub } from "react-icons/bs";
 
 const MemberCard = (props) => {
   return (
     <div className={styles.section}>
-      <img src={props.src} alt={props.name} />
+      <div className={styles.imgContainer}>
+        <div className={styles.imgCenterer}>
+          <img src={props.src} alt={props.name} />
+        </div>
+      </div>
       <div className={styles.content}>
         <h2>{props.name}</h2>
         <h3>{props.role}</h3>
         <p className={styles.bodytext}>{props.bodytext}</p>
         <ul>
-          <li>{props.link1}</li>
-          <li>{props.link2}</li>
-          <li>{props.link3}</li>
+          <li>
+            <a href={props.link1}>
+              <BsLinkedin className={styles.icons} />
+            </a>
+          </li>
+          {props.github === "true" && (
+            <li>
+              <a href={props.link2}>
+                <BsGithub className={styles.icons} />
+              </a>
+            </li>
+          )}
         </ul>
       </div>
     </div>
