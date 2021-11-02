@@ -13,12 +13,15 @@
     text-align: left;
     padding: 3vh 5vw;
     color: #67392A;
+    line-height: 2.5vh;
+    font-weight: 200;
 }
 
 .left h2  {
-    text-align: center;
+    text-align: left;
     color: #67392A;
     font-weight: 600;
+    padding: 0 5vw;
 }
 
 .right {
