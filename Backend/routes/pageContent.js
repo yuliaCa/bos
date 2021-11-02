@@ -5,7 +5,7 @@ const { getPageContents, postPageContent, updatePageContent, deletePageContent }
 router
     .get("/", getPageContents)
     .post("/", postPageContent)
-    .put("/:header", updatePageContent)
-    .delete("/:header", deletePageContent);
+    .put("/", updatePageContent)
+    .delete("/", deletePageContent);
 
 module.exports = router;

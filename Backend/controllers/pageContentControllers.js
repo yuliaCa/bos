@@ -21,7 +21,7 @@ exports.postPageContent = (req, res) => {
 
     newPageContent.save().then(result => {
             res.status(201).json({
-                data: pageContent,
+                data:  newPageContent,
                 url: `/pageContent/${newPageContent._id}`
             });
         })
@@ -37,7 +37,7 @@ exports.updatePageContent = (req, res) => {
         imagelink:  req.body.imagelink
     });
 
-  updatedPageContent.findOneAndUpdate({ "header": header }, { "$set": { "body": body, "imagelink": imagelink}}, {
+  updatedPageContent.findOneAndUpdate({ header: header },{ body: body, imagelink: imagelink}, {
     new: true,
     upsert: true // Make this update into an upsert
   }).then(result => {
