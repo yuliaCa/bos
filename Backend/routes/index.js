@@ -9,5 +9,6 @@ router.use("/products", productRouter);
 router.use("/register", userProfileRouter);
 router.use("/myroutine/products", productRouter);
 router.use("/dailyroutine", dailyLogRouter);
+router.use("/pagecontents", dailyLogRouter);
 
 module.exports = router;
