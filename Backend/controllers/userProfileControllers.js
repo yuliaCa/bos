@@ -46,3 +46,58 @@ exports.postNewUserProfile = (req, res) => {
         })
         .catch(error => res.status(500).send(error));
 };
+
+Folder.findOneAndUpdate(
+    { "_id": folderId, "permissions._id": permission._id },
+    { "permissions.$": permission},
+)
+
+exports.putNewProductMorning = (req, res) => {
+
+    let updatedUserProfile = new userProfile({
+        userEmailAddress: req.body.userEmailAddress,
+        objMorningRoutineLog: req.body.objMorningRoutineLog
+    });
+
+  
+    newuserProfile.findOneAndUpdate({ "userEmailAddress": updatedUserProfile.userEmailAddress },{ "objMorningRoutineLog": updatedUserProfile.objMorningRoutineLog}).then(result => {
+            res.status(201).json({
+                data: newuserProfile,
+                url: `/addProductMorning/${newuserProfile._id}`
+            });
+        })
+        .catch(error => res.status(500).send(error));
+};
+
+
+exports.putNewProductEvening = (req, res) => {
+
+    let updatedUserProfile = new userProfile({
+        userEmailAddress: req.body.userEmailAddress,
+        objEveningRoutineLog: req.body.objEveningRoutineLog
+    });
+
+  
+    newuserProfile.findOneAndUpdate({ "userEmailAddress": updatedUserProfile.userEmailAddress },{ "objEveningRoutineLog": updatedUserProfile.objEveningRoutineLog}).then(result => {
+            res.status(201).json({
+                data: newuserProfile,
+                url: `/addProductMorning/${newuserProfile._id}`
+            });
+        })
+        .catch(error => res.status(500).send(error));
+};
+
+
+exports.deleteProduct = (req, res) => {
+
+    let deletePageContent = new PageContent({
+        header: req.body.header
+    });
+
+    deletePageContent.find({"header":header}).remove.then(result => {
+            res.status(201).json({
+           
+            });
+        })
+        .catch(error => res.status(500).send(error));
+};
