@@ -5,9 +5,9 @@ function Feature(props) {
   
     return (
         
-    <div className={styles.section}>
+    <div className={styles.singleSection}>
         <img className={styles.featureImage} src={props.src} alt={props.alt}/> 
-        <h4 className={styles.featHeader}>{props.heading}</h4>
+        <h3 className={styles.featHeader}>{props.heading}</h3>
         <p className={styles.featBodyText}>{props.bodytext}</p>
     </div>
         

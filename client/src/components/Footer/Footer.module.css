@@ -1,8 +1,9 @@
-footer {
+.footerTop {
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: space-between;
-  margin: auto 10%;
+  margin: auto 5%;
   padding: 2rem;
 }
 .flexRow {
@@ -13,3 +14,32 @@ footer {
   white-space: nowrap;
 }
 
+.flexRow li a {
+  text-decoration: none;
+  color: #67392A;
+  font-weight: 200;
+
+}
+
+.flexRow ul {
+  list-style-type: none;
+}
+
+footer img {
+  width: 6vw;
+  height: 4vh;
+}
+
+.footerBottom {
+  background-color: #AD967D;
+  height: 5vh;
+  display: flex;
+  align-items: center;
+}
+
+.footerBottom p {
+  padding: 0;
+  font-size: 14px;
+  margin-left: 7.3vw;
+  color: #F8F5F0;
+}

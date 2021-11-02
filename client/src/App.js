@@ -15,7 +15,7 @@ import * as firebase from './authentication';
 
 import HomePage from "./pages/HomePage/HomePage";
 import FeaturesPage from "./pages/FeaturesPage/FeaturesPage";
-import ContactPage from "./pages/ContactPage";
+
 
 import ProfilePage from "./pages/ProfilePage";
 
@@ -25,7 +25,6 @@ import LoginPage from "./pages/LoginPage/LoginPage"
 
 import Navbar from "./components/NavBar/Navbar";
 
-import AboutPage from "./pages/AboutPage";
 import PolicyPage from "./pages/PolicyPage";
 import TosPage from "./pages/TosPage";
 
@@ -63,14 +62,9 @@ function App() {
           <Route path="/team">
             <TeamPage />
           </Route>
-          <Route path="/contact">
-            <ContactPage />
-          </Route>
+       
           <Route path="/profile">
             <ProfilePage />
-          </Route>
-          <Route path="/about" exact>
-            <AboutPage />
           </Route>
           <Route path="/policy">
             <PolicyPage />

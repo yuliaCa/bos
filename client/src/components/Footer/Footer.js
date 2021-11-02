@@ -4,9 +4,11 @@ import styles from './Footer.module.css';
 function Footer() {
   
     return (
-        <footer className={styles.footer}>
+        <>
+        <footer>
+            <div className={styles.footerTop}>
             <div>
-                LOGO
+                <img src="https://s3-us-west-2.amazonaws.com/bos-skincare/logo/logo.svg" alt="Footer Logo" />
             </div>
             <nav className={styles.flexRow}>
                 <ul className={styles.flexRow}>
@@ -16,12 +18,14 @@ function Footer() {
                     <li>
                         <Link to='/tos'>Terms of Service</Link>
                     </li>
-                    <li>
-                        <Link to='/about'>About us</Link>
-                    </li>
                 </ul>
             </nav>
+            </div>
         </footer>
+         <div className={styles.footerBottom}>
+         <p>Designed and Developed by Pink Team</p>
+         </div>
+         </>
     )
 }
 
