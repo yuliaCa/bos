@@ -1,14 +1,12 @@
 import styles from './MyRoutines.module.css';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import Select from 'react-select';
+// import Select from 'react-select';
 import ProductCard from './MyRoutine/ProductCard';
 import SearchInput from './MyRoutine/ProductAutocomplete/SearchInput';
 
 
 function MyRoutines() {
-
-
 
     let productObj = {
         category: 'Cleanser',
@@ -57,7 +55,7 @@ function MyRoutines() {
             <h1 className={styles.heading}>Morning Routine  </h1>
 
             <div className={styles.userInput}>
-                <Select options={categoryOptions} />
+                {/* <Select options={categoryOptions} /> */}
 
                 <SearchInput />
 

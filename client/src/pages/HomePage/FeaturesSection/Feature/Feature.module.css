@@ -8,11 +8,15 @@
 .singleSection h3 {
     margin-top: 38px;
     text-align: center;
+    color: #67392A;
 }
 
 .singleSection p {
     padding: 0;
+    line-height: 2.5vh;
     margin-bottom: 75px;
+    font-weight: 200;
+    color: #67392A;
 }
 
 .featHeader, .featBodyText {

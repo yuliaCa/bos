@@ -5,12 +5,11 @@ header {
   align-items: center;
   padding: 2rem;
   padding: 2vh 7vw;
-  background-color: #2D1209;
-  opacity: 50%;
-  /* color: #FFFFFF; */
+  background-color: rgba(45, 18, 9, 0.6);
   position: relative;
-  z-index: 1;
+
 }
+
 header .flexRow {
   display: flex;
   flex-direction: row;
@@ -27,10 +26,14 @@ header .flexRow a {
   text-decoration: none;
 }
 
-.header img {
-  width: 6vw;
-  height: 4vh;
+header .flexRow a:hover {
+  color: #67392A;
+}
 
+.header .filter {
+  width: 8vw;
+  height: 6vh;
+  filter: invert(92%) sepia(93%) saturate(0%) hue-rotate(202deg) brightness(106%) contrast(106%);
 }
 
 

@@ -19,7 +19,11 @@ function Navbar() {
     return (
         <header className={styles.header}>
            
-            <img src="https://s3-us-west-2.amazonaws.com/bos-skincare/logo/logo.svg" alt="Footer Logo" />
+            <img className={styles.filter} src="https://s3-us-west-2.amazonaws.com/bos-skincare/logo/logo.svg" alt="Footer Logo">
+
+        
+
+            </img>
           
             <nav className={styles.flexRow}>
                 <ul className={styles.flexRow}>
