@@ -1,7 +1,11 @@
 .section {
-  padding: 5rem 10%;
+  padding: 5rem 15%;
 }
 
-.bodytext {
-  padding-top: 1rem;
+h2 {
+  margin-bottom: 3rem;
+}
+
+p {
+  padding: 0;
 }
