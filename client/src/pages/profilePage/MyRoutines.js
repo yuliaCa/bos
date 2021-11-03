@@ -21,6 +21,7 @@ function MyRoutines(props) {
 
     }, [])
 
+
     const [checkedAll, setCheckedAll] = useState(false);
 
     const checkAllHandler = () => {
@@ -36,13 +37,17 @@ function MyRoutines(props) {
         { label: "Sunscreen", value: "sunscreen" }
     ]
 
+    const [product, setProduct] = useState('');
+
     const ProductSubmitHandler = async () => {
-        await axios.post(`/products/${props.email}`)
+
+        await axios.post(`/products/${props.email}`,)
             .then(results => {
-                console.log(results)
+
             })
             .catch(error => console.log(error))
     }
+
 
     return (
         <div>
@@ -52,7 +57,7 @@ function MyRoutines(props) {
                 <form className={styles.userInput}>
                     <Select options={categoryOptions} />
 
-                    <SearchInput />
+                    <SearchInput setProduct={setProduct} />
 
                     <button onSubmit={ProductSubmitHandler}>Add Product</button>
                 </form>
