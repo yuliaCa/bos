@@ -47,10 +47,10 @@ exports.postNewUserProfile = (req, res) => {
         .catch(error => res.status(500).send(error));
 };
 
-Folder.findOneAndUpdate(
-    { "_id": folderId, "permissions._id": permission._id },
-    { "permissions.$": permission},
-)
+// Folder.findOneAndUpdate(
+//     { "_id": folderId, "permissions._id": permission._id },
+//     { "permissions.$": permission},
+// )
 
 exports.putNewProductMorning = (req, res) => {
 
