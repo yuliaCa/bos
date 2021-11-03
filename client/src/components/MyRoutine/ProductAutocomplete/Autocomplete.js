@@ -9,7 +9,7 @@ function Autocomplete({ suggestions, setProduct }) {
     const [showSuggestions, setShowSuggestions] = useState(false);
     const [input, setInput] = useState("");
 
-    const cleanedSuggestions = suggestions.map((eachSuggestion) => eachSuggestion['brandName'] + " " + eachSuggestion['displayName'])
+    const cleanedSuggestions = suggestions.map((eachSuggestion) => eachSuggestion['brandName'] + " " + eachSuggestion['displayName'] + " " + eachSuggestion['productId'])
 
     const onChangeHandler = (e) => {
         const userInput = e.target.value;
