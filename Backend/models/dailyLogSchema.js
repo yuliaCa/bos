@@ -13,7 +13,7 @@ const dailyLogSchema = new dbSchema({
     userEmailAddress: { type: String, required: true },
     dailyLogDate: { type: Date, default: Date.now },
     objRoutineLog: [productSubSchema],
-    overallRate: {type: Integer, default: 0} // integer 1=unhappy, 2=moderate, 3=happy
+    overallRate: {type: Number, default: 0} // integer 1=unhappy, 2=moderate, 3=happy
 });
 
 // .model('name of the model', schemaName, 'Mongoose collection name')
