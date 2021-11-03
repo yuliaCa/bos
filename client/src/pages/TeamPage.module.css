@@ -1,0 +1,13 @@
+p {
+  /* 1rem equals 16px */
+  font-size: 1rem;
+}
+
+h2 {
+  margin-bottom: 6rem;
+}
+
+.section {
+  padding: 5rem 15%;
+  background-color: #f7ede1;
+}
