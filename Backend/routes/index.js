@@ -5,7 +5,8 @@ const productRouter = require("./product.js");
 const dailyLogRouter = require("./dailyLog.js");
 const pageContents = require("./pageContent.js");
 
-// const missionContentRouter = require("./missionContent.js")
+const missionContentRouter = require("./missionContent.js");
+const teamContentRouter = require("./teamContent.js");
 
 router.use("/profile", userProfileRouter);
 router.use("/products", productRouter);
@@ -14,6 +15,7 @@ router.use("/myroutine/products", productRouter);
 router.use("/dailyroutine", dailyLogRouter);
 router.use("/pagecontents", pageContents);
 
-// router.use("/missioncontent", missionContentRouter);
+router.use("/missioncontent", missionContentRouter);
+router.use("/teamcontent", teamContentRouter);
 
 module.exports = router;
