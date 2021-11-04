@@ -30,7 +30,7 @@ const Weather = () => {
         requestOptions
       );
       const body = await result.json();
-      console.log(body);
+      // console.log(body);
       setIcon(body.data.current_weather.ic);
       console.log(body.data.current_weather.ic);
       setTemp(body.data.current_weather.tp);
@@ -49,15 +49,19 @@ const Weather = () => {
       <div className={styles.weatherSection}>
         <p className={styles.time}>{`${time}`}</p>
         <div className={styles.gridCol}>
-          <img className={styles.weatherIcon} src={`${iconURL}${icon}.png`} alt="weather icon" />
+          <img
+            className={styles.weatherIcon}
+            src={`${iconURL}${icon}.png`}
+            alt="weather icon"
+          />
           <p className={styles.temp}>{`${temp}℃`}</p>
-          <div>
-            <p>{`${hum}%`}</p>
-            <p>Humidity</p>
-          </div>
           <div>
             <p>{airQ}</p>
             <p>Air Quality Index</p>
+          </div>
+          <div>
+            <p>{`${hum}%`}</p>
+            <p>Humidity</p>
           </div>
         </div>
       </div>
