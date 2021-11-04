@@ -9,16 +9,32 @@ function Autocomplete({ suggestions, setProduct }) {
     const [showSuggestions, setShowSuggestions] = useState(false);
     const [input, setInput] = useState("");
 
-    const cleanedSuggestions = suggestions.map((eachSuggestion) => eachSuggestion['brandName'] + " " + eachSuggestion['displayName'] + " " + eachSuggestion['productId'])
+    const cleanedSuggestions = suggestions.map((eachSuggestion) => {
+        return {
+            productName: `${eachSuggestion.brandName} ${eachSuggestion.displayName}`,
+            productId: eachSuggestion.productId
+        }
+    })
+
+
 
     const onChangeHandler = (e) => {
         const userInput = e.target.value;
 
         // Filter our suggestions that don't contain the user's input
-        const unLinked = cleanedSuggestions.filter(
-            (suggestion) =>
-                suggestion.toLowerCase().indexOf(userInput.toLowerCase()) > -1
+        const unLinked = suggestions.filter(
+            (eachSuggestion) => {
+                let theProduct =
+                {
+                    productName: `${eachSuggestion.brandName} ${eachSuggestion.displayName}`,
+                    productId: eachSuggestion.productId,
+
+                }
+
+                return theProduct.productName.toLowerCase().indexOf(userInput.toLowerCase()) > -1
+            }
         );
+
 
         setInput(e.target.value);
         setFilteredSuggestions(unLinked);
@@ -42,15 +58,15 @@ function Autocomplete({ suggestions, setProduct }) {
 
                     // if (index === activeSuggestionIndex)
                     return (
-                        <li className={styles.active_suggestion} key={suggestion} onClick={onClickHandler}>
-                            {suggestion}
+                        <li className={styles.active_suggestion} key={suggestion.productId} onClick={onClickHandler}>
+                            {suggestion.brandName + " " + suggestion.displayName}
                         </li>
                     );
                 })}
             </ul>
         ) : (
                 <div className={styles.no_suggestions}>
-                    <em>No suggestions, you're on your own!</em>
+                    <em>No matching products were found.</em>
                 </div>
             );
     };
