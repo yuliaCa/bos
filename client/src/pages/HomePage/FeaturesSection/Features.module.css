@@ -1,6 +1,7 @@
 .featureSection {
    
-    padding: 5%;
+    padding: 4% 5%;
+    padding-bottom: 7%;
     background-color: #FCF9F6;
     display: flex;
     flex-direction: column;
@@ -8,7 +9,10 @@
 
 .featureHeading {
    text-align: center;
+   font-size: 48px;
+   font-weight: 500;
    color: #67392A;
+   
 }
 
 .featureCards {
@@ -38,9 +42,11 @@
 
 .featureSection .register {
     background-color: #67392A;
+    border: none;
     border-radius: 10px;
     height: 4vh;
-    width: 14vw;
+    width: 16vw;
+    font-size: 15px;
 }
 
 .featureSection .register:hover {

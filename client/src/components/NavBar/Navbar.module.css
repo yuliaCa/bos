@@ -3,9 +3,8 @@ header {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem;
-  padding: 2vh 7vw;
-  background-color: rgba(45, 18, 9, 0.6);
+  padding: 0 7vw;
+  background-color: #C9B6A1;
   position: relative;
 
 }
@@ -13,17 +12,32 @@ header {
 header .flexRow {
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
-  gap: 10%;
+  justify-content: space-between;
 }
 
 header .flexRow ul {
   list-style-type: none;
 }
 
+header .flexRow li {
+  height: 2vh;
+  width: 8vw;
+}
+
+header .flexRow li:nth-child(2) {
+  width: 9vw;
+}
+
 header .flexRow a {
   color: #FFFFFF;
   text-decoration: none;
+  font-size: 1.3rem;
+}
+
+.faCircle, .riArrowDown {
+  height: 3vh;
+  width: 3vw;
+  color: rgba(45,18,9,0.5);
 }
 
 header .flexRow a:hover {
@@ -37,5 +51,35 @@ header .flexRow a:hover {
 }
 
 
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  min-width: 50px;
+}
+
+.icons {
+  display: flex;
+}
+
+.dropdownItem {
+  text-align: center;
+  padding-top: 2%;
+  display: flex;
+  flex-direction: column;
+  height: 10vh;
+  width: 17vw;
+  z-index: 1;
+  position: absolute;
+  top: 7vh;
+  right: 0;
+  background-color: #C9B6A1;
+}
+
+.dropdownItem a {
+  text-decoration: none;
+  color: #FFFFFF;
+  font-size: 19px;
+  margin-bottom: 3%;
+}
 
 

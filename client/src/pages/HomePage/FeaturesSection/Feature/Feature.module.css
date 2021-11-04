@@ -6,21 +6,23 @@
 }
 
 .singleSection h3 {
-    margin-top: 38px;
+    margin-top: 30px;
     text-align: center;
     color: #67392A;
+    font-weight: 500;
 }
 
 .singleSection p {
     padding: 0;
-    line-height: 2.5vh;
+    line-height: 3vh;
     margin-bottom: 75px;
     font-weight: 200;
+    text-align: center;
     color: #67392A;
 }
 
 .featHeader, .featBodyText {
-    width: 200px;
+    width: 300px;
 }
 
 .featureImage {

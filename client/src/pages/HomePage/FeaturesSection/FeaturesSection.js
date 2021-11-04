@@ -12,9 +12,9 @@ function FeaturesSection() {
         <h2 className={styles.featureHeading}>FEATURES</h2>
 
         <div className={styles.featureCards}>
-        <Feature className={styles.feat1} src="https://s3-us-west-2.amazonaws.com/bos-skincare/home/routine_icon.svg" alt="routine feature image" heading="Product Routines" bodytext="Lorem ipsum dolor sit amet consectetur adipisicing elit." />
-        <Feature className={styles.feat2} src="https://s3-us-west-2.amazonaws.com/bos-skincare/home/weatheradvice_icon.svg" alt="advice feature image" heading="Advice" bodytext="Lorem ipsum dolor sit amet consectetur adipisicing elit." />
-        <Feature className={styles.feat3} src="https://s3-us-west-2.amazonaws.com/bos-skincare/home/insight_icon.svg" alt="insights feature image" heading="Insights" bodytext="Lorem ipsum dolor sit amet consectetur adipisicing elit." />
+        <Feature className={styles.feat1} src="https://s3-us-west-2.amazonaws.com/bos-skincare/home/routine_icon.svg" alt="routine feature image" heading="Product Routines" bodytext="Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit." />
+        <Feature className={styles.feat2} src="https://s3-us-west-2.amazonaws.com/bos-skincare/home/weatheradvice_icon.svg" alt="advice feature image" heading="Weather Advice" bodytext="Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit." />
+        <Feature className={styles.feat3} src="https://s3-us-west-2.amazonaws.com/bos-skincare/home/insight_icon.svg" alt="insights feature image" heading="Insights" bodytext="Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit." />
         </div>
 
         <button className={styles.register}>
