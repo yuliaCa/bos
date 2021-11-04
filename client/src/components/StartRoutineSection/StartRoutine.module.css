@@ -6,6 +6,7 @@
 }
 
 .startRoutineHeader {
+    font-size: 30px;
     align-self: start;
     margin-left: 22.15vw;  
     font-weight: 600;
@@ -22,9 +23,11 @@
 
 .startRoutineInner .register {
     background-color: #67392A;
+    border: none;
     border-radius: 10px;
     height: 4vh;
-    width: 12vw;
+    width: 14vw;
+    font-size: 15px;
 }
 
 .startRoutineInner .register:hover {
@@ -50,7 +53,7 @@
 
 .startRoutineInner .nameInput, .startRoutineInner .emailInput {
    width: 13vw;
-   height: 3.5vh;
+   height: 1.6vh;
    border: 1px solid #96807A;
    border-radius: 8px;
    align-self: center;

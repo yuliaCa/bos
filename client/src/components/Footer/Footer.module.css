@@ -4,10 +4,10 @@
   align-items: center;
   justify-content: space-between;
   margin: auto 5%;
-  padding: 2rem;
+  padding: 0 2rem;
 
 }
-.flexRow {
+.footerTop .flexRow {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -15,15 +15,16 @@
   white-space: nowrap;
 }
 
-.flexRow li a {
+
+.footerTop .flexRow li a {
   text-decoration: none;
   color: #67392A;
   font-weight: 200;
-  font-size: 16px;
-
+  font-size: 1.3rem;
+  
 }
 
-.flexRow ul {
+.footerTop .flexRow ul {
   list-style-type: none;
 }
 

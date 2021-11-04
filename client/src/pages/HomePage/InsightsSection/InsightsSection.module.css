@@ -1,7 +1,8 @@
 .outer {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    padding: 2%;
+    padding: 5.1% 4%;
+    padding-left: 5%;
     background-color: white;
 }
 
@@ -11,9 +12,9 @@
 
 .left p {
     text-align: left;
-    padding: 3vh 5vw;
+    padding: 0 5vw;
     color: #67392A;
-    line-height: 2.5vh;
+    line-height: 3vh;
     font-weight: 200;
 }
 
@@ -21,7 +22,9 @@
     text-align: left;
     color: #67392A;
     font-weight: 600;
+    font-size: 36px;
     padding: 0 5vw;
+    margin-bottom: 5%;
 }
 
 .right {
