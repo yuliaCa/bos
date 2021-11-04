@@ -19,35 +19,42 @@ function ProfilePage() {
 
   // Get logged user info from firebase auth
   const auth = getAuth();
-  const user  = auth.currentUser;
+  const user = auth.currentUser;
   let displayName;
   let email;
 
-    if (user !== null) {
-      // The user object has basic properties such as display name, email, etc.
-      displayName = user.displayName;
-      email = user.email;
+  if (user !== null) {
+    // The user object has basic properties such as display name, email, etc.
+    displayName = user.displayName;
+    email = user.email;
     //   const photoURL = user.photoURL;
     //   const emailVerified = user.emailVerified;
 
-      // The user's ID, unique to the Firebase project. Do NOT use
-      // this value to authenticate with your backend server, if
-      // you have one. Use User.getToken() instead.
-      //   const uid = user.uid;
-    }
-
+    // The user's ID, unique to the Firebase project. Do NOT use
+    // this value to authenticate with your backend server, if
+    // you have one. Use User.getToken() instead.
+    //   const uid = user.uid;
+  }
 
   return (
-    <div>
+    <div className={styles.profilePage}>
       <h2>Profile</h2>
 
-      <div>
-        <span className={styles.span} onClick={MyPageHandler}>
-          My Page
-        </span>
-        <span className={styles.span} onClick={MyRoutinesHandler}>
-          My Routines
-        </span>
+      <div className={styles.tabs}>
+        <div className={
+          defaultSection === "MyPage" ? styles.tab1focus : styles.tab1
+        }>
+          <span className={styles.span} onClick={MyPageHandler}>
+            My Page
+          </span>
+        </div>
+        <div className={
+          defaultSection === "MyRoutines" ? styles.tab2focus : styles.tab2
+        }>
+          <span className={styles.span} onClick={MyRoutinesHandler}>
+            My Routines
+          </span>
+        </div>
       </div>
       {defaultSection === "MyPage" ? (
         <MyPage displayName={displayName} email={email} />
