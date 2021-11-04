@@ -2,42 +2,90 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat 5(1fr);
-    padding: 15%;
+    padding: 15vh;
+    background-color: #FCF9F6;
 }
 
 .inputEmail {
     grid-column: 1 / 2;
     grid-row: 1 / 2;
-    width: 25vw;
-    height: 3vh;
+    width: 20vw;
+    height: 2vh;
     margin: 3%;
+    border-radius: 5px;
+    background-color: #FCF9F6;
 
 }
 
 .inputPassword {
     grid-column: 1 / 2;
     grid-row: 2 / 3;
-    width: 25vw;
-    height: 3vh;
+    width: 20vw;
+    height: 2vh;
     margin: 3%;
+    border-radius: 5px;
+    background-color: #FCF9F6;
+}
+
+.formLayout {
+ 
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;   
+    width: 21.5vw;
+    margin-left: 2%;
+}
+
+.rememberCheckbox {
+    grid-column: 1 / 2;
+    width: 12px;
+    justify-self: center;
+  
 }
 
 .checkRemember {
-    grid-column: 1 / 2;
-    grid-row: 3 / 4;
+    grid-column: 2 / 3;
+    width: 8vw;
+    font-weight: 100;
+    margin: 1% 0;
+    font-size: 14px;
+  
 }
 
 .forgotPassword {
-    grid-column: 2 / 3;
-    grid-row: 3 / 4;
+    grid-column: 3 / 7;
+    font-weight: 100;
+    font-size: 14px;
+    margin: 0;
+    width: 12vw;
+    text-align: right;
+    align-self: center;
+}
+
+.forgotPassword a {
+    text-decoration: none;
+    color: black;
 }
 
 .loginButton {
-    grid-column: 1 / 2;
-    grid-row: 4 / 5;
+    grid-column: 1 / 7;
+    background-color: #67392A;
+    border: none;
+    border-radius: 10px;
+    height: 4vh;
+    font-size: 15px;
+    color: white;
+    margin-top: 4%;
+    margin-bottom: 2%;
+
 }
 
 .registerLink {
-    grid-column: 1 / 1;
-    grid-row: 5 / 6;
+    grid-column: 1 / 4;
+    font-weight: 100;
+    font-size: 14px;
+}
+
+.registerLink a {
+    text-decoration: none;
+    color: black;
 }
