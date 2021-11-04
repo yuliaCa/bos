@@ -42,20 +42,24 @@ function LoginForm() {
                 type="password" name="password" 
                 placeholder="password" />
             
-            <label className={styles.checkRemember}>Remember Me
-            <input type="checkbox" />
-            </label>
+            <div className={styles.formLayout}>
+            
+            <input className={styles.rememberCheckbox} type="checkbox" />
+                <label className={styles.checkRemember}>
+                    Remember Me
+                </label>
 
-            <p className={styles.forgotPassword}>
-                <Link to="">Forgot Your Password?</Link></p>
+                <p className={styles.forgotPassword}>
+                    <Link to="">Forgot Your Password?</Link></p>
 
-            <button 
-                type="submit" 
-                className={styles.loginButton}>Login
-            </button>
+                <button 
+                    type="submit" 
+                    className={styles.loginButton}>LOG IN
+                </button>
 
-            <p className={styles.registerLink}>
-                <Link to="/registration">Register here</Link></p>
+                <p className={styles.registerLink}>
+                    <Link to="/registration">Register here</Link></p>
+            </div>
         </form>
     </div>
         
