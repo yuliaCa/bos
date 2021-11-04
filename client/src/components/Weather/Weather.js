@@ -19,7 +19,7 @@ const Weather = () => {
       method: "GET",
       headers: {
         "x-rapidapi-host": "airvisual1.p.rapidapi.com",
-        "x-rapidapi-key": "ab236956f9mshcdefd342269b500p1b32f8jsn057d104fc223",
+        "x-rapidapi-key": "2b5c9fd8d8msh0132ae34892c4f1p161c42jsnb732f5ff681a",
       },
       redirect: "follow",
     };
