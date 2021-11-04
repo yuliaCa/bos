@@ -1,35 +1,33 @@
 .outer {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 5.1% 4%;
-    padding-left: 5%;
-    background-color: white;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 5.1% 4%;
+  padding-left: 5%;
+  background-color: white;
 }
 
 .left {
-    grid-column: 1 / 2;
+  grid-column: 1 / 2;
 }
 
 .left p {
-    text-align: left;
-    padding: 0 5vw;
-    color: #67392A;
-    line-height: 3vh;
-    font-weight: 200;
+  text-align: left;
+  padding: 0 5vw;
+  color: #67392a;
+  line-height: 3vh;
+  font-weight: 200;
 }
 
-.left h2  {
-    text-align: left;
-    color: #67392A;
-    font-weight: 600;
-    font-size: 36px;
-    padding: 0 5vw;
-    margin-bottom: 5%;
+.left h2 {
+  text-align: left;
+  color: #67392a;
+  font-weight: 600;
+  font-size: 32px;
+  padding: 0 5vw;
+  margin-bottom: 5%;
 }
 
 .right {
-    grid-column: 2 / 3;
-    justify-self: center;
+  grid-column: 2 / 3;
+  justify-self: center;
 }
-
-

@@ -3,11 +3,13 @@ p {
   font-size: 1rem;
 }
 
-h2 {
-  margin-bottom: 6rem;
-}
-
 .section {
   padding: 5rem 15%;
   background-color: #f7ede1;
+}
+
+.section h2 {
+  font-size: 32px;
+  margin-bottom: 6rem;
+  color: #3b3835;
 }

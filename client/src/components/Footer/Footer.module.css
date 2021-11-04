@@ -5,7 +5,6 @@
   justify-content: space-between;
   margin: auto 5%;
   padding: 0 2rem;
-
 }
 .footerTop .flexRow {
   display: flex;
@@ -15,13 +14,11 @@
   white-space: nowrap;
 }
 
-
 .footerTop .flexRow li a {
   text-decoration: none;
-  color: #67392A;
+  color: #67392a;
   font-weight: 200;
-  font-size: 1.3rem;
-  
+  font-size: 16px;
 }
 
 .footerTop .flexRow ul {
@@ -34,17 +31,15 @@ footer img {
 }
 
 .footerBottom {
-  background-color: #AD967D;
+  background-color: #ad967d;
   height: 5vh;
   display: flex;
   align-items: center;
- 
-
 }
 
 .footerBottom p {
   padding: 0;
   font-size: 14px;
   margin-left: 7.3vw;
-  color: #F8F5F0;
+  color: #f8f5f0;
 }
