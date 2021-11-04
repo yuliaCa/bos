@@ -11,7 +11,7 @@ const Advice = ({weatherCode}) => {
   }, [weatherCode])
   
   return (
-    <div>
+    <div className={styles.advice}>
       <p>{advice}</p>
     </div>
   );
