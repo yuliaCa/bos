@@ -1,13 +1,15 @@
 .section {
-  background-color: rgb(237, 237, 237);
+  border-radius: 8px;
   display: grid;
   grid-template-columns: 1fr 1.5fr;
-  margin-top: 2rem;
+  margin-bottom: 3rem;
 }
 
 .weatherSection {
-  margin: 1rem 10%;
-  background-color: gainsboro;
+  border-radius: 15px 0 0 15px;
+  padding: 1rem;
+  margin-left: 4rem;
+  background-color: rgba(209, 152, 136, 0.3);
 }
 
 .flexRow {
@@ -23,8 +25,10 @@
 }
 
 .time {
-  text-align: left;
-  padding: 1rem;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: right;
+  marging-left: 3rem;
 }
 
 .temp {
@@ -39,8 +43,4 @@
 span {
   border: 0;
   border-style: none;
-}
-
-.adviceText {
-  color: red;
 }
