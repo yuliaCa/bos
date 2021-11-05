@@ -4,7 +4,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 0 7vw;
-  border-bottom: #c9b6a1;
+  border-bottom: 2px solid #c9b6a1;
   position: relative;
 }
 
@@ -70,7 +70,8 @@ header .flexRow a:hover {
   position: absolute;
   top: 7vh;
   right: 0;
-  background-color: #c9b6a1;
+  background-color: #ffffff;
+  border-bottom: 2px solid #c9b6a1;
 }
 
 .dropdownItem a {
