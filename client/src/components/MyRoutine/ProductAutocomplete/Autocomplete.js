@@ -42,10 +42,11 @@ function Autocomplete({ suggestions, setProduct }) {
         setShowSuggestions(true);
     };
 
-    const onClickHandler = (e) => {
+    const onClickHandler = (e, suggestion) => {
         setFilteredSuggestions([]);
         setInput(e.target.innerText);
-        setProduct(e.target.innerText);
+        setProduct(suggestion);
+        console.log(suggestion);
         setActiveSuggestionIndex(0);
         setShowSuggestions(false);
     };
@@ -58,7 +59,7 @@ function Autocomplete({ suggestions, setProduct }) {
 
                     // if (index === activeSuggestionIndex)
                     return (
-                        <li className={styles.active_suggestion} key={suggestion.productId} onClick={onClickHandler}>
+                        <li className={styles.active_suggestion} key={suggestion.productId} onClick={(event) => onClickHandler(event, suggestion)}>
                             {suggestion.brandName + " " + suggestion.displayName}
                         </li>
                     );

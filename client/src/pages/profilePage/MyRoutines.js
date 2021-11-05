@@ -10,18 +10,6 @@ function MyRoutines(props) {
 
     const [loadedProducts, setLoadedProducts] = useState([]);
 
-    useEffect(() => {
-
-        axios.get('/products')
-            .then(results => {
-                console.log(results.data)
-                setLoadedProducts(results.data);
-            })
-            .catch(error => console.log(error));
-
-    }, [])
-
-
     const [checkedAll, setCheckedAll] = useState(false);
 
     const checkAllHandler = () => {
@@ -39,13 +27,52 @@ function MyRoutines(props) {
 
     const [product, setProduct] = useState('');
 
-    const ProductSubmitHandler = async () => {
+    useEffect(() => {
 
-        await axios.post(`/products/${props.email}`,)
+        axios.get('/products')
             .then(results => {
-
+                console.log(results.data)
+                setLoadedProducts(results.data);
             })
-            .catch(error => console.log(error))
+            .catch(error => console.log(error));
+
+    }, [])
+
+
+
+
+
+    async function ProductSubmitHandler(event) {
+        event.preventDefault();
+        console.log('Submitted!')
+        if (product) {
+            const options = {
+                method: 'GET',
+                url: 'https://sephora.p.rapidapi.com/products/detail',
+                params: {
+                    productId: product.productId,
+                    preferedSku: product['currentSku']['skuId']
+                },
+                headers: {
+                    'x-rapidapi-host': 'sephora.p.rapidapi.com',
+                    'x-rapidapi-key': '2b5c9fd8d8msh0132ae34892c4f1p161c42jsnb732f5ff681a'
+                }
+            };
+
+            await axios.request(options).then(function (response) {
+                console.log(response.data);
+            }).catch(function (error) {
+                console.error(error);
+            });
+        }
+
+
+        //     await axios.post(`/products/${props.email}`,)
+        //         .then(results => {
+
+        //         })
+        //         .catch(error => console.log(error))
+        // }
     }
 
 
@@ -54,12 +81,12 @@ function MyRoutines(props) {
             <div className={styles.morningRoutine}>
                 <h1 className={styles.heading}>Morning Routine  </h1>
 
-                <form className={styles.userInput}>
+                <form className={styles.userInput} onSubmit={(event) => ProductSubmitHandler(event)}>
                     <Select options={categoryOptions} />
 
                     <SearchInput setProduct={setProduct} />
 
-                    <button onSubmit={ProductSubmitHandler}>Add Product</button>
+                    <button>Add Product</button>
                 </form>
 
                 <div className={styles.selectAll}>
