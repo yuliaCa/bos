@@ -1,15 +1,17 @@
 import styles from "./Advice.module.css";
 import React, { useState, useEffect } from "react";
-import AdviceList from "./AdviceList";
+import axios from "axios";
 
-const Advice = ({weatherCode}) => {
-
-  const [advice, setAdvice] = useState();
+const Advice = ({ weatherCode }) => {
+  const [advice, setAdvice] = useState([]);
 
   useEffect(() => {
-    setAdvice(AdviceList[weatherCode]);
-  }, [weatherCode])
-  
+    axios
+      .get("/advicecontent/")
+      .then((result) => setAdvice(result.data.data[0][weatherCode]))
+      .catch((error) => console.log(error));
+  }, []);
+
   return (
     <div className={styles.advice}>
       <p>{advice}</p>
