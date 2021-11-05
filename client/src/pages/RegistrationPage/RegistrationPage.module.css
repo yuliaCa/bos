@@ -408,6 +408,7 @@
     color: white;
     background-color:#67392A;
     margin: 5% 0;
+    border: none;
     border-radius: 5px;
     font-size: 15px;
 }
