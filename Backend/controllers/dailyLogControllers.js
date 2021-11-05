@@ -16,7 +16,8 @@ exports.postDailyLogByDay = (req, res) => {
         userEmailAddress: req.body.userEmailAddress,
         objMorningRoutineLog: req.body.objMorningRoutineLog,
         objEveningRoutineLog: req.body.objEveningRoutineLog,
-        dailyLogDate:  req.body.dailyLogDate,
+        overallRate: req.body. overallRate,
+        dailyLogDate:  req.body.dailyLogDate
     });
 
     newDailyLog.save().then(result => {
