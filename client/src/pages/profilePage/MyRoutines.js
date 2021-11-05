@@ -57,34 +57,28 @@ function MyRoutines(props) {
                 }
             };
 
-            await axios.request(options)
-                .then(function (response) {
-                    console.log(response.data.suggestedUsage);
+            await axios.request(options).then(function (response) {
+                console.log(response.data);
 
-                    let theProductObj = {
-                        productName: response.data.displayName,
-                        images: response.data.currentSku.skuImages.image250,
-                        brandName: response.data.brandName,
-                        description: response.data.longDescription,
-                        category: response.data.parentCategory.displayName,
-                        ingredients: response.data.currentSku.ingredientDesc,
-                        suggestedUsage: response.data.suggestedUsage
-                    }
-                    setProductObject(theProductObj);
-                    console.log(productObject.suggestedUsage)
+                let theProductObj = {
+                    productName: response.data.displayName,
+                    images: response.data.currentSku.skuImages.image250,
+                    brandName: response.data.brandName,
+                    description: response.data.longDescription,
+                    category: response.data.parentCategory.displayName,
+                    ingredients: response.data.currentSku.ingredientDesc
+                }
+                setProductObject(theProductObj);
+
+            }).catch(function (error) {
+                console.error(error);
+            });
+            await axios.post(`/products/${props.email}`, productObject)
+                .then(results => {
+                    console.log(results)
                 })
-                .then(
-                    await axios.post(`/products/${props.email}`, productObject)
-                        .then(results => {
-                            console.log('POSTING TO DB...aaand updating routine')
-                        })
-
-                )
-                .catch(function (error) {
-                    console.error(error);
-                });
+                .catch(error => console.log(error))
         }
-
     }
 
 
