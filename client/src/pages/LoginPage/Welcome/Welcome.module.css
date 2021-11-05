@@ -3,14 +3,29 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin: 5%;
+    /* margin: 5%; */
+    background-color: #F7EDE1;
+    padding: 7.7vh;
 }
 
 .welcomeHeader, .welcomeBodyText {
     width: 200px;
 }
 
+.welcomeHeader {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.welcomeBodyText {
+    font-weight: 200;
+    line-height: 3vh;
+    text-align: center;
+}
+
 .welcomeImage {
-    height: 200px;
-    width: 200px;
+    height: 15vh;
+    width: 15vw;
+    /* margin-bottom: 3%; */
 }
