@@ -61,10 +61,24 @@ function MyRoutines(props) {
 
             await axios.request(options).then(function (response) {
                 console.log(response.data);
+
+                let theProductObj = {
+                    productName: response.data.displayName,
+                    images: response.data.currentSku.skuImages.image250,
+                    brandName: response.data.brandName,
+                    description: response.data.longDescription,
+                    category: response.data.parentCategory.displayName,
+                    ingredients: response.data.currentSku.ingredientDesc,
+
+
+
+                }
+
             }).catch(function (error) {
                 console.error(error);
             });
         }
+
 
 
         //     await axios.post(`/products/${props.email}`,)
