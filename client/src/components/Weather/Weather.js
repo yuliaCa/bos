@@ -9,7 +9,7 @@ const iconURL = "https://s3-us-west-2.amazonaws.com/bos-skincare/weatherIcons/";
 
 const Weather = () => {
   const [time, setTime] = useState();
-  const [icon, setIcon] = useState("01d");
+  const [icon, setIcon] = useState();
   const [temp, setTemp] = useState(6);
   const [hum, setHum] = useState(90);
   const [airQ, setAirQ] = useState(30);

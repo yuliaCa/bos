@@ -10,7 +10,7 @@ const Advice = ({ weatherCode }) => {
       .get("/advicecontent/")
       .then((result) => setAdvice(result.data.data[0][weatherCode]))
       .catch((error) => console.log(error));
-  }, []);
+  }, [weatherCode]);
 
   return (
     <div className={styles.advice}>
