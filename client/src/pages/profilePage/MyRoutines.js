@@ -40,7 +40,7 @@ function MyRoutines(props) {
 
 
 
-
+    const [productObject, setProductObject] = useState({});
 
     async function ProductSubmitHandler(event) {
         event.preventDefault();
@@ -68,25 +68,19 @@ function MyRoutines(props) {
                     brandName: response.data.brandName,
                     description: response.data.longDescription,
                     category: response.data.parentCategory.displayName,
-                    ingredients: response.data.currentSku.ingredientDesc,
-
-
-
+                    ingredients: response.data.currentSku.ingredientDesc
                 }
+                setProductObject(theProductObj);
 
             }).catch(function (error) {
                 console.error(error);
             });
+            await axios.post(`/products`, productObject)
+                .then(results => {
+                    console.log(results)
+                })
+                .catch(error => console.log(error))
         }
-
-
-
-        //     await axios.post(`/products/${props.email}`,)
-        //         .then(results => {
-
-        //         })
-        //         .catch(error => console.log(error))
-        // }
     }
 
 
