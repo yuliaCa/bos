@@ -10,6 +10,7 @@ const productSchema = new dbSchema({
     description: { type: String },
     category: { type: String },
     ingredients: { type: String },
+    suggestedUsage: { type: String }
 
 });
 

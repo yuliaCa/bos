@@ -36,7 +36,8 @@ exports.postNewProduct = (req, res) => {
         brandName: req.body.brandName,
         description: req.body.description,
         category: req.body.category,
-        ingredients: req.body.ingredients
+        ingredients: req.body.ingredients,
+        suggestedUsage: req.body.suggestedUsage
     });
 
     newProduct.save().then(result => {

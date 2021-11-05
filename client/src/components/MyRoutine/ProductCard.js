@@ -20,6 +20,7 @@ function ProductCard(props) {
 
                 <h5>{props.name}</h5>
 
+                <p>{props.suggestedUsage}</p>
                 <Link to='/product-details'>Product Details</Link>
 
                 <FaTrash />

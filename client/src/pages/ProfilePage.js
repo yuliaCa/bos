@@ -59,8 +59,8 @@ function ProfilePage() {
       {defaultSection === "MyPage" ? (
         <MyPage displayName={displayName} email={email} />
       ) : (
-        <MyRoutines />
-      )}
+          <MyRoutines email={email} />
+        )}
     </div>
   );
 }

@@ -27,6 +27,8 @@ function MyRoutines(props) {
 
     const [product, setProduct] = useState('');
 
+    const [productObject, setProductObject] = useState({});
+
     useEffect(() => {
 
         axios.get('/products')
@@ -36,11 +38,7 @@ function MyRoutines(props) {
             })
             .catch(error => console.log(error));
 
-    }, [])
-
-
-
-    const [productObject, setProductObject] = useState({});
+    }, [productObject])
 
     async function ProductSubmitHandler(event) {
         event.preventDefault();
@@ -59,28 +57,34 @@ function MyRoutines(props) {
                 }
             };
 
-            await axios.request(options).then(function (response) {
-                console.log(response.data);
+            await axios.request(options)
+                .then(function (response) {
+                    console.log(response.data.suggestedUsage);
 
-                let theProductObj = {
-                    productName: response.data.displayName,
-                    images: response.data.currentSku.skuImages.image250,
-                    brandName: response.data.brandName,
-                    description: response.data.longDescription,
-                    category: response.data.parentCategory.displayName,
-                    ingredients: response.data.currentSku.ingredientDesc
-                }
-                setProductObject(theProductObj);
-
-            }).catch(function (error) {
-                console.error(error);
-            });
-            await axios.post(`/products/${props.email}`, productObject)
-                .then(results => {
-                    console.log(results)
+                    let theProductObj = {
+                        productName: response.data.displayName,
+                        images: response.data.currentSku.skuImages.image250,
+                        brandName: response.data.brandName,
+                        description: response.data.longDescription,
+                        category: response.data.parentCategory.displayName,
+                        ingredients: response.data.currentSku.ingredientDesc,
+                        suggestedUsage: response.data.suggestedUsage
+                    }
+                    setProductObject(theProductObj);
+                    console.log(productObject.suggestedUsage)
                 })
-                .catch(error => console.log(error))
+                .then(
+                    await axios.post(`/products/${props.email}`, productObject)
+                        .then(results => {
+                            console.log('POSTING TO DB...aaand updating routine')
+                        })
+
+                )
+                .catch(function (error) {
+                    console.error(error);
+                });
         }
+
     }
 
 
@@ -109,9 +113,10 @@ function MyRoutines(props) {
                             key={eachProduct._id}
                             id={eachProduct._id}
                             image={eachProduct.images}
-                            category={eachProduct.productCategory}
+                            category={eachProduct.category}
                             name={eachProduct.productName}
-                            description={eachProduct.productDescription}
+                            description={eachProduct.description}
+                            suggestedUsage={eachProduct.suggestedUsage}
                             checkAll={checkedAll}
                         />
                     ))}
@@ -144,6 +149,7 @@ function MyRoutines(props) {
                             category={eachProduct.productCategory}
                             name={eachProduct.productName}
                             description={eachProduct.productDescription}
+                            suggestedUsage={eachProduct.suggestedUsage}
                             checkAll={checkedAll}
                         />
                     ))}
