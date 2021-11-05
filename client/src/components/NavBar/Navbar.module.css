@@ -4,7 +4,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 0 7vw;
-  background-color: #c9b6a1;
+  border-bottom: #c9b6a1;
   position: relative;
 }
 
@@ -28,7 +28,7 @@ header .flexRow li:nth-child(2) {
 }
 
 header .flexRow a {
-  color: #ffffff;
+  color: #67392a;
   text-decoration: none;
   font-size: 19px;
 }
@@ -47,8 +47,6 @@ header .flexRow a:hover {
 .header .filter {
   width: 8vw;
   height: 6vh;
-  filter: invert(92%) sepia(93%) saturate(0%) hue-rotate(202deg)
-    brightness(106%) contrast(106%);
 }
 
 .dropdown {
