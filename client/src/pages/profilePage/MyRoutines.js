@@ -1,7 +1,7 @@
 import styles from './MyRoutines.module.css';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-// import Select from 'react-select';
+import Select from 'react-select';
 import ProductCard from '../../components/MyRoutine/ProductCard';
 import SearchInput from '../../components/MyRoutine/ProductAutocomplete/SearchInput';
 
@@ -55,7 +55,7 @@ function MyRoutines(props) {
                 <h1 className={styles.heading}>Morning Routine  </h1>
 
                 <form className={styles.userInput}>
-                    {/* <Select options={categoryOptions} /> */}
+                    <Select options={categoryOptions} />
 
                     <SearchInput setProduct={setProduct} />
 
@@ -87,7 +87,7 @@ function MyRoutines(props) {
                 <h1 className={styles.heading}>Evening Routine  </h1>
 
                 <div className={styles.userInput}>
-                    {/* <Select options={categoryOptions} /> */}
+                    <Select options={categoryOptions} />
 
                     <SearchInput />
 
