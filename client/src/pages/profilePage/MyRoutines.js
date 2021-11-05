@@ -75,7 +75,7 @@ function MyRoutines(props) {
             }).catch(function (error) {
                 console.error(error);
             });
-            await axios.post(`/products`, productObject)
+            await axios.post(`/products/${props.email}`, productObject)
                 .then(results => {
                     console.log(results)
                 })
