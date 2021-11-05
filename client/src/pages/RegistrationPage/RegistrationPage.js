@@ -104,11 +104,14 @@ function RegistrationPage() {
 
     return (
 
-        <div>
+        <>
+        <h1 className={styles.registerHeading}>Register</h1>
         <form className = { styles.RegistrationFormSection } >
 
         <label htmlFor = "name" className = { styles.fullnameLabel } >
-        Name <input onChange = { handleChange }
+        Name
+        </label> 
+        <input onChange = { handleChange }
         className = { styles.fullnameInput }
         type = "text"
         id = "name"
@@ -118,10 +121,12 @@ function RegistrationPage() {
         autoComplete = "off"
         value = { input.fullname }
         required />
-        </label>
+       
 
         <label htmlFor = "email" className = { styles.emailLabel } >
-        Email <input onChange = { handleChange }
+        Email 
+        </label>
+        <input onChange = { handleChange }
         className = { styles.emailInput }
         type = "email"
         id = "email"
@@ -130,10 +135,12 @@ function RegistrationPage() {
         autoComplete = "off"
         value = { input.userEmailAddress }
         required />
-        </label>
+       
 
         <label htmlFor = "password" className = { styles.passwordLabel } >
-        Password <input onChange = { handleChange }
+        Password 
+        </label>
+        <input onChange = { handleChange }
         type = "password"
         className = { styles.passwordInput }
         value = { input.password }
@@ -143,10 +150,12 @@ function RegistrationPage() {
         minLength = "8"
         autoComplete = "off"
         required pattern = "[A-Za-z0-9]+" />
-        </label>
+        
 
         <label htmlFor = "confirmPassword" className = { styles.passwordCfmLabel } >
-        Confirm Password <input onChange = { handleChange }
+        Confirm Password 
+        </label>
+        <input onChange = { handleChange }
         type = "password"
         className = { styles.passwordCfmInput }
         value = { input.ConfirmPassword }
@@ -155,10 +164,12 @@ function RegistrationPage() {
         autoComplete = "off"
         placeholder = "Confirm Password"
         required />
-        </label>
+        
 
         <label htmlFor = "cityLocation" className = { styles.locationLabel } >
-        City Location <input onChange = { handleChange }
+        City Location 
+        </label>
+        <input onChange = { handleChange }
         className = { styles.locationInput }
         id = "cityLocation"
         name = "cityLocation"
@@ -167,10 +178,12 @@ function RegistrationPage() {
         autoComplete = "off"
         value = { input.cityLocation }
         required />
-        </label>
+        
 
         <label htmlFor = "gender" className = { styles.genderLabel } >
-        Gender <select onChange = { handleChange }
+        Gender 
+        </label>
+        <select onChange = { handleChange }
         className = { styles.genderInput }
         name = "gender" >
         <option value = "" > --Please Select-- </option> 
@@ -179,7 +192,7 @@ function RegistrationPage() {
         <option value = "binary" > non-binary </option> 
         <option value = "other" > other </option> 
         </select> 
-        </label>
+        
 
      
         <legend className = { styles.skintypeLabel } > What is your skin type ? </legend>
@@ -281,11 +294,11 @@ function RegistrationPage() {
         className = { styles.buttonRegister }
         type = "submit"
         name = "register"
-        id = "submit" > Register </button>
+        id = "submit" > REGISTER </button>
 
         </form>
 
-        </div>
+        </>
 
     )
 }
