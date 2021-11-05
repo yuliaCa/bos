@@ -55,7 +55,7 @@ exports.postNewUserProfile = (req, res) => {
 exports.putNewProductMorning = (req, res) => {
 
     let updatedUserProfile = new userProfile({
-        userEmailAddress: req.body.userEmailAddress,
+        userEmailAddress: req.params.userEmail,
         objMorningRoutineLog: req.body.objMorningRoutineLog
     });
 
@@ -77,7 +77,7 @@ exports.putNewProductMorning = (req, res) => {
 exports.putNewProductEvening = (req, res) => {
 
     let updatedUserProfile = new userProfile({
-        userEmailAddress: req.body.userEmailAddress,
+        userEmailAddress: req.params.userEmail,
         objEveningRoutineLog: req.body.objEveningRoutineLog
     });
 
@@ -98,7 +98,7 @@ exports.putNewProductEvening = (req, res) => {
 exports.deleteProductEvening = (req, res) => {
 
    
-    const userEmailAddress =  req.body.userEmailAddress;
+    const userEmailAddress =  req.params.userEmail;
     const _productName = req.body.productName;
       
   
@@ -119,7 +119,7 @@ exports.deleteProductEvening = (req, res) => {
 exports.deleteProductMorning = (req, res) => {
 
    
-    const userEmailAddress =  req.body.userEmailAddress;
+    const userEmailAddress =  req.params.userEmail;
     const _productName = req.body.productName;
       
   

@@ -13,7 +13,7 @@ exports.getDailyLogByUserEmail = (req, res) => {
 exports.postDailyLogByDay = (req, res) => {
 
     let newDailyLog = new DailyLog({
-        userEmailAddress: req.body.userEmailAddress,
+        userEmailAddress: req.params.userEmail,
         objMorningRoutineLog: req.body.objMorningRoutineLog,
         objEveningRoutineLog: req.body.objEveningRoutineLog,
         overallRate: req.body. overallRate,

@@ -8,10 +8,10 @@ const { getUserProfile, getUserProfileByEmail, postNewUserProfile, putNewProduct
 router
     .get("/", getUserProfile)
     .get("/:id", getUserProfileByEmail)
-    .put("/addProductMorning", putNewProductMorning)
-    .put("/addProductEvening", putNewProductEvening)
-    .delete("/deleteProductEvening", deleteProductEvening)
-    .delete("/deleteProductMorning", deleteProductMorning)
+    .put("/addProductMorning/:userEmail", putNewProductMorning)
+    .put("/addProductEvening/:userEmail", putNewProductEvening)
+    .delete("/deleteProductEvening/:userEmail", deleteProductEvening)
+    .delete("/deleteProductMorning/:userEmail", deleteProductMorning)
     .post("/", validator.registration, postNewUserProfile);
 
 module.exports = router;
