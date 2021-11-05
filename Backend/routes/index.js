@@ -7,6 +7,7 @@ const pageContents = require("./pageContent.js");
 
 const missionContentRouter = require("./missionContent.js");
 const teamContentRouter = require("./teamContent.js");
+const adviceContentRouter = require("./adviceContent.js");
 
 router.use("/profile", userProfileRouter);
 router.use("/products", productRouter);
@@ -17,5 +18,7 @@ router.use("/pagecontents", pageContents);
 
 router.use("/missioncontent", missionContentRouter);
 router.use("/teamcontent", teamContentRouter);
+router.use("/advicecontent", adviceContentRouter);
+
 
 module.exports = router;
