@@ -38,7 +38,7 @@ function FeaturesSection() {
         </div>
 
         <button className={styles.register}>
-            <Link to='/registration'>START A ROUTINE NOW</Link>
+            <Link to='/registration'>CREATE A ROUTINE NOW</Link>
         </button>
     </div>
     
