@@ -1,12 +1,12 @@
 import React from 'react';
-import styles from './FeatureInfo.module.css';
+import styles from './FeatureInfo2.module.css';
 import { Link } from 'react-router-dom';
 
 function FeatureInfoSection2(props) {
   
     return (
         <div className={styles.featureOuter}>
-            <div>
+            <div className={styles.content}>
                 <h2>{props.heading}</h2>
                 <p>{props.bodytext}</p>
                 <button>
@@ -14,7 +14,7 @@ function FeatureInfoSection2(props) {
                 </button>
             </div>
 
-            <div>
+            <div className={styles.imageContainer}>
                 <img className={styles.feat2Image} src={props.src} alt={props.alt}/>   
             </div>
         </div> 
