@@ -57,7 +57,7 @@ header .flexRow a:hover {
 
 .dropdownItem {
   text-align: center;
-  padding-top: 2%;
+  padding: 2% 0;
   display: flex;
   flex-direction: column;
   height: 10vh;
@@ -65,9 +65,14 @@ header .flexRow a:hover {
   z-index: 1;
   position: absolute;
   top: 9vh;
-  right: 0;
+  right: 2vw;
   background-color: #ffffff;
-  border-bottom: 2px solid #c9b6a1;
+  border-radius: 10px;
+  border: 2px solid #c9b6a1;
+}
+
+.dropdownItem span {
+  margin: 1%;
 }
 
 .dropdownItem a {
