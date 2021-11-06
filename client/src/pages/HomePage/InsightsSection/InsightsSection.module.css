@@ -31,3 +31,8 @@
   grid-column: 2 / 3;
   justify-self: center;
 }
+
+.insightsImage {
+    height: 40vh;
+    max-width: 25vw;
+}
