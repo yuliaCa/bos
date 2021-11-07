@@ -1,4 +1,3 @@
-import { useLocation } from "react-router-dom";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 // Link is built-in with react-router-dom, that helps us stay on the same page, without reloading it, and not sent a request to the server every time we click a regular <a> tag.
@@ -9,7 +8,6 @@ import { FaCircle } from "react-icons/fa";
 import { RiArrowDownSLine } from "react-icons/ri";
 
 import * as firebase from "../../authentication";
-import { BsAlignBottom } from "react-icons/bs";
 
 function Navbar(props) {
   // first div is for logo

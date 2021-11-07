@@ -6,7 +6,7 @@ function TosPage(props) {
 
   useEffect(() => {
     props.handleIsHome(location);
-  },[]);
+  },[location, props]);
 
   return <div>I am Terms of Service Page</div>;
 }

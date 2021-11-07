@@ -15,7 +15,7 @@ function RegistrationPage(props) {
 
   useEffect(() => {
     props.handleIsHome(location);
-  },[]);
+  },[location, props]);
 
   const [input, setInput] = useState({
     fullname: "",

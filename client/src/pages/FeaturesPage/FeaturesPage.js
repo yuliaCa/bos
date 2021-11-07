@@ -23,7 +23,7 @@ function FeaturesPage(props) {
         setInsightsContent(result.data[6]);
       })
       .catch((error) => console.log(error));
-  },[]);
+  },[location, props]);
 
   return (
     <div className={styles.wrapper}>

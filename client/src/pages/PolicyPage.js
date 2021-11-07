@@ -6,7 +6,7 @@ function PolicyPage(props) {
 
   useEffect(() => {
     props.handleIsHome(location);
-  },[]);
+  },[location, props]);
 
   return <div>I am Policy Page</div>;
 }

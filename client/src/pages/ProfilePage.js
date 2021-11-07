@@ -27,7 +27,7 @@ function ProfilePage(props) {
 
   useEffect(() => {
     props.handleIsHome(location);
-  },[]);
+  },[location, props]);
 
   if (user !== null) {
     // The user object has basic properties such as display name, email, etc.

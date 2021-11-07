@@ -26,7 +26,7 @@ const TeamPage = (props) => {
       .get("/teamcontent/")
       .then((result) => setTeamContent(result.data.data))
       .catch((error) => console.log(error));
-  }, []);
+  }, [location, props]);
 
   return (
     <div className={styles.wrapper}>

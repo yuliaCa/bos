@@ -10,7 +10,7 @@ function LoginPage(props) {
 
   useEffect(() => {
     props.handleIsHome(location);
-  },[]);
+  },[location, props]);
 
   return (
     <div className={styles.loginOuter}>

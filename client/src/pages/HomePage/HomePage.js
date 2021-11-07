@@ -21,7 +21,7 @@ function HomePage(props) {
         setinsightsSectionContent(result.data[3]);
       })
       .catch((error) => console.log(error));
-  },[]);
+  },[location, props]);
 
   return (
     <div>

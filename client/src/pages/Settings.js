@@ -6,7 +6,7 @@ function SettingsPage(props) {
 
   useEffect(() => {
     props.handleIsHome(location);
-  },[]);
+  },[location, props]);
 
   return <div style={ {marginTop:"10rem",}}>I am Settings Page</div>;
 }
