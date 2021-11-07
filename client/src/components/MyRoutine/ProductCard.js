@@ -23,7 +23,7 @@ function ProductCard(props) {
                 <p>{props.suggestedUsage}</p>
                 <Link to='/product-details'>Product Details</Link>
 
-                <FaTrash />
+                <FaTrash className={styles.trashCan} />
 
                 <button className={styles.useButton} onClick={productUsedBtnHandler}>{productIsUsed || props.checkAll ? 'Used' : 'Use Product'}</button>
             </div>
