@@ -33,50 +33,65 @@ function Navbar(props) {
       });
   };
 
-  const transparentBg = {
+  const fixedHeader = {
     position: "fixed",
     top: 0,
     right: 0,
     left: 0,
+  };
+
+  const transparentBg = {
     backgroundColor: "rgba(173, 150, 125, 0.26)",
     marginBottom: "-12vh",
-  }
+  };
 
   const transparentBg2 = {
-    
     backgroundColor: "rgba(173, 150, 125, 0.26)",
-  }
+  };
 
   const whiteText = {
-      color: "#fff",
-  }
+    color: "#fff",
+  };
 
   return (
     <>
-      <header
-        style={props.isHome === "/" ? transparentBg : {}}
-      >
+      <header style={props.isHome === "/" ? transparentBg : {}}>
         <img
           className={styles.filter}
-          src={props.isHome === "/" ? "https://s3-us-west-2.amazonaws.com/bos-skincare/logo/logo_white.svg": "https://s3-us-west-2.amazonaws.com/bos-skincare/logo/logo.svg"}
+          src={
+            props.isHome === "/"
+              ? "https://s3-us-west-2.amazonaws.com/bos-skincare/logo/logo_white.svg"
+              : "https://s3-us-west-2.amazonaws.com/bos-skincare/logo/logo.svg"
+          }
           alt="Footer Logo"
         ></img>
 
         <nav>
           <ul className={styles.flexRow}>
             <li>
-              <Link to="/" style={props.isHome === "/" ? whiteText : {}}>Home </Link>
+              <Link to="/" style={props.isHome === "/" ? whiteText : {}}>
+                Home{" "}
+              </Link>
             </li>
             <li>
-              <Link to="/features" style={props.isHome === "/" ? whiteText : {}}>Features</Link>
+              <Link
+                to="/features"
+                style={props.isHome === "/" ? whiteText : {}}
+              >
+                Features
+              </Link>
             </li>
             <li>
-              <Link to="/team" style={props.isHome === "/" ? whiteText : {}}>Team</Link>
+              <Link to="/team" style={props.isHome === "/" ? whiteText : {}}>
+                Team
+              </Link>
             </li>
 
             <li>
               {!isLoggedIn ? (
-                <Link to="/login">Login</Link>
+                <Link to="/login" style={props.isHome === "/" ? whiteText : {}}>
+                  Login
+                </Link>
               ) : (
                 <>
                   <div className={styles.dropdown}>
@@ -85,19 +100,41 @@ function Navbar(props) {
                       className={styles.icons}
                     >
                       <FaCircle className={styles.faCircle} />
-                      <RiArrowDownSLine style={props.isHome === "/" ? whiteText : {}} className={styles.riArrowDown} />
+                      <RiArrowDownSLine
+                        style={props.isHome === "/" ? whiteText : {}}
+                        className={styles.riArrowDown}
+                      />
                     </div>
                   </div>
                   {open ? (
-                    <div style={props.isHome === "/" ? transparentBg2 : {}} id="dropdown" className={styles.dropdownItem}>
+                    <div
+                      style={props.isHome === "/" ? transparentBg2 : {}}
+                      id="dropdown"
+                      className={styles.dropdownItem}
+                    >
                       <span>
-                        <Link to="/profile" style={props.isHome === "/" ? whiteText : {}}>Profile</Link>
+                        <Link
+                          to="/profile"
+                          style={props.isHome === "/" ? whiteText : {}}
+                        >
+                          Profile
+                        </Link>
                       </span>
                       <span>
-                        <Link to="/settings" style={props.isHome === "/" ? whiteText : {}}>Settings</Link>
+                        <Link
+                          to="/settings"
+                          style={props.isHome === "/" ? whiteText : {}}
+                        >
+                          Settings
+                        </Link>
                       </span>
                       <span onClick={signOut}>
-                        <Link to="#" style={props.isHome === "/" ? whiteText : {}}>Log out</Link>
+                        <Link
+                          to="#"
+                          style={props.isHome === "/" ? whiteText : {}}
+                        >
+                          Log out
+                        </Link>
                       </span>
                     </div>
                   ) : (
