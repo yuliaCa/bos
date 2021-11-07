@@ -42,7 +42,7 @@ function Navbar(props) {
 
   const transparentBg = {
     backgroundColor: "rgba(173, 150, 125, 0.26)",
-    marginBottom: "-12vh",
+    // marginBottom: "-5rem",
   };
 
   const transparentBg2 = {
@@ -54,7 +54,7 @@ function Navbar(props) {
   };
 
   return (
-    <>
+    <div style={fixedHeader}>
       <header style={props.isHome === "/" ? transparentBg : {}}>
         <img
           className={styles.filter}
@@ -146,7 +146,7 @@ function Navbar(props) {
           </ul>
         </nav>
       </header>
-    </>
+    </div>
   );
 }
 
