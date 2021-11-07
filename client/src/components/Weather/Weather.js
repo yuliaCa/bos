@@ -51,7 +51,7 @@ const Weather = () => {
         <div className={styles.gridCol}>
           <img
             className={styles.weatherIcon}
-            src={`${iconURL}${icon}.png`}
+            src={`${iconURL}${icon}.svg`}
             alt="weather icon"
           />
           <p className={styles.temp}>{`${temp}℃`}</p>
