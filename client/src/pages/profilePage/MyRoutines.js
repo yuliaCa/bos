@@ -10,7 +10,8 @@ import SearchInput from '../../components/MyRoutine/ProductAutocomplete/SearchIn
 
 function MyRoutines(props) {
 
-    const [loadedProducts, setLoadedProducts] = useState([]);
+    const [MorningLoadedProducts, setMorningLoadedProducts] = useState([]);
+    const [EveningLoadedProducts, setEveningLoadedProducts] = useState([]);
 
     const [checkedAll, setCheckedAll] = useState(false);
 
@@ -28,7 +29,17 @@ function MyRoutines(props) {
         axios.get('/products')
             .then(results => {
                 console.log(results.data)
-                setLoadedProducts(results.data);
+                setMorningLoadedProducts(results.data);
+            })
+            .catch(error => console.log(error));
+
+    }, [productObject])
+    useEffect(() => {
+
+        axios.get('/products')
+            .then(results => {
+                console.log(results.data)
+                setEveningLoadedProducts(results.data);
             })
             .catch(error => console.log(error));
 
@@ -102,14 +113,14 @@ function MyRoutines(props) {
             <MorningRoutine
                 ProductSubmitHandler={ProductSubmitMorningHandler}
                 checkAllHandler={checkAllHandler}
-                loadedProducts={loadedProducts}
+                loadedProducts={MorningLoadedProducts}
                 setProduct={setProduct}
             />
 
             <EveningRoutine
                 ProductSubmitHandler={ProductSubmitEveningHandler}
                 checkAllHandler={checkAllHandler}
-                loadedProducts={loadedProducts}
+                loadedProducts={EveningLoadedProducts}
                 setProduct={setProduct}
             />
 
