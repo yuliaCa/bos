@@ -36,7 +36,8 @@
 }
 
 .weatherIcon {
-  max-width: 80%;
+  height: auto;
+  width: 7rem;
   margin: 0 auto;
 }
 
