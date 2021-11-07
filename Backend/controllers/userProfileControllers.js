@@ -55,49 +55,83 @@ exports.postNewUserProfile = (req, res) => {
 exports.putNewProductMorning = (req, res) => {
 
     let updatedUserProfile = new userProfile({
-        userEmailAddress: req.body.userEmailAddress,
+        userEmailAddress: req.params.userEmail,
         objMorningRoutineLog: req.body.objMorningRoutineLog
     });
 
-  
-    newuserProfile.findOneAndUpdate({ "userEmailAddress": updatedUserProfile.userEmailAddress },{ "objMorningRoutineLog": updatedUserProfile.objMorningRoutineLog}).then(result => {
-            res.status(201).json({
-                data: newuserProfile,
-                url: `/addProductMorning/${newuserProfile._id}`
-            });
-        })
-        .catch(error => res.status(500).send(error));
+    console.log(updatedUserProfile);
+
+    userProfile.findOneAndUpdate(
+        { userEmailAddress: updatedUserProfile.userEmailAddress },
+        { $push: { objMorningRoutineLog: updatedUserProfile.objMorningRoutineLog} }
+      ).then(result => {
+        res.status(201).json({
+            data: updatedUserProfile,
+            url: `/addProductMorning/${updatedUserProfile._id}`
+        });
+    }).catch(error => res.status(500).send(error));
+    
 };
 
 
 exports.putNewProductEvening = (req, res) => {
 
     let updatedUserProfile = new userProfile({
-        userEmailAddress: req.body.userEmailAddress,
+        userEmailAddress: req.params.userEmail,
         objEveningRoutineLog: req.body.objEveningRoutineLog
     });
 
-  
-    newuserProfile.findOneAndUpdate({ "userEmailAddress": updatedUserProfile.userEmailAddress },{ "objEveningRoutineLog": updatedUserProfile.objEveningRoutineLog}).then(result => {
-            res.status(201).json({
-                data: newuserProfile,
-                url: `/addProductMorning/${newuserProfile._id}`
-            });
-        })
-        .catch(error => res.status(500).send(error));
+    console.log(updatedUserProfile);
+
+    userProfile.findOneAndUpdate(
+        { userEmailAddress: updatedUserProfile.userEmailAddress },
+        { $push: { objEveningRoutineLog: updatedUserProfile.objEveningRoutineLog} }
+      ).then(result => {
+        res.status(201).json({
+            data: updatedUserProfile,
+            url: `/addProductEvening/${updatedUserProfile._id}`
+        });
+    }).catch(error => res.status(500).send(error));
 };
 
 
-exports.deleteProduct = (req, res) => {
+exports.deleteProductEvening = (req, res) => {
 
-    let deletePageContent = new PageContent({
-        header: req.body.header
-    });
+   
+    const userEmailAddress =  req.params.userEmail;
+    const _productName = req.body.productName;
+      
+  
+    userProfile.findOneAndUpdate(
+        { userEmailAddress: userEmailAddress },
+        { $pull: { objEveningRoutineLog: {
+            productName: _productName
+          }} }
+      ).then(result => {
+        res.status(201).json({
+            data: _productName,
+            url: `/deleteProductEvening/${_productName}`
+        });
+    }).catch(error => res.status(500).send(error));
+};
 
-    deletePageContent.find({"header":header}).remove.then(result => {
-            res.status(201).json({
-           
-            });
-        })
-        .catch(error => res.status(500).send(error));
+
+exports.deleteProductMorning = (req, res) => {
+
+   
+    const userEmailAddress =  req.params.userEmail;
+    const _productName = req.body.productName;
+      
+  
+    userProfile.findOneAndUpdate(
+        { userEmailAddress: userEmailAddress },
+        { $pull: { objMorningRoutineLog: {
+            productName: _productName
+          }} }
+      ).then(result => {
+        res.status(201).json({
+            data: _productName,
+            url: `/deleteProductMorning/${_productName}`
+        });
+    }).catch(error => res.status(500).send(error));
 };

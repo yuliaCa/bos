@@ -1,5 +1,5 @@
 
-const PageContent = require("../models/pageContent.js");
+const PageContent = require("../models/featuresSchema.js");
 
 exports.getPageContents = (req, res) => {
     //req.params.userEmail

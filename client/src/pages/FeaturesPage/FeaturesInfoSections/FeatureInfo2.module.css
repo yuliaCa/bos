@@ -4,17 +4,59 @@
     padding: 2%;
 }
 
-p {
+.featureOuter .content {
+    padding-top: 10%;
+    padding-left: 7.5%;
+    padding-right: 7.5%;
+}
+
+.featureOuter p {
     text-align: left;
-    padding: 5%;
+    line-height: 3vh;
+    margin-bottom: 5%;
+    font-weight: 200;
+    color: #67392A;
+}
+
+.featureOuter h2 {
+    color: #67392A;
+    font-weight: 500;
+}
+
+.featureOuter button a { 
+    text-decoration: none;
+    color: #F8F5F0;
+}
+
+.featureOuter button {
+    background-color: #67392A;
+    border: none;
+    border-radius: 10px;
+    height: 4vh;
+    width: 16vw;
+    font-size: 15px;
+}
+
+.featureOuter button:hover {
+    background-color: #96807A;
+    opacity: 50%;
+}
+
+.featureOuter button:active {
+    background-color: #F8F5F0;
+    border: 2px solid #96807A;
+}
+
+.featureOuter .imageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5% 0;
 }
 
 .feat2Image {
-    height: auto;
-    max-width: 100%;
-}
-
-button a { 
-    text-decoration: none;
-    color: black;
+    margin-top: 3%;
+    margin-left: 5%;
+    height: 40vh;
+    max-width: 27vw;
 }

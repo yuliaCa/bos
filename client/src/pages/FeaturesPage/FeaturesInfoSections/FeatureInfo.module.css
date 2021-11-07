@@ -2,27 +2,64 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     padding: 2%;
+    background-color: #FCF9F6;
 }
 
 .sectionLeft {
     grid-column: 1 / 2;
-}
+    padding-left: 8vw;
 
-p {
-    text-align: left;
-    padding: 5%;
 }
 
 .sectionRight {
     grid-column: 2 / 3;
+    padding-left: 7.5%;
+    padding-right: 7.5%;
+}
+
+.sectionRight p {
+    text-align: left;
+    line-height: 3vh;
+    margin-bottom: 5%;
+    font-weight: 200;
+    color: #67392A;
+}
+
+.sectionRight h2 {
+    color: #67392A;
+    font-weight: 500;
 }
 
 .feat1_3Image {
-    height: auto;
-    max-width: 100%;
+    height: 40vh;
+    max-width: 27vw;
 }
 
-button a { 
+
+.sectionRight button a { 
     text-decoration: none;
-    color: black;
+    color: #F8F5F0;
 }
+
+.sectionRight button {
+    background-color: #67392A;
+    border: none;
+    border-radius: 10px;
+    height: 4vh;
+    width: 16vw;
+    font-size: 15px;
+}
+
+.sectionRight button:hover {
+    background-color: #96807A;
+    opacity: 50%;
+}
+
+.sectionRight button:active {
+    background-color: #F8F5F0;
+    border: 2px solid #96807A;
+}
+
+
+
+
