@@ -21,7 +21,7 @@ function ProductCard(props) {
                 <h5>{props.name}</h5>
 
                 <p>{props.suggestedUsage}</p>
-                <Link to='/product-details'>Product Details</Link>
+                <Link to='/profile?'>Product Details</Link>
 
                 <FaTrash className={styles.trashCan} />
 
