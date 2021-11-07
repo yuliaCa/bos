@@ -25,7 +25,7 @@ const EveningRoutine = (props) => {
 
                 <SearchInput setProduct={props.setProduct} />
 
-                <button>Add Product</button>
+                <button onClick={props.ProductSubmitHandler}>Add Product</button>
             </div>
 
             <div className={styles.selectAll}>

@@ -24,8 +24,8 @@ function MyRoutines(props) {
 
     const [productObject, setProductObject] = useState({});
 
-    useEffect(() => {
 
+    useEffect(() => {
         axios.get('/products')
             .then(results => {
                 console.log(results.data)
@@ -34,6 +34,8 @@ function MyRoutines(props) {
             .catch(error => console.log(error));
 
     }, [productObject])
+
+
     useEffect(() => {
 
         axios.get('/products')
@@ -45,66 +47,101 @@ function MyRoutines(props) {
 
     }, [productObject])
 
-    function pullDetailsSephoraAPI() {
-        const options = {
-            method: 'GET',
-            url: 'https://sephora.p.rapidapi.com/products/detail',
-            params: {
-                productId: product.productId,
-                preferedSku: product['currentSku']['skuId']
-            },
-            headers: {
-                'x-rapidapi-host': 'sephora.p.rapidapi.com',
-                'x-rapidapi-key': '2b5c9fd8d8msh0132ae34892c4f1p161c42jsnb732f5ff681a'
-            }
-        };
-
-        axios.request(options).then(function (response) {
-            console.log(response.data);
-
-            let theProductObj = {
-                productName: response.data.displayName,
-                images: response.data.currentSku.skuImages.image250,
-                brandName: response.data.brandName,
-                description: response.data.longDescription,
-                category: response.data.parentCategory.displayName,
-                ingredients: response.data.currentSku.ingredientDesc,
-                suggestedUsage: response.data.suggestedUsage
-            }
-            setProductObject(theProductObj);
-
-        }).catch(function (error) {
-            console.error(error);
-        });
-    }
 
     const ProductSubmitMorningHandler = (event) => {
         event.preventDefault();
-        console.log('Submitted!')
+        console.log(`PRODUCT:${product}`)
         if (product) {
+            const options = {
+                method: 'GET',
+                url: 'https://sephora.p.rapidapi.com/products/detail',
+                params: {
+                    productId: product.productId,
+                    preferedSku: product['currentSku']['skuId']
+                },
+                headers: {
+                    'x-rapidapi-host': 'sephora.p.rapidapi.com',
+                    'x-rapidapi-key': '2b5c9fd8d8msh0132ae34892c4f1p161c42jsnb732f5ff681a'
+                }
+            };
 
-            pullDetailsSephoraAPI();
-            axios.post(`addProductMorning/${props.email}`, productObject)
-                .then(results => {
-                    console.log('I AM GETTING POSTED YEA')
+            axios.request(options)
+                .then(function (response) {
+                    console.log(response.data);
+
+                    let theProductObj = {
+                        productName: response.data.displayName,
+                        images: response.data.currentSku.skuImages.image250,
+                        brandName: response.data.brandName,
+                        description: response.data.longDescription,
+                        category: response.data.parentCategory.displayName,
+                        ingredients: response.data.currentSku.ingredientDesc,
+                        suggestedUsage: response.data.suggestedUsage
+                    }
+                    setProductObject(theProductObj);
+
                 })
-                .catch(error => console.log(error))
+                .catch(function (error) {
+                    console.error(error);
+                });
         }
+
+        axios.put(`/addProductMorning/${props.email}`, productObject)
+            .then(results => {
+                console.log('I AM GETTING POSTED YEA')
+            })
+            .catch(error => console.log(error))
     }
+
 
     const ProductSubmitEveningHandler = (event) => {
         event.preventDefault();
-        console.log('Submitted!')
+        console.log(`PRODUCT:${product}`)
+
         if (product) {
 
-            pullDetailsSephoraAPI();
-            axios.post(`addProductEvening/${props.email}`, productObject)
-                .then(results => {
-                    console.log('I AM GETTING POSTED YEA')
+            const options = {
+                method: 'GET',
+                url: 'https://sephora.p.rapidapi.com/products/detail',
+                params: {
+                    productId: product.productId,
+                    preferedSku: product['currentSku']['skuId']
+                },
+                headers: {
+                    'x-rapidapi-host': 'sephora.p.rapidapi.com',
+                    'x-rapidapi-key': '2b5c9fd8d8msh0132ae34892c4f1p161c42jsnb732f5ff681a'
+                }
+            };
+
+            axios.request(options)
+                .then(function (response) {
+                    console.log(response.data);
+
+                    let theProductObj = {
+                        productName: response.data.displayName,
+                        images: response.data.currentSku.skuImages.image250,
+                        brandName: response.data.brandName,
+                        description: response.data.longDescription,
+                        category: response.data.parentCategory.displayName,
+                        ingredients: response.data.currentSku.ingredientDesc,
+                        suggestedUsage: response.data.suggestedUsage
+                    }
+                    setProductObject(theProductObj);
+
                 })
-                .catch(error => console.log(error))
+                .catch(function (error) {
+                    console.error(error);
+                });
         }
+
+        console.log(props.email)
+        axios.put(`/addProductEvening/${props.email}`, productObject)
+            .then(results => {
+                console.log('I AM GETTING POSTED YEA')
+            })
+            .catch(error => console.log(error))
     }
+
 
 
     return (
