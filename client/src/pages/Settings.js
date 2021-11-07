@@ -1,5 +1,14 @@
-function SettingsPage() {
-    return <div>I am Settings Page</div>
-  }
-  
-  export default SettingsPage;
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
+
+function SettingsPage(props) {
+  const location = useLocation();
+
+  useEffect(() => {
+    props.handleIsHome(location);
+  },[]);
+
+  return <div>I am Settings Page</div>;
+}
+
+export default SettingsPage;
