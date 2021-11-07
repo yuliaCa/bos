@@ -1,6 +1,7 @@
 .profilePage {
   max-width: 890px;
   margin: 0 auto;
+  margin-top: 10rem;
 }
 
 .profilePage h2 {
@@ -16,41 +17,41 @@
 }
 
 .profilePage .tab1 {
-  color: #96807A;
+  color: #96807a;
   padding: 1rem 0;
   border-radius: 20px 0 0 0;
   width: 100%;
   margin: 0 auto;
-  border: 1px solid #96807A;
+  border: 1px solid #96807a;
 }
 
 .profilePage .tab1focus {
   color: #fff;
-  background-color: #96807A;
+  background-color: #96807a;
   padding: 1rem 0;
   border-radius: 20px 0 0 0;
   width: 100%;
   margin: 0 auto;
-  border: 1px solid #96807A;
+  border: 1px solid #96807a;
 }
 
 .profilePage .tab2 {
-  color: #96807A;
+  color: #96807a;
   padding: 1rem 0;
   border-radius: 0 20px 0 0;
   width: 100%;
   margin: 0 auto;
-  border: 1px solid #96807A;
+  border: 1px solid #96807a;
 }
 
 .profilePage .tab2focus {
   color: #fff;
-  background-color: #96807A;
+  background-color: #96807a;
   padding: 1rem 0;
   border-radius: 0 20px 0 0;
   width: 100%;
   margin: 0 auto;
-  border: 1px solid #96807A;
+  border: 1px solid #96807a;
 }
 
 .profilePage span {

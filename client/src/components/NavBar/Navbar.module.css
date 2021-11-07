@@ -30,7 +30,7 @@ header .flexRow a {
 
 .faCircle,
 .riArrowDown {
-  height: 4vh;
+  height: 2.1rem;
   width: 4vw;
   color: rgba(45, 18, 9, 0.5);
 }
@@ -41,7 +41,7 @@ header .flexRow a:hover {
 
 header .filter {
   width: 8vw;
-  height: 6vh;
+  height: 6rem;
 }
 
 .dropdown {
@@ -59,7 +59,7 @@ header .filter {
   padding: 2% 0;
   display: flex;
   flex-direction: column;
-  height: 10vh;
+  height: 5rem;
   width: 17vw;
   z-index: 1;
   position: absolute;
