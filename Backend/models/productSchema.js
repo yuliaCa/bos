@@ -8,7 +8,10 @@ const productSchema = new dbSchema({
     images: { type: [String] },
     brandName: { type: String },
     description: { type: String },
-    category: { type: String }
+    category: { type: String },
+    ingredients: { type: String },
+    suggestedUsage: { type: String }
+
 });
 
 // .model('name of the model', schemaName, 'Mongoose collection name')

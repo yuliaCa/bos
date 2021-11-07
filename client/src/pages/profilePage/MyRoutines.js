@@ -10,18 +10,6 @@ function MyRoutines(props) {
 
     const [loadedProducts, setLoadedProducts] = useState([]);
 
-    useEffect(() => {
-
-        axios.get('/products')
-            .then(results => {
-                console.log(results.data)
-                setLoadedProducts(results.data);
-            })
-            .catch(error => console.log(error));
-
-    }, [])
-
-
     const [checkedAll, setCheckedAll] = useState(false);
 
     const checkAllHandler = () => {
@@ -39,13 +27,59 @@ function MyRoutines(props) {
 
     const [product, setProduct] = useState('');
 
-    const ProductSubmitHandler = async () => {
+    const [productObject, setProductObject] = useState({});
 
-        await axios.post(`/products/${props.email}`,)
+    useEffect(() => {
+
+        axios.get('/products')
             .then(results => {
-
+                console.log(results.data)
+                setLoadedProducts(results.data);
             })
-            .catch(error => console.log(error))
+            .catch(error => console.log(error));
+
+    }, [productObject])
+
+    async function ProductSubmitHandler(event) {
+        event.preventDefault();
+        console.log('Submitted!')
+        if (product) {
+            const options = {
+                method: 'GET',
+                url: 'https://sephora.p.rapidapi.com/products/detail',
+                params: {
+                    productId: product.productId,
+                    preferedSku: product['currentSku']['skuId']
+                },
+                headers: {
+                    'x-rapidapi-host': 'sephora.p.rapidapi.com',
+                    'x-rapidapi-key': '2b5c9fd8d8msh0132ae34892c4f1p161c42jsnb732f5ff681a'
+                }
+            };
+
+            await axios.request(options).then(function (response) {
+                console.log(response.data);
+
+                let theProductObj = {
+                    productName: response.data.displayName,
+                    images: response.data.currentSku.skuImages.image250,
+                    brandName: response.data.brandName,
+                    description: response.data.longDescription,
+                    category: response.data.parentCategory.displayName,
+                    ingredients: response.data.currentSku.ingredientDesc,
+                    suggestedUsage: response.data.suggestedUsage
+                }
+                setProductObject(theProductObj);
+
+            }).catch(function (error) {
+                console.error(error);
+            });
+            await axios.post(`/products/${props.email}`, productObject)
+                .then(results => {
+                    console.log('I AM GETTING POSTED YEA')
+                })
+                .catch(error => console.log(error))
+        }
     }
 
 
@@ -54,12 +88,12 @@ function MyRoutines(props) {
             <div className={styles.morningRoutine}>
                 <h1 className={styles.heading}>Morning Routine  </h1>
 
-                <form className={styles.userInput}>
+                <form className={styles.userInput} >
                     <Select options={categoryOptions} />
 
                     <SearchInput setProduct={setProduct} />
 
-                    <button onSubmit={ProductSubmitHandler}>Add Product</button>
+                    <button onClick={(event) => ProductSubmitHandler(event)}>Add Product</button>
                 </form>
 
                 <div className={styles.selectAll}>
@@ -74,9 +108,10 @@ function MyRoutines(props) {
                             key={eachProduct._id}
                             id={eachProduct._id}
                             image={eachProduct.images}
-                            category={eachProduct.productCategory}
+                            category={eachProduct.category}
                             name={eachProduct.productName}
-                            description={eachProduct.productDescription}
+                            description={eachProduct.description}
+                            suggestedUsage={eachProduct.suggestedUsage}
                             checkAll={checkedAll}
                         />
                     ))}
@@ -109,6 +144,7 @@ function MyRoutines(props) {
                             category={eachProduct.productCategory}
                             name={eachProduct.productName}
                             description={eachProduct.productDescription}
+                            suggestedUsage={eachProduct.suggestedUsage}
                             checkAll={checkedAll}
                         />
                     ))}

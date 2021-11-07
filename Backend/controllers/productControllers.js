@@ -35,15 +35,17 @@ exports.postNewProduct = (req, res) => {
         images: req.body.images,
         brandName: req.body.brandName,
         description: req.body.description,
-        category: req.body.category
+        category: req.body.category,
+        ingredients: req.body.ingredients,
+        suggestedUsage: req.body.suggestedUsage
     });
 
     newProduct.save().then(result => {
-            res.status(201).json({
-                data: newProduct,
-                url: `/product/${newProduct._id}`
-            });
-        })
+        res.status(201).json({
+            data: newProduct,
+            url: `/product/${newProduct._id}`
+        });
+    })
         .catch(error => res.status(500).send(error));
 
 
