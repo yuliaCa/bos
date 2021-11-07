@@ -21,7 +21,7 @@ function ProductCard(props) {
                 <h5>{props.name}</h5>
 
                 <p>{props.suggestedUsage}</p>
-                <Link to='/profile?'>Product Details</Link>
+                <a href='#' onClick={props.detailsOrRoutineHandler}>Product Details</a>
 
                 <FaTrash className={styles.trashCan} />
 

@@ -3,12 +3,18 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import MorningRoutine from '../../components/MyRoutine/MorningRoutine';
 import EveningRoutine from '../../components/MyRoutine/EveningRoutine';
+import ProductDetails from '../../components/MyRoutine/ProductDetails';
 import Select from 'react-select';
 import ProductCard from '../../components/MyRoutine/ProductCard';
 import SearchInput from '../../components/MyRoutine/ProductAutocomplete/SearchInput';
 
 
 function MyRoutines(props) {
+
+    const [showProductDetails, setShowProductDetails] = useState(false);
+    const detailsOrRoutineHandler = () => {
+        setShowProductDetails(true);
+    }
 
     const [MorningLoadedProducts, setMorningLoadedProducts] = useState([]);
     const [EveningLoadedProducts, setEveningLoadedProducts] = useState([]);
@@ -93,7 +99,6 @@ function MyRoutines(props) {
             .catch(error => console.log(error))
     }
 
-
     const ProductSubmitEveningHandler = (event) => {
         event.preventDefault();
         console.log(`PRODUCT:${product}`)
@@ -134,7 +139,6 @@ function MyRoutines(props) {
                 });
         }
 
-        console.log(props.email)
         axios.put(`/addProductEvening/${props.email}`, productObject)
             .then(results => {
                 console.log('I AM GETTING POSTED YEA')
@@ -142,17 +146,23 @@ function MyRoutines(props) {
             .catch(error => console.log(error))
     }
 
-
-
     return (
         <div>
 
-            <MorningRoutine
-                ProductSubmitHandler={ProductSubmitMorningHandler}
-                checkAllHandler={checkAllHandler}
-                loadedProducts={MorningLoadedProducts}
-                setProduct={setProduct}
-            />
+
+            <div>
+
+                {showProductDetails ?
+                    <ProductDetails /> :
+                    <MorningRoutine
+                        ProductSubmitHandler={ProductSubmitMorningHandler}
+                        checkAllHandler={checkAllHandler}
+                        loadedProducts={MorningLoadedProducts}
+                        setProduct={setProduct}
+                        detailsOrRoutineHandler={detailsOrRoutineHandler}
+                    />}
+
+            </div>
 
             <EveningRoutine
                 ProductSubmitHandler={ProductSubmitEveningHandler}
