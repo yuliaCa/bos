@@ -61,9 +61,14 @@ function Navbar() {
                         </div>
                         {open ? (
                         <div id="dropdown" className={styles.dropdownItem}>
+                        <span>
                         <Link to='/profile'>Profile</Link>
+                        </span>
+                        <span>
+                        <Link to="/settings">Settings</Link>
+                        </span>
                         <span onClick={signOut}>
-                        <Link to="#">Sign out</Link>
+                        <Link to="#">Log out</Link>
                         </span>
                         </div> ) : "" }
                         </>

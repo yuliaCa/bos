@@ -3,14 +3,15 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin: auto 5%;
-  padding: 0 2rem;
+  /* margin: auto 5%; */
+  padding: 0 7%;
+  background-color: #F8F5F0;
 }
 .footerTop .flexRow {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  gap: 10%;
+  /* gap: 10%; */
   white-space: nowrap;
 }
 
