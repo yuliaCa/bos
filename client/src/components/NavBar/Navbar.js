@@ -40,7 +40,7 @@ function Navbar(props) {
 
   const transparentBg = {
     backgroundColor: "rgba(173, 150, 125, 0.26)",
-    marginBottom: "-12vh",
+    // marginBottom: "-5rem",
   };
 
   const transparentBg2 = {
