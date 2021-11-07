@@ -8,7 +8,6 @@ header {
   position: relative;
 }
 
-
 header .flexRow ul {
   list-style-type: none;
   display: flex;
@@ -40,7 +39,7 @@ header .flexRow a:hover {
   color: #67392a;
 }
 
-.header .filter {
+header .filter {
   width: 8vw;
   height: 6vh;
 }
@@ -66,7 +65,7 @@ header .flexRow a:hover {
   position: absolute;
   top: 9vh;
   right: 2vw;
-  background-color: #ffffff;
+  background-color: #fff;
   border-radius: 10px;
   border: 2px solid #c9b6a1;
 }
@@ -80,4 +79,10 @@ header .flexRow a:hover {
   color: #ffffff;
   font-size: 19px;
   margin-bottom: 3%;
+}
+
+/* HomePage NavBar Styling */
+
+.headerHome {
+  background-color: red;
 }
