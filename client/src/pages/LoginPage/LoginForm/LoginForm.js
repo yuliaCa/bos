@@ -3,13 +3,14 @@
 
 import React, { useState } from 'react';
 import styles from './LoginForm.module.css';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 //import functions from Firebase authentication SDK
 import * as firebase from '../../../authentication';
 
 function LoginForm() {
 
+    const history = useHistory();
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
   
@@ -19,6 +20,7 @@ function LoginForm() {
         .then((user) => {
             if (user) {
               console.log("logged in! User ID: " + firebase.auth.currentUser.uid);
+              history.push("/");
             }
           })
         .catch((error) => {
