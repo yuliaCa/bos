@@ -6,7 +6,9 @@ const ProductDetails = (props) => {
 
     return (
         <div>
-            I Am Product Details
+            <a href='#' onClick={props.evening ? props.closeDetailsEvening : props.closeDetailsMorning}>Back To Routine</a>
+
+
         </div>
     )
 }

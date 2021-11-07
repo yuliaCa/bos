@@ -12,13 +12,19 @@ import SearchInput from '../../components/MyRoutine/ProductAutocomplete/SearchIn
 function MyRoutines(props) {
 
     const [showProductDetailsMorning, setShowProductDetailsMorning] = useState(false);
-    const detailsOrRoutineHandlerMorning = () => {
+    const openDetailsMorning = () => {
         setShowProductDetailsMorning(true);
+    }
+    const closeDetailsMorning = () => {
+        setShowProductDetailsMorning(false);
     }
 
     const [showProductDetailsEvening, setShowProductDetailsEvening] = useState(false);
-    const detailsOrRoutineHandlerEvening = () => {
+    const openDetailsEvening = () => {
         setShowProductDetailsEvening(true);
+    }
+    const closeDetailsEvening = () => {
+        setShowProductDetailsEvening(false)
     }
 
     const [MorningLoadedProducts, setMorningLoadedProducts] = useState([]);
@@ -161,13 +167,15 @@ function MyRoutines(props) {
             <div>
                 <h1>{headingMorningRoutine}</h1>
                 {showProductDetailsMorning ?
-                    <ProductDetails /> :
+                    <ProductDetails
+                        closeDetailsMorning={closeDetailsMorning}
+                        evening={false} /> :
                     <MorningRoutine
                         ProductSubmitHandler={ProductSubmitMorningHandler}
                         checkAllHandler={checkAllHandler}
                         loadedProducts={MorningLoadedProducts}
                         setProduct={setProduct}
-                        detailsOrRoutineHandlerMorning={detailsOrRoutineHandlerMorning}
+                        openDetailsMorning={openDetailsMorning}
                         evening={false}
                     />}
 
@@ -176,13 +184,15 @@ function MyRoutines(props) {
             <div>
                 <h1>{headingEveningRoutine}</h1>
                 {showProductDetailsEvening ?
-                    <ProductDetails /> :
+                    <ProductDetails
+                        closeDetailsEvening={closeDetailsEvening}
+                        evening={true} /> :
                     <EveningRoutine
                         ProductSubmitHandler={ProductSubmitEveningHandler}
                         checkAllHandler={checkAllHandler}
                         loadedProducts={EveningLoadedProducts}
                         setProduct={setProduct}
-                        detailsOrRoutineHandlerEvening={detailsOrRoutineHandlerEvening}
+                        openDetailsEvening={openDetailsEvening}
                         evening={true}
                     />}
             </div>
