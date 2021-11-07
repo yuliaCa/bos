@@ -1,3 +1,4 @@
+import styles from "./FeaturesPage.module.css";
 import { useLocation } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import FeatureInfoSection from "./FeaturesInfoSections/FeatureInfo";
@@ -25,7 +26,7 @@ function FeaturesPage(props) {
   },[]);
 
   return (
-    <div>
+    <div className={styles.wrapper}>
       <FeatureInfo2Section
         src="https://s3-us-west-2.amazonaws.com/bos-skincare/feature/big-images/routine.png"
         alt="Feature One image"
