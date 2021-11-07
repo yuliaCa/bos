@@ -45,7 +45,7 @@ const EveningRoutine = (props) => {
                         description={eachProduct.productDescription}
                         suggestedUsage={eachProduct.suggestedUsage}
                         checkAll={props.checkedAll}
-                        detailsOrRoutineHandlerEvening={props.detailsOrRoutineHandlerEvening}
+                        openDetailsEvening={props.openDetailsEvening}
                         evening={props.evening}
                     />
                 ))}
