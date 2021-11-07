@@ -26,10 +26,10 @@ const TeamPage = (props) => {
       .get("/teamcontent/")
       .then((result) => setTeamContent(result.data.data))
       .catch((error) => console.log(error));
-  },[]);
+  }, []);
 
   return (
-    <div>
+    <div className={styles.wrapper}>
       <MissionCard
         header={missionContent.header}
         bodytext={missionContent.bodytext}

@@ -8,7 +8,7 @@ function SettingsPage(props) {
     props.handleIsHome(location);
   },[]);
 
-  return <div>I am Settings Page</div>;
+  return <div style={ {marginTop:"10rem",}}>I am Settings Page</div>;
 }
 
 export default SettingsPage;
