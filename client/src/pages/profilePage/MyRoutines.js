@@ -11,9 +11,14 @@ import SearchInput from '../../components/MyRoutine/ProductAutocomplete/SearchIn
 
 function MyRoutines(props) {
 
-    const [showProductDetails, setShowProductDetails] = useState(false);
-    const detailsOrRoutineHandler = () => {
-        setShowProductDetails(true);
+    const [showProductDetailsMorning, setShowProductDetailsMorning] = useState(false);
+    const detailsOrRoutineHandlerMorning = () => {
+        setShowProductDetailsMorning(true);
+    }
+
+    const [showProductDetailsEvening, setShowProductDetailsEvening] = useState(false);
+    const detailsOrRoutineHandlerEvening = () => {
+        setShowProductDetailsEvening(true);
     }
 
     const [MorningLoadedProducts, setMorningLoadedProducts] = useState([]);
@@ -146,30 +151,41 @@ function MyRoutines(props) {
             .catch(error => console.log(error))
     }
 
+    let headingMorningRoutine = `Morning Routine`;
+    let headingEveningRoutine = `Evening Routine`;
+
     return (
         <div>
 
 
             <div>
-
-                {showProductDetails ?
+                <h1>{headingMorningRoutine}</h1>
+                {showProductDetailsMorning ?
                     <ProductDetails /> :
                     <MorningRoutine
                         ProductSubmitHandler={ProductSubmitMorningHandler}
                         checkAllHandler={checkAllHandler}
                         loadedProducts={MorningLoadedProducts}
                         setProduct={setProduct}
-                        detailsOrRoutineHandler={detailsOrRoutineHandler}
+                        detailsOrRoutineHandlerMorning={detailsOrRoutineHandlerMorning}
+                        evening={false}
                     />}
 
             </div>
 
-            <EveningRoutine
-                ProductSubmitHandler={ProductSubmitEveningHandler}
-                checkAllHandler={checkAllHandler}
-                loadedProducts={EveningLoadedProducts}
-                setProduct={setProduct}
-            />
+            <div>
+                <h1>{headingEveningRoutine}</h1>
+                {showProductDetailsEvening ?
+                    <ProductDetails /> :
+                    <EveningRoutine
+                        ProductSubmitHandler={ProductSubmitEveningHandler}
+                        checkAllHandler={checkAllHandler}
+                        loadedProducts={EveningLoadedProducts}
+                        setProduct={setProduct}
+                        detailsOrRoutineHandlerEvening={detailsOrRoutineHandlerEvening}
+                        evening={true}
+                    />}
+            </div>
 
 
         </div>
