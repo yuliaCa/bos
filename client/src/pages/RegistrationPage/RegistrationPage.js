@@ -59,11 +59,19 @@ function RegistrationPage() {
                 displayName: input.fullname,
                 photoURL: ""
             }).then(() => {
-                console.log("user registered: " + firebase.auth.currentUser.uid)
-                history.push("/login");
+                console.log("user registered: " + firebase.auth.currentUser.uid)      
             }).catch((error) => {
                 console.error(`There was an error creating profile: ${error}`);
             });
+
+            firebase.signOut(firebase.auth).then(() => {
+                console.log("sign out successful");
+                }).catch((error) => {
+                console.error("Error signing out, ", error.message);
+                });
+            
+            history.push("/login");
+
             })
             .catch((error) => {
             const errorCode = error.code;
