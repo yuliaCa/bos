@@ -1,6 +1,7 @@
 // import logo from './logo.svg';
-import React from 'react';
-import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
+import React from "react";
+import { useState } from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "./App.css";
 
 // Route component checks all paths and returns ALL results that start with matching path. This would result in nested pages. Not always the desired outcome.
@@ -13,8 +14,8 @@ import FeaturesPage from "./pages/FeaturesPage/FeaturesPage";
 import ProfilePage from "./pages/ProfilePage";
 import SettingsPage from "./pages/Settings";
 import TeamPage from "./pages/TeamPage";
-import RegistrationPage from "./pages/RegistrationPage/RegistrationPage"
-import LoginPage from "./pages/LoginPage/LoginPage"
+import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
+import LoginPage from "./pages/LoginPage/LoginPage";
 
 import Navbar from "./components/NavBar/Navbar";
 
@@ -24,42 +25,48 @@ import TosPage from "./pages/TosPage";
 import Footer from "./components/Footer/Footer";
 
 function App() {
-  
-  return (
+  const [isHome, setIsHome] = useState();
 
+  const handleIsHome = (home) => {
+    setIsHome(home.pathname);
+  };
+
+  console.log(isHome);
+
+  return (
     <div className="App">
       <BrowserRouter>
-        <Navbar />
+        <Navbar isHome={isHome} handleIsHome={handleIsHome} />
         <Switch>
           <Route path="/" exact>
-            <HomePage />
+            <HomePage isHome={isHome} handleIsHome={handleIsHome} />
           </Route>
           <Route path="/features">
-            <FeaturesPage />
+            <FeaturesPage isHome={isHome} handleIsHome={handleIsHome} />
           </Route>
           <Route path="/team">
-            <TeamPage />
+            <TeamPage isHome={isHome} handleIsHome={handleIsHome} />
           </Route>
           <Route path="/profile">
-            <ProfilePage />
+            <ProfilePage isHome={isHome} handleIsHome={handleIsHome} />
           </Route>
           <Route path="/settings">
-            <SettingsPage />
+            <SettingsPage isHome={isHome} handleIsHome={handleIsHome} />
           </Route>
           <Route path="/policy">
-            <PolicyPage />
+            <PolicyPage isHome={isHome} handleIsHome={handleIsHome} />
           </Route>
           <Route path="/tos">
-            <TosPage />
+            <TosPage isHome={isHome} handleIsHome={handleIsHome} />
           </Route>
           <Route path="/registration">
-            <RegistrationPage />
+            <RegistrationPage isHome={isHome} handleIsHome={handleIsHome} />
           </Route>
           <Route path="/login">
-            <LoginPage />
+            <LoginPage isHome={isHome} handleIsHome={handleIsHome} />
           </Route>
         </Switch>
-        <Footer/>
+        <Footer />
       </BrowserRouter>
     </div>
   );
