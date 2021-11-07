@@ -43,10 +43,7 @@ function Navbar(props) {
   }
 
   const transparentBg2 = {
-    position: "fixed",
-    top: 0,
-    right: 0,
-    left: 0,
+    
     backgroundColor: "rgba(173, 150, 125, 0.26)",
   }
 
