@@ -79,16 +79,13 @@ function handleChange(event) {
 
             })
             .catch((error) => {
-              console.error(`There was an error creating profile: ${error}`);
-            });
-        })
-        .catch((error) => {
-          const errorCode = error.code;
+              const errorCode = error.code;
           const errorMessage = error.message;
           console.error(
-            `There was an error signing up: ${errorCode}, ${errorMessage}`
-          );
-        });
+            `There was an error signing up: ${errorCode}, ${errorMessage}`);
+            });
+        }
+      
     }
 
     const newProfile = {
@@ -120,7 +117,7 @@ function handleChange(event) {
         console.log(error.response.data);
       }
     });
-  }
+  
 
   return (
     <>
