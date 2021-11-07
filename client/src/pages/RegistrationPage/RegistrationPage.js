@@ -7,7 +7,7 @@ import * as firebase from '../../authentication';
 import React, { useState } from 'react';
 import styles from './RegistrationPage.module.css';
 import axios from 'axios';
-
+import { useHistory } from 'react-router-dom';
 
 function RegistrationPage() {
 
@@ -32,6 +32,8 @@ function RegistrationPage() {
         fine_lines: false
     })
 
+    const history = useHistory();
+
     function handleChange(event) {
         const isCheckbox = event.target.type === 'checkbox';
         let { name, value } = event.target;
@@ -52,15 +54,24 @@ function RegistrationPage() {
 
             firebase.createUserWithEmailAndPassword(firebase.auth, input.userEmailAddress, input.password)
             .then((userCredential) => {
-            const user = userCredential.user;
+            // const user = userCredential.user;
             firebase.updateProfile(firebase.auth.currentUser, {
                 displayName: input.fullname,
                 photoURL: ""
             }).then(() => {
-                console.log("user registered: " + firebase.auth.currentUser.uid)
+                console.log("user registered: " + firebase.auth.currentUser.uid)      
             }).catch((error) => {
                 console.error(`There was an error creating profile: ${error}`);
             });
+
+            firebase.signOut(firebase.auth).then(() => {
+                console.log("sign out successful");
+                }).catch((error) => {
+                console.error("Error signing out, ", error.message);
+                });
+            
+            history.push("/login");
+
             })
             .catch((error) => {
             const errorCode = error.code;
