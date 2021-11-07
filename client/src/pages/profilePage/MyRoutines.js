@@ -66,7 +66,8 @@ function MyRoutines(props) {
                     brandName: response.data.brandName,
                     description: response.data.longDescription,
                     category: response.data.parentCategory.displayName,
-                    ingredients: response.data.currentSku.ingredientDesc
+                    ingredients: response.data.currentSku.ingredientDesc,
+                    suggestedUsage: response.data.suggestedUsage
                 }
                 setProductObject(theProductObj);
 
@@ -75,7 +76,7 @@ function MyRoutines(props) {
             });
             await axios.post(`/products/${props.email}`, productObject)
                 .then(results => {
-                    console.log(results)
+                    console.log('I AM GETTING POSTED YEA')
                 })
                 .catch(error => console.log(error))
         }
@@ -87,12 +88,12 @@ function MyRoutines(props) {
             <div className={styles.morningRoutine}>
                 <h1 className={styles.heading}>Morning Routine  </h1>
 
-                <form className={styles.userInput} onSubmit={(event) => ProductSubmitHandler(event)}>
+                <form className={styles.userInput} >
                     <Select options={categoryOptions} />
 
                     <SearchInput setProduct={setProduct} />
 
-                    <button>Add Product</button>
+                    <button onClick={(event) => ProductSubmitHandler(event)}>Add Product</button>
                 </form>
 
                 <div className={styles.selectAll}>
