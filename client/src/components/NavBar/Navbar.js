@@ -44,7 +44,7 @@ function Navbar(props) {
   };
 
   const transparentBg2 = {
-    backgroundColor: "rgba(173, 150, 125, 0.26)",
+    backgroundColor: "rgba(173, 150, 125, 0.7)",
   };
 
   const whiteText = {
