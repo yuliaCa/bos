@@ -86,8 +86,6 @@ function handleChange(event) {
             });
         }
       
-    }
-
     const newProfile = {
       fullname: input.fullname,
       userEmailAddress: input.userEmailAddress,
@@ -118,6 +116,7 @@ function handleChange(event) {
       }
     });
   
+  }
 
   return (
     <>
