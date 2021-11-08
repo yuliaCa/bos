@@ -53,7 +53,7 @@ function MyRoutines(props) {
 
 
     useEffect(() => {
-        axios.get(`/profile`)
+        axios.get(`/profile/${props.email}`)
             .then(results => {
                 console.log(results.data)
                 // setMorningLoadedProducts(results.data);
