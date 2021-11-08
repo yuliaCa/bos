@@ -103,9 +103,9 @@ function MyRoutines(props) {
                 });
         }
 
-        axios.put(`/addProductMorning/${props.email}`, productObject)
+        axios.put(`/profile/addProductMorning/${props.email}`, productObject)
             .then(results => {
-                console.log('I AM GETTING POSTED YEA')
+                console.log('I AM GETTING POSTED INTO MORNING ROUTINE!')
             })
             .catch(error => console.log(error))
     }
