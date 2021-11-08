@@ -11,6 +11,9 @@ import SearchInput from '../../components/MyRoutine/ProductAutocomplete/SearchIn
 
 function MyRoutines(props) {
 
+    // ================================================
+    // Handlers for showing Product Details Section
+    // ================================================
     const [showProductDetailsMorning, setShowProductDetailsMorning] = useState(false);
     const openDetailsMorning = () => {
         setShowProductDetailsMorning(true);
@@ -27,6 +30,13 @@ function MyRoutines(props) {
         setShowProductDetailsEvening(false)
     }
 
+    // Get THE product Object for details
+    const [theProductName, setTheProductName] = useState();
+
+
+    // ================================================
+    //Pulling up sll the products within each routine
+    // ================================================
     const [MorningLoadedProducts, setMorningLoadedProducts] = useState([]);
     const [EveningLoadedProducts, setEveningLoadedProducts] = useState([]);
 
@@ -43,26 +53,26 @@ function MyRoutines(props) {
 
 
     useEffect(() => {
-        axios.get('/products')
+        axios.get(`/profile`)
             .then(results => {
                 console.log(results.data)
-                setMorningLoadedProducts(results.data);
+                // setMorningLoadedProducts(results.data);
             })
             .catch(error => console.log(error));
 
     }, [productObject])
 
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        axios.get('/products')
-            .then(results => {
-                console.log(results.data)
-                setEveningLoadedProducts(results.data);
-            })
-            .catch(error => console.log(error));
+    //     axios.get('/products')
+    //         .then(results => {
+    //             console.log(results.data)
+    //             setEveningLoadedProducts(results.data);
+    //         })
+    //         .catch(error => console.log(error));
 
-    }, [productObject])
+    // }, [productObject])
 
     const stringToArray = (string) => {
         let strArray = string.split('<br>');
@@ -80,7 +90,7 @@ function MyRoutines(props) {
  
     const ProductSubmitMorningHandler = (event) => {
         event.preventDefault();
-        console.log(`PRODUCT:${product}`)
+
         if (product) {
             const options = {
                 method: 'GET',
@@ -126,7 +136,7 @@ function MyRoutines(props) {
 
     const ProductSubmitEveningHandler = (event) => {
         event.preventDefault();
-        console.log(`PRODUCT:${product}`)
+
 
         if (product) {
 
@@ -184,7 +194,8 @@ function MyRoutines(props) {
                 {showProductDetailsMorning ?
                     <ProductDetails
                         closeDetailsMorning={closeDetailsMorning}
-                        evening={false} /> :
+                        evening={false}
+                        theProductName={theProductName} /> :
                     <MorningRoutine
                         ProductSubmitHandler={ProductSubmitMorningHandler}
                         checkAllHandler={checkAllHandler}
@@ -192,6 +203,7 @@ function MyRoutines(props) {
                         setProduct={setProduct}
                         openDetailsMorning={openDetailsMorning}
                         evening={false}
+                        setTheProductName={setTheProductName}
                     />}
 
             </div>
@@ -201,7 +213,8 @@ function MyRoutines(props) {
                 {showProductDetailsEvening ?
                     <ProductDetails
                         closeDetailsEvening={closeDetailsEvening}
-                        evening={true} /> :
+                        evening={true}
+                        theProductName={theProductName} /> :
                     <EveningRoutine
                         ProductSubmitHandler={ProductSubmitEveningHandler}
                         checkAllHandler={checkAllHandler}

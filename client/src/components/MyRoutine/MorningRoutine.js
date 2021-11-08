@@ -50,6 +50,7 @@ const MorningRoutine = (props) => {
                         checkAll={props.checkedAll}
                         openDetailsMorning={props.openDetailsMorning}
                         evening={props.evening}
+                        setTheProductName={props.setTheProductName}
                     />
                 ))}
             </div>
