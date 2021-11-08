@@ -1,17 +1,22 @@
 import styles from "./TeamPage.module.css";
+import { useLocation } from "react-router-dom";
 import React from "react";
 import MissionCard from "../components/Team/MissionCard";
 import MemberCard from "../components/Team/MemberCard";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-const TeamPage = () => {
+const TeamPage = (props) => {
+  const location = useLocation();
+
   const [missionContent, setMissionContent] = useState({});
   const [teamContent, setTeamContent] = useState([{}]);
 
   // Temporary hard code, teamContent will be pull from mongodb
 
   useEffect(() => {
+    props.handleIsHome(location);
+
     axios
       .get("/missioncontent/")
       .then((result) => setMissionContent(result.data.data[0]))
@@ -21,11 +26,10 @@ const TeamPage = () => {
       .get("/teamcontent/")
       .then((result) => setTeamContent(result.data.data))
       .catch((error) => console.log(error));
-
-  }, []);
+  }, [location, props]);
 
   return (
-    <div>
+    <div className={styles.wrapper}>
       <MissionCard
         header={missionContent.header}
         bodytext={missionContent.bodytext}
@@ -33,9 +37,9 @@ const TeamPage = () => {
       <div className={styles.section}>
         <h2>Our Team</h2>
 
-        {teamContent.map((member) => (
+        {teamContent.map((member, key) => (
           <MemberCard
-            key={member.name}
+            key={key}
             src={member.src}
             name={member.name}
             role={member.role}

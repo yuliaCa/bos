@@ -1,11 +1,13 @@
+import { useLocation } from "react-router-dom";
 import MyPage from "./profilePage/MyPage";
 import MyRoutines from "./profilePage/MyRoutines";
 import styles from "./ProfilePage.module.css";
 import { useState, useEffect } from "react";
-import { set } from "mongoose";
 import { getAuth } from "firebase/auth";
 
-function ProfilePage() {
+function ProfilePage(props) {
+  const location = useLocation();
+
   // in return: let's say 2 buttons. if MyPage clicked - we render myPage section, if myRoutines clicked - we render myRoutines section.
   // Sounds like useState will be useful here. [defaultSection(myPage), setSection()]
   const [defaultSection, setSection] = useState("MyPage");
@@ -22,6 +24,10 @@ function ProfilePage() {
   const user = auth.currentUser;
   let displayName;
   let email;
+
+  useEffect(() => {
+    props.handleIsHome(location);
+  },[location, props]);
 
   if (user !== null) {
     // The user object has basic properties such as display name, email, etc.
@@ -41,16 +47,20 @@ function ProfilePage() {
       <h2>Profile</h2>
 
       <div className={styles.tabs}>
-        <div className={
-          defaultSection === "MyPage" ? styles.tab1focus : styles.tab1
-        }>
+        <div
+          className={
+            defaultSection === "MyPage" ? styles.tab1focus : styles.tab1
+          }
+        >
           <span className={styles.span} onClick={MyPageHandler}>
             My Page
           </span>
         </div>
-        <div className={
-          defaultSection === "MyRoutines" ? styles.tab2focus : styles.tab2
-        }>
+        <div
+          className={
+            defaultSection === "MyRoutines" ? styles.tab2focus : styles.tab2
+          }
+        >
           <span className={styles.span} onClick={MyRoutinesHandler}>
             My Routines
           </span>

@@ -3,6 +3,10 @@ p {
   font-size: 1rem;
 }
 
+.wrapper {
+  margin-top: 4rem;
+}
+
 .section {
   padding: 5rem 15%;
   background-color: #f7ede1;
