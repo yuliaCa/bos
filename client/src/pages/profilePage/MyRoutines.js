@@ -1,6 +1,9 @@
 import styles from './MyRoutines.module.css';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import MorningRoutine from '../../components/MyRoutine/MorningRoutine';
+import EveningRoutine from '../../components/MyRoutine/EveningRoutine';
+import ProductDetails from '../../components/MyRoutine/ProductDetails';
 import Select from 'react-select';
 import ProductCard from '../../components/MyRoutine/ProductCard';
 import SearchInput from '../../components/MyRoutine/ProductAutocomplete/SearchInput';
@@ -8,7 +11,24 @@ import SearchInput from '../../components/MyRoutine/ProductAutocomplete/SearchIn
 
 function MyRoutines(props) {
 
-    const [loadedProducts, setLoadedProducts] = useState([]);
+    const [showProductDetailsMorning, setShowProductDetailsMorning] = useState(false);
+    const openDetailsMorning = () => {
+        setShowProductDetailsMorning(true);
+    }
+    const closeDetailsMorning = () => {
+        setShowProductDetailsMorning(false);
+    }
+
+    const [showProductDetailsEvening, setShowProductDetailsEvening] = useState(false);
+    const openDetailsEvening = () => {
+        setShowProductDetailsEvening(true);
+    }
+    const closeDetailsEvening = () => {
+        setShowProductDetailsEvening(false)
+    }
+
+    const [MorningLoadedProducts, setMorningLoadedProducts] = useState([]);
+    const [EveningLoadedProducts, setEveningLoadedProducts] = useState([]);
 
     const [checkedAll, setCheckedAll] = useState(false);
 
@@ -16,33 +36,38 @@ function MyRoutines(props) {
         setCheckedAll(checkedAll ? false : true)
     }
 
-    const categoryOptions = [
-        { label: "Cleanser", value: "cleanser" },
-        { label: "Moisturizer", value: "moisturizer" },
-        { label: "Treatment", value: "treatment" },
-        { label: "Mask", value: "mask" },
-        { label: "Eyecare", value: "eyecare" },
-        { label: "Sunscreen", value: "sunscreen" }
-    ]
 
     const [product, setProduct] = useState('');
 
     const [productObject, setProductObject] = useState({});
+
+
+    useEffect(() => {
+        axios.get('/products')
+            .then(results => {
+                console.log(results.data)
+                setMorningLoadedProducts(results.data);
+            })
+            .catch(error => console.log(error));
+
+    }, [productObject])
+
 
     useEffect(() => {
 
         axios.get('/products')
             .then(results => {
                 console.log(results.data)
-                setLoadedProducts(results.data);
+                setEveningLoadedProducts(results.data);
             })
             .catch(error => console.log(error));
 
     }, [productObject])
 
-    async function ProductSubmitHandler(event) {
+
+    const ProductSubmitMorningHandler = (event) => {
         event.preventDefault();
-        console.log('Submitted!')
+        console.log(`PRODUCT:${product}`)
         if (product) {
             const options = {
                 method: 'GET',
@@ -57,100 +82,122 @@ function MyRoutines(props) {
                 }
             };
 
-            await axios.request(options).then(function (response) {
-                console.log(response.data);
+            axios.request(options)
+                .then(function (response) {
+                    console.log(response.data);
 
-                let theProductObj = {
-                    productName: response.data.displayName,
-                    images: response.data.currentSku.skuImages.image250,
-                    brandName: response.data.brandName,
-                    description: response.data.longDescription,
-                    category: response.data.parentCategory.displayName,
-                    ingredients: response.data.currentSku.ingredientDesc,
-                    suggestedUsage: response.data.suggestedUsage
-                }
-                setProductObject(theProductObj);
+                    let theProductObj = {
+                        productName: response.data.displayName,
+                        images: response.data.currentSku.skuImages.image250,
+                        brandName: response.data.brandName,
+                        description: response.data.longDescription,
+                        category: response.data.parentCategory.displayName,
+                        ingredients: response.data.currentSku.ingredientDesc,
+                        suggestedUsage: response.data.suggestedUsage
+                    }
+                    setProductObject(theProductObj);
 
-            }).catch(function (error) {
-                console.error(error);
-            });
-            await axios.post(`/products/${props.email}`, productObject)
-                .then(results => {
-                    console.log('I AM GETTING POSTED YEA')
                 })
-                .catch(error => console.log(error))
+                .catch(function (error) {
+                    console.error(error);
+                });
         }
+
+        axios.put(`/profile/addProductMorning/${props.email}`, productObject)
+            .then(results => {
+                console.log('I AM GETTING POSTED INTO MORNING ROUTINE!')
+            })
+            .catch(error => console.log(error))
     }
 
+    const ProductSubmitEveningHandler = (event) => {
+        event.preventDefault();
+        console.log(`PRODUCT:${product}`)
+
+        if (product) {
+
+            const options = {
+                method: 'GET',
+                url: 'https://sephora.p.rapidapi.com/products/detail',
+                params: {
+                    productId: product.productId,
+                    preferedSku: product['currentSku']['skuId']
+                },
+                headers: {
+                    'x-rapidapi-host': 'sephora.p.rapidapi.com',
+                    'x-rapidapi-key': '2b5c9fd8d8msh0132ae34892c4f1p161c42jsnb732f5ff681a'
+                }
+            };
+
+            axios.request(options)
+                .then(function (response) {
+                    console.log(response.data);
+
+                    let theProductObj = {
+                        productName: response.data.displayName,
+                        images: response.data.currentSku.skuImages.image250,
+                        brandName: response.data.brandName,
+                        description: response.data.longDescription,
+                        category: response.data.parentCategory.displayName,
+                        ingredients: response.data.currentSku.ingredientDesc,
+                        suggestedUsage: response.data.suggestedUsage
+                    }
+                    setProductObject(theProductObj);
+
+                })
+                .catch(function (error) {
+                    console.error(error);
+                });
+        }
+
+        axios.put(`/addProductEvening/${props.email}`, productObject)
+            .then(results => {
+                console.log('I AM GETTING POSTED YEA')
+            })
+            .catch(error => console.log(error))
+    }
+
+    let headingMorningRoutine = `Morning Routine`;
+    let headingEveningRoutine = `Evening Routine`;
 
     return (
         <div>
-            <div className={styles.morningRoutine}>
-                <h1 className={styles.heading}>Morning Routine  </h1>
 
-                <form className={styles.userInput} >
-                    <Select options={categoryOptions} />
 
-                    <SearchInput setProduct={setProduct} />
+            <div>
+                <h1>{headingMorningRoutine}</h1>
+                {showProductDetailsMorning ?
+                    <ProductDetails
+                        closeDetailsMorning={closeDetailsMorning}
+                        evening={false} /> :
+                    <MorningRoutine
+                        ProductSubmitHandler={ProductSubmitMorningHandler}
+                        checkAllHandler={checkAllHandler}
+                        loadedProducts={MorningLoadedProducts}
+                        setProduct={setProduct}
+                        openDetailsMorning={openDetailsMorning}
+                        evening={false}
+                    />}
 
-                    <button onClick={(event) => ProductSubmitHandler(event)}>Add Product</button>
-                </form>
-
-                <div className={styles.selectAll}>
-                    <label className={styles.selectAllLabel}> Select All
-                    <input className={styles.selectAllInput} type="checkbox" value={checkedAll} onChange={checkAllHandler} />
-                    </label>
-                </div>
-
-                <div className={styles.productsGrid}>
-                    {loadedProducts.map((eachProduct) => (
-                        <ProductCard
-                            key={eachProduct._id}
-                            id={eachProduct._id}
-                            image={eachProduct.images}
-                            category={eachProduct.category}
-                            name={eachProduct.productName}
-                            description={eachProduct.description}
-                            suggestedUsage={eachProduct.suggestedUsage}
-                            checkAll={checkedAll}
-                        />
-                    ))}
-                </div>
-                <button className={styles.saveButton}>Save</button>
             </div>
-            <div className={styles.eveningRoutine}>
-                <h1 className={styles.heading}>Evening Routine  </h1>
 
-                <div className={styles.userInput}>
-                    <Select options={categoryOptions} />
-
-                    <SearchInput />
-
-                    <button>Add Product</button>
-                </div>
-
-                <div className={styles.selectAll}>
-                    <label className={styles.selectAllLabel}> Select All
-                    <input className={styles.selectAllInput} type="checkbox" value={checkedAll} onChange={checkAllHandler} />
-                    </label>
-                </div>
-
-                <div className={styles.productsGrid}>
-                    {loadedProducts.map((eachProduct) => (
-                        <ProductCard
-                            key={eachProduct._id}
-                            id={eachProduct._id}
-                            image={eachProduct.images}
-                            category={eachProduct.productCategory}
-                            name={eachProduct.productName}
-                            description={eachProduct.productDescription}
-                            suggestedUsage={eachProduct.suggestedUsage}
-                            checkAll={checkedAll}
-                        />
-                    ))}
-                </div>
-                <button className={styles.saveButton}>Save</button>
+            <div>
+                <h1>{headingEveningRoutine}</h1>
+                {showProductDetailsEvening ?
+                    <ProductDetails
+                        closeDetailsEvening={closeDetailsEvening}
+                        evening={true} /> :
+                    <EveningRoutine
+                        ProductSubmitHandler={ProductSubmitEveningHandler}
+                        checkAllHandler={checkAllHandler}
+                        loadedProducts={EveningLoadedProducts}
+                        setProduct={setProduct}
+                        openDetailsEvening={openDetailsEvening}
+                        evening={true}
+                    />}
             </div>
+
+
         </div>
     )
 }
