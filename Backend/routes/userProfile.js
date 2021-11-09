@@ -12,8 +12,8 @@ router
     .get("/:userEmail/morningProducts", getUserMorningRoutine)
     .put("/addProductMorning/:userEmail", putNewProductMorning)
     .put("/addProductEvening/:userEmail", putNewProductEvening)
-    .delete("/deleteProductEvening/:userEmail", deleteProductEvening)
-    .delete("/deleteProductMorning/:userEmail", deleteProductMorning)
+    .delete("/deleteProductEvening/:userEmail/:productName", deleteProductEvening)
+    .delete("/deleteProductMorning/:userEmail/:productName", deleteProductMorning)
     .post("/", validator.registration, postNewUserProfile);
 
 module.exports = router;

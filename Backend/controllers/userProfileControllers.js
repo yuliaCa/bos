@@ -116,7 +116,7 @@ exports.deleteProductEvening = (req, res) => {
 
    
     const userEmailAddress =  req.params.userEmail;
-    const _productName = req.body.productName;
+    const _productName = req.params.productName;
       
   
     userProfile.findOneAndUpdate(
@@ -135,9 +135,8 @@ exports.deleteProductEvening = (req, res) => {
 
 exports.deleteProductMorning = (req, res) => {
 
-   
     const userEmailAddress =  req.params.userEmail;
-    const _productName = req.body.productName;
+    const _productName = req.params.productName;
       
   
     userProfile.findOneAndUpdate(
