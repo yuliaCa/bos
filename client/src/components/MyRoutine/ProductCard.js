@@ -21,9 +21,9 @@ function ProductCard(props) {
                 <h5>{props.name}</h5>
 
                 <p>{props.suggestedUsage}</p>
-                <Link to='/product-details'>Product Details</Link>
+                <a href='#' onClick={props.evening ? props.openDetailsEvening : props.openDetailsMorning}>Product Details</a>
 
-                <FaTrash />
+                <FaTrash className={styles.trashCan} />
 
                 <button className={styles.useButton} onClick={productUsedBtnHandler}>{productIsUsed || props.checkAll ? 'Used' : 'Use Product'}</button>
             </div>
