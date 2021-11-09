@@ -18,6 +18,23 @@ exports.getUserProfileByEmail = (req, res) => {
         .catch(error => res.status(500).send(error));
 };
 
+exports.getUserMorningRoutine = (req, res) => {
+    //req.params.userEmail
+    userProfile.findOne({ userEmailAddress: String(req.params.userEmail).toLowerCase() }).select("objMorningRoutineLog").exec()
+        .then(results => {
+            res.status(200).json(results);
+        })
+        .catch(error => res.status(500).send(error));
+};
+
+exports.getUserEveningRoutine = (req, res) => {
+    //req.params.userEmail
+    userProfile.findOne({ userEmailAddress: String(req.params.userEmail).toLowerCase() }).select("objEveningRoutineLog").exec()
+        .then(results => {
+            res.status(200).json(results);
+        })
+        .catch(error => res.status(500).send(error));
+};
 
 exports.postNewUserProfile = (req, res) => {
 

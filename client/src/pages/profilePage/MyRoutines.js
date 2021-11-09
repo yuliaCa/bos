@@ -77,8 +77,7 @@ function MyRoutines(props) {
         return strArray;
     }
 
-    async function ProductSubmitHandler(event) {
-
+ 
     const ProductSubmitMorningHandler = (event) => {
         event.preventDefault();
         console.log(`PRODUCT:${product}`)
@@ -148,7 +147,7 @@ function MyRoutines(props) {
                 .then(function (response) {
                     console.log(response.data);
 
-                    let theProductObj = {
+                    let theProductObj = {objEveningRoutineLog:[{
                         productName: response.data.displayName,
                         images: response.data.currentSku.skuImages.image250,
                         brandName: response.data.brandName,
@@ -156,7 +155,8 @@ function MyRoutines(props) {
                         category: response.data.parentCategory.displayName,
                         ingredients: response.data.currentSku.ingredientDesc,
                         suggestedUsage: response.data.suggestedUsage
-                    }
+                    }]};
+
                     setProductObject(theProductObj);
 
                 })
@@ -213,6 +213,7 @@ function MyRoutines(props) {
             </div>
         </div>
     )
-    export default MyRoutines;
+    
 }
 
+export default MyRoutines;
