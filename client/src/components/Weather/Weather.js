@@ -1,6 +1,8 @@
 import styles from "./Weather.module.css";
 import React, { useState, useEffect } from "react";
 import Advice from "./Advice";
+import Stack from "@mui/material/Stack";
+import CircularProgress from "@mui/material/CircularProgress";
 
 // const city = "Vancouver"; // Get city from questionnaire
 // const cityId = SearchCityId(city);
@@ -49,11 +51,17 @@ const Weather = () => {
       <div className={styles.weatherSection}>
         <p className={styles.time}>{`${time}`}</p>
         <div className={styles.gridCol}>
-          <img
-            className={styles.weatherIcon}
-            src={`${iconURL}${icon}.svg`}
-            alt="weather icon"
-          />
+          {!iconURL ? (
+            <Stack sx={{ color: "#67392A" }} spacing={2} direction="row">
+              <CircularProgress color="inherit" />
+            </Stack>
+          ) : (
+            <img
+              className={styles.weatherIcon}
+              src={`${iconURL}${icon}.svg`}
+              alt="weather icon"
+            />
+          )}
           <p className={styles.temp}>{`${temp}℃`}</p>
           <div>
             <p>{airQ}</p>
