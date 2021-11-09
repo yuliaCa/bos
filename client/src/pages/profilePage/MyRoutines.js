@@ -40,6 +40,19 @@ function MyRoutines(props) {
 
     }, [productObject])
 
+    const stringToArray = (string) => {
+        let strArray = string.split('<br>');
+        const arrayLength = strArray.length - 1;
+        
+        for(let x = 0; x < arrayLength; x++)
+            {
+                strArray[x] = strArray[x].replace('<b>', '');
+                strArray[x] = strArray[x].replace('</b>', '');
+            }
+
+        return strArray;
+    }
+
     async function ProductSubmitHandler(event) {
         event.preventDefault();
         console.log('Submitted!')
@@ -60,7 +73,7 @@ function MyRoutines(props) {
             await axios.request(options).then(function (response) {
                 console.log(response.data);
 
-                let theProductObj = {
+                let theProductObj = {objMorningRoutineLog:[{
                     productName: response.data.displayName,
                     images: response.data.currentSku.skuImages.image250,
                     brandName: response.data.brandName,
@@ -68,13 +81,14 @@ function MyRoutines(props) {
                     category: response.data.parentCategory.displayName,
                     ingredients: response.data.currentSku.ingredientDesc,
                     suggestedUsage: response.data.suggestedUsage
-                }
+                }]};
+
                 setProductObject(theProductObj);
 
             }).catch(function (error) {
                 console.error(error);
             });
-            await axios.post(`/products/${props.email}`, productObject)
+            await axios.put(`/profile/addProductMorning/${props.email}`, productObject)
                 .then(results => {
                     console.log('I AM GETTING POSTED YEA')
                 })
@@ -143,7 +157,7 @@ function MyRoutines(props) {
                             image={eachProduct.images}
                             category={eachProduct.productCategory}
                             name={eachProduct.productName}
-                            description={eachProduct.productDescription}
+                            description={eachProduct.description}
                             suggestedUsage={eachProduct.suggestedUsage}
                             checkAll={checkedAll}
                         />
