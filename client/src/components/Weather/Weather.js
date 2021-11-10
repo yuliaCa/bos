@@ -41,7 +41,7 @@ const Weather = () => {
       .then(function (response) {
         const body = response.data;
         let date = new Date(body.data.current_weather.ts);
-        let trimDate = date.toUTCString().substring(0, 17);
+        let trimDate = date.toString().substring(0, 17);
         setTime(trimDate);
         setIcon(body.data.current_weather.ic);
         setTemp(body.data.forecasts[0].tp);
