@@ -23,7 +23,6 @@ const Weather = () => {
   const [airQ, setAirQ] = useState(30);
   const [windowsTip, setWindowsTip] = useState();
   const [exerciseTip, setExerciseTip] = useState();
-  const [airColor, setAirColor] = useState("green");
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -48,8 +47,7 @@ const Weather = () => {
         setTemp(body.data.forecasts[0].tp);
         setTempMin(body.data.forecasts[0].tp_min);
         setHum(body.data.current_weather.hu);
-        setWind(body.data.current_weather.wd);
-        setAirColor(body.data.recommendations.pollution.exercice.value);
+        setWind(body.data.current_weather.ws);
         setAirQ(body.data.current_measurement.aqius);
         setWindowsTip(body.data.recommendations.pollution.windows.text);
         setExerciseTip(body.data.recommendations.pollution.exercice.text);
