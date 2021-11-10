@@ -3,6 +3,9 @@ import React, { useState, useEffect } from "react";
 import Advice from "./Advice";
 import Stack from "@mui/material/Stack";
 import CircularProgress from "@mui/material/CircularProgress";
+import { BsDroplet } from "react-icons/bs";
+import { RiWindyFill } from "react-icons/ri";
+import { GoPrimitiveDot } from "react-icons/go";
 import axios from "axios";
 
 const Weather = () => {
@@ -20,6 +23,7 @@ const Weather = () => {
   const [airQ, setAirQ] = useState(30);
   const [windowsTip, setWindowsTip] = useState();
   const [exerciseTip, setExerciseTip] = useState();
+  const [airColor, setAirColor] = useState("green");
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -45,9 +49,10 @@ const Weather = () => {
         setTempMin(body.data.forecasts[0].tp_min);
         setHum(body.data.current_weather.hu);
         setWind(body.data.current_weather.wd);
+        setAirColor(body.data.recommendations.pollution.exercice.value);
         setAirQ(body.data.current_measurement.aqius);
-        setWindowsTip(body.data.recommnedations.polution.windows.text);
-        setExerciseTip(body.data.recommendations.polution.exercice.text);
+        setWindowsTip(body.data.recommendations.pollution.windows.text);
+        setExerciseTip(body.data.recommendations.pollution.exercice.text);
         setIsLoading(false);
       })
       .catch((error) => console.log(error));
@@ -72,32 +77,54 @@ const Weather = () => {
               <p className={styles.time}>{`${time}`}</p>
             </div>
             <div className={styles.twoColumn}>
-              <img
-                className={styles.weatherIcon}
-                src={`${iconURL}${icon}.svg`}
-                alt="weather icon"
-              />
+              <div className={styles.center}>
+                <img
+                  className={styles.weatherIcon}
+                  src={`${iconURL}${icon}.svg`}
+                  alt="weather icon"
+                />
+              </div>
               <div className={styles.twoColumn}>
-                <div className={styles.temp}>{`${temp}°`}</div>
-                <div className={styles.tempMin}>{`${tempMin}°`}</div>
-              </div>
-              <div className={styles.oneColumn}>
-                <div>{`${hum}%`}</div>
-                <div>Humidity</div>
-              </div>
-              <div className={styles.oneColumn}>
-                <div>{`${wind} m/s`}</div>
-                <div>Wind</div>
+                <div className={styles.oneColumn}>
+                  <div className={styles.temp}>{`${temp}°`}</div>
+                  <div className={styles.regular}>
+                    <BsDroplet className={styles.iconFix} />
+                    <span>{`${hum}%`}</span>
+                  </div>
+                  <div className={styles.semiBold}>Humidity</div>
+                </div>
+                <div className={styles.oneColumn}>
+                  <div className={styles.tempMin}>{`${tempMin}°`}</div>
+                  <div className={styles.regular}>
+                    <RiWindyFill className={styles.iconFix} />
+                    <span>{`${wind} m/s`}</span>
+                  </div>
+                  <div className={styles.semiBold}>Wind</div>
+                </div>
               </div>
             </div>
             <div className={styles.oneColumn}>
-              <div>{airQ}</div>
-              <div>Air Quality Index</div>
+              <div className={styles.airQuality}>
+                <span className={styles.semiBold}>{`Air Quality Index `}</span>
+                <span>
+                  <GoPrimitiveDot
+                    className={styles.iconDot}
+                    style={{ color: airQ < 67 ? "#77dd77" : "ffb347" }}
+                  />
+                </span>
+                <span>{airQ}</span>
+              </div>
             </div>
           </>
         )}
       </div>
-      <Advice className={styles.adviceText} weatherCode={`_${icon}`} windowsTip={windowsTip} exerciseTip={exerciseTip} />
+      <Advice
+        className={styles.adviceText}
+        weatherCode={`_${icon}`}
+        windowsTip={windowsTip}
+        exerciseTip={exerciseTip}
+        isLoading={isLoading}
+      />
     </div>
   );
 };
