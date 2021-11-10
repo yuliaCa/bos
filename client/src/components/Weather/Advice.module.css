@@ -1,9 +1,18 @@
 .advice {
+  font-family: Khula;
+  font-size: 18;
+  font-weight: 600;
   padding: 2rem;
   margin-right: 4rem;
   border: 2px solid rgba(209, 152, 136, 0.3);
   border-radius: 0 15px 15px 0;
   display: grid;
   justify-content: center;
-  align-items: center;
+  align-content: center;
+  gap: 0.5rem;
+}
+
+.advice p {
+  margin: 0;
+  padding: 0;
 }
