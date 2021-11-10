@@ -1,11 +1,14 @@
 .section {
+  font-family: Khula;
   border-radius: 8px;
   display: grid;
-  grid-template-columns: 1fr 1.5fr;
+  grid-template-columns: 1fr 1fr;
   margin-bottom: 3rem;
 }
 
 .weatherSection {
+  display: grid;
+  height: 310px;
   border-radius: 15px 0 0 15px;
   padding: 1rem;
   margin-left: 4rem;
@@ -25,23 +28,75 @@
 }
 
 .time {
+  font-family: Sora;
   font-size: 24px;
   font-weight: bold;
   text-align: right;
-  marging-left: 3rem;
-}
-
-.temp {
-  font-size: 3rem;
+  margin-left: 3rem;
+  margin-right: 0.8rem;
+  margin-bottom: 0;
 }
 
 .weatherIcon {
   height: auto;
-  width: 7rem;
+  width: 9rem;
   margin: 0 auto;
 }
 
-span {
-  border: 0;
-  border-style: none;
+.twoColumn {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.temp {
+  color: #67392a;
+  font-size: 36px;
+  padding: 1rem;
+}
+
+.tempMin {
+  color: rgba(150, 128, 122, 0.8);
+  font-size: 36px;
+  padding: 1rem;
+}
+
+.airQuality {
+  margin-left: 3rem;
+}
+
+.oneColumn {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.spinnerFx {
+  height: 310px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+.semiBold {
+  font-weight: 600;
+}
+
+.regular {
+  font-size: 18px;
+}
+
+.center {
+  display: grid;
+  justify-content: center;
+  align-items: center;  
+}
+
+.iconFix {
+  position: relative;
+  top: 2px;
+}
+
+.iconDot {
+  font-size: 2rem;
+  position: relative;
+  top: 10px;
 }
