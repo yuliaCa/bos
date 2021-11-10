@@ -14,8 +14,12 @@ const Weather = () => {
   const [time, setTime] = useState();
   const [icon, setIcon] = useState();
   const [temp, setTemp] = useState(6);
+  const [tempMin, setTempMin] = useState(6);
   const [hum, setHum] = useState(90);
+  const [wind, setWind] = useState(14);
   const [airQ, setAirQ] = useState(30);
+  const [windowsTip, setWindowsTip] = useState();
+  const [exerciseTip, setExerciseTip] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -34,17 +38,19 @@ const Weather = () => {
       .then(function (response) {
         const body = response.data;
         let date = new Date(body.data.current_weather.ts);
-        let trimDate = date.toISOString().substring(0, 10);
+        let trimDate = date.toUTCString().substring(0, 17);
         setTime(trimDate);
         setIcon(body.data.current_weather.ic);
-        setTemp(body.data.current_weather.tp);
+        setTemp(body.data.forecasts[0].tp);
+        setTempMin(body.data.forecasts[0].tp_min);
         setHum(body.data.current_weather.hu);
+        setWind(body.data.current_weather.wd);
         setAirQ(body.data.current_measurement.aqius);
-        console.log(body.data.current_weather.ic);
+        setWindowsTip(body.data.recommnedations.polution.windows.text);
+        setExerciseTip(body.data.recommendations.polution.exercice.text);
         setIsLoading(false);
       })
       .catch((error) => console.log(error));
-   
   }, []);
 
   const spinnerFx = (
@@ -62,27 +68,36 @@ const Weather = () => {
           <div className={styles.spinnerFx}>{spinnerFx}</div>
         ) : (
           <>
-            <p className={styles.time}>{`${time}`}</p>
-            <div className={styles.gridCol}>
+            <div className={styles.oneColumn}>
+              <p className={styles.time}>{`${time}`}</p>
+            </div>
+            <div className={styles.twoColumn}>
               <img
                 className={styles.weatherIcon}
                 src={`${iconURL}${icon}.svg`}
                 alt="weather icon"
               />
-              <p className={styles.temp}>{`${temp}℃`}</p>
-              <div>
-                <p>{airQ}</p>
-                <p>Air Quality Index</p>
+              <div className={styles.twoColumn}>
+                <div className={styles.temp}>{`${temp}°`}</div>
+                <div className={styles.tempMin}>{`${tempMin}°`}</div>
               </div>
-              <div>
-                <p>{`${hum}%`}</p>
-                <p>Humidity</p>
+              <div className={styles.oneColumn}>
+                <div>{`${hum}%`}</div>
+                <div>Humidity</div>
               </div>
+              <div className={styles.oneColumn}>
+                <div>{`${wind} m/s`}</div>
+                <div>Wind</div>
+              </div>
+            </div>
+            <div className={styles.oneColumn}>
+              <div>{airQ}</div>
+              <div>Air Quality Index</div>
             </div>
           </>
         )}
       </div>
-      <Advice className={styles.adviceText} weatherCode={`_${icon}`} />
+      <Advice className={styles.adviceText} weatherCode={`_${icon}`} windowsTip={windowsTip} exerciseTip={exerciseTip} />
     </div>
   );
 };

@@ -6,7 +6,8 @@
 }
 
 .weatherSection {
-  height: 343px;
+  display: grid;
+  height: 310px;
   border-radius: 15px 0 0 15px;
   padding: 1rem;
   margin-left: 4rem;
@@ -32,14 +33,46 @@
   marging-left: 3rem;
 }
 
-.temp {
-  font-size: 3rem;
-}
-
 .weatherIcon {
   height: auto;
   width: 7rem;
   margin: 0 auto;
+}
+
+.twoColumn {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.temp {
+  color: #67392a;
+  font-size: 36px;
+}
+
+.tempMin {
+  color: #96807a;
+  opacity: 0.8;
+  font-size: 36px;
+}
+
+.oneColumn {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.humidity p:nth-of-type(1) {
+}
+.humidity p:nth-of-type(2) {
+}
+
+.windSpeed p:nth-of-type(1) {
+}
+.windSpeed p:nth-of-type(2) {
+}
+
+.airQuality p:nth-of-type(1) {
+}
+.airQuality p:nth-of-type(2) {
 }
 
 span {
@@ -48,7 +81,7 @@ span {
 }
 
 .spinnerFx {
-  height: 343px;
+  height: 310px;
   display: grid;
   justify-content: center;
   align-items: center;
