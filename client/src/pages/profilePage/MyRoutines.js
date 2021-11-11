@@ -64,7 +64,20 @@ function MyRoutines(props) {
 
     }, [productObject])
 
+    const stringToArray = (string) => {
+        let strArray = string.split('<br>');
+        const arrayLength = strArray.length - 1;
+        
+        for(let x = 0; x < arrayLength; x++)
+            {
+                strArray[x] = strArray[x].replace('<b>', '');
+                strArray[x] = strArray[x].replace('</b>', '');
+            }
 
+        return strArray;
+    }
+
+ 
     const ProductSubmitMorningHandler = (event) => {
         event.preventDefault();
         console.log(`PRODUCT:${product}`)
@@ -86,7 +99,7 @@ function MyRoutines(props) {
                 .then(function (response) {
                     console.log(response.data);
 
-                    let theProductObj = {
+                    let theProductObj = {objMorningRoutineLog:[{
                         productName: response.data.displayName,
                         images: response.data.currentSku.skuImages.image250,
                         brandName: response.data.brandName,
@@ -94,7 +107,8 @@ function MyRoutines(props) {
                         category: response.data.parentCategory.displayName,
                         ingredients: response.data.currentSku.ingredientDesc,
                         suggestedUsage: response.data.suggestedUsage
-                    }
+                    }]};
+                    
                     setProductObject(theProductObj);
 
                 })
@@ -133,7 +147,7 @@ function MyRoutines(props) {
                 .then(function (response) {
                     console.log(response.data);
 
-                    let theProductObj = {
+                    let theProductObj = {objEveningRoutineLog:[{
                         productName: response.data.displayName,
                         images: response.data.currentSku.skuImages.image250,
                         brandName: response.data.brandName,
@@ -141,7 +155,8 @@ function MyRoutines(props) {
                         category: response.data.parentCategory.displayName,
                         ingredients: response.data.currentSku.ingredientDesc,
                         suggestedUsage: response.data.suggestedUsage
-                    }
+                    }]};
+
                     setProductObject(theProductObj);
 
                 })
@@ -196,10 +211,9 @@ function MyRoutines(props) {
                         evening={true}
                     />}
             </div>
-
-
         </div>
     )
+    
 }
 
 export default MyRoutines;
