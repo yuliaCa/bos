@@ -1,11 +1,12 @@
 header {
+  height: 4rem;
   background-color: #ffffff;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding: 0 7vw;
-  border-bottom: 2px solid #c9b6a1;
+  border-bottom: 2px solid #9b8975;
   position: relative;
 }
 
@@ -26,7 +27,7 @@ header .flexRow li:nth-child(2) {
 header .flexRow a {
   color: #67392a;
   text-decoration: none;
-  font-size: 19px;
+  font-size: 16px;
 }
 
 .faCircle,
@@ -41,8 +42,8 @@ header .flexRow a:hover {
 }
 
 header .filter {
+  height: auto;
   width: 8vw;
-  height: 6rem;
 }
 
 .dropdown {
@@ -60,15 +61,15 @@ header .filter {
   padding: 2% 0;
   display: flex;
   flex-direction: column;
-  height: 5rem;
-  width: 17vw;
+  height: 4rem;
+  width: 12vw;
   z-index: 1;
   position: absolute;
-  top: 90px;
-  right: 2vw;
+  top: 67px;
+  right: 5vw;
   background-color: #fff;
   border-radius: 10px;
-  border: 2px solid #c9b6a1;
+  border: 2px solid #9b8975;
 }
 
 .dropdownItem span {
@@ -78,12 +79,6 @@ header .filter {
 .dropdownItem a {
   text-decoration: none;
   color: #ffffff;
-  font-size: 19px;
+  font-size: 16px;
   margin-bottom: 3%;
-}
-
-/* HomePage NavBar Styling */
-
-.headerHome {
-  background-color: red;
 }

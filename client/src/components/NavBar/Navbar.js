@@ -40,7 +40,8 @@ function Navbar(props) {
   };
 
   const transparentBg = {
-    backgroundColor: "rgba(173, 150, 125, 0.26)",
+    // backgroundColor: "rgba(173, 150, 125, 0.26)",
+    backgroundColor: "rgba(173, 150, 125, 0.7)",
     // marginBottom: "-5rem",
   };
 
