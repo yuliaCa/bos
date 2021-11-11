@@ -3,9 +3,6 @@ const dbSchema = mongoose.Schema;
 
 const productSubSchema = new dbSchema({
     productName: { type: String},
-    images: { type: [String] },
-    brandName: { type: String },
-    description: { type: String },
     category: { type: String }
 });
 

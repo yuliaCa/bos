@@ -41,6 +41,27 @@ function MyRoutines(props) {
 
     const [productObject, setProductObject] = useState({});
 
+    const getMorningProducts =(email)=>{
+
+        axios.get(`/profile/${email}/morningProducts`)
+        .then(results => {
+            console.log(results.data)
+            setMorningLoadedProducts(results.data);
+            setProductObject(results.data);
+        })
+        .catch(error => console.log(error));
+
+    }
+
+    const getEveningProducts =(email)=>{
+        axios.get(`/profile/${email}/eveningProducts`)
+        .then(results => {
+            console.log(results.data)
+            setEveningLoadedProducts(results.data);
+            setProductObject(results.data);
+        })
+        .catch(error => console.log(error));
+    }
 
     useEffect(() => {
         axios.get('/products')
@@ -80,7 +101,7 @@ function MyRoutines(props) {
  
     const ProductSubmitMorningHandler = (event) => {
         event.preventDefault();
-        console.log(`PRODUCT:${product}`)
+   
         if (product) {
             const options = {
                 method: 'GET',
@@ -97,8 +118,7 @@ function MyRoutines(props) {
 
             axios.request(options)
                 .then(function (response) {
-                    console.log(response.data);
-
+                   
                     let theProductObj = {objMorningRoutineLog:[{
                         productName: response.data.displayName,
                         images: response.data.currentSku.skuImages.image250,
@@ -110,7 +130,7 @@ function MyRoutines(props) {
                     }]};
                     
                     setProductObject(theProductObj);
-
+                    console.log(productObject);
                 })
                 .catch(function (error) {
                     console.error(error);
@@ -119,6 +139,8 @@ function MyRoutines(props) {
 
         axios.put(`/profile/addProductMorning/${props.email}`, productObject)
             .then(results => {
+                console.log(props.email);
+            
                 console.log('I AM GETTING POSTED INTO MORNING ROUTINE!')
             })
             .catch(error => console.log(error))
@@ -165,8 +187,10 @@ function MyRoutines(props) {
                 });
         }
 
-        axios.put(`/addProductEvening/${props.email}`, productObject)
+        axios.put(`/profile/addProductEvening/${props.email}`, productObject)
             .then(results => {
+                console.log(props.email);
+                console.log(productObject);
                 console.log('I AM GETTING POSTED YEA')
             })
             .catch(error => console.log(error))
