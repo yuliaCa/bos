@@ -32,6 +32,7 @@ function Navbar(props) {
   };
 
   const fixedHeader = {
+    zIndex: 100,
     position: "fixed",
     top: 0,
     right: 0,
