@@ -2,27 +2,18 @@ import { useState, useEffect } from 'react';
 import styles from './Autocomplete.module.css';
 
 
-function Autocomplete({ suggestions, setProduct }) {
+function Autocomplete(props) {
 
     const [filteredSuggestions, setFilteredSuggestions] = useState([]);
     const [activeSuggestionIndex, setActiveSuggestionIndex] = useState(0);
     const [showSuggestions, setShowSuggestions] = useState(false);
-    const [input, setInput] = useState("");
-
-    const cleanedSuggestions = suggestions.map((eachSuggestion) => {
-        return {
-            productName: `${eachSuggestion.brandName} ${eachSuggestion.displayName}`,
-            productId: eachSuggestion.productId
-        }
-    })
-
-
+    // const [input, setInput] = useState("");
 
     const onChangeHandler = (e) => {
         const userInput = e.target.value;
 
         // Filter our suggestions that don't contain the user's input
-        const unLinked = suggestions.filter(
+        const unLinked = props.suggestions.filter(
             (eachSuggestion) => {
                 let theProduct =
                 {
@@ -36,7 +27,7 @@ function Autocomplete({ suggestions, setProduct }) {
         );
 
 
-        setInput(e.target.value);
+        props.setInput(e.target.value);
         setFilteredSuggestions(unLinked);
         setActiveSuggestionIndex(0);
         setShowSuggestions(true);
@@ -44,8 +35,8 @@ function Autocomplete({ suggestions, setProduct }) {
 
     const onClickHandler = (e, suggestion) => {
         setFilteredSuggestions([]);
-        setInput(e.target.innerText);
-        setProduct(suggestion);
+        props.setInput(e.target.innerText);
+        props.setProduct(suggestion);
         console.log(suggestion);
         setActiveSuggestionIndex(0);
         setShowSuggestions(false);
@@ -77,8 +68,8 @@ function Autocomplete({ suggestions, setProduct }) {
     return (
         <div>
             <input type="text" onChange={onChangeHandler}
-                value={input} />
-            {showSuggestions && input && <SuggestionsListComponent />}
+                value={props.input} />
+            {showSuggestions && props.input && <SuggestionsListComponent />}
         </div>
 
     )

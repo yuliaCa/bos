@@ -2,7 +2,7 @@ import Autocomplete from './Autocomplete';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-function SearchInput({ setProduct }) {
+function SearchInput(props) {
 
     // const [query, setQuery] = useState('');
     const [suggestions, setSuggestions] = useState([])
@@ -32,9 +32,8 @@ function SearchInput({ setProduct }) {
 
     return (
         <div>
-            <Autocomplete setProduct={setProduct} suggestions={
-                suggestions
-            } />
+            <Autocomplete setProduct={props.setProduct} suggestions={
+                suggestions} setInput={props.setInput} input={props.input} />
         </div>
     )
 }

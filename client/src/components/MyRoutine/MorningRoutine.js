@@ -32,7 +32,7 @@ const MorningRoutine = (props) => {
             <form className={styles.userInput} onSubmit={(event) => props.ProductSubmitHandler(event)}>
                 <Select options={categoryOptions} />
 
-                <SearchInput setProduct={props.setProduct} />
+                <SearchInput setProduct={props.setProduct} setInput={props.setInput} input={props.input} />
 
                 <button >Add Product</button>
             </form>
@@ -58,6 +58,7 @@ const MorningRoutine = (props) => {
                         evening={props.evening}
                         setTheProductName={props.setTheProductName}
                         email={props.email}
+
                     />
                 ))}
             </div>

@@ -11,6 +11,8 @@ import SearchInput from '../../components/MyRoutine/ProductAutocomplete/SearchIn
 
 function MyRoutines(props) {
 
+    //input when searching for the product 
+    const [input, setInput] = useState("");
     // ================================================
     // Handlers for showing Product Details Section
     // ================================================
@@ -145,6 +147,8 @@ function MyRoutines(props) {
                 console.log('I AM GETTING POSTED INTO MORNING ROUTINE!')
             })
             .catch(error => console.log(error))
+
+
     }
 
     const ProductSubmitEveningHandler = (event) => {
@@ -233,6 +237,8 @@ function MyRoutines(props) {
                         evening={false}
                         setTheProductName={setTheProductName}
                         email={props.email}
+                        setInput={setInput}
+                        input={input}
                     />}
 
             </div>
@@ -251,6 +257,9 @@ function MyRoutines(props) {
                         setProduct={setProduct}
                         openDetailsEvening={openDetailsEvening}
                         evening={true}
+                        setTheProductName={setTheProductName}
+                        email={props.email}
+                        setInput={setInput}
                     />}
             </div>
         </div>
