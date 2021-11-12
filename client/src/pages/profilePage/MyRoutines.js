@@ -73,15 +73,6 @@ function MyRoutines(props) {
             .catch(error => console.log(error));
     }
 
-    useEffect(() => {
-        axios.get(`/profile/${props.email}/morningProducts`)
-            .then(results => {
-                console.log(results.data.objMorningRoutineLog)
-                setMorningLoadedProducts(results.data.objMorningRoutineLog);
-            })
-            .catch(error => console.log(error));
-
-    }, [])
 
 
     // useEffect(() => {
@@ -207,6 +198,17 @@ function MyRoutines(props) {
             })
             .catch(error => console.log(error))
     }
+
+
+    useEffect(() => {
+        axios.get(`/profile/${props.email}/morningProducts`)
+            .then(results => {
+                console.log(results.data.objMorningRoutineLog)
+                setMorningLoadedProducts(results.data.objMorningRoutineLog);
+            })
+            .catch(error => console.log(error));
+
+    }, [])
 
     let headingMorningRoutine = `Morning Routine`;
     let headingEveningRoutine = `Evening Routine`;
