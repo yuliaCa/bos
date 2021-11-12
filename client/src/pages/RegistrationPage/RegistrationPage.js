@@ -18,8 +18,8 @@ function RegistrationPage(props) {
   },[location, props]);
 
   const [input, setInput] = useState({
-    fullname: "",
-    userEmailAddress: "",
+    fullname: sessionStorage.username,
+    userEmailAddress: sessionStorage.email,
     password: "",
     ConfirmPassword: "",
     cityLocation: "",
