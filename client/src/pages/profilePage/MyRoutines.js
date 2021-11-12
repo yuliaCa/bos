@@ -75,7 +75,15 @@ function MyRoutines(props) {
             .catch(error => console.log(error));
     }
 
+    useEffect(() => {
+        axios.get(`/profile/${props.email}/morningProducts`)
+            .then(results => {
+                console.log(results.data.objMorningRoutineLog)
+                setMorningLoadedProducts(results.data.objMorningRoutineLog);
+            })
+            .catch(error => console.log(error));
 
+    }, [productObject])
 
     // useEffect(() => {
 
@@ -101,7 +109,7 @@ function MyRoutines(props) {
     }
 
 
-    const ProductSubmitMorningHandler = (event) => {
+    const ProductSubmitMorningHandler = async function (event) {
         event.preventDefault();
         if (product) {
             const options = {
@@ -117,7 +125,7 @@ function MyRoutines(props) {
                 }
             };
 
-            axios.request(options)
+            await axios.request(options)
                 .then(function (response) {
 
                     let theProductObj = {
@@ -148,7 +156,7 @@ function MyRoutines(props) {
             })
             .catch(error => console.log(error))
 
-
+        setInput('');
     }
 
     const ProductSubmitEveningHandler = (event) => {
@@ -204,15 +212,7 @@ function MyRoutines(props) {
     }
 
 
-    useEffect(() => {
-        axios.get(`/profile/${props.email}/morningProducts`)
-            .then(results => {
-                console.log(results.data.objMorningRoutineLog)
-                setMorningLoadedProducts(results.data.objMorningRoutineLog);
-            })
-            .catch(error => console.log(error));
 
-    }, [])
 
     let headingMorningRoutine = `Morning Routine`;
     let headingEveningRoutine = `Evening Routine`;

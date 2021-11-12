@@ -18,6 +18,7 @@ function ProductCard(props) {
                 .then(result => console.log('Deleting the Morning product....')
                 )
                 .catch(error => console.log(error))
+
         } else if (props.evening) {
             axios.delete(`/profile/deleteProductEvening/${props.email}/${props.name}`)
                 .then(result => console.log('Deleting the Evening product....')
