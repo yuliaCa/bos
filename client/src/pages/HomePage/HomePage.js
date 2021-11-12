@@ -11,7 +11,6 @@ function HomePage(props) {
 
   const [insightsSectionContent, setinsightsSectionContent] = useState({});
 
-
   useEffect(() => {
     props.handleIsHome(location);
 
