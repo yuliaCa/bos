@@ -81,7 +81,7 @@ function MyRoutines(props) {
             })
             .catch(error => console.log(error));
 
-    }, [productObject])
+    }, [])
 
 
     // useEffect(() => {
