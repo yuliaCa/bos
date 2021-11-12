@@ -51,6 +51,7 @@ const MorningRoutine = (props) => {
                         openDetailsMorning={props.openDetailsMorning}
                         evening={props.evening}
                         setTheProductName={props.setTheProductName}
+                        email={props.email}
                     />
                 ))}
             </div>

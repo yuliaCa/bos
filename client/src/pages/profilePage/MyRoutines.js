@@ -53,10 +53,10 @@ function MyRoutines(props) {
 
 
     useEffect(() => {
-        axios.get(`/profile/${props.email}`)
+        axios.get(`/profile/${props.email}/morningProducts`)
             .then(results => {
-                console.log(results.data)
-                // setMorningLoadedProducts(results.data);
+                console.log(results.data.objMorningRoutineLog)
+                setMorningLoadedProducts(results.data.objMorningRoutineLog);
             })
             .catch(error => console.log(error));
 
@@ -77,17 +77,16 @@ function MyRoutines(props) {
     const stringToArray = (string) => {
         let strArray = string.split('<br>');
         const arrayLength = strArray.length - 1;
-        
-        for(let x = 0; x < arrayLength; x++)
-            {
-                strArray[x] = strArray[x].replace('<b>', '');
-                strArray[x] = strArray[x].replace('</b>', '');
-            }
+
+        for (let x = 0; x < arrayLength; x++) {
+            strArray[x] = strArray[x].replace('<b>', '');
+            strArray[x] = strArray[x].replace('</b>', '');
+        }
 
         return strArray;
     }
 
- 
+
     const ProductSubmitMorningHandler = (event) => {
         event.preventDefault();
 
@@ -109,16 +108,18 @@ function MyRoutines(props) {
                 .then(function (response) {
                     console.log(response.data);
 
-                    let theProductObj = {objMorningRoutineLog:[{
-                        productName: response.data.displayName,
-                        images: response.data.currentSku.skuImages.image250,
-                        brandName: response.data.brandName,
-                        description: response.data.longDescription,
-                        category: response.data.parentCategory.displayName,
-                        ingredients: response.data.currentSku.ingredientDesc,
-                        suggestedUsage: response.data.suggestedUsage
-                    }]};
-                    
+                    let theProductObj = {
+                        objMorningRoutineLog: [{
+                            productName: response.data.displayName,
+                            images: response.data.currentSku.skuImages.image250,
+                            brandName: response.data.brandName,
+                            description: response.data.longDescription,
+                            category: response.data.parentCategory.displayName,
+                            ingredients: response.data.currentSku.ingredientDesc,
+                            suggestedUsage: response.data.suggestedUsage
+                        }]
+                    };
+
                     setProductObject(theProductObj);
 
                 })
@@ -157,15 +158,17 @@ function MyRoutines(props) {
                 .then(function (response) {
                     console.log(response.data);
 
-                    let theProductObj = {objEveningRoutineLog:[{
-                        productName: response.data.displayName,
-                        images: response.data.currentSku.skuImages.image250,
-                        brandName: response.data.brandName,
-                        description: response.data.longDescription,
-                        category: response.data.parentCategory.displayName,
-                        ingredients: response.data.currentSku.ingredientDesc,
-                        suggestedUsage: response.data.suggestedUsage
-                    }]};
+                    let theProductObj = {
+                        objEveningRoutineLog: [{
+                            productName: response.data.displayName,
+                            images: response.data.currentSku.skuImages.image250,
+                            brandName: response.data.brandName,
+                            description: response.data.longDescription,
+                            category: response.data.parentCategory.displayName,
+                            ingredients: response.data.currentSku.ingredientDesc,
+                            suggestedUsage: response.data.suggestedUsage
+                        }]
+                    };
 
                     setProductObject(theProductObj);
 
@@ -204,6 +207,7 @@ function MyRoutines(props) {
                         openDetailsMorning={openDetailsMorning}
                         evening={false}
                         setTheProductName={setTheProductName}
+                        email={props.email}
                     />}
 
             </div>
@@ -226,7 +230,7 @@ function MyRoutines(props) {
             </div>
         </div>
     )
-    
+
 }
 
 export default MyRoutines;

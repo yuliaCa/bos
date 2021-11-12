@@ -2,6 +2,7 @@ import styles from './ProductCard.module.css';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { FaTrash } from 'react-icons/fa';
+import axios from 'axios';
 
 function ProductCard(props) {
 
@@ -9,6 +10,15 @@ function ProductCard(props) {
 
     const productUsedBtnHandler = () => {
         setProductUsedState(productIsUsed ? false : true);
+    }
+
+    const deleteProductHandler = () => {
+        if (!props.evening) {
+            axios.delete(`/profile/deleteProductMorning/${props.email}/${props.name}`)
+                .then(result => console.log('Deleting the product....')
+                )
+                .catch(error => console.log(error))
+        }
     }
 
     return (
@@ -23,7 +33,7 @@ function ProductCard(props) {
                 <p>{props.suggestedUsage}</p>
                 <a href='#' onClick={props.evening ? props.openDetailsEvening : props.openDetailsMorning} >Product Details</a>
 
-                <FaTrash className={styles.trashCan} />
+                <FaTrash className={styles.trashCan} onClick={deleteProductHandler} />
 
                 <button className={styles.useButton} onClick={productUsedBtnHandler}>{productIsUsed || props.checkAll ? 'Used' : 'Use Product'}</button>
             </div>
