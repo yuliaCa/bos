@@ -16,6 +16,15 @@ const EveningRoutine = (props) => {
         { label: "Sunscreen", value: "sunscreen" }
     ]
 
+    const saveDailyLog =(email, objRoutineLog)=>{
+        axios.post(`/dailyroutine/${email}`, `"objRoutineLog":${objRoutineLog}`)
+        .then(results => {
+            console.log(objRoutineLog);
+            console.log('I AM GETTING POSTED YEA')
+        })
+        .catch(error => console.log(error))
+    }
+
     return (
         <div className={styles.eveningRoutine}>
             <h1 className={styles.heading}>Evening Routine  </h1>

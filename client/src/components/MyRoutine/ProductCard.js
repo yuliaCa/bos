@@ -2,6 +2,7 @@ import styles from './ProductCard.module.css';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { FaTrash } from 'react-icons/fa';
+import axios from 'axios';
 
 function ProductCard(props) {
 
@@ -9,6 +10,24 @@ function ProductCard(props) {
 
     const productUsedBtnHandler = () => {
         setProductUsedState(productIsUsed ? false : true);
+    }
+
+    const MorningProductDeleteHandler = (event) => {
+        
+        axios.put(`/profile/deleteProductMorning/${props.email}/${props.name}`)
+            .then(results => {
+                console.log('Deleted!')
+            })
+            .catch(error => console.log(error))
+    }
+
+    const EveningProductDeleteHandler = (event) => {
+        
+        axios.put(`/profile/deleteProductEvening/${props.email}/${props.name}`)
+            .then(results => {
+                console.log('Deleted!')
+            })
+            .catch(error => console.log(error))
     }
 
     return (
