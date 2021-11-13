@@ -37,7 +37,7 @@ function ProductCard(props) {
                 <h5>{props.name}</h5>
 
                 <p>{props.suggestedUsage}</p>
-                <a href='#' onClick={props.evening ? props.openDetailsEvening : props.openDetailsMorning} >Product Details</a>
+                <a href='#' onClick={event => props.openDetailsMorning(event, props.id)}> Product Details</a>
 
                 <FaTrash className={styles.trashCan} onClick={deleteProductHandler} />
 

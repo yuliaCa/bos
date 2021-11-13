@@ -17,9 +17,14 @@ function MyRoutines(props) {
     // Handlers for showing Product Details Section
     // ================================================
     const [showProductDetailsMorning, setShowProductDetailsMorning] = useState(false);
-    const openDetailsMorning = () => {
+    const [prodObjForDetails, setProdObjForDetails] = useState();
+    const openDetailsMorning = (event, productID) => {
+        const theProductForDetails = MorningLoadedProducts.filter(product => product._id === productID)
+        console.log(theProductForDetails[0])
+        setProdObjForDetails(theProductForDetails[0]);
         setShowProductDetailsMorning(true);
     }
+
     const closeDetailsMorning = () => {
         setShowProductDetailsMorning(false);
     }
@@ -103,6 +108,8 @@ function MyRoutines(props) {
         for (let x = 0; x < arrayLength; x++) {
             strArray[x] = strArray[x].replace('<b>', '');
             strArray[x] = strArray[x].replace('</b>', '');
+            strArray[x] = strArray[x].replace('-', '');
+            strArray[x] = strArray[x].replace(':', '');
         }
 
         return strArray;
@@ -124,6 +131,7 @@ function MyRoutines(props) {
                     'x-rapidapi-key': '2b5c9fd8d8msh0132ae34892c4f1p161c42jsnb732f5ff681a'
                 }
             };
+
 
             await axios.request(options)
                 .then(function (response) {
@@ -227,7 +235,8 @@ function MyRoutines(props) {
                     <ProductDetails
                         closeDetailsMorning={closeDetailsMorning}
                         evening={false}
-                        theProductName={theProductName} /> :
+                        theProduct={prodObjForDetails}
+                        stringToArray={stringToArray} /> :
                     <MorningRoutine
                         ProductSubmitHandler={ProductSubmitMorningHandler}
                         checkAllHandler={checkAllHandler}
