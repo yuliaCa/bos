@@ -12,6 +12,7 @@ function MyPage(props) {
   let city = "Vancouver";
 
   return (
+    (isProfile &&
     <div className={styles.myPageSection}>
       <div className={styles.userSection}>
         <div className={styles.profileImage} />
@@ -39,7 +40,9 @@ function MyPage(props) {
         <h2>Product Usage</h2>
       </div>
       <UsageChart />
-    </div>
+    </div>)
+    (!isProfile &&
+    <Settings />)
   );
 }
 
