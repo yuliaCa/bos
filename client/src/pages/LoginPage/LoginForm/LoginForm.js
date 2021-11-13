@@ -11,7 +11,7 @@ import * as firebase from '../../../authentication';
 function LoginForm() {
 
     const history = useHistory();
-    const [email, setEmail] = useState();
+    const [email, setEmail] = useState(localStorage.email);
     const [password, setPassword] = useState();
   
     const handleSubmit = (event) => {
@@ -28,6 +28,10 @@ function LoginForm() {
           });
     }
 
+    function handleChange() {
+        localStorage.setItem("email",email);
+    }
+
     return (
         
     <div className={styles.LoginFormSection}>
@@ -36,7 +40,8 @@ function LoginForm() {
                 className={styles.inputEmail}
                 onChange ={({target}) => setEmail(target.value)} 
                 type="text" 
-                name="email" 
+                name="email"
+                value={email} 
                 placeholder="e-mail" />
             <input 
                 className={styles.inputPassword} 
@@ -46,7 +51,9 @@ function LoginForm() {
             
             <div className={styles.formLayout}>
             
-            <input className={styles.rememberCheckbox} type="checkbox" />
+            <input className={styles.rememberCheckbox} 
+                onChange={handleChange} 
+                type="checkbox" />
                 <label className={styles.checkRemember}>
                     Remember Me
                 </label>

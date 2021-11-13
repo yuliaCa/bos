@@ -6,6 +6,7 @@ import styles from "./Navbar.module.css";
 
 import { FaCircle } from "react-icons/fa";
 import { RiArrowDownSLine } from "react-icons/ri";
+import Fade from 'react-reveal/Fade';
 
 import * as firebase from "../../authentication";
 
@@ -45,8 +46,12 @@ function Navbar(props) {
     // marginBottom: "-5rem",
   };
 
+  // const transparentBgChange = {
+  //   backgroundColor: "rgba(173, 150, 125, 0.9)"
+  // }
+
   const transparentBg2 = {
-    backgroundColor: "rgba(173, 150, 125, 0.7)",
+    backgroundColor: "rgba(190, 173, 157,0.9)",
   };
 
   const whiteText = {
@@ -96,7 +101,10 @@ function Navbar(props) {
                 <>
                   <div className={styles.dropdown}>
                     <div
-                      onClick={() => setOpen(!open)}
+                      onClick={() => {
+                        setOpen(true)
+                        setTimeout(()=>{setOpen(false)},5000)
+                      }}
                       className={styles.icons}
                     >
                       <FaCircle className={styles.faCircle} />
@@ -107,6 +115,7 @@ function Navbar(props) {
                     </div>
                   </div>
                   {open ? (
+                    <Fade down>
                     <div
                       style={props.isHome === "/" ? transparentBg2 : {}}
                       id="dropdown"
@@ -137,7 +146,8 @@ function Navbar(props) {
                         </Link>
                       </span>
                     </div>
-                  ) : (
+                  </Fade >
+                   ) : (
                     ""
                   )}
                 </>

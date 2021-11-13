@@ -1,0 +1,214 @@
+.Checkbox {
+    display: none;
+}
+
+.dryLabel {
+    border-radius: 5px;
+    text-align: center;
+    border: solid 1px lightgrey;
+    padding: 8% 36%;
+    padding-top: 8%;
+    align-self: center;
+    margin: 3% 5%;
+    font-size: 13px;
+    background-color: #F7EDE1;
+}
+
+.dryLabel:hover {
+    background-color:#B68B7D;
+    color: black;
+}
+
+.normalLabel {
+    border: solid 1px lightgrey;
+    padding: 8% 29%;
+    padding-top: 8%;
+    align-self: center;
+    margin: 3% 5%;
+    font-size: 13px;
+    background-color: #F7EDE1;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.normalLabel:hover {
+    background-color: #B68B7D;
+    color: black;
+}
+
+.oilyLabel {
+    border: solid 1px lightgrey;
+    padding: 8% 35%;
+    align-self: center;
+    margin: 3% 5%;
+    font-size: 13px;
+    background-color: #F7EDE1;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.oilyLabel:hover {
+    background-color: #B68B7D;
+    color: black;
+}
+
+
+.combinationLabel {
+    border: solid 1px lightgrey;
+    padding: 8% 23.5%;
+    align-self: center;
+    margin: 3% 5%;
+    font-size: 12px;
+    background-color: #F7EDE1;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.combinationLabel:hover {
+    background-color: #B68B7D;
+    color: black;
+}
+
+.sensitiveLabel {
+    border: solid 1px lightgrey;
+    padding: 8% 27%;
+    align-self: center;
+    margin: 3% 5%;
+    font-size: 12px;
+    background-color: #F7EDE1;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.sensitiveLabel:hover {
+    background-color:#B68B7D;
+    color: black;
+}
+
+.acneLabel {
+    border: solid 1px lightgrey;
+    padding: 8% 32.5%;
+    align-self: center;
+    margin: 3% 5%;
+    font-size: 13px;
+    background-color: #F7EDE1;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.acneLabel:hover {
+    background-color: #B68B7D;
+    color: black;
+}
+
+.drynessLabel  {
+    border: solid 1px lightgrey;
+    padding: 8% 27.2%;
+    align-self: center;
+    margin: 3% 5%;
+    font-size: 13px;
+    background-color: #F7EDE1;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.drynessLabel:hover {
+    background-color: #B68B7D;
+    color: black;
+}
+
+.oilynessLabel  {
+    border: solid 1px lightgrey;
+    padding: 8% 27%;
+    align-self: center;
+    margin: 3% 5%;
+    font-size: 13px;
+    background-color: #F7EDE1;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.oilynessLabel:hover {
+    background-color: #B68B7D;
+    color: black;
+}
+
+.blemishesLabel {
+    border: solid 1px lightgrey;
+    padding: 8% 24.2%;
+    align-self: center;
+    margin: 3% 5%;
+    font-size: 13px;
+    background-color: #F7EDE1;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.blemishesLabel:hover {
+    background-color: #B68B7D;
+    color: black;
+}
+
+.darkspotsLabel {
+    border: solid 1px lightgrey;
+    padding: 8% 24.5%;
+    align-self: center;
+    margin: 3% 5%;
+    font-size: 12px;
+    background-color: #F7EDE1;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.darkspotsLabel:hover {
+    background-color: #B68B7D;
+    color: black;
+}
+
+.poresLabel {
+    border: solid 1px lightgrey;
+    padding: 8% 31%;
+    align-self: center;
+    margin: 3% 5%;
+    font-size: 13px;
+    background-color: #F7EDE1;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.poresLabel:hover {
+    background-color: #B68B7D;
+    color: black;
+}
+
+.redlinesLabel {
+    border: solid 1px lightgrey;
+    padding: 8% 26.5%;
+    align-self: start;
+    margin: 3% 5%;
+    font-size: 13px;
+    background-color: #F7EDE1;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.redlinesLabel:hover {
+    background-color: #B68B7D;
+    color: black;
+}
+
+.finelinesLabel {
+    border: solid 1px lightgrey;
+    padding: 8% 25.5%;
+    align-self: start;
+    margin: 3% 5%;
+    font-size: 13px;
+    background-color: #F7EDE1;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.finelinesLabel:hover {
+    background-color: #B68B7D;
+    color: black;
+}
