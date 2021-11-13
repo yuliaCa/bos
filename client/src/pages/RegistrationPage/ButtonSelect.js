@@ -17,17 +17,19 @@ function ButtonSelect(props) {
     
   return <>
   
-  <label onChange={handleColorChange} className={styles[props.custom]} style={{backgroundColor: color}}>
+  <label 
+    onChange={handleColorChange} 
+    className={styles[props.custom]} 
+    style={{backgroundColor: color}}>
     {" "}
     {props.labelname}
         <input
-        onChange={props.change}
-        className={styles.Checkbox}
-        type="checkbox"
-        name={props.name}
+          onChange={props.change}
+          className={styles.Checkbox}
+          type="checkbox"
+          name={props.name}
         />
-    </label>
-    
+  </label>
   </>;
 }
 
