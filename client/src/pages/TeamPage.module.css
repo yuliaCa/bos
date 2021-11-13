@@ -1,5 +1,6 @@
 p {
   /* 1rem equals 16px */
+  font-family: Khula;
   font-size: 1rem;
 }
 
@@ -8,11 +9,18 @@ p {
 }
 
 .section {
+  color: #3B3835;
   padding: 5rem 15%;
   background-color: #f7ede1;
 }
 
+.section div {
+  margin: 0 auto;
+  max-width: 800px;
+}
+
 .section h2 {
+  font-family: Sora;
   font-size: 32px;
   margin-bottom: 6rem;
   color: #3b3835;
