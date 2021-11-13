@@ -37,7 +37,10 @@ function MyRoutines(props) {
 
         setShowProductDetailsEvening(true);
     }
-    const closeDetailsEvening = () => {
+    const closeDetailsEvening = (event, productID) => {
+        const theProductForDetails = EveningLoadedProducts.filter(product => product._id === productID)
+        console.log(theProductForDetails[0])
+        setProdObjForDetails(theProductForDetails[0]);
         setShowProductDetailsEvening(false)
     }
 
