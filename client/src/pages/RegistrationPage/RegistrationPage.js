@@ -5,10 +5,11 @@
 import * as firebase from "../../authentication";
 
 import { useLocation, useHistory } from "react-router-dom";
-import { useEffect } from "react";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./RegistrationPage.module.css";
 import axios from "axios";
+
+import ButtonSelect from "./ButtonSelect";
 
 function RegistrationPage(props) {
   const location = useLocation();
@@ -41,21 +42,21 @@ function RegistrationPage(props) {
 const history = useHistory();  
 
 function handleChange(event) {
-    const isCheckbox = event.target.type === "checkbox";
-    let { name, value } = event.target;
+  const isCheckbox = event.target.type === "checkbox";
+  let { name, value } = event.target;
 
-    setInput((prev) => {
-      return {
-        ...prev,
-        [name]: (value = isCheckbox ? event.target.checked : value),
-      };
-    });
-  }
+  setInput((prev) => {
+    return {
+      ...prev,
+      [name]: (value = isCheckbox ? event.target.checked : value),
+    };
+  });
+}
 
   function handleClick(event) {
     event.preventDefault();
 
-        if (input.password === input.ConfirmPassword) {
+        if (input.password !== undefined && input.password === input.ConfirmPassword) {
 
             firebase.createUserWithEmailAndPassword(firebase.auth, input.userEmailAddress, input.password)
             .then((userCredential) => {
@@ -69,14 +70,6 @@ function handleChange(event) {
                 console.error(`There was an error creating profile: ${error}`);
             });
 
-            firebase.signOut(firebase.auth).then(() => {
-                console.log("sign out successful");
-                }).catch((error) => {
-                console.error("Error signing out, ", error.message);
-                });
-            
-            history.push("/login");
-
             })
             .catch((error) => {
               const errorCode = error.code;
@@ -84,6 +77,14 @@ function handleChange(event) {
           console.error(
             `There was an error signing up: ${errorCode}, ${errorMessage}`);
             });
+
+            firebase.signOut(firebase.auth).then(() => {
+              console.log("sign out successful");
+              }).catch((error) => {
+              console.error("Error signing out, ", error.message);
+              });
+          
+          history.push("/login");
         }
       
     const newProfile = {
@@ -219,135 +220,53 @@ function handleChange(event) {
           {" "}
           What is your skin type ?{" "}
         </legend>
-
-        <label className={styles.dryLabel}>
-          {" "}
-          Dry
-          <input
-            onChange={handleChange}
-            className={styles.Checkbox}
-            type="checkbox"
-            name="dry"
-          />
-        </label>
-        <label className={styles.normalLabel}>
-          {" "}
-          Normal
-          <input
-            onChange={handleChange}
-            className={styles.Checkbox}
-            type="checkbox"
-            name="normal"
-          />
-        </label>
-        <label className={styles.oilyLabel}>
-          {" "}
-          Oily
-          <input
-            onChange={handleChange}
-            className={styles.Checkbox}
-            type="checkbox"
-            name="oily"
-          />
-        </label>
-        <label className={styles.combinationLabel}>
-          {" "}
-          Combination
-          <input
-            onChange={handleChange}
-            className={styles.Checkbox}
-            type="checkbox"
-            name="combination"
-          />
-        </label>
-        <label className={styles.sensitiveLabel}>
-          {" "}
-          Sensitive
-          <input
-            onChange={handleChange}
-            className={styles.Checkbox}
-            type="checkbox"
-            name="sensitive"
-          />
-        </label>
-
+        
+        <div className={styles.dryLabel}>
+          <ButtonSelect change={handleChange} labelname="dry" name="dry" custom="dryLabel"/>
+        </div>
+        <div className={styles.normalLabel}>
+          <ButtonSelect change={handleChange} labelname="normal" name="normal" custom="normalLabel" />
+        </div>
+        <div className={styles.oilyLabel}>
+          <ButtonSelect change={handleChange} labelname="oily" name="oily" custom="oilyLabel" />
+        </div>
+        <div className={styles.combinationLabel}>
+          <ButtonSelect change={handleChange} labelname="combination" name="combination" custom="combinationLabel" />
+        </div>
+        <div className={styles.sensitiveLabel}>
+          <ButtonSelect change={handleChange} labelname="sensitive" name="sensitive" custom="sensitiveLabel" />
+        </div>
+    
         <legend className={styles.concernsLabel}>
           {" "}
           What are your concerns ?{" "}
         </legend>
-        <label className={styles.acneLabel}>
-          Acne
-          <input
-            onChange={handleChange}
-            className={styles.Checkbox}
-            type="checkbox"
-            name="acne"
-          />
-        </label>
-        <label className={styles.drynessLabel}>
-          Dryness
-          <input
-            onChange={handleChange}
-            className={styles.Checkbox}
-            type="checkbox"
-            name="dryness"
-          />
-        </label>
-        <label className={styles.oilynessLabel}>
-          Oilyness
-          <input
-            onChange={handleChange}
-            className={styles.Checkbox}
-            type="checkbox"
-            name="oilyness"
-          />
-        </label>
-        <label className={styles.blemishesLabel}>
-          Blemishes
-          <input
-            onChange={handleChange}
-            className={styles.Checkbox}
-            type="checkbox"
-            name="blemishes"
-          />
-        </label>
-        <label className={styles.darkspotsLabel}>
-          Dark Spots
-          <input
-            onChange={handleChange}
-            className={styles.Checkbox}
-            type="checkbox"
-            name="dark_spots"
-          />
-        </label>
-        <label className={styles.poresLabel}>
-          Pores
-          <input
-            onChange={handleChange}
-            className={styles.Checkbox}
-            type="checkbox"
-            name="pores"
-          />
-        </label>
-        <label className={styles.redlinesLabel}>
-          Red Lines
-          <input
-            onChange={handleChange}
-            className={styles.Checkbox}
-            type="checkbox"
-            name="red_lines"
-          />
-        </label>
-        <label className={styles.finelinesLabel}>
-          Fine Lines
-          <input
-            onChange={handleChange}
-            className={styles.Checkbox}
-            type="checkbox"
-            name="fine_lines"
-          />
-        </label>
 
+        <div className={styles.acneLabel}>
+          <ButtonSelect change={handleChange} labelname="acne" name="acne" custom="acneLabel" />
+        </div>
+        <div className={styles.drynessLabel}>
+          <ButtonSelect change={handleChange} labelname="dryness" name="dryness" custom="drynessLabel" />
+        </div>
+        <div className={styles.oilynessLabel}>
+          <ButtonSelect change={handleChange} labelname="oilyness" name="oilyness" custom="oilynessLabel" />
+        </div>
+        <div className={styles.blemishesLabel}>
+          <ButtonSelect change={handleChange} labelname="blemishes" name="blemishes" custom="blemishesLabel" />
+        </div>
+        <div className={styles.darkspotsLabel}>
+          <ButtonSelect change={handleChange} labelname="dark spots" name="dark_spots" custom="darkspotsLabel" />
+        </div>
+        <div className={styles.poresLabel}>
+          <ButtonSelect change={handleChange} labelname="pores" name="pores" custom="poresLabel" />
+        </div>
+        <div className={styles.redlinesLabel}>
+          <ButtonSelect change={handleChange} labelname="red lines" name="red_lines" custom="redlinesLabel" />
+        </div>
+        <div className={styles.finelinesLabel}>
+          <ButtonSelect change={handleChange} labelname="fine lines" name="fine_lines" custom="finelinesLabel" />
+        </div>
+      
         <button
           onClick={handleClick}
           className={styles.buttonRegister}

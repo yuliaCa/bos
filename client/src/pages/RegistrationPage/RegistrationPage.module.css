@@ -2,7 +2,6 @@
     display: grid;
     grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    /* border: 1px solid black; */
     margin: 3% auto;
     height: 50vh;
     width: 80vw;
@@ -12,7 +11,7 @@
 
 .registerHeading {
     margin-left: 10vw;
-    margin-top: 5%;
+    margin-top: 7%;
 }
 
 .fullnameLabel {
@@ -22,9 +21,6 @@
     font-size: 14px;
     font-weight: 400;
     align-self: center;
-    /* display: flex;
-    flex-direction: column; */
-  
 }
 
 .fullnameInput {
@@ -44,8 +40,6 @@
     font-size: 14px;
     font-weight: 400;
     align-self: center;
-    /* display: flex;
-    flex-direction: column; */
 }
 
 .emailInput {
@@ -103,7 +97,6 @@
     font-size: 14px;
     font-weight: 400;
     align-self: center;
-  
 }
 
 .locationInput {
@@ -133,12 +126,11 @@
     grid-column: 3 / 5;
     grid-row: 11 / 12;
     border-radius: 5px;
-    width: 12vw;
+    width: 11vw;
     height: 3.3vh;
     margin-left: 2.7vw;
     margin-top: 0.3vh;
     background-color: #F7EDE1;
-    
 }
 
 .skintypeLabel {
@@ -156,95 +148,36 @@
 }
 
 .dryLabel {
-    border-radius: 5px;
-    text-align: center;
+    padding-top: 8%;
     grid-column: 5 / 6;
     grid-row: 3 / 4;
-    border: solid 1px lightgrey;
-    padding: 6% 8%;
-    align-self: center;
-    margin: 3% 5%;
-    font-size: 13px;
-    background-color: #F7EDE1;
-  
-}
-
-.dryLabel:hover {
-    background-color:#B68B7D;
-    color: white;
 }
 
 .normalLabel {
+    padding-top: 8%;
     grid-column: 6 / 7;
     grid-row: 3 / 4;
-    border: solid 1px lightgrey;
-    padding: 6% 8%;
-    align-self: center;
-    margin: 3% 5%;
-    font-size: 13px;
-    background-color: #F7EDE1;
-    border-radius: 5px;
-    text-align: center;
-}
-
-.normalLabel:hover {
-    background-color: #B68B7D;
-    color: white;
 }
 
 .oilyLabel {
+    padding-top: 8%;
     grid-column: 7 / 8;
     grid-row: 3 / 4;
-    border: solid 1px lightgrey;
-    padding: 6% 8%;
-    align-self: center;
-    margin: 3% 5%;
-    font-size: 13px;
-    background-color: #F7EDE1;
-    border-radius: 5px;
-    text-align: center;
-}
-
-.oilyLabel:hover {
-    background-color: #B68B7D;
-    color: white;
 }
 
 .combinationLabel {
+    padding-top: 20%;
     grid-column: 5 / 6;
     grid-row: 4 / 5;
-    border: solid 1px lightgrey;
-    padding: 6% 5%;
-    align-self: center;
-    margin: 3% 5%;
-    font-size: 12px;
-    background-color: #F7EDE1;
-    border-radius: 5px;
-    text-align: left;
-}
-
-.combinationLabel:hover {
-    background-color: #B68B7D;
-    color: white;
 }
 
 .sensitiveLabel {
+    padding-top: 20%;
     grid-column: 6 / 7;
     grid-row: 4 / 5;
-    border: solid 1px lightgrey;
-    padding: 6% 8%;
-    align-self: center;
-    margin: 3% 5%;
-    font-size: 12px;
-    background-color: #F7EDE1;
-    border-radius: 5px;
-    text-align: center;
 }
 
-.sensitiveLabel:hover {
-    background-color:#B68B7D;
-    color: white;
-}
+
 
 .concernsLabel {
     grid-column: 5 / 7;
@@ -256,147 +189,51 @@
 } 
 
 .acneLabel {
+    padding-top: 10%;
     grid-column: 5 / 6;
     grid-row: 7 / 8;
-    border: solid 1px lightgrey;
-    padding: 6% 8%;
-    align-self: center;
-    margin: 3% 5%;
-    font-size: 13px;
-    background-color: #F7EDE1;
-    border-radius: 5px;
-    text-align: center;
-}
-
-.acneLabel:hover {
-    background-color: #B68B7D;
-    color: white;
 }
 
 .drynessLabel  {
+    padding-top: 10%;
     grid-column: 6 / 7;
     grid-row: 7 / 8;
-    border: solid 1px lightgrey;
-    padding: 6% 8%;
-    align-self: center;
-    margin: 3% 5%;
-    font-size: 13px;
-    background-color: #F7EDE1;
-    border-radius: 5px;
-    text-align: center;
-}
-
-.drynessLabel:hover {
-    background-color: #B68B7D;
-    color: white;
 }
 
 .oilynessLabel  {
+    padding-top: 10%;
     grid-column: 7 / 8;
     grid-row: 7 / 8;
-    border: solid 1px lightgrey;
-    padding: 6% 8%;
-    align-self: center;
-    margin: 3% 5%;
-    font-size: 13px;
-    background-color: #F7EDE1;
-    border-radius: 5px;
-    text-align: center;
-}
-
-.oilynessLabel:hover {
-    background-color: #B68B7D;
-    color: white;
 }
 
 .blemishesLabel {
+    padding-top: 21%;
     grid-column: 5 / 6;
     grid-row: 8 / 9;
-    border: solid 1px lightgrey;
-    padding: 6% 8%;
-    align-self: center;
-    margin: 3% 5%;
-    font-size: 13px;
-    background-color: #F7EDE1;
-    border-radius: 5px;
-    text-align: center;
-}
-
-.blemishesLabel:hover {
-    background-color: #B68B7D;
-    color: white;
 }
 
 .darkspotsLabel {
+    padding-top: 21%;
     grid-column: 6 / 7;
     grid-row: 8 / 9;
-    border: solid 1px lightgrey;
-    padding: 6% 8%;
-    align-self: center;
-    margin: 3% 5%;
-    font-size: 12px;
-    background-color: #F7EDE1;
-    border-radius: 5px;
-    text-align: center;
-}
-
-.darkspotsLabel:hover {
-    background-color: #B68B7D;
-    color: white;
 }
 
 .poresLabel {
+    padding-top: 21%;
     grid-column: 7 / 8;
     grid-row: 8 / 9;
-    border: solid 1px lightgrey;
-    padding: 6% 8%;
-    align-self: center;
-    margin: 3% 5%;
-    font-size: 13px;
-    background-color: #F7EDE1;
-    border-radius: 5px;
-    text-align: center;
-}
-
-.poresLabel:hover {
-    background-color: #B68B7D;
-    color: white;
 }
 
 .redlinesLabel {
+    padding-top: 23%;
     grid-column: 5 / 6;
     grid-row: 9 / 10;
-    border: solid 1px lightgrey;
-    padding: 6% 8%;
-    align-self: start;
-    margin: 3% 5%;
-    font-size: 13px;
-    background-color: #F7EDE1;
-    border-radius: 5px;
-    text-align: center;
-}
-
-.redlinesLabel:hover {
-    background-color: #B68B7D;
-    color: white;
 }
 
 .finelinesLabel {
+    padding-top: 23%;
     grid-column: 6 / 7;
     grid-row: 9 / 10;
-    border: solid 1px lightgrey;
-    padding: 6% 8%;
-    align-self: start;
-    margin: 3% 5%;
-    font-size: 13px;
-    background-color: #F7EDE1;
-    border-radius: 5px;
-    text-align: center;
-}
-
-.finelinesLabel:hover {
-    background-color: #B68B7D;
-    color: white;
 }
 
 .buttonRegister {

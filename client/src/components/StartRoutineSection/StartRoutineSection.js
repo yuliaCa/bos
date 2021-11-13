@@ -26,7 +26,6 @@ function StartRoutineSection(props) {
         sessionStorage.setItem("email", input.email);  
         }
 
-
     return (
         <div className={styles.startRoutineOuter}>
             <h2 className={styles.startRoutineHeader}>Start Your Routine Today</h2>
