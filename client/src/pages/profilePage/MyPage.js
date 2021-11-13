@@ -1,14 +1,19 @@
 import styles from "./MyPage.module.css";
 import { MdOutlineLocationOn } from "react-icons/md";
 import Weather from "../../components/Weather/Weather.js";
-import WeatherChart from "../../components/Charts/WeatherChart";
-import UsageChart from "../../components/Charts/UsageChart";
+import WeatherChart from "../../components/Charts/WeatherChart.js";
+import UsageChart from "../../components/Charts/UsageChart.js";
+import Settings from "../../components/Settings/Settings.js";
+import { useState } from "react";
 
 function MyPage(props) {
+  const [isProfile, setIsProfile] = useState(true);
+
   let skinTypes = ["Normal", "Acne", "Redness", "Pores"];
   let city = "Vancouver";
 
   return (
+    (isProfile &&
     <div className={styles.myPageSection}>
       <div className={styles.userSection}>
         <div className={styles.profileImage} />
@@ -36,7 +41,9 @@ function MyPage(props) {
         <h2>Product Usage</h2>
       </div>
       <UsageChart />
-    </div>
+    </div>)
+    (!isProfile &&
+    <Settings />)
   );
 }
 
