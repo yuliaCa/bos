@@ -16,7 +16,6 @@ const EveningRoutine = (props) => {
         { label: "Sunscreen", value: "sunscreen" }
     ]
 
-
     const saveDailyLog = (email, objRoutineLog) => {
         axios.post(`/dailyroutine/${email}`, `"objRoutineLog":${objRoutineLog}`)
             .then(results => {
