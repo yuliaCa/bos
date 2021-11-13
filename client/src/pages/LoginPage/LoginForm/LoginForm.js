@@ -11,12 +11,15 @@ import * as firebase from '../../../authentication';
 function LoginForm() {
 
     const history = useHistory();
-    const [email, setEmail] = useState(localStorage.email);
-    const [password, setPassword] = useState();
+    const [input, setInput] = useState({
+        password: '',
+        email: localStorage.email
+    });
+   
   
     const handleSubmit = (event) => {
         event.preventDefault();
-        firebase.signInWithEmailAndPassword(firebase.auth, email.trim(), password.trim())
+        firebase.signInWithEmailAndPassword(firebase.auth, input.email.trim(), input.password.trim())
         .then((user) => {
             if (user) {
               console.log("logged in! User ID: " + firebase.auth.currentUser.uid);
@@ -28,8 +31,25 @@ function LoginForm() {
           });
     }
 
-    function handleChange() {
-        localStorage.setItem("email",email);
+    function handleInput(event) {
+        let { name, value } = event.target;
+    
+        setInput((prev) => {
+          return {
+            ...prev,
+            [name]:value 
+          };
+        });
+    }
+
+    function handleCheckbox(event) {
+
+        if (event.target.checked) {
+        localStorage.setItem("email",input.email);
+        }
+        else {
+        localStorage.clear();
+        }
     }
 
     return (
@@ -38,21 +58,23 @@ function LoginForm() {
         <form onSubmit={ handleSubmit }>
             <input 
                 className={styles.inputEmail}
-                onChange ={({target}) => setEmail(target.value)} 
+                onChange ={handleInput} 
                 type="text" 
                 name="email"
-                value={email} 
+                value={input.email}
                 placeholder="e-mail" />
             <input 
                 className={styles.inputPassword} 
-                onChange ={({target}) => setPassword(target.value)} 
-                type="password" name="password" 
+                onChange ={handleInput} 
+                type="password" 
+                name="password" 
+                value={input.password}
                 placeholder="password" />
             
             <div className={styles.formLayout}>
             
             <input className={styles.rememberCheckbox} 
-                onChange={handleChange} 
+                onChange={event => handleCheckbox(event)} 
                 type="checkbox" />
                 <label className={styles.checkRemember}>
                     Remember Me
