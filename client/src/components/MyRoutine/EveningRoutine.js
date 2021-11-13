@@ -16,13 +16,13 @@ const EveningRoutine = (props) => {
         { label: "Sunscreen", value: "sunscreen" }
     ]
 
-    const saveDailyLog =(email, objRoutineLog)=>{
+    const saveDailyLog = (email, objRoutineLog) => {
         axios.post(`/dailyroutine/${email}`, `"objRoutineLog":${objRoutineLog}`)
-        .then(results => {
-            console.log(objRoutineLog);
-            console.log('I AM GETTING POSTED YEA')
-        })
-        .catch(error => console.log(error))
+            .then(results => {
+                console.log(objRoutineLog);
+                console.log('I AM GETTING POSTED YEA')
+            })
+            .catch(error => console.log(error))
     }
 
     return (
@@ -32,7 +32,7 @@ const EveningRoutine = (props) => {
             <div className={styles.userInput}>
                 <Select options={categoryOptions} />
 
-                <SearchInput setProduct={props.setProduct} />
+                <SearchInput setProduct={props.setProduct} setInput={props.setInput} />
 
                 <button onClick={props.ProductSubmitHandler}>Add Product</button>
             </div>

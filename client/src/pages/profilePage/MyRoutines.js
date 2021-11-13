@@ -33,7 +33,10 @@ function MyRoutines(props) {
     const openDetailsEvening = () => {
         setShowProductDetailsEvening(true);
     }
-    const closeDetailsEvening = () => {
+    const closeDetailsEvening = (event, productID) => {
+        const theProductForDetails = EveningLoadedProducts.filter(product => product._id === productID)
+        console.log(theProductForDetails[0])
+        setProdObjForDetails(theProductForDetails[0]);
         setShowProductDetailsEvening(false)
     }
 
@@ -90,16 +93,14 @@ function MyRoutines(props) {
 
     }, [productObject, props.email])
 
-    // useEffect(() => {
-
-    //     axios.get('/products')
-    //         .then(results => {
-    //             console.log(results.data)
-    //             setEveningLoadedProducts(results.data);
-    //         })
-    //         .catch(error => console.log(error));
-
-    // }, [productObject])
+    useEffect(() => {
+        axios.get(`/profile/${props.email}/eveningProducts`)
+            .then(results => {
+                console.log(results.data.objEveningRoutineLog)
+                setEveningLoadedProducts(results.data.objEveningRoutineLog);
+            })
+            .catch(error => console.log(error));
+    }, [])
 
     const stringToArray = (string) => {
         let strArray = string.split('<br>');
@@ -169,10 +170,7 @@ function MyRoutines(props) {
 
     const ProductSubmitEveningHandler = (event) => {
         event.preventDefault();
-
-
         if (product) {
-
             const options = {
                 method: 'GET',
                 url: 'https://sephora.p.rapidapi.com/products/detail',
@@ -221,13 +219,11 @@ function MyRoutines(props) {
 
 
 
-
     let headingMorningRoutine = `Morning Routine`;
     let headingEveningRoutine = `Evening Routine`;
 
     return (
         <div>
-
 
             <div>
                 <h1>{headingMorningRoutine}</h1>
