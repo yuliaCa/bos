@@ -28,7 +28,7 @@ function LoginForm() {
           });
     }
 
-    function handleChange () {
+    function handleChange() {
         localStorage.setItem("email",email);
     }
 
@@ -51,7 +51,9 @@ function LoginForm() {
             
             <div className={styles.formLayout}>
             
-            <input className={styles.rememberCheckbox} onChange={handleChange} type="checkbox" />
+            <input className={styles.rememberCheckbox} 
+                onChange={handleChange} 
+                type="checkbox" />
                 <label className={styles.checkRemember}>
                     Remember Me
                 </label>
