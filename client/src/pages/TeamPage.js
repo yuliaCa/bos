@@ -35,7 +35,9 @@ const TeamPage = (props) => {
         bodytext={missionContent.bodytext}
       />
       <div className={styles.section}>
-        <h2>Our Team</h2>
+        <div>
+          <h2>Our Team</h2>
+        </div>
 
         {teamContent.map((member, key) => (
           <MemberCard
