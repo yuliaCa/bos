@@ -15,13 +15,13 @@ const MorningRoutine = (props) => {
         { label: "Eyecare", value: "eyecare" },
         { label: "Sunscreen", value: "sunscreen" }
     ]
-    const saveDailyLog =(email, objRoutineLog)=>{
+    const saveDailyLog = (email, objRoutineLog) => {
         axios.post(`/dailyroutine/${email}`, `"objRoutineLog":${objRoutineLog}`)
-        .then(results => {
-            console.log(objRoutineLog);
-            console.log('I AM GETTING POSTED YEA')
-        })
-        .catch(error => console.log(error))
+            .then(results => {
+                console.log(objRoutineLog);
+                console.log('SAVING THE LOG FOR TODAY')
+            })
+            .catch(error => console.log(error))
     }
 
     return (
@@ -29,12 +29,12 @@ const MorningRoutine = (props) => {
         <div className={styles.morningRoutine}>
             <h1 className={styles.heading}>Morning Routine  </h1>
 
-            <form className={styles.userInput} >
+            <form className={styles.userInput} onSubmit={(event) => props.ProductSubmitHandler(event)}>
                 <Select options={categoryOptions} />
 
-                <SearchInput setProduct={props.setProduct} />
+                <SearchInput setProduct={props.setProduct} setInput={props.setInput} input={props.input} />
 
-                <button onClick={(event) => props.ProductSubmitHandler(event)}>Add Product</button>
+                <button >Add Product</button>
             </form>
 
             <div className={styles.selectAll}>
@@ -56,10 +56,13 @@ const MorningRoutine = (props) => {
                         checkAll={props.checkedAll}
                         openDetailsMorning={props.openDetailsMorning}
                         evening={props.evening}
+                        setTheProductName={props.setTheProductName}
+                        email={props.email}
+
                     />
                 ))}
             </div>
-            <button className={styles.saveButton}>Save</button>
+            <button className={styles.saveButton} onClick={saveDailyLog}>Save</button>
         </div>
 
     )

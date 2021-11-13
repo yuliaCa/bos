@@ -12,22 +12,19 @@ function ProductCard(props) {
         setProductUsedState(productIsUsed ? false : true);
     }
 
-    const MorningProductDeleteHandler = (event) => {
-        
-        axios.put(`/profile/deleteProductMorning/${props.email}/${props.name}`)
-            .then(results => {
-                console.log('Deleted!')
-            })
-            .catch(error => console.log(error))
-    }
+    const deleteProductHandler = () => {
+        if (!props.evening) {
+            axios.delete(`/profile/deleteProductMorning/${props.email}/${props.name}`)
+                .then(result => console.log('Deleting the Morning product....')
+                )
+                .catch(error => console.log(error))
 
-    const EveningProductDeleteHandler = (event) => {
-        
-        axios.put(`/profile/deleteProductEvening/${props.email}/${props.name}`)
-            .then(results => {
-                console.log('Deleted!')
-            })
-            .catch(error => console.log(error))
+        } else if (props.evening) {
+            axios.delete(`/profile/deleteProductEvening/${props.email}/${props.name}`)
+                .then(result => console.log('Deleting the Evening product....')
+                )
+                .catch(error => console.log(error))
+        }
     }
 
     return (
@@ -40,9 +37,9 @@ function ProductCard(props) {
                 <h5>{props.name}</h5>
 
                 <p>{props.suggestedUsage}</p>
-                <a href='#' onClick={props.evening ? props.openDetailsEvening : props.openDetailsMorning}>Product Details</a>
+                <a href='#' onClick={event => props.openDetailsMorning(event, props.id)}> Product Details</a>
 
-                <FaTrash className={styles.trashCan} />
+                <FaTrash className={styles.trashCan} onClick={deleteProductHandler} />
 
                 <button className={styles.useButton} onClick={productUsedBtnHandler}>{productIsUsed || props.checkAll ? 'Used' : 'Use Product'}</button>
             </div>

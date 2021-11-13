@@ -3,11 +3,12 @@ const dbSchema = mongoose.Schema;
 
 
 const productSubSchema = new dbSchema({
-    productName: { type: String},
+    productName: { type: String },
     images: { type: [String] },
     brandName: { type: String },
     description: { type: String },
-    category: { type: String }
+    category: { type: String },
+    suggestedUsage: { type: String }
 });
 
 
