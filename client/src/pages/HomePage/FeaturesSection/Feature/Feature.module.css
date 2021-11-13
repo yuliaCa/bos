@@ -14,7 +14,7 @@
 
 .singleSection p {
     padding: 0;
-    line-height: 3vh;
+    /* line-height: 3vh; */
     margin-bottom: 75px;
     font-weight: 200;
     text-align: center;
