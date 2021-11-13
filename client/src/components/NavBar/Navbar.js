@@ -101,7 +101,7 @@ function Navbar(props) {
                 <>
                   <div className={styles.dropdown}>
                     <div
-                      onClick={() => setOpen(!open)}
+                      onClick={() => setOpen(true)}
                       className={styles.icons}
                     >
                       <FaCircle className={styles.faCircle} />
@@ -142,6 +142,7 @@ function Navbar(props) {
                           Log out
                         </Link>
                       </span>
+                      {setTimeout(()=>{setOpen(false)},5000)}
                     </div>
                   </Fade > ) : (
                     ""
