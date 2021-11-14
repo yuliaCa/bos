@@ -33,6 +33,7 @@ function FeaturesPage(props) {
         heading={routineContent.header}
         bodytext={routineContent.body}
         buttonTitle="START YOUR ROUTINE"
+        link="/profile"
       />
 
       <FeatureInfoSection
@@ -41,6 +42,7 @@ function FeaturesPage(props) {
         heading={adviceContent.header}
         bodytext={adviceContent.body}
         buttonTitle="CREATE YOUR PROFILE"
+        link="/registration"
       />
 
       <FeatureInfo2Section
@@ -49,6 +51,7 @@ function FeaturesPage(props) {
         heading={insightsContent.header}
         bodytext={insightsContent.body}
         buttonTitle="START YOUR FIRST WEEK"
+        link="/profile"
       />
     </div>
   );
