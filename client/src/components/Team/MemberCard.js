@@ -5,7 +5,7 @@ import { BsGithub } from "react-icons/bs";
 
 const MemberCard = (props) => {
   return (
-    <div className={styles.section}>
+    <div className={styles.memberSection}>
       <div className={styles.imgContainer}>
         <div className={styles.imgCenterer}>
           <img src={props.src} alt={props.name} />

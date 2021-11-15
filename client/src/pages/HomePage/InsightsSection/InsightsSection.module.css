@@ -33,6 +33,6 @@
 }
 
 .insightsImage {
-    height: 40vh;
+    height: auto;
     max-width: 25vw;
 }
