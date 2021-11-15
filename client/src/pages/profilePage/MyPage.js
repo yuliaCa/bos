@@ -3,7 +3,6 @@ import { MdOutlineLocationOn } from "react-icons/md";
 import Weather from "../../components/Weather/Weather.js";
 import WeatherChart from "../../components/Charts/WeatherChart.js";
 import UsageChart from "../../components/Charts/UsageChart.js";
-import Settings from "../../components/Settings/Settings.js";
 import { useState } from "react";
 
 function MyPage(props) {
