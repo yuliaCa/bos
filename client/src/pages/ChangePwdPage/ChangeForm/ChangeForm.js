@@ -2,33 +2,37 @@
 // https://github.com/Devalo/Firebase-auth-react-express-mongodb/blob/master/phone-frontend/src/components/session/Login.jsx
 
 import React, { useState } from 'react';
-import styles from './LoginForm.module.css';
+import styles from './ChangeForm.module.css';
 import { Link, useHistory } from 'react-router-dom';
 
 //import functions from Firebase authentication SDK
 import * as firebase from '../../../authentication';
 
-function LoginForm() {
+function ChangeForm() {
 
     const history = useHistory();
     const [input, setInput] = useState({
         password: '',
-        email: localStorage.email
+        cfmPassword: '',
+        email: ''
     });
    
   
     const handleSubmit = (event) => {
         event.preventDefault();
-        firebase.signInWithEmailAndPassword(firebase.auth, input.email.trim(), input.password.trim())
-        .then((user) => {
-            if (user) {
-              console.log("logged in! User ID: " + firebase.auth.currentUser.uid);
-              history.push("/");
-            }
+
+        if (input.password !== undefined && input.password === input.cfmPassword) {
+
+        firebase.sendPasswordResetEmail(firebase.auth, input.email.trim())
+          .then(() => {
+            console.log('your password is reset!')
+            history.push("/login");
           })
-        .catch((error) => {
-              console.error("Error signing in, ", error.message);
-          });
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+          });   
+        }
     }
 
     function handleInput(event) {
@@ -40,16 +44,6 @@ function LoginForm() {
             [name]:value 
           };
         });
-    }
-
-    function handleCheckbox(event) {
-
-        if (event.target.checked) {
-        localStorage.setItem("email",input.email);
-        }
-        else {
-        localStorage.clear();
-        }
     }
 
     return (
@@ -72,26 +66,24 @@ function LoginForm() {
                 value={input.password}
                 placeholder="password"
                 required />
+            <input 
+                className={styles.inputCfmPassword} 
+                onChange ={handleInput} 
+                type="password" 
+                name="cfmPassword" 
+                value={input.cfmPassword}
+                placeholder="confirm password"
+                required />
             
             <div className={styles.formLayout}>
             
-            <input className={styles.rememberCheckbox} 
-                onChange={event => handleCheckbox(event)} 
-                type="checkbox" />
-                <label className={styles.checkRemember}>
-                    Remember Me
-                </label>
-
-                <p className={styles.forgotPassword}>
-                    <Link to="/change">Forgot Your Password?</Link></p>
-
                 <button 
                     type="submit" 
-                    className={styles.loginButton}>LOG IN
+                    className={styles.loginButton}>RESET PASSWORD
                 </button>
+                
+                <Link className={styles.backtologin} to='/login'>Back to Login</Link>
 
-                <p className={styles.registerLink}>
-                    <Link to="/registration">Register here</Link></p>
             </div>
         </form>
     </div>
@@ -99,4 +91,4 @@ function LoginForm() {
     )
 }
 
-export default LoginForm;
+export default ChangeForm;

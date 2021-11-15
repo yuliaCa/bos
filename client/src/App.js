@@ -16,6 +16,7 @@ import SettingsPage from "./pages/Settings";
 import TeamPage from "./pages/TeamPage";
 import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
+import ChangePwdPage from "./pages/ChangePwdPage/ChangePwdPage";
 
 import Navbar from "./components/NavBar/Navbar";
 
@@ -64,6 +65,9 @@ function App() {
           </Route>
           <Route path="/login">
             <LoginPage isHome={isHome} handleIsHome={handleIsHome} />
+          </Route>
+          <Route path="/change">
+            <ChangePwdPage isHome={isHome} handleIsHome={handleIsHome} />
           </Route>
         </Switch>
         <Footer />
