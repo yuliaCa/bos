@@ -4,13 +4,13 @@
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     margin: 3% auto;
     height: 50vh;
-    width: 80vw;
+    width: 70vw;
     padding: 8% 0;
     background-color: #FCF9F6;
 }
 
 .registerHeading {
-    margin-left: 10vw;
+    margin-left: 14.5vw;
     margin-top: 7%;
 }
 

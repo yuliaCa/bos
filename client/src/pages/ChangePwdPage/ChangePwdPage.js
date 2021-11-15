@@ -2,10 +2,10 @@ import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import React from "react";
 import Welcome from "../../components/Welcome/Welcome";
-import LoginForm from "./LoginForm/LoginForm";
-import styles from "./LoginPage.module.css";
+import ChangeForm from "./ChangeForm/ChangeForm";
+import styles from "./ChangePwdPage.module.css";
 
-function LoginPage(props) {
+function ChangePwdPage(props) {
   const location = useLocation();
 
   useEffect(() => {
@@ -24,10 +24,10 @@ function LoginPage(props) {
         />
       </div>
       <div className={styles.loginRightSection}>
-        <LoginForm />
+        <ChangeForm />
       </div>
     </div>
   );
 }
 
-export default LoginPage;
+export default ChangePwdPage;
