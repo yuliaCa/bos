@@ -21,6 +21,4 @@ router.use("/missioncontent", missionContentRouter);
 router.use("/teamcontent", teamContentRouter);
 router.use("/advicecontent", adviceContentRouter);
 
-router.use("/settings", settingsRouter);
-
 module.exports = router;
