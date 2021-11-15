@@ -1,3 +1,12 @@
+ul {
+  list-style-type: none;
+}
+
+li {
+  margin: 0;
+  padding: 0;
+}
+
 header {
   height: 5rem;
   background-color: #ffffff;
@@ -8,6 +17,15 @@ header {
   padding: 0 7vw;
   border-bottom: 2px solid #9b8975;
   position: relative;
+}
+
+header ul {
+  list-style-type: none;
+  margin: 2rem 0.5em;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
 }
 
 header .flexRow ul {
@@ -70,7 +88,7 @@ header .filter {
   background-color: #fff;
   border-radius: 10px;
   border: 2px solid #9b8975;
-  color: rgb(210, 200, 186,0.9);
+  color: rgb(210, 200, 186, 0.9);
 }
 
 .dropdownItem span {
