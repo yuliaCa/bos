@@ -22,4 +22,7 @@
   position: relative;
   left: 2vw;
   bottom: 2rem;
+  margin: 2rem 0.5em;
+  padding: 0;
+  gap: 0.5rem;
 }
