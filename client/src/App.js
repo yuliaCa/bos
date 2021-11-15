@@ -12,7 +12,6 @@ import HomePage from "./pages/HomePage/HomePage";
 import FeaturesPage from "./pages/FeaturesPage/FeaturesPage";
 
 import ProfilePage from "./pages/ProfilePage";
-import SettingsPage from "./components/Settings/Settings";
 import TeamPage from "./pages/TeamPage";
 import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
