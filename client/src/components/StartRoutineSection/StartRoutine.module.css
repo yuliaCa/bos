@@ -24,8 +24,8 @@
 .startRoutineInner .register {
     background-color: #67392A;
     border: none;
-    border-radius: 10px;
-    height: 4vh;
+    border-radius: 8px;
+    /* height: 4vh; */
     width: 14vw;
     font-size: 15px;
 }
