@@ -27,6 +27,17 @@ function ProductCard(props) {
         }
     }
 
+
+    const getSkinConcerns = (string) => {
+
+        let trimmedString = string.substring(
+            string.indexOf('Skincare') + 18,
+            string.lastIndexOf('Highlighted Ingredients') - 1
+        )
+        return trimmedString;
+    }
+
+
     return (
 
         <div>
@@ -35,8 +46,8 @@ function ProductCard(props) {
                 <img className={styles.productImg} src={props.image} />
 
                 <h5>{props.name}</h5>
-
-                <p>{props.suggestedUsage}</p>
+                <h5>Skincare Concerns</h5>
+                <div dangerouslySetInnerHTML={{ __html: getSkinConcerns(props.description) }} />
                 <a href='#' onClick={event => props.openDetailsMorning(event, props.id)}> Product Details</a>
 
                 <FaTrash className={styles.trashCan} onClick={deleteProductHandler} />

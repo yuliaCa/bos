@@ -21,14 +21,7 @@ const ProductDetails = (props) => {
         return descriptionClean + highlightedIngredients;
     }
 
-    const getSuggestedUsage = (string) => {
-        let usageTrim = string.substring(
-            string.indexOf('Suggested') + 1,
-            string.lastIndexOf('Usage') - 1
-        )
 
-        return usageTrim;
-    }
 
     return (
         <div className={styles.productDetails}>
