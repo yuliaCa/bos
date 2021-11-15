@@ -4,12 +4,19 @@ import Feature from "./Feature/Feature";
 import { Link } from 'react-router-dom';
 import axios from "axios";
 
+//import functions from Firebase authentication SDK
+import * as firebase from '../../../authentication.js';
+
 function FeaturesSection() {
-  
+
     const [routineContent, setRoutineContent] = useState({});
     const [adviceContent, setAdviceContent] = useState({});
     const [insightsContent, setInsightsContent] = useState({});
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+    firebase.onAuthStateChanged(firebase.auth, (user) => {
+        return user ? setIsLoggedIn(true) : setIsLoggedIn(false)
+    });
 
     useEffect(() => {
 
@@ -38,7 +45,11 @@ function FeaturesSection() {
         </div>
 
         <button className={styles.register}>
-            <Link to='/registration'>CREATE A ROUTINE NOW</Link>
+        {isLoggedIn ? (
+                    <Link to='/profile'>CREATE A ROUTINE NOW</Link>
+                    ) : (
+                    <Link to='/registration'>CREATE A ROUTINE NOW</Link>
+                    )}
         </button>
     </div>
     
