@@ -1,3 +1,11 @@
+.memberSection {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 1rem;
+  padding-bottom: 5rem;
+  margin-left: 0;
+}
+
 .memberSection h2 h3 {
   font-family: Sora;
 }
@@ -10,15 +18,15 @@
   border-radius: 50%;
 }
 .memberSection .imgCenterer {
-  width: 1000px;
+  /* width: 1000px;
   position: absolute;
-  left: 50%;
+  left: 50px;
   top: 0;
-  margin-left: -500px;
+  margin-left: -500px; */
 }
 .memberSection .imgCenterer img {
   display: block;
-  margin: 0 auto;
+  margin: 0 auto 0 0;
 }
 .memberSection .section {
   margin: 0 auto;
@@ -26,7 +34,7 @@
   padding: 1rem 0;
   display: grid;
   align-items: left;
-  grid-template-columns: 1fr 2.5fr;
+  grid-template-columns: 1fr 2fr;
   gap: 2rem;
   margin-bottom: 5rem;
 }
@@ -52,8 +60,16 @@
   margin-top: 1rem;
 }
 
-.memberSection .icons {
+.memberSection .icons1 {
   color: #3b3835;
+  font-size: 1.85rem;
+  position: relative;
+  bottom: 1.65px;
+}
+
+.memberSection .icons2 {
+  color: #3b3835;
+  font-size: 1.6rem;
 }
 
 .memberSection ul {
@@ -69,4 +85,3 @@
   margin: 0;
   padding: 0;
 }
-

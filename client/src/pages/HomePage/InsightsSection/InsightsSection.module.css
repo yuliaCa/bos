@@ -13,14 +13,14 @@
 .left p {
   text-align: left;
   padding: 0 5vw;
-  color: #67392a;
+  color: #3b3835;
   /* line-height: 3vh; */
   font-weight: 200;
 }
 
 .left h2 {
   text-align: left;
-  color: #67392a;
+  color: #3b3835;
   font-weight: 600;
   font-size: 32px;
   padding: 0 5vw;
