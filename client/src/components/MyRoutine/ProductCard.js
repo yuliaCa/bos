@@ -29,12 +29,10 @@ function ProductCard(props) {
 
 
     const getSkinConcerns = (string) => {
-
         let trimmedString = string.substring(
             string.indexOf('Skincare') + 18,
             string.lastIndexOf('Highlighted Ingredients') - 1
         )
-
         return trimmedString;
     }
 
