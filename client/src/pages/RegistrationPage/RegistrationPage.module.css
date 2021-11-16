@@ -269,6 +269,25 @@
         width: 42vw;
     }
 }  
+
+@media only screen and (min-width: 800px) {
+
+    .combinationLabel {
+        margin-top: 3.8vh;
+    }
+    
+    .sensitiveLabel {
+        margin-top: 3.8vh;
+        grid-column: 3 / 5;
+        grid-row: 15 / 16;
+    }
+
+    .buttonRegister {
+        width: 80vw;
+        margin-left: -14vw;
+    }
+}
+
 @media only screen and (min-width: 900px) {
 
     .RegistrationFormSection {

@@ -146,7 +146,7 @@
     .darkspotsLabel {
         border: solid 1px lightgrey;
         align-self: center;
-        padding: 1.2vh 6.3vw;
+        padding: 1.2vh 6.6vw;
         font-size: 12px;
         background-color: #F7EDE1;
         border-radius: 5px;
@@ -193,7 +193,7 @@
     .finelinesLabel {
         border: solid 1px lightgrey;
         align-self: start;
-        padding: 1.2vh 6.9vw;
+        padding: 1.2vh 7.2vw;
         font-size: 13px;
         background-color: #F7EDE1;
         border-radius: 5px;
@@ -357,6 +357,58 @@
 
     .finelinesLabel {
         padding: 1.2vh 8.6vw;
+    }
+}
+
+@media only screen and (min-width: 800px) {
+
+    .normalLabel {
+        padding: 1.2vh 10vw;
+        margin-left: -3.5vw;
+    }
+
+    .combinationLabel {
+        padding: 1.2vh 8.1vw; 
+    }
+    
+    .sensitiveLabel {
+        padding: 1.2vh 9.7vw;
+        margin-left: -3.8vw;
+    }
+
+    .acneLabel {
+        padding: 1.2vh 10.2vw;
+    }
+
+    .drynessLabel  {
+        padding: 1.2vh 9.6vw;
+        margin-left: -3.7vw;
+    }
+
+    .oilynessLabel  {
+        padding: 1.2vh 9.8vw;
+        margin-left: -7.2vw;
+    }
+
+    .blemishesLabel {
+        padding: 1.2vh 8.3vw;
+    }
+
+    .darkspotsLabel {
+        padding: 1.2vh 8.9vw;
+    }
+
+    .poresLabel {
+        padding: 1.1vh 10.6vw;
+        margin-left: -7.2vw;
+    }
+
+    .redlinesLabel {
+        padding: 1.2vh 8.8vw;
+    }
+
+    .finelinesLabel {
+        padding: 1.2vh 9.1vw;
     }
 }
 
