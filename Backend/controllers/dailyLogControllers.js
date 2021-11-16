@@ -2,7 +2,8 @@ const DailyLog = require("../models/dailyLogSchema.js");
 
 exports.getDailyLogByUserEmail = (req, res) => {
     //req.params.userEmail
-    DailyLog.findOne({ userEmailAddress: req.params.userEmail }).exec()
+    DailyLog.find({ userEmailAddress: req.params.userEmail })
+        .exec()
         .then(results => {
             res.status(200).json(results);
         })
@@ -16,7 +17,7 @@ exports.postDailyLogByDay = (req, res) => {
         userEmailAddress: req.params.userEmail,
         objRoutineLog: req.body.objRoutineLog,
         overallRate: req.body.overallRate,
-        dailyLogDate:  req.body.dailyLogDate
+        dailyLogDate: req.body.dailyLogDate
     });
 
     newDailyLog.save().then(result => {
