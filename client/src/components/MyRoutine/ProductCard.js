@@ -33,7 +33,6 @@ function ProductCard(props) {
             string.indexOf('Skincare') + 18,
             string.lastIndexOf('Highlighted Ingredients') - 1
         )
-
         return trimmedString;
     }
 

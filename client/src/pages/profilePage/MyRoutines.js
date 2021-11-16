@@ -79,6 +79,12 @@ function MyRoutines(props) {
         setCheckedEveningAll(checkedEveningAll ? false : true)
     }
 
+    const [checkedEveningAll, setCheckedEveningAll] = useState(false);
+    const checkAllEveningHandler = () => {
+        setCheckedEveningAll(checkedEveningAll ? false : true)
+    }
+
+
 
 
     const [product, setProduct] = useState('');
