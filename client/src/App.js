@@ -12,7 +12,6 @@ import HomePage from "./pages/HomePage/HomePage";
 import FeaturesPage from "./pages/FeaturesPage/FeaturesPage";
 
 import ProfilePage from "./pages/ProfilePage";
-import SettingsPage from "./pages/Settings";
 import TeamPage from "./pages/TeamPage";
 import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
@@ -50,9 +49,6 @@ function App() {
           </Route>
           <Route path="/profile">
             <ProfilePage isHome={isHome} handleIsHome={handleIsHome} />
-          </Route>
-          <Route path="/settings">
-            <SettingsPage isHome={isHome} handleIsHome={handleIsHome} />
           </Route>
           <Route path="/policy">
             <PolicyPage isHome={isHome} handleIsHome={handleIsHome} />

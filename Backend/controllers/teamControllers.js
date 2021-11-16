@@ -1,4 +1,4 @@
-const TeamContent = require("../models/TeamContentSchema.js");
+const TeamContent = require("../models/teamContentSchema.js");
 
 // Team Page: Team Content Controllers
 

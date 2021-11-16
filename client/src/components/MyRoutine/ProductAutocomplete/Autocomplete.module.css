@@ -1,5 +1,5 @@
 body {
-  font-family: sans-serif;
+  /* font-family: sans-serif; BODY it's affecting other components */
 }
 input {
   border: 1px solid #999;

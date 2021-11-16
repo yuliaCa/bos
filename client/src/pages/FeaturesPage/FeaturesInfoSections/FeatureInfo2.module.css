@@ -1,62 +1,62 @@
 .featureOuter {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 2%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 2%;
 }
 
 .featureOuter .content {
-    padding-top: 10%;
-    padding-left: 7.5%;
-    padding-right: 7.5%;
+  padding-top: 10%;
+  padding-left: 7.5%;
+  padding-right: 7.5%;
 }
 
 .featureOuter p {
-    text-align: left;
-    line-height: 3vh;
-    margin-bottom: 5%;
-    font-weight: 200;
-    color: #67392A;
+  text-align: left;
+  /* line-height: 3vh; */
+  margin-bottom: 5%;
+  font-weight: 200;
+  color: #3b3835;
 }
 
 .featureOuter h2 {
-    color: #67392A;
-    font-weight: 500;
+  color: #3b3835;
+  font-weight: 500;
 }
 
-.featureOuter button a { 
-    text-decoration: none;
-    color: #F8F5F0;
+.featureOuter button a {
+  text-decoration: none;
+  color: #f8f5f0;
 }
 
 .featureOuter button {
-    background-color: #67392A;
-    border: none;
-    border-radius: 10px;
-    height: 4vh;
-    width: 16vw;
-    font-size: 15px;
+  background-color: #67392a;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem;
+  min-width: 16vw;
+  font-size: 15px;
 }
 
 .featureOuter button:hover {
-    background-color: #96807A;
-    opacity: 50%;
+  background-color: #96807a;
+  opacity: 50%;
 }
 
 .featureOuter button:active {
-    background-color: #F8F5F0;
-    border: 2px solid #96807A;
+  background-color: #f8f5f0;
+  border: 2px solid #96807a;
 }
 
 .featureOuter .imageContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 5% 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5% 0;
 }
 
 .feat2Image {
-    margin-top: 3%;
-    margin-left: 5%;
-    height: 40vh;
-    max-width: 27vw;
+  margin-top: 3%;
+  margin-left: 5%;
+  height: auto;
+  max-width: 27vw;
 }

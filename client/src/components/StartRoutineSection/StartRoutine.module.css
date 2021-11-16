@@ -11,7 +11,7 @@
     margin-left: 22.15vw;  
     font-weight: 600;
     margin-bottom: 30px;
-    color: #67392A;
+    color: #3b3835;
 }
 
 .startRoutineInner {
@@ -24,8 +24,8 @@
 .startRoutineInner .register {
     background-color: #67392A;
     border: none;
-    border-radius: 10px;
-    height: 4vh;
+    border-radius: 8px;
+    /* height: 4vh; */
     width: 14vw;
     font-size: 15px;
 }
