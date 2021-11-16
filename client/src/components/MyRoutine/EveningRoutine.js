@@ -27,15 +27,13 @@ const EveningRoutine = (props) => {
 
     return (
         <div className={styles.eveningRoutine}>
-
-
-            <div className={styles.userInput}>
+            <form className={styles.userInput} onSubmit={(event) => props.ProductSubmitHandler(event)}>
                 <Select options={categoryOptions} />
 
-                <SearchInput setProduct={props.setProduct} setInput={props.setInput} />
+                <SearchInput setProduct={props.setProduct} setInput={props.setInput} input={props.input} />
 
-                <button onClick={props.ProductSubmitHandler}>Add Product</button>
-            </div>
+                <button >Add Product</button>
+            </form>
 
             <div className={styles.selectAll}>
                 <label className={styles.selectAllLabel}> Select All
@@ -51,11 +49,13 @@ const EveningRoutine = (props) => {
                         image={eachProduct.images}
                         category={eachProduct.productCategory}
                         name={eachProduct.productName}
-                        description={eachProduct.productDescription}
+                        description={eachProduct.description}
                         suggestedUsage={eachProduct.suggestedUsage}
                         checkAll={props.checkedAll}
                         openDetailsEvening={props.openDetailsEvening}
                         evening={props.evening}
+                        setTheProductName={props.setTheProductName}
+                        email={props.email}
                     />
                 ))}
             </div>
