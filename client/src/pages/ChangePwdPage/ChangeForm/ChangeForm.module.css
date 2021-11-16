@@ -4,6 +4,7 @@
     grid-template-rows: repeat 5(1fr);
     padding: 15vh;
     background-color: #FCF9F6;
+    height: 45%;
 }
 
 .inputEmail {
