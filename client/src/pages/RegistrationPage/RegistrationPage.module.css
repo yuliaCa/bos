@@ -577,6 +577,31 @@
 
 }
 
+@media only screen and (min-width: 1375px) {
+
+    
+    .blemishesLabel {
+        margin-top: 3.5vh;
+    }
+    
+    .darkspotsLabel {
+        margin-top: 3.5vh;
+    }
+    
+    .poresLabel {
+        margin-top: 3.5vh;
+    }
+    
+    .redlinesLabel {
+        margin-top: 3.5vh;
+    }
+    
+    .finelinesLabel {
+        margin-top: 3.5vh;
+    }
+
+}
+
 @media only screen and (min-width: 1750px) {
 
     .fullnameInput {
