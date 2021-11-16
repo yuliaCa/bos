@@ -30,13 +30,14 @@ function MyRoutines(props) {
     }
 
     const [showProductDetailsEvening, setShowProductDetailsEvening] = useState(false);
-    const openDetailsEvening = () => {
-        setShowProductDetailsEvening(true);
-    }
-    const closeDetailsEvening = (event, productID) => {
+    const openDetailsEvening = (event, productID) => {
         const theProductForDetails = EveningLoadedProducts.filter(product => product._id === productID)
         console.log(theProductForDetails[0])
         setProdObjForDetails(theProductForDetails[0]);
+
+        setShowProductDetailsEvening(true);
+    }
+    const closeDetailsEvening = () => {
         setShowProductDetailsEvening(false)
     }
 
@@ -61,28 +62,6 @@ function MyRoutines(props) {
 
     const [productObject, setProductObject] = useState({});
 
-    const getMorningProducts = (email) => {
-
-        axios.get(`/profile/${email}/morningProducts`)
-            .then(results => {
-                console.log(results.data)
-                setMorningLoadedProducts(results.data);
-                setProductObject(results.data);
-            })
-            .catch(error => console.log(error));
-
-    }
-
-    const getEveningProducts = (email) => {
-        axios.get(`/profile/${email}/eveningProducts`)
-            .then(results => {
-                console.log(results.data)
-                setEveningLoadedProducts(results.data);
-                setProductObject(results.data);
-            })
-            .catch(error => console.log(error));
-    }
-
     useEffect(() => {
         axios.get(`/profile/${props.email}/morningProducts`)
             .then(results => {
@@ -100,7 +79,7 @@ function MyRoutines(props) {
                 setEveningLoadedProducts(results.data.objEveningRoutineLog);
             })
             .catch(error => console.log(error));
-    }, [])
+    }, [productObject])
 
     const stringToArray = (string) => {
         let strArray = string.split('<br>');
@@ -168,7 +147,7 @@ function MyRoutines(props) {
         setInput('');
     }
 
-    const ProductSubmitEveningHandler = (event) => {
+    const ProductSubmitEveningHandler = async function (event) {
         event.preventDefault();
         if (product) {
             const options = {
@@ -184,7 +163,7 @@ function MyRoutines(props) {
                 }
             };
 
-            axios.request(options)
+            await axios.request(options)
                 .then(function (response) {
                     console.log(response.data);
 
@@ -254,7 +233,8 @@ function MyRoutines(props) {
                     <ProductDetails
                         closeDetailsEvening={closeDetailsEvening}
                         evening={true}
-                        theProductName={theProductName} /> :
+                        theProduct={prodObjForDetails}
+                        stringToArray={stringToArray} /> :
                     <EveningRoutine
                         ProductSubmitHandler={ProductSubmitEveningHandler}
                         checkAllHandler={checkAllHandler}
@@ -265,6 +245,7 @@ function MyRoutines(props) {
                         setTheProductName={setTheProductName}
                         email={props.email}
                         setInput={setInput}
+                        input={input}
                     />}
             </div>
         </div>
