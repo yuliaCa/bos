@@ -599,6 +599,18 @@
     }
 }
 
+
+@media only screen and (min-width: 1375px) {
+
+    .combinationLabel {
+        padding: 1.2vh 2.35vw;
+        margin: 0 1vw;
+    }
+
+}
+
+
+
 @media only screen and (min-width: 1550px) {
 
     .dryLabel {
