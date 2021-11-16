@@ -27,7 +27,7 @@ const EveningRoutine = (props) => {
 
     return (
         <div className={styles.eveningRoutine}>
-            <h1 className={styles.heading}>Evening Routine  </h1>
+
 
             <div className={styles.userInput}>
                 <Select options={categoryOptions} />
