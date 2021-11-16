@@ -1,11 +1,11 @@
 import React from "react";
 import styles from "./MemberCard.module.css";
-import { BsLinkedin } from "react-icons/bs";
-import { BsGithub } from "react-icons/bs";
+import { TiSocialLinkedinCircular } from "react-icons/ti";
+import { RiGithubFill } from "react-icons/ri";
 
 const MemberCard = (props) => {
   return (
-    <div className={styles.section}>
+    <div className={styles.memberSection}>
       <div className={styles.imgContainer}>
         <div className={styles.imgCenterer}>
           <img src={props.src} alt={props.name} />
@@ -18,13 +18,13 @@ const MemberCard = (props) => {
         <ul>
           <li>
             <a href={props.link1}>
-              <BsLinkedin className={styles.icons} />
+              <TiSocialLinkedinCircular className={styles.icons1} />
             </a>
           </li>
           {props.github === "true" && (
             <li>
               <a href={props.link2}>
-                <BsGithub className={styles.icons} />
+                <RiGithubFill className={styles.icons2} />
               </a>
             </li>
           )}

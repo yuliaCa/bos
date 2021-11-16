@@ -52,15 +52,15 @@ const WeatherChart = () => {
     <div className={styles.chartStyle}>
       <Bar
         data={data}
-        height={150}
+        height={200}
         width={400}
         options={{
           maintainAspectRatio: true,
           layout: {
             padding: {
               top: 0,
-              left: 100,
-              right: 100,
+              left: 0,
+              right: 0,
               bottom: 0,
             },
           },

@@ -20,5 +20,4 @@ router.use("/missioncontent", missionContentRouter);
 router.use("/teamcontent", teamContentRouter);
 router.use("/advicecontent", adviceContentRouter);
 
-
 module.exports = router;
