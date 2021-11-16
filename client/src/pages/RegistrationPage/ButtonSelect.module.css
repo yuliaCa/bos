@@ -209,43 +209,48 @@
 @media only screen and (min-width: 440px) {
 
     .combinationLabel {
-        padding: 1.2vh 6.1vw;
-    }
-
-    .sensitiveLabel {
-        padding: 1.2vh 8vw;
-    }
-
-    .normalLabel {
-        padding: 1.2vh 8.8vw;
-    }
-
-    .oilyLabel {
-        margin-left: -7vw;
-    }
-
-    .oilynessLabel  {
-        padding: 1.2vh 8vw;
-    }
-
-    .poresLabel {
-        padding: 1.1vh 9.5vw;
-    }
-
-    .darkspotsLabel {
         padding: 1.2vh 6.8vw;
     }
 
+    .sensitiveLabel {
+        padding: 1.2vh 8.6vw;
+    }
+
+    .normalLabel {
+        padding: 1.2vh 9.1vw;
+    }
+
+    .oilyLabel {
+        margin-left: -6.4vw;
+    }
+
+    .oilynessLabel  {
+        padding: 1.2vh 9vw;
+    }
+
+    .poresLabel {
+        padding: 1.1vh 10.2vw;
+    }
+
+    .darkspotsLabel {
+        padding: 1.2vh 7.8vw;
+    }
+
     .drynessLabel  {
-        padding: 1.2vh 7.9vw;
+        padding: 1.2vh 8.8vw;
     }
 
     .blemishesLabel {
-        padding: 1.2vh 6.3vw;
+        padding: 1.2vh 7.4vw;
     }
 
+    .finelinesLabel { 
+        padding: 1.2vh 8.1vw;
+    }
+
+
     .redlinesLabel {
-        padding: 1.2vh 7.1vw;
+        padding: 1.2vh 8.2vw;
     }
 
 }
@@ -253,12 +258,12 @@
 @media only screen and (min-width: 550px) {
 
     .dryLabel {
-        padding: 1.2vh 10.9vw;
+        padding: 1.2vh 11.4vw;
     }
 
     .normalLabel {
-        padding: 1.2vh 9.2vw;
-        margin-left: -3.6vw;
+        padding: 1.2vh 9.6vw;
+        margin-left: -2.7vw;
     }
 
     .oilyLabel {
@@ -266,141 +271,38 @@
     }
 
     .combinationLabel {
-        padding: 1.2vh 6.6vw; 
+        padding: 1.2vh 7.6vw; 
     }
     
     .sensitiveLabel {
-        padding: 1.2vh 8.5vw;
-        margin-left: -3.6vw;
+        padding: 1.2vh 9.1vw;
+        margin-left: -2.7vw;
     }
 
     .acneLabel {
-        padding: 1.2vh 9.7vw;
+        padding: 1.2vh 10.7vw;
     }
 
     .drynessLabel  {
-        padding: 1.2vh 8.6vw;
-        margin-left: -3.7vw;
-    }
-
-    .oilynessLabel  {
-        padding: 1.2vh 8.9vw;
-        margin-left: -7.9vw;
-    }
-
-    .blemishesLabel {
-        padding: 1.2vh 7vw;
-    }
-
-    .darkspotsLabel {
-        padding: 1.2vh 7.5vw;
-    }
-
-    .poresLabel {
-        padding: 1.1vh 10vw;
-    }
-
-    .redlinesLabel {
-        padding: 1.2vh 7.8vw;
-    }
-
-    .finelinesLabel {
-        padding: 1.2vh 7.8vw;
-    }
-}
-
-@media only screen and (min-width: 700px) {
-
-    .normalLabel {
-        padding: 1.2vh 10vw;
-        margin-left: -4vw;
-    }
-
-    .combinationLabel {
-        padding: 1.2vh 7.7vw; 
-    }
-    
-    .sensitiveLabel {
         padding: 1.2vh 9.4vw;
-        margin-left: -3.8vw;
-    }
-
-    .acneLabel {
-        padding: 1.2vh 10vw;
-    }
-
-    .drynessLabel  {
-        padding: 1.2vh 9.2vw;
-        margin-left: -3.7vw;
+        margin-left: -2.8vw;
     }
 
     .oilynessLabel  {
-        padding: 1.2vh 9.5vw;
-        margin-left: -7.9vw;
+        padding: 1.2vh 9.3vw;
+        margin-left: -6.4vw;
     }
 
     .blemishesLabel {
-        padding: 1.2vh 7.9vw;
+        padding: 1.2vh 8.2vw;
     }
 
     .darkspotsLabel {
-        padding: 1.2vh 8.4vw;
-    }
-
-    .poresLabel {
-        padding: 1.1vh 10.4vw;
-    }
-
-    .redlinesLabel {
         padding: 1.2vh 8.5vw;
     }
 
-    .finelinesLabel {
-        padding: 1.2vh 8.6vw;
-    }
-}
-
-@media only screen and (min-width: 800px) {
-
-    .normalLabel {
-        padding: 1.2vh 10vw;
-        margin-left: -3.5vw;
-    }
-
-    .combinationLabel {
-        padding: 1.2vh 8.1vw; 
-    }
-    
-    .sensitiveLabel {
-        padding: 1.2vh 9.7vw;
-        margin-left: -3.8vw;
-    }
-
-    .acneLabel {
-        padding: 1.2vh 10.2vw;
-    }
-
-    .drynessLabel  {
-        padding: 1.2vh 9.6vw;
-        margin-left: -3.7vw;
-    }
-
-    .oilynessLabel  {
-        padding: 1.2vh 9.8vw;
-        margin-left: -7.2vw;
-    }
-
-    .blemishesLabel {
-        padding: 1.2vh 8.3vw;
-    }
-
-    .darkspotsLabel {
-        padding: 1.2vh 8.9vw;
-    }
-
     .poresLabel {
-        padding: 1.1vh 10.6vw;
-        margin-left: -7.2vw;
+        padding: 1.1vh 10.5vw;
     }
 
     .redlinesLabel {
@@ -408,7 +310,121 @@
     }
 
     .finelinesLabel {
-        padding: 1.2vh 9.1vw;
+        padding: 1.2vh 8.8vw;
+    }
+
+
+}
+
+@media only screen and (min-width: 700px) {
+
+    .normalLabel {
+        padding: 1.2vh 10vw;
+        margin-left: -2.8vw;
+    }
+
+    .combinationLabel {
+        padding: 1.2vh 8.2vw; 
+    }
+    
+    .sensitiveLabel {
+        padding: 1.2vh 9.7vw;
+        margin-left: -3vw;
+    }
+
+    .acneLabel {
+        padding: 1.2vh 10.9vw;
+    }
+
+    .drynessLabel  {
+        padding: 1.2vh 9.9vw;
+        margin-left: -3vw;
+    }
+
+    .oilynessLabel  {
+        padding: 1.2vh 9.7vw;
+        margin-left: -6.3vw;
+    }
+
+    .blemishesLabel {
+        padding: 1.2vh 8.8vw;
+    }
+
+    .darkspotsLabel {
+        padding: 1.2vh 9.2vw;
+        margin-left: -3vw;
+    }
+
+    .poresLabel {
+        padding: 1.1vh 10.6vw;
+        margin-left: -6.3vw;
+    }
+
+    .redlinesLabel {
+        padding: 1.2vh 9.4vw;
+    }
+
+    .finelinesLabel {
+        padding: 1.2vh 9.4vw;
+        margin-left: -3vw;
+    }
+}
+
+@media only screen and (min-width: 800px) {
+
+    .dryLabel {
+        padding: 1.2vh 11.3vw;
+    }
+
+    .normalLabel {
+        padding: 1.2vh 10.1vw;
+        margin-left: -3.3vw;
+    }
+
+    .combinationLabel {
+        padding: 1.2vh 8.6vw; 
+    }
+    
+    .sensitiveLabel {
+        padding: 1.2vh 9.85vw;
+        margin-left: -3.4vw;
+    }
+
+    .acneLabel {
+        padding: 1.2vh 10.75vw;
+    }
+
+    .drynessLabel  {
+        padding: 1.2vh 9.8vw;
+        margin-left: -3.5vw;
+    }
+
+    .oilynessLabel  {
+        padding: 1.2vh 10.1vw;
+        margin-left: -6.6vw;
+    }
+
+    .blemishesLabel {
+        padding: 1.2vh 9vw;
+    }
+
+    .darkspotsLabel {
+        padding: 1.2vh 9.2vw;
+        margin-left: -3.6vw;
+    }
+
+    .poresLabel {
+        padding: 1.1vh 10.8vw;
+        margin-left: -6.6vw;
+    }
+
+    .redlinesLabel {
+        padding: 1.2vh 9.5vw;
+    }
+
+    .finelinesLabel {
+        padding: 1.2vh 9.4vw;
+        margin-left: -3.6vw;
     }
 }
 
@@ -480,6 +496,74 @@
     }
 }
 
+@media only screen and (min-width: 1125px) {
+
+    .dryLabel {
+        padding: 1.2vh 4.1vw;
+        margin: 0 1vw;
+    }
+
+    .normalLabel {
+        padding: 1.2vh 3.23vw;
+        margin-left: 0.5vw;
+    }
+
+    .oilyLabel {
+        padding: 1.2vh 4.2vw;
+        margin: 0 0.5vw;
+    }
+
+    .combinationLabel {
+        padding: 1.2vh 2.05vw;
+        margin: 0 1vw;
+    }
+    
+    .sensitiveLabel {
+        padding: 1.2vh 3vw;
+        margin-left: 0.5vw;
+    }
+
+    .acneLabel {
+        padding: 1.2vh 3.75vw;
+        margin: 0 1vw;
+    }
+
+    .drynessLabel  {
+        padding: 1.2vh 3vw;
+        margin: 0 0.5vw;
+    }
+
+    .oilynessLabel  {
+        padding: 1.2vh 3.07vw;
+        margin: 0 0.5vw;
+    }
+
+    .blemishesLabel {
+        padding: 1.2vh 2.45vw;
+        margin: 0 1vw;
+    }
+
+    .darkspotsLabel {
+        padding: 1.2vh 2.55vw;
+        margin: 0 0.5vw;
+    }
+
+    .poresLabel {
+        padding: 1.1vh 3.6vw; 
+        margin: 0 0.5vw;
+    }
+
+    .redlinesLabel {
+        padding: 1.2vh 2.8vw;
+        margin: 0 1vw;
+    }
+
+    .finelinesLabel {
+        padding: 1.2vh 2.6vw;
+        margin: 0 0.5vw;
+    }
+}
+
 @media only screen and (min-width: 1250px) {
 
     .dryLabel {
@@ -488,6 +572,10 @@
     
     .sensitiveLabel {
         padding: 1.2vh 2.9vw;
+    }
+
+    .normalLabel {
+        padding: 1.2vh 3.1vw;
     }
  
     .acneLabel {
@@ -508,6 +596,52 @@
 
     .finelinesLabel {
         padding: 1.2vh 2.7vw;
+    }
+}
+
+@media only screen and (min-width: 1550px) {
+
+    .dryLabel {
+        padding: 1.2vh 4vw;
+    }
+
+    .combinationLabel {
+        padding: 1.2vh 2.5vw;
+        margin: 0 1vw;
+    }
+        
+    .sensitiveLabel {
+        padding: 1.2vh 2.95vw;
+    }
+ 
+    .oilyLabel {
+        padding: 1.2vh 4vw;
+        margin: 0 0.5vw;
+    }
+
+    .acneLabel {
+        padding: 1.2vh 3.65vw;
+    }
+
+    .blemishesLabel {
+        padding: 1.2vh 2.65vw;
+        margin: 0 1vw;
+    }
+
+    .darkspotsLabel {
+        padding: 1.2vh 2.65vw;
+    }
+
+    .poresLabel {
+        padding: 1.1vh 3.5vw;
+    }
+
+    .redlinesLabel {
+        padding: 1.2vh 2.9vw;
+    }
+
+    .finelinesLabel {
+        padding: 1.2vh 2.75vw;
     }
 }
 

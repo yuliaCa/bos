@@ -252,6 +252,16 @@
         color: white;
     }
 
+@media only screen and (min-width: 440px) {
+    .combinationLabel {
+        margin-top: 3.5vh;  
+    }
+    
+    .sensitiveLabel {
+        margin-top: 3.5vh;
+    }
+
+}
 
 @media only screen and (min-width: 550px) {
 
@@ -263,6 +273,14 @@
 }
 
 @media only screen and (min-width: 700px) {
+
+    .combinationLabel {
+        margin-top: 3.2vh;  
+    }
+    
+    .sensitiveLabel {
+        margin-top: 3.2vh;
+    }
 
     .genderInput {
         width: 42vw;
