@@ -51,11 +51,20 @@ function MyRoutines(props) {
     const [MorningLoadedProducts, setMorningLoadedProducts] = useState([]);
     const [EveningLoadedProducts, setEveningLoadedProducts] = useState([]);
 
-    const [checkedAll, setCheckedAll] = useState(false);
 
-    const checkAllHandler = () => {
-        setCheckedAll(checkedAll ? false : true)
+    // ================================================
+    //Check All components for Evening and Morning
+    // ================================================
+    const [checkedMorningAll, setCheckedMorningAll] = useState(false);
+    const checkAllMorningHandler = () => {
+        setCheckedMorningAll(checkedMorningAll ? false : true)
     }
+
+    const [checkedEveningAll, setCheckedEveningAll] = useState(false);
+    const checkAllEveningHandler = () => {
+        setCheckedEveningAll(checkedEveningAll ? false : true)
+    }
+
 
 
     const [product, setProduct] = useState('');
@@ -214,7 +223,8 @@ function MyRoutines(props) {
                         stringToArray={stringToArray} /> :
                     <MorningRoutine
                         ProductSubmitHandler={ProductSubmitMorningHandler}
-                        checkAllHandler={checkAllHandler}
+                        checkAllHandler={checkAllMorningHandler}
+                        checkedAll={checkedMorningAll}
                         loadedProducts={MorningLoadedProducts}
                         setProduct={setProduct}
                         openDetailsMorning={openDetailsMorning}
@@ -237,7 +247,8 @@ function MyRoutines(props) {
                         stringToArray={stringToArray} /> :
                     <EveningRoutine
                         ProductSubmitHandler={ProductSubmitEveningHandler}
-                        checkAllHandler={checkAllHandler}
+                        checkAllHandler={checkAllEveningHandler}
+                        checkedAll={checkedEveningAll}
                         loadedProducts={EveningLoadedProducts}
                         setProduct={setProduct}
                         openDetailsEvening={openDetailsEvening}
