@@ -61,7 +61,7 @@ const MorningRoutine = (props) => {
                     />
                 ))}
             </div>
-            <button className={styles.saveButton} onClick={saveDailyLog}>Save</button>
+            <button className={styles.saveButton} onClick={saveDailyLog(props.email, props.productObject)}>Save</button>
         </div>
 
     )

@@ -233,6 +233,7 @@ function MyRoutines(props) {
                         email={props.email}
                         setInput={setInput}
                         input={input}
+                        productObject={productObject}
                     />}
 
             </div>
