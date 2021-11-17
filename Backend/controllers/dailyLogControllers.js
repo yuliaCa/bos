@@ -3,6 +3,7 @@ const DailyLog = require("../models/dailyLogSchema.js");
 exports.getDailyLogByUserEmail = (req, res) => {
     //req.params.userEmail
     DailyLog.find({ userEmailAddress: req.params.userEmail })
+        .sort({ dailyLogDate: 'asc' })
         .exec()
         .then(results => {
             res.status(200).json(results);

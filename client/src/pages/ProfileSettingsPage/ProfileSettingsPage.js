@@ -37,6 +37,16 @@ function ProfileSettingsPage(props) {
     fine_lines: false,
   });
 
+  
+  const updateUserProfile = (email, userProfile) => {
+    axios.put(`/profile/updateUserProfile/${email}`, userProfile)
+        .then(results => {
+            console.log(userProfile);
+            console.log('UPDATE SUCCESSFULL!')
+        })
+        .catch(error => console.log(error))
+};
+
   function handleChange(event) {
     const isCheckbox = event.target.type === "checkbox";
     let { name, value } = event.target;
