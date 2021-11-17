@@ -16,6 +16,7 @@ const EveningRoutine = (props) => {
         { label: "Sunscreen", value: "sunscreen" }
     ]
 
+
     const saveDailyLog = (email, objRoutineLog) => {
         axios.post(`/dailyroutine/${email}`, `"objRoutineLog":${objRoutineLog}`)
             .then(results => {
@@ -59,7 +60,7 @@ const EveningRoutine = (props) => {
                     />
                 ))}
             </div>
-            <button className={styles.saveButton}>Save</button>
+            <button onClick={saveDailyLog(props.email,)} className={styles.saveButton}>Save</button>
         </div>
 
     )
