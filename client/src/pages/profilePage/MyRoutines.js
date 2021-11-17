@@ -213,7 +213,7 @@ function MyRoutines(props) {
     return (
         <div>
 
-            <div>
+            <div className="myRoutines">
                 <h1>{headingMorningRoutine}</h1>
                 {showProductDetailsMorning ?
                     <ProductDetails

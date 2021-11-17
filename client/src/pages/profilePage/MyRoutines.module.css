@@ -1,9 +1,14 @@
+.myRoutines {
+}
+
 .morningRoutine {
   border: 1px solid #000;
+  background-color: #faf5f0;
 }
 
 .eveningRoutine {
   border: 1px solid green;
+  background-color: #f5e8da;
 }
 
 .heading {
