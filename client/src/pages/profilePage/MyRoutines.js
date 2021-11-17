@@ -37,20 +37,8 @@ function MyRoutines(props) {
 
         setShowProductDetailsEvening(true);
     }
-    const closeDetailsEvening = (event, productID) => {
-        const theProductForDetails = EveningLoadedProducts.filter(product => product._id === productID)
-        console.log(theProductForDetails[0])
-        setProdObjForDetails(theProductForDetails[0]);
 
-        setShowProductDetailsEvening(true);
-    }
-    const closeDetailsEvening = (event, productID) => {
-        const theProductForDetails = EveningLoadedProducts.filter(product => product._id === productID)
-        console.log(theProductForDetails[0])
-        setProdObjForDetails(theProductForDetails[0]);
 
-        setShowProductDetailsEvening(true);
-    }
     const closeDetailsEvening = () => {
         setShowProductDetailsEvening(false)
     }
@@ -106,14 +94,7 @@ function MyRoutines(props) {
             .catch(error => console.log(error));
     }, [productObject])
 
-    useEffect(() => {
-        axios.get(`/profile/${props.email}/eveningProducts`)
-            .then(results => {
-                console.log(results.data.objEveningRoutineLog)
-                setEveningLoadedProducts(results.data.objEveningRoutineLog);
-            })
-            .catch(error => console.log(error));
-    }, [productObject])
+
 
     const stringToArray = (string) => {
         let strArray = string.split('<br>');
