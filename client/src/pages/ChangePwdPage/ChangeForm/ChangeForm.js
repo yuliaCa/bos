@@ -12,8 +12,6 @@ function ChangeForm() {
 
     const history = useHistory();
     const [input, setInput] = useState({
-        password: '',
-        cfmPassword: '',
         email: ''
     });
    
@@ -21,7 +19,7 @@ function ChangeForm() {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        if (input.password !== undefined && input.password === input.cfmPassword) {
+        if (input.email !== undefined) {
 
         firebase.sendPasswordResetEmail(firebase.auth, input.email.trim())
           .then(() => {
@@ -57,22 +55,6 @@ function ChangeForm() {
                 name="email"
                 value={input.email}
                 placeholder="e-mail"
-                required />
-            <input 
-                className={styles.inputPassword} 
-                onChange ={handleInput} 
-                type="password" 
-                name="password" 
-                value={input.password}
-                placeholder="password"
-                required />
-            <input 
-                className={styles.inputCfmPassword} 
-                onChange ={handleInput} 
-                type="password" 
-                name="cfmPassword" 
-                value={input.cfmPassword}
-                placeholder="confirm password"
                 required />
             
             <div className={styles.formLayout}>
