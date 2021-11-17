@@ -152,15 +152,14 @@ exports.uploadPhoto = (req, res) => {
 
     let updatedUserProfile = new userProfile({
         userEmailAddress: req.params.userEmail,
-        objEveningRoutineLog: req.body.objEveningRoutineLog
+        image: req.body.image
     });
 
     console.log(updatedUserProfile);
 
-    userProfile.findOneAndUpdate({ userEmailAddress: updatedUserProfile.userEmailAddress }, { $push: { objEveningRoutineLog: updatedUserProfile.objEveningRoutineLog } }).then(result => {
+    userProfile.findOneAndUpdate({ userEmailAddress: updatedUserProfile.userEmailAddress }, { image: updatedUserProfile.image }).then(result => {
         res.status(201).json({
-            data: updatedUserProfile,
-            url: `/addProductEvening/${updatedUserProfile._id}`
+            data: updatedUserProfile
         });
     }).catch(error => res.status(500).send(error));
 };
