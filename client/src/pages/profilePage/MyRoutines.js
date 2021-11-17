@@ -106,6 +106,15 @@ function MyRoutines(props) {
             .catch(error => console.log(error));
     }, [productObject])
 
+    useEffect(() => {
+        axios.get(`/profile/${props.email}/eveningProducts`)
+            .then(results => {
+                console.log(results.data.objEveningRoutineLog)
+                setEveningLoadedProducts(results.data.objEveningRoutineLog);
+            })
+            .catch(error => console.log(error));
+    }, [productObject])
+
     const stringToArray = (string) => {
         let strArray = string.split('<br>');
         const arrayLength = strArray.length - 1;
