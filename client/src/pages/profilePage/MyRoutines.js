@@ -74,7 +74,6 @@ function MyRoutines(props) {
 
 
 
-
     const [product, setProduct] = useState('');
 
     const [productObject, setProductObject] = useState({});
