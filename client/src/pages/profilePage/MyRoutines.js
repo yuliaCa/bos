@@ -58,14 +58,6 @@ function MyRoutines(props) {
     const [checkedMorningAll, setCheckedMorningAll] = useState(false);
     const checkAllMorningHandler = () => {
         setCheckedMorningAll(checkedMorningAll ? false : true)
-<<<<<<< HEAD
-    }
-
-    const [checkedEveningAll, setCheckedEveningAll] = useState(false);
-    const checkAllEveningHandler = () => {
-        setCheckedEveningAll(checkedEveningAll ? false : true)
-=======
->>>>>>> origin/yulia-prod-details
     }
 
     const [checkedEveningAll, setCheckedEveningAll] = useState(false);
@@ -74,7 +66,7 @@ function MyRoutines(props) {
     }
 
 
-<<<<<<< HEAD
+
     const [product, setProduct] = useState('');
 
     const [productObject, setProductObject] = useState({});
@@ -88,12 +80,6 @@ function MyRoutines(props) {
             .catch(error => console.log(error));
 
     }, [productObject, props.email])
-=======
-
-    const [product, setProduct] = useState('');
-
-    const [productObject, setProductObject] = useState({});
->>>>>>> origin/yulia-prod-details
 
     useEffect(() => {
         axios.get(`/profile/${props.email}/eveningProducts`)
@@ -104,8 +90,6 @@ function MyRoutines(props) {
             .catch(error => console.log(error));
     }, [productObject])
 
-<<<<<<< HEAD
-=======
     useEffect(() => {
         axios.get(`/profile/${props.email}/eveningProducts`)
             .then(results => {
@@ -115,7 +99,6 @@ function MyRoutines(props) {
             .catch(error => console.log(error));
     }, [productObject])
 
->>>>>>> origin/yulia-prod-details
     const stringToArray = (string) => {
         let strArray = string.split('<br>');
         const arrayLength = strArray.length - 1;
@@ -284,10 +267,7 @@ function MyRoutines(props) {
                         email={props.email}
                         setInput={setInput}
                         input={input}
-<<<<<<< HEAD
                         productObject={productObject}
-=======
->>>>>>> origin/yulia-prod-details
                     />}
             </div>
         </div>
