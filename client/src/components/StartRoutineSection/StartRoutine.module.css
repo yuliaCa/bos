@@ -6,9 +6,8 @@
 }
 
 .startRoutineHeader {
-    font-size: 30px;
-    align-self: start;
-    margin-left: 22.15vw;  
+    font-size: 28px;
+    text-align: center; 
     font-weight: 600;
     margin-bottom: 30px;
     color: #3b3835;
@@ -16,17 +15,27 @@
 
 .startRoutineInner {
     display: flex;
-    flex-direction: row;
-    justify-content: start;
-    margin: 0 22vw;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
+
+.startRoutineInner .nameInput, .startRoutineInner .emailInput {
+    width: 60vw;
+    height: 1.6vh;
+    margin: 3% 0;
+    border: 1px solid #96807A;
+    border-radius: 8px;
+    align-self: center;
+ }
 
 .startRoutineInner .register {
     background-color: #67392A;
+    margin: 6% 0;
     border: none;
     border-radius: 8px;
-    /* height: 4vh; */
-    width: 14vw;
+    height: 4vh;
+    width: 40vw;
     font-size: 15px;
 }
 
@@ -40,8 +49,6 @@
     border: 2px solid #96807A;
 }
 
-
-
 .startRoutineInner .register a {
     text-decoration: none;
     color: white;
@@ -51,11 +58,90 @@
     color: #96807A;
 }
 
-.startRoutineInner .nameInput, .startRoutineInner .emailInput {
-   width: 13vw;
-   height: 1.6vh;
-   border: 1px solid #96807A;
-   border-radius: 8px;
-   align-self: center;
-   margin-right: 2vw;
+@media only screen and (min-width: 600px) {
+
+    .startRoutineInner .nameInput, .startRoutineInner .emailInput {
+        width: 350px;
+        margin: 2% 0;
+    }
+
+    .startRoutineInner .register {
+        width: 225px;
+        margin: 4% 0;
+    }
+}
+
+@media only screen and (min-width: 900px) {
+
+    .startRoutineOuter {
+        display: flex;
+        flex-direction: column;
+        background-color: #F7EDE1;
+        padding: 5%;
+    }
+
+    .startRoutineHeader {
+        font-size: 38px;
+        align-self: center;
+        justify-self: center;
+        font-weight: 600;
+        margin-bottom: 30px;
+        color: #3b3835;
+    }
+
+    .startRoutineInner {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin: 0 2vw;
+    }
+
+    .startRoutineInner .register {
+        background-color: #67392A;
+        border: none;
+        border-radius: 8px;
+        width: 20vw;
+        font-size: 15px;
+    }
+
+    .startRoutineInner .register:hover {
+        background-color: #96807A;
+        opacity: 50%;
+    }
+
+    .startRoutineInner .register:active {
+        background-color: #F8F5F0;
+        border: 2px solid #96807A;
+    }
+
+    .startRoutineInner .register a {
+        text-decoration: none;
+        color: white;
+    }
+
+    .startRoutineInner .register a:active {
+        color: #96807A;
+    }
+
+    .startRoutineInner .nameInput, .startRoutineInner .emailInput {
+        width: 15vw;
+        height: 1.6vh;
+        border: 1px solid #96807A;
+        border-radius: 8px;
+        align-self: center;
+        margin-right: 2vw;
+    }
+
+    @media only screen and (min-width: 1200px) {
+
+        .startRoutineInner .register {
+            background-color: #67392A;
+            border: none;
+            border-radius: 8px;
+            width: 13vw;
+            font-size: 15px;
+        }
+
+
+    }
 }
