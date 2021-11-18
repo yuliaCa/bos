@@ -25,7 +25,7 @@ const ProductDetails = (props) => {
 
     return (
         <div className={styles.productDetails}>
-            <a href='#' onClick={props.evening ? props.closeDetailsEvening : props.closeDetailsMorning}>Back To Routine</a>
+            <p onClick={props.evening ? props.closeDetailsEvening : props.closeDetailsMorning}>Back To Routine</p>
 
             <h3>{props.theProduct.productName}</h3>
             <div>Category</div>

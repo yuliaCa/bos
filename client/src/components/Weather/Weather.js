@@ -65,7 +65,7 @@ const Weather = () => {
   );
 
   return (
-    <div className={styles.section}>
+    <div className={styles.sectionWeatherWrapper}>
       <div className={styles.weatherSection}>
         {isLoading ? (
           <div className={styles.spinnerFx}>{spinnerFx}</div>

@@ -30,9 +30,14 @@ function MyRoutines(props) {
     }
 
     const [showProductDetailsEvening, setShowProductDetailsEvening] = useState(false);
-    const openDetailsEvening = () => {
+    const openDetailsEvening = (event, productID) => {
+        const theProductForDetails = EveningLoadedProducts.filter(product => product._id === productID)
+        console.log(theProductForDetails[0])
+        setProdObjForDetails(theProductForDetails[0]);
+
         setShowProductDetailsEvening(true);
     }
+
     const closeDetailsEvening = () => {
         setShowProductDetailsEvening(false)
     }
@@ -47,38 +52,27 @@ function MyRoutines(props) {
     const [MorningLoadedProducts, setMorningLoadedProducts] = useState([]);
     const [EveningLoadedProducts, setEveningLoadedProducts] = useState([]);
 
-    const [checkedAll, setCheckedAll] = useState(false);
 
-    const checkAllHandler = () => {
-        setCheckedAll(checkedAll ? false : true)
+    // ================================================
+    //Check All components for Evening and Morning
+    // ================================================
+    const [checkedMorningAll, setCheckedMorningAll] = useState(false);
+    const checkAllMorningHandler = () => {
+        setCheckedMorningAll(checkedMorningAll ? false : true)
     }
+
+    const [checkedEveningAll, setCheckedEveningAll] = useState(false);
+    const checkAllEveningHandler = () => {
+        setCheckedEveningAll(checkedEveningAll ? false : true)
+    }
+
+
+
 
 
     const [product, setProduct] = useState('');
 
     const [productObject, setProductObject] = useState({});
-
-    const getMorningProducts = (email) => {
-
-        axios.get(`/profile/${email}/morningProducts`)
-            .then(results => {
-                console.log(results.data)
-                setMorningLoadedProducts(results.data);
-                setProductObject(results.data);
-            })
-            .catch(error => console.log(error));
-
-    }
-
-    const getEveningProducts = (email) => {
-        axios.get(`/profile/${email}/eveningProducts`)
-            .then(results => {
-                console.log(results.data)
-                setEveningLoadedProducts(results.data);
-                setProductObject(results.data);
-            })
-            .catch(error => console.log(error));
-    }
 
     useEffect(() => {
         axios.get(`/profile/${props.email}/morningProducts`)
@@ -90,16 +84,16 @@ function MyRoutines(props) {
 
     }, [productObject, props.email])
 
-    // useEffect(() => {
+    useEffect(() => {
+        axios.get(`/profile/${props.email}/eveningProducts`)
+            .then(results => {
+                console.log(results.data.objEveningRoutineLog)
+                setEveningLoadedProducts(results.data.objEveningRoutineLog);
+            })
+            .catch(error => console.log(error));
+    }, [productObject])
 
-    //     axios.get('/products')
-    //         .then(results => {
-    //             console.log(results.data)
-    //             setEveningLoadedProducts(results.data);
-    //         })
-    //         .catch(error => console.log(error));
 
-    // }, [productObject])
 
     const stringToArray = (string) => {
         let strArray = string.split('<br>');
@@ -167,12 +161,9 @@ function MyRoutines(props) {
         setInput('');
     }
 
-    const ProductSubmitEveningHandler = (event) => {
+    const ProductSubmitEveningHandler = async function (event) {
         event.preventDefault();
-
-
         if (product) {
-
             const options = {
                 method: 'GET',
                 url: 'https://sephora.p.rapidapi.com/products/detail',
@@ -186,7 +177,7 @@ function MyRoutines(props) {
                 }
             };
 
-            axios.request(options)
+            await axios.request(options)
                 .then(function (response) {
                     console.log(response.data);
 
@@ -221,13 +212,11 @@ function MyRoutines(props) {
 
 
 
-
     let headingMorningRoutine = `Morning Routine`;
     let headingEveningRoutine = `Evening Routine`;
 
     return (
         <div>
-
 
             <div>
                 <h1>{headingMorningRoutine}</h1>
@@ -239,7 +228,8 @@ function MyRoutines(props) {
                         stringToArray={stringToArray} /> :
                     <MorningRoutine
                         ProductSubmitHandler={ProductSubmitMorningHandler}
-                        checkAllHandler={checkAllHandler}
+                        checkAllHandler={checkAllMorningHandler}
+                        checkedAll={checkedMorningAll}
                         loadedProducts={MorningLoadedProducts}
                         setProduct={setProduct}
                         openDetailsMorning={openDetailsMorning}
@@ -248,6 +238,7 @@ function MyRoutines(props) {
                         email={props.email}
                         setInput={setInput}
                         input={input}
+                        productObject={productObject}
                     />}
 
             </div>
@@ -258,10 +249,12 @@ function MyRoutines(props) {
                     <ProductDetails
                         closeDetailsEvening={closeDetailsEvening}
                         evening={true}
-                        theProductName={theProductName} /> :
+                        theProduct={prodObjForDetails}
+                        stringToArray={stringToArray} /> :
                     <EveningRoutine
                         ProductSubmitHandler={ProductSubmitEveningHandler}
-                        checkAllHandler={checkAllHandler}
+                        checkAllHandler={checkAllEveningHandler}
+                        checkedAll={checkedEveningAll}
                         loadedProducts={EveningLoadedProducts}
                         setProduct={setProduct}
                         openDetailsEvening={openDetailsEvening}
@@ -269,6 +262,8 @@ function MyRoutines(props) {
                         setTheProductName={setTheProductName}
                         email={props.email}
                         setInput={setInput}
+                        input={input}
+                        productObject={productObject}
                     />}
             </div>
         </div>
