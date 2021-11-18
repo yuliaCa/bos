@@ -29,7 +29,6 @@ function ProductCard(props) {
 
 
     const getSkinConcerns = (string) => {
-
         let trimmedString = string.substring(
             string.indexOf('Skincare') + 18,
             string.lastIndexOf('Highlighted Ingredients') - 1
@@ -48,7 +47,10 @@ function ProductCard(props) {
                 <h5>{props.name}</h5>
                 <h5>Skincare Concerns</h5>
                 <div dangerouslySetInnerHTML={{ __html: getSkinConcerns(props.description) }} />
-                <a href='#' onClick={event => props.openDetailsMorning(event, props.id)}> Product Details</a>
+                <p onClick={event => props.evening ?
+                    props.openDetailsEvening(event, props.id) :
+                    props.openDetailsMorning(event, props.id)}>
+                    Product Details</p>
 
                 <FaTrash className={styles.trashCan} onClick={deleteProductHandler} />
 

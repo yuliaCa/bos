@@ -7,8 +7,6 @@ function SearchInput(props) {
     // const [query, setQuery] = useState('');
     const [suggestions, setSuggestions] = useState([])
 
-
-
     useEffect(() => {
         const options = {
             method: 'GET',
