@@ -1,4 +1,4 @@
-.section {
+.sectionWeatherWrapper {
   font-family: Khula;
   border-radius: 8px;
   display: grid;
@@ -87,7 +87,7 @@
 .center {
   display: grid;
   justify-content: center;
-  align-items: center;  
+  align-items: center;
 }
 
 .iconFix {
@@ -99,4 +99,20 @@
   font-size: 2rem;
   position: relative;
   top: 10px;
+}
+
+/* Media Queries */
+
+@media (max-width: 930px) {
+  .sectionWeatherWrapper {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+  .weatherSection {
+    border-radius: 0;
+    margin: 0;
+  }
+  .time {
+    margin-right: 2rem;
+  }
 }
