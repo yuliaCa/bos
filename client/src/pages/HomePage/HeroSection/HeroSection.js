@@ -11,6 +11,7 @@ function HeroSection(props) {
         muted
         autoplay
         loop
+        // className={styles.videoContainer}
       />
     </div>
 
