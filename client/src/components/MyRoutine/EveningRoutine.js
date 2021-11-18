@@ -59,7 +59,7 @@ const EveningRoutine = (props) => {
                     />
                 ))}
             </div>
-            <button onClick={saveDailyLog(props.email,)} className={styles.saveButton}>Save</button>
+            <button onClick={saveDailyLog} className={styles.saveButton}>Save</button>
         </div>
 
     )
