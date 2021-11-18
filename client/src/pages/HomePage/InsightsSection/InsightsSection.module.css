@@ -1,38 +1,97 @@
-.outer {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  padding: 5.1% 4%;
-  padding-left: 5%;
-  background-color: white;
+  .outer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5.1% 4%;
+    padding-left: 5%;
+    background-color: white;
+  }
+
+  .left {
+    grid-row: 2 / 3;
+    order: 2;
+  }
+
+  .left h2 {
+    text-align: center;
+    color: #3b3835;
+    font-weight: 600;
+    font-size: 28px;
+    padding: 0 5vw;
+    margin-bottom: 5%;
+  }
+
+  .left p {
+    text-align: center;
+    padding: 0 5vw;
+    color: #3b3835;
+    font-size: 18px;
+    font-weight: 200;
+  }
+
+  .right {
+    justify-self: center;
+    order: 1;
+  }
+
+  .insightsImage {
+      margin-top: 7%;
+      padding-top: 5%;
+      height: 250px;
+      width: 250px;
+  }
+
+@media only screen and (min-width: 900px) {
+
+    .outer {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr;
+    }
+
+    .left {
+      padding: 13% 0;
+      padding-left: 5%;
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+    }
+
+    .left h2 {
+      text-align: left;
+      font-size: 38px;
+    }
+
+    .left p {
+      text-align: left;
+    }
+
+    .right {
+      grid-column: 2 / 3;
+      grid-row: 1 / 2;
+      justify-self: center;
+    }
+
+    .insightsImage {
+        padding-top: 5%;
+        height: 300px;
+        width: 300px;
+    }
 }
 
-.left {
-  grid-column: 1 / 2;
-}
+@media only screen and (min-width: 1200px) {
 
-.left p {
-  text-align: left;
-  padding: 0 5vw;
-  color: #3b3835;
-  /* line-height: 3vh; */
-  font-weight: 200;
-}
+    .left p {
+      padding-left: 12vw;
+    }
 
-.left h2 {
-  text-align: left;
-  color: #3b3835;
-  font-weight: 600;
-  font-size: 32px;
-  padding: 0 5vw;
-  margin-bottom: 5%;
-}
+    .left h2 {
+      padding-left: 12vw;
+    }
 
-.right {
-  grid-column: 2 / 3;
-  justify-self: center;
-}
-
-.insightsImage {
-    height: auto;
-    max-width: 25vw;
+    .insightsImage {
+      height: 400px;
+      width: 400px;
+      padding-right: 4vw;
+    }
 }

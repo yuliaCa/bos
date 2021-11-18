@@ -38,7 +38,6 @@ function MyRoutines(props) {
         setShowProductDetailsEvening(true);
     }
 
-
     const closeDetailsEvening = () => {
         setShowProductDetailsEvening(false)
     }
