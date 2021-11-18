@@ -16,9 +16,6 @@ function ProductCard(props) {
 
     useEffect(
         function addUsedProdtoArray() {
-            console.log('Use Product Btn Handler Test')
-
-            console.log(productIsUsed)
 
             if (!props.evening && productIsUsed) {
 

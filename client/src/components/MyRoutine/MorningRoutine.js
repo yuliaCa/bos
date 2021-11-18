@@ -19,15 +19,21 @@ const MorningRoutine = (props) => {
     const arrayProductsForMorningLog = [];
 
 
-    const saveDailyLog = (event, email, objRoutineLog) => {
-        console.log(arrayProductsForMorningLog)
-        axios.post(`/dailyroutine/${email}`, `"objRoutineLog":${objRoutineLog}`)
+    const saveDailyLog = (event, email, _objRoutineLog, _overallRate) => {
+        const today = new Date();
+        const dailyLog = {
+            objRoutineLog: _objRoutineLog,
+            overallRate: _overallRate,
+            dailyLogDate: today.toLocaleDateString("en-US")
+        }
+        axios.post(`/dailyroutine/${email}`, dailyLog)
             .then(results => {
-                console.log(objRoutineLog);
+                console.log(dailyLog);
                 console.log('SAVING THE LOG FOR TODAY')
             })
             .catch(error => console.log(error))
     }
+
 
 
     return (
