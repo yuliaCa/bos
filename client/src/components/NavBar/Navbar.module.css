@@ -9,7 +9,7 @@ li {
 
 header {
   height: 5rem;
-  background-color: #ffffff;
+  background-color: #f7ede1;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -21,11 +21,11 @@ header {
 
 header ul {
   list-style-type: none;
-  margin: 2rem 0.5em;
+  /* margin: 2rem 0.5em; */
   padding: 0;
   display: flex;
   flex-direction: row;
-  gap: 0.5rem;
+  gap: 3rem;
 }
 
 header .flexRow ul {
@@ -34,25 +34,33 @@ header .flexRow ul {
 }
 
 header .flexRow li {
-  width: 8vw;
+  /* width: 8vw; */
   align-self: center;
 }
 
-header .flexRow li:nth-child(2) {
+/* header .flexRow li:nth-child(2) {
   width: 9vw;
-}
+} */
 
 header .flexRow a {
-  color: #67392a;
+  color: #333333;
   text-decoration: none;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .faCircle,
 .riArrowDown {
-  height: 2.1rem;
-  width: 4vw;
+  height: auto;
+  width: 32px;
   color: rgba(45, 18, 9, 0.5);
+}
+
+.burgerStyle {
+  height: auto;
+  width: 32px;
+  position: absolute;
+  right: 1.5rem;
+  top: 1.5rem;
 }
 
 header .flexRow a:hover {
@@ -61,13 +69,13 @@ header .flexRow a:hover {
 
 header .filter {
   height: auto;
-  width: 8vw;
+  width: 95px;
 }
 
 .dropdown {
   display: flex;
   flex-direction: column;
-  min-width: 50px;
+  min-width: 140px;
 }
 
 .dropdown .icons {
@@ -79,8 +87,8 @@ header .filter {
   padding: 2% 0;
   display: flex;
   flex-direction: column;
-  height: 4rem;
-  width: 12vw;
+  /* height: 4rem; */
+  width: 140px;
   z-index: 1;
   position: absolute;
   top: 67px;
