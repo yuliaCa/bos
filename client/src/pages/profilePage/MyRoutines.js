@@ -66,33 +66,32 @@ function MyRoutines(props) {
         setCheckedEveningAll(checkedEveningAll ? false : true)
     }
 
-
-
-
-
     const [product, setProduct] = useState('');
 
     const [productObject, setProductObject] = useState({});
 
     useEffect(() => {
-        axios.get(`/profile/${props.email}/morningProducts`)
+        axios.put(`/profile/addProductMorning/${props.email}`, productObject)
             .then(results => {
-                console.log(results.data.objMorningRoutineLog)
-                setMorningLoadedProducts(results.data.objMorningRoutineLog);
+                axios.get(`/profile/${props.email}/morningProducts`)
+                    .then(results => {
+                        console.log(results.data.objMorningRoutineLog)
+                        setMorningLoadedProducts(results.data.objMorningRoutineLog);
+                    })
             })
+
+        axios.put(`/profile/addProductEvening/${props.email}`, productObject)
+            .then(results => {
+                axios.get(`/profile/${props.email}/eveningProducts`)
+                    .then(results => {
+                        console.log(results.data.objEveningRoutineLog)
+                        setEveningLoadedProducts(results.data.objEveningRoutineLog);
+                    })
+            })
+
             .catch(error => console.log(error));
 
-    }, [productObject, props.email])
-
-    useEffect(() => {
-        axios.get(`/profile/${props.email}/eveningProducts`)
-            .then(results => {
-                console.log(results.data.objEveningRoutineLog)
-                setEveningLoadedProducts(results.data.objEveningRoutineLog);
-            })
-            .catch(error => console.log(error));
     }, [productObject])
-
 
 
     const stringToArray = (string) => {
@@ -110,7 +109,7 @@ function MyRoutines(props) {
     }
 
 
-    const ProductSubmitMorningHandler = async function (event) {
+    const ProductSubmitMorningHandler = function (event) {
         event.preventDefault();
         if (product) {
             const options = {
@@ -126,8 +125,7 @@ function MyRoutines(props) {
                 }
             };
 
-
-            await axios.request(options)
+            axios.request(options)
                 .then(function (response) {
 
                     let theProductObj = {
@@ -149,15 +147,6 @@ function MyRoutines(props) {
                     console.error(error);
                 });
         }
-
-        axios.put(`/profile/addProductMorning/${props.email}`, productObject)
-            .then(results => {
-                console.log(props.email);
-
-                console.log('I AM GETTING POSTED INTO MORNING ROUTINE!')
-            })
-            .catch(error => console.log(error))
-
         setInput('');
     }
 
@@ -201,13 +190,6 @@ function MyRoutines(props) {
                 });
         }
 
-        axios.put(`/profile/addProductEvening/${props.email}`, productObject)
-            .then(results => {
-                console.log(props.email);
-                console.log(productObject);
-                console.log('I AM GETTING POSTED YEA')
-            })
-            .catch(error => console.log(error))
     }
 
 
