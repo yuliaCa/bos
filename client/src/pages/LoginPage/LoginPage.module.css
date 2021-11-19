@@ -1,25 +1,41 @@
-.loginOuter {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    /* border: 1px solid black; */
-    margin: 2% 15%;
-    padding: 1%;
-}
 
-.loginHeader {
-    margin-top: 8vh;
-    margin-bottom: 6vh;
-}
+   .loginOuter {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .loginHeader {
+        order: 1;
+    }
 
 
-.loginLeftSection {
-    grid-column: 1 / 3;
-    /* border: 1px solid black; */
-    background-color: #F7EDE1;
-    
+    .loginLeftSection {
+        background-color: #F7EDE1;
+        order: 2;  
+    }
+
+    .loginRightSection {
+        order: 3;
+    }
+
+@media only screen and (min-width: 600px) {
+
+    .loginOuter {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        height: 100%;
+        max-width: 800px;
+        margin: 5% auto;
+    }
+
+    .loginLeftSection {
+        grid-column: 1 / 3;
+        background-color: #F7EDE1;
+        
+    }
+
+    .loginRightSection {
+        grid-column: 3 / 6;
+    }
 }
 
-.loginRightSection {
-    grid-column: 3 / 6;
-    /* border: 1px solid black; */
-}
