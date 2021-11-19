@@ -6,12 +6,13 @@
   /* margin: auto 5%; */
   padding: 0 7%;
   background-color: #F8F5F0;
+  height: 150px;
 }
 .footerTop .flexRow {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  /* gap: 10%; */
+  gap: 4rem;
   white-space: nowrap;
 }
 
@@ -27,8 +28,8 @@
 }
 
 footer img {
-  width: 8vw;
-  height: 6vh;
+  height: auto;
+  width: 70px;
 }
 
 .footerBottom {
