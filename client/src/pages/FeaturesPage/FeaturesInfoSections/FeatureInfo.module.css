@@ -1,37 +1,42 @@
 .featureOuter {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  padding: 2%;
+  padding: 8% 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background-color: #fcf9f6;
 }
 
 .sectionLeft {
-  grid-column: 1 / 2;
-  padding-left: 8vw;
+  order: 1;
 }
 
 .sectionRight {
-  grid-column: 2 / 3;
-  padding-left: 7.5%;
-  padding-right: 7.5%;
+  order: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .sectionRight p {
-  text-align: left;
-  /* line-height: 3vh; */
+  text-align: center;
   margin-bottom: 5%;
   font-weight: 200;
   color: #3b3835;
+  font-size: 18px;
 }
 
 .sectionRight h2 {
   color: #3b3835;
   font-weight: 500;
+  font-size: 32px;
 }
 
 .feat1_3Image {
+  align-self: center;
   height: auto;
-  max-width: 27vw;
+  max-width: 60vw;
 }
 
 .sectionRight button a {
@@ -43,7 +48,7 @@
   background-color: #67392a;
   border: none;
   border-radius: 8px;
-  padding: 0.5rem;
+  padding: 0.75rem 2.5rem;
   min-width: 16px;
   font-size: 15px;
 }
@@ -56,4 +61,33 @@
 .sectionRight button:active {
   background-color: #f8f5f0;
   border: 2px solid #96807a;
+}
+
+@media only screen and (min-width: 750px) {
+
+  .featureOuter {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 4% 2%;
+  }
+  
+  .sectionLeft {
+    grid-column: 1 / 2;
+    padding-left: 8vw;
+    display: flex;
+  }
+  
+  .sectionRight {
+    grid-column: 2 / 3;
+    display: block;
+    padding-right: 18%;
+  }
+  
+  .sectionRight p {
+    text-align: left;
+  }
+  
+  .feat1_3Image {
+    max-width: 27vw;
+  }
 }
