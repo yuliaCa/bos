@@ -1,19 +1,61 @@
 import styles from "./UsageChart.module.css";
 import React from "react";
 import { Bar } from "react-chartjs-3";
+import axios from 'axios';
+import { useEffect } from "react";
+
 
 const UsageChart = () => {
-  const bosStorage = "https://s3-us-west-2.amazonaws.com/bos-skincare";
+    const bosStorage = "https://s3-us-west-2.amazonaws.com/bos-skincare";
 
-  const smileyData = [
-    "sad",
-    "neutral",
-    "happy",
-    "happy",
-    "neutral",
-    "happy",
-    "happy",
-  ];
+    const getUserProductUsage = (email) => {
+
+      let routineEachDay = {};
+      let productUsedByCategory = {};
+     
+      let dailyUsage = [];
+
+        axios.get(`dailyroutine/${email}`)
+            .then(results => {
+     
+                routineEachDay = results.data;
+
+                for (let i=0; i<routineEachDay.length; i++){
+                  let category=[];
+
+                  for (let x=0; x<routineEachDay[i].objRoutineLog.length; x++){
+                    category.push(routineEachDay[i].objRoutineLog[x].category);
+                  }
+
+                  console.log(category);
+                  let counts = {};
+                  category.forEach((x)=>{
+                    counts[x] = (counts[x]||0) + 1;
+                  });
+                 console.log(counts);
+
+                 productUsedByCategory = {
+                    "overallRate":routineEachDay[i].overallRate, 
+                    "dailyLogDate":(new Date(routineEachDay[i].dailyLogDate)).toLocaleDateString(),
+                    "productUsage": counts
+                 }
+                 dailyUsage.push(productUsedByCategory);
+                 console.log(dailyUsage);
+                }
+               
+                return dailyUsage;
+            }).catch(error => console.log(error));
+    }
+
+    const smileyData = [
+        "sad",
+        "neutral",
+        "happy",
+        "happy",
+        "neutral",
+        "happy",
+        "happy",
+    ];
 
   return (
     <div className={styles.chartStyle}>
