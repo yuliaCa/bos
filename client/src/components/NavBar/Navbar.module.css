@@ -21,11 +21,11 @@ header {
 
 header ul {
   list-style-type: none;
-  margin: 2rem 0.5em;
+  /* margin: 2rem 0.5em; */
   padding: 0;
   display: flex;
   flex-direction: row;
-  gap: 0.5rem;
+  gap: 3rem;
 }
 
 header .flexRow ul {
@@ -34,18 +34,18 @@ header .flexRow ul {
 }
 
 header .flexRow li {
-  width: 8vw;
+  /* width: 8vw; */
   align-self: center;
 }
 
-header .flexRow li:nth-child(2) {
+/* header .flexRow li:nth-child(2) {
   width: 9vw;
-}
+} */
 
 header .flexRow a {
   color: #67392a;
   text-decoration: none;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .faCircle,
@@ -61,7 +61,7 @@ header .flexRow a:hover {
 
 header .filter {
   height: auto;
-  width: 8vw;
+  width: 95px;
 }
 
 .dropdown {
