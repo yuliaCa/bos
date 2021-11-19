@@ -1,3 +1,4 @@
+    
     .RegistrationFormSection {
         display: grid;
         grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr;
@@ -9,7 +10,7 @@
     }
     
     .registerHeading {
-        margin-left: 14.5vw;
+        margin-left: 5vw;
         margin-top: 20%;
     }
     
@@ -125,8 +126,8 @@
         grid-row: 11 / 12;
         border-radius: 5px;
         width: 43.9vw;
-        height: 2.9vh;
-        margin-top: 0.4vh;
+        height: 3.3vh;
+        margin-top: 0.5vh;
         margin-left: -5vw;
         background-color: #F7EDE1;
     }
@@ -240,7 +241,7 @@
         justify-self: center;
         color: white;
         background-color:#67392A;
-        margin: 5% 0;
+        margin: 8% 0;
         margin-left: -12vw;
         border: none;
         border-radius: 5px;
@@ -253,6 +254,7 @@
     }
 
 @media only screen and (min-width: 440px) {
+
     .combinationLabel {
         margin-top: 3.5vh;  
     }
@@ -260,10 +262,13 @@
     .sensitiveLabel {
         margin-top: 3.5vh;
     }
-
 }
 
 @media only screen and (min-width: 550px) {
+
+    .RegistrationFormSection {
+        padding: 7%;
+    }
 
     .genderInput {
         width: 43vw;
@@ -273,6 +278,10 @@
 }
 
 @media only screen and (min-width: 700px) {
+
+    .RegistrationFormSection {
+        padding: 10% 4.5%;
+    }
 
     .combinationLabel {
         margin-top: 3.2vh;  
@@ -307,20 +316,22 @@
 
 @media only screen and (min-width: 900px) {
 
+
     .RegistrationFormSection {
         display: grid;
         grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
         margin: 3% auto;
         height: 50vh;
-        width: 70vw;
-        padding: 8% 0;
+        width: 800px;
+        padding-top: 8%;
+        padding-bottom: 15%;
         background-color: #FCF9F6;
     }
     
     .registerHeading {
         margin-left: 14.5vw;
-        margin-top: 7%;
+        margin-top: 10%;
     }
     
     .fullnameLabel {
@@ -428,7 +439,7 @@
         align-self: center;
         text-align: left;
         margin: 8%;
-        margin-left: 3.8vw;
+        margin-left: 25px;
     }
     
     .genderInput {
@@ -436,8 +447,8 @@
         grid-row: 11 / 12;
         border-radius: 5px;
         width: 9.6vw;
-        height: 2.8vh;
-        margin-left: 3.8vw;
+        height: 3.4vh;
+        margin-left: 25px;
         margin-top: 0.3vh;
         background-color: #F7EDE1;
     }
@@ -565,6 +576,9 @@
 
 @media only screen and (min-width: 1250px) {
 
+    .RegistrationFormSection {
+        width: 900px;
+    }
 
     .genderLabel {
         margin-left: 2.4vw;
@@ -579,7 +593,10 @@
 
 @media only screen and (min-width: 1375px) {
 
-    
+    .RegistrationFormSection {
+        width: 1050px;
+    }
+
     .blemishesLabel {
         margin-top: 3.5vh;
     }
