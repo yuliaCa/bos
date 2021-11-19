@@ -24,7 +24,9 @@ const UsageChart = () => {
                   let category=[];
 
                   for (let x=0; x<routineEachDay[i].objRoutineLog.length; x++){
-                    category.push(routineEachDay[i].objRoutineLog[x].category);
+                    if (routineEachDay[i].objRoutineLog[x].isUsed){
+                      category.push(routineEachDay[i].objRoutineLog[x].category);
+                    }
                   }
 
                   console.log(category);
