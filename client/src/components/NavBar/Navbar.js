@@ -6,6 +6,7 @@ import styles from "./Navbar.module.css";
 
 import { FaCircle } from "react-icons/fa";
 import { RiArrowDownSLine } from "react-icons/ri";
+import { FiMenu } from "react-icons/fi";
 import Fade from "react-reveal/Fade";
 
 import * as firebase from "../../authentication";
@@ -18,6 +19,8 @@ function Navbar(props) {
   const [open, setOpen] = useState(false);
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const [burger, setBurger] = useState(false);
 
   firebase.onAuthStateChanged(firebase.auth, (user) => {
     return user ? setIsLoggedIn(true) : setIsLoggedIn(false);
@@ -74,6 +77,16 @@ function Navbar(props) {
 
   window.addEventListener("scroll", changeBackground);
 
+  const reportWindowSize = () => {
+    if (window.innerWidth < 750) {
+      setBurger(true);
+    } else {
+      setBurger(false);
+    }
+  };
+
+  window.addEventListener("resize", reportWindowSize);
+
   return (
     <div style={fixedHeader}>
       <header style={props.isHome === "/" && !navbar ? transparentBg : {}}>
@@ -87,92 +100,227 @@ function Navbar(props) {
           alt="Footer Logo"
         ></img>
 
-        <nav>
-          <ul className={styles.flexRow}>
-            <li>
-              <Link to="/" style={props.isHome === "/" && !navbar ? whiteText : {}}>
-                Home{" "}
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/features"
-                style={props.isHome === "/" && !navbar ? whiteText : {}}
-              >
-                Features
-              </Link>
-            </li>
-            <li>
-              <Link to="/team" style={props.isHome === "/" && !navbar ? whiteText : {}}>
-                Team
-              </Link>
-            </li>
-
-            <li>
-              {!isLoggedIn ? (
-                <Link to="/login" style={props.isHome === "/" && !navbar ? whiteText : {}}>
-                  Login
+        {!burger ? (
+          <nav>
+            <ul className={styles.flexRow}>
+              <li>
+                <Link
+                  to="/"
+                  style={props.isHome === "/" && !navbar ? whiteText : {}}
+                >
+                  Home{" "}
                 </Link>
-              ) : (
-                <>
-                  <div className={styles.dropdown}>
-                    <div
-                      onClick={() => {
-                        setOpen(true);
-                        setTimeout(() => {
-                          setOpen(false);
-                        }, 5000);
-                      }}
-                      className={styles.icons}
-                    >
-                      <FaCircle className={styles.faCircle} />
-                      <RiArrowDownSLine
-                        style={props.isHome === "/" && !navbar ? whiteText : {}}
-                        className={styles.riArrowDown}
-                      />
-                    </div>
-                  </div>
-                  {open ? (
-                    <Fade down>
+              </li>
+              <li>
+                <Link
+                  to="/features"
+                  style={props.isHome === "/" && !navbar ? whiteText : {}}
+                >
+                  Features
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/team"
+                  style={props.isHome === "/" && !navbar ? whiteText : {}}
+                >
+                  Team
+                </Link>
+              </li>
+
+              <li>
+                {!isLoggedIn ? (
+                  <Link
+                    to="/login"
+                    style={props.isHome === "/" && !navbar ? whiteText : {}}
+                  >
+                    Login
+                  </Link>
+                ) : (
+                  <>
+                    <div className={styles.dropdown}>
                       <div
-                        style={props.isHome === "/" && !navbar ? transparentBg2 : {}}
-                        id="dropdown"
-                        className={styles.dropdownItem}
+                        onClick={() => {
+                          setOpen(true);
+                          setTimeout(() => {
+                            setOpen(false);
+                          }, 5000);
+                        }}
+                        className={styles.icons}
                       >
-                        <span>
-                          <Link
-                            to="/profile"
-                            style={props.isHome === "/" && !navbar ? whiteText : {}}
-                          >
-                            Profile
-                          </Link>
-                        </span>
-                        <span>
-                          <Link
-                            to="/settings"
-                            style={props.isHome === "/" && !navbar ? whiteText : {}}
-                          >
-                            Settings
-                          </Link>
-                        </span>
-                        <span onClick={signOut}>
-                          <Link
-                            to="#"
-                            style={props.isHome === "/" && !navbar ? whiteText : {}}
-                          >
-                            Log out
-                          </Link>
-                        </span>
+                        <FaCircle className={styles.faCircle} />
+                        <RiArrowDownSLine
+                          style={
+                            props.isHome === "/" && !navbar ? whiteText : {}
+                          }
+                          className={styles.riArrowDown}
+                        />
                       </div>
-                    </Fade>
-                  ) : (
-                    ""
-                  )}
-                </>
-              )}
-            </li>
-          </ul>
-        </nav>
+                    </div>
+                    {open ? (
+                      <Fade down>
+                        <div
+                          style={
+                            props.isHome === "/" && !navbar
+                              ? transparentBg2
+                              : {}
+                          }
+                          id="dropdown"
+                          className={styles.dropdownItem}
+                        >
+                          <span>
+                            <Link
+                              to="/profile"
+                              style={
+                                props.isHome === "/" && !navbar ? whiteText : {}
+                              }
+                            >
+                              Profile
+                            </Link>
+                          </span>
+                          <span>
+                            <Link
+                              to="/settings"
+                              style={
+                                props.isHome === "/" && !navbar ? whiteText : {}
+                              }
+                            >
+                              Settings
+                            </Link>
+                          </span>
+                          <span onClick={signOut}>
+                            <Link
+                              to="#"
+                              style={
+                                props.isHome === "/" && !navbar ? whiteText : {}
+                              }
+                            >
+                              Log out
+                            </Link>
+                          </span>
+                        </div>
+                      </Fade>
+                    ) : (
+                      ""
+                    )}
+                  </>
+                )}
+              </li>
+            </ul>
+          </nav>
+        ) : (
+          <nav>
+            <ul className={styles.flexRow}>
+              <li>
+                {!isLoggedIn ? (
+                  <Link
+                    to="/login"
+                    style={props.isHome === "/" && !navbar ? whiteText : {}}
+                  >
+                    Login
+                  </Link>
+                ) : (
+                  <>
+                    <div className={styles.dropdown}>
+                      <div
+                        onClick={() => {
+                          setOpen(true);
+                          setTimeout(() => {
+                            setOpen(false);
+                          }, 5000);
+                        }}
+                        className={styles.icons}
+                      >
+                        <FiMenu
+                          style={
+                            props.isHome === "/" && !navbar ? whiteText : {}
+                          }
+                          className={styles.riArrowDown, styles.burgerStyle}
+                        />
+                      </div>
+                    </div>
+                    {open ? (
+                      <Fade down>
+                        <div
+                          style={
+                            props.isHome === "/" && !navbar
+                              ? transparentBg2
+                              : {}
+                          }
+                          id="dropdown"
+                          className={styles.dropdownItem}
+                        >
+                          <span>
+                            <Link
+                              to="/"
+                              style={
+                                props.isHome === "/" && !navbar ? whiteText : {}
+                              }
+                            >
+                              Home{" "}
+                            </Link>
+                          </span>
+                          <span>
+                            <Link
+                              to="/features"
+                              style={
+                                props.isHome === "/" && !navbar ? whiteText : {}
+                              }
+                            >
+                              Features
+                            </Link>
+                          </span>
+                          <span>
+                            <Link
+                              to="/team"
+                              style={
+                                props.isHome === "/" && !navbar ? whiteText : {}
+                              }
+                            >
+                              Team
+                            </Link>
+                          </span>
+                          <span>
+                            <Link
+                              to="/profile"
+                              style={
+                                props.isHome === "/" && !navbar ? whiteText : {}
+                              }
+                            >
+                              Profile
+                            </Link>
+                          </span>
+                          <span>
+                            <Link
+                              to="/settings"
+                              style={
+                                props.isHome === "/" && !navbar ? whiteText : {}
+                              }
+                            >
+                              Settings
+                            </Link>
+                          </span>
+                          <span onClick={signOut}>
+                            <Link
+                              to="#"
+                              style={
+                                props.isHome === "/" && !navbar ? whiteText : {}
+                              }
+                            >
+                              Log out
+                            </Link>
+                          </span>
+                        </div>
+                      </Fade>
+                    ) : (
+                      ""
+                    )}
+                  </>
+                )}
+              </li>
+            </ul>
+          </nav>
+        )}
       </header>
     </div>
   );

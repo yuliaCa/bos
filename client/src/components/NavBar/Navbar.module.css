@@ -9,7 +9,7 @@ li {
 
 header {
   height: 5rem;
-  background-color: #ffffff;
+  background-color: #f7ede1;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -43,16 +43,24 @@ header .flexRow li {
 } */
 
 header .flexRow a {
-  color: #67392a;
+  color: #333333;
   text-decoration: none;
   font-size: 18px;
 }
 
 .faCircle,
 .riArrowDown {
-  height: 2.1rem;
-  width: 4vw;
+  height: auto;
+  width: 32px;
   color: rgba(45, 18, 9, 0.5);
+}
+
+.burgerStyle {
+  height: auto;
+  width: 32px;
+  position: absolute;
+  right: 1.5rem;
+  top: 1.5rem;
 }
 
 header .flexRow a:hover {
@@ -67,7 +75,7 @@ header .filter {
 .dropdown {
   display: flex;
   flex-direction: column;
-  min-width: 50px;
+  min-width: 140px;
 }
 
 .dropdown .icons {
@@ -79,8 +87,8 @@ header .filter {
   padding: 2% 0;
   display: flex;
   flex-direction: column;
-  height: 4rem;
-  width: 12vw;
+  /* height: 4rem; */
+  width: 140px;
   z-index: 1;
   position: absolute;
   top: 67px;
