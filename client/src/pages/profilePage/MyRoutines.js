@@ -45,16 +45,15 @@ function MyRoutines(props) {
     // Get THE product Object for details
     const [theProductName, setTheProductName] = useState();
 
-
     // ================================================
-    //Pulling up sll the products within each routine
+    //Pulling up all the products within each routine
     // ================================================
     const [MorningLoadedProducts, setMorningLoadedProducts] = useState([]);
     const [EveningLoadedProducts, setEveningLoadedProducts] = useState([]);
 
 
     // ================================================
-    //Check All components for Evening and Morning
+    //"Check All" components for Evening and Morning
     // ================================================
     const [checkedMorningAll, setCheckedMorningAll] = useState(false);
     const checkAllMorningHandler = () => {
@@ -66,9 +65,15 @@ function MyRoutines(props) {
         setCheckedEveningAll(checkedEveningAll ? false : true)
     }
 
+    // ================================================
+    //Creating products and pulling the list of products
+    // ================================================
     const [product, setProduct] = useState('');
 
     const [productObject, setProductObject] = useState({});
+
+    const [morningProductsArrayLength, setMorningProductsArrayLength] = useState();
+
 
     useEffect(() => {
         axios.put(`/profile/addProductMorning/${props.email}`, productObject)
@@ -94,6 +99,8 @@ function MyRoutines(props) {
     }, [productObject])
 
 
+
+
     const stringToArray = (string) => {
         let strArray = string.split('<br>');
         const arrayLength = strArray.length - 1;
@@ -107,7 +114,6 @@ function MyRoutines(props) {
 
         return strArray;
     }
-
 
     const ProductSubmitMorningHandler = function (event) {
         event.preventDefault();
@@ -189,19 +195,13 @@ function MyRoutines(props) {
                     console.error(error);
                 });
         }
-
     }
-
-
-
-    let headingMorningRoutine = `Morning Routine`;
-    let headingEveningRoutine = `Evening Routine`;
 
     return (
         <div>
 
             <div>
-                <h1>{headingMorningRoutine}</h1>
+                <h1>Morning Routine</h1>
                 {showProductDetailsMorning ?
                     <ProductDetails
                         closeDetailsMorning={closeDetailsMorning}
@@ -226,7 +226,7 @@ function MyRoutines(props) {
             </div>
 
             <div>
-                <h1>{headingEveningRoutine}</h1>
+                <h1>Evening Routine</h1>
                 {showProductDetailsEvening ?
                     <ProductDetails
                         closeDetailsEvening={closeDetailsEvening}
