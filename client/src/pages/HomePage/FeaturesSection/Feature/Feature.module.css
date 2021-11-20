@@ -3,29 +3,69 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-top: 15%;
 }
 
 .singleSection h3 {
-    margin-top: 30px;
+    margin-top: 20px;
     text-align: center;
-    color: #67392A;
+    color: #3b3835;
     font-weight: 500;
+    font-size: 22px;
 }
 
 .singleSection p {
     padding: 0;
-    line-height: 3vh;
-    margin-bottom: 75px;
+    margin-bottom: 5px;
+    margin-top: 0;
     font-weight: 200;
     text-align: center;
-    color: #67392A;
+    color: #3b3835;
+    font-size: 18px;
 }
 
 .featHeader, .featBodyText {
-    width: 300px;
+    width: 225px;
 }
 
 .featureImage {
-    height: 200px;
-    width: 200px;
+    height: 125px;
+    width: 125px;
+}
+
+@media only screen and (min-width: 600px) {
+
+    .featHeader, .featBodyText {
+        width: 375px;
+    }
+
+    .featureImage {
+        height: 150px;
+        width: 150px;
+    }
+}
+
+@media only screen and (min-width: 900px) {
+
+    .singleSection {
+        padding: 0 3vh;
+        margin-top: 0;
+    }
+
+    .featHeader, .featBodyText {
+        padding: 0 10%;
+        margin: 5%;
+        width: 250px;
+    }
+
+    .featureImage {
+        height: 150px;
+        width: 150px;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .singleSection {
+        padding: 0 7vh;
+    }
 }

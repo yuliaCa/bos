@@ -1,258 +1,590 @@
-.RegistrationFormSection {
-    display: grid;
-    grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    margin: 3% auto;
-    height: 50vh;
-    width: 80vw;
-    padding: 8% 0;
-    background-color: #FCF9F6;
+    .regContainer {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .registerHeading {
+        /* padding-left: 90px; */
+    }
+
+    .RegistrationFormSection {
+        display: grid;
+        grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        height: 100vh;
+        width: 100vw;
+        padding: 3% 4.5%;
+        background-color: #FCF9F6;
+    }
+    
+    .fullnameLabel {
+        grid-column: 1 / 7;
+        grid-row: 2 / 3;
+        text-align: left;
+        font-size: 14px;
+        font-weight: 400;
+        align-self: center;
+    }
+    
+    .fullnameInput {
+        border-radius: 5px;
+        grid-column: 1 / 7;
+        grid-row: 3 / 4;
+        width :85vw;
+        height: 1.2vh;
+        margin: 1% 0;
+        background-color: #F7EDE1;
+    }
+    
+    .emailLabel {
+        grid-column: 1 / 7;
+        grid-row: 4 / 5;
+        text-align: left;
+        font-size: 14px;
+        font-weight: 400;
+        align-self: center;
+    }
+    
+    .emailInput {
+        grid-column: 1 / 7;
+        grid-row: 5 / 6;
+        border-radius: 5px;
+        height: 1.2vh;
+        margin: 1% 0;
+        background-color: #F7EDE1;
+        width :85vw;
+    }
+    
+    .passwordLabel {
+        grid-column: 1 / 7;
+        grid-row: 6 / 7;
+        text-align: left;
+        font-size: 14px;
+        font-weight: 400;
+        align-self: center;
+    }
+    
+    .passwordInput {
+        grid-column: 1 / 7;
+        grid-row: 7 / 8;
+        border-radius: 5px;
+        height: 1.2vh;
+        margin: 1% 0;
+        background-color: #F7EDE1;
+        width :85vw;
+    }
+    
+    .passwordCfmLabel {
+        grid-column: 1 / 7;
+        grid-row: 8 / 9;
+        text-align: left;
+        font-size: 14px;
+        font-weight: 400;
+        align-self: center;
+    }
+    
+    .passwordCfmInput {
+        grid-column: 1 / 7;
+        grid-row: 9 / 10;
+        border-radius: 5px;
+        height: 1.2vh;
+        margin: 1% 0;
+        background-color: #F7EDE1;
+        width :85vw;
+    }
+    
+    .locationLabel {
+        grid-column: 1 / 4;
+        grid-row: 10 / 11;
+        text-align: left;
+        font-size: 14px;
+        font-weight: 400;
+        align-self: center;
+    }
+    
+    .locationInput {
+        grid-column: 1 / 4;
+        grid-row: 11 / 12;
+        border-radius: 5px;
+        width: 39.5vw;
+        height: 1vh;
+        margin: 1.5% 0;
+        background-color: #F7EDE1;
+    }
+    
+    .genderLabel {
+        grid-column: 4 / 7;
+        grid-row: 10 / 11;
+        display: flex;
+        flex-direction: column;
+        font-size: 14px;
+        font-weight: 400;
+        align-self: center;
+        text-align: left;
+        margin-left: -5vw;
+    }
+    
+    .genderInput {
+        grid-column: 4 / 7;
+        grid-row: 11 / 12;
+        border-radius: 5px;
+        width: 43.9vw;
+        height: 3.3vh;
+        margin-top: 0.5vh;
+        margin-left: -5vw;
+        background-color: #F7EDE1;
+    }
+    
+    .skintypeLabel {
+        grid-column: 1 / 7;
+        grid-row: 13 / 14;
+        font-size: 14px;
+        align-self: end;
+        height: 1vh;
+        margin: 8% 0;
+        text-align: left;
+    }
+    
+    .Checkbox {
+        display: none;
+    }
+    
+    .dryLabel {
+        margin-top: 0.8vh;
+        grid-column: 1 / 3;
+        grid-row: 14 / 15;
+    }
+    
+    .normalLabel {
+        margin-top: 0.8vh;
+        grid-column: 3 / 5;
+        grid-row: 14 / 15;
+    }
+    
+    .oilyLabel {
+        margin-top: 0.8vh;
+        grid-column: 5 / 7;
+        grid-row: 14 / 15;
+    }
+    
+    .combinationLabel {
+        margin-top: 3vh;
+        grid-column: 1 / 3;
+        grid-row: 15 / 16;
+    }
+    
+    .sensitiveLabel {
+        margin-top: 3vh;
+        grid-column: 3 / 5;
+        grid-row: 15 / 16;
+    }
+    
+    .concernsLabel {
+        grid-column: 1 / 7;
+        grid-row: 17 / 18;
+        font-size: 15px;
+        text-align: left;
+        align-self: end;
+        margin: 3% 0;
+    } 
+    
+    .acneLabel {
+        margin-top: 1.8vh;
+        grid-column: 1 / 3;
+        grid-row: 18 / 19;
+    }
+    
+    .drynessLabel  {
+        margin-top: 1.8vh;
+        grid-column: 3 / 5;
+        grid-row: 18 / 19;
+    }
+    
+    .oilynessLabel  {
+        margin-top: 1.8vh;
+        grid-column: 5 / 7;
+        grid-row: 18 / 19;
+    }
+    
+    .blemishesLabel {
+        margin-top: 3.4vh;
+        grid-column: 1 / 3;
+        grid-row: 19 / 20;
+    }
+    
+    .darkspotsLabel {
+        margin-top: 3.4vh;
+        grid-column: 3 / 5;
+        grid-row: 19 / 20;
+    }
+    
+    .poresLabel {
+        margin-top: 3.4vh;
+        grid-column: 5 / 7;
+        grid-row: 19 / 20;
+    }
+    
+    .redlinesLabel {
+        margin-top: 3.4vh;
+        grid-column: 1 / 3;
+        grid-row: 20 / 21;
+    }
+    
+    .finelinesLabel {
+        margin-top: 3.4vh;
+        grid-column: 3 / 5;
+        grid-row: 20 / 21;
+    }
+    
+    .buttonRegister {
+        grid-column: 2 / 6;
+        grid-row: 22 / 23;
+        height: 4vh;
+        width: 80vw;
+        justify-self: center;
+        color: white;
+        background-color:#67392A;
+        margin: 8% 0;
+        margin-left: -12vw;
+        border: none;
+        border-radius: 5px;
+        font-size: 15px;
+    }
+    
+    .buttonRegister:hover {
+        background-color:#B68B7D;
+        color: white;
+    }
+
+@media only screen and (min-width: 440px) {
+
+    .combinationLabel {
+        margin-top: 3.5vh;  
+    }
+    
+    .sensitiveLabel {
+        margin-top: 3.5vh;
+    }
 }
 
-.registerHeading {
-    margin-left: 10vw;
-    margin-top: 7%;
+@media only screen and (min-width: 550px) {
+
+    .RegistrationFormSection {
+        padding: 7%;
+    }
+
+    .genderInput {
+        width: 43vw;
+        height: 2.8vh;
+        margin-left: -5vw;
+    }
 }
 
-.fullnameLabel {
-    grid-column: 2 / 5;
-    grid-row: 2 / 3;
-    text-align: left;
-    font-size: 14px;
-    font-weight: 400;
-    align-self: center;
+@media only screen and (min-width: 700px) {
+
+    .RegistrationFormSection {
+        padding: 10% 4.5%;
+    }
+
+    .combinationLabel {
+        margin-top: 3.2vh;  
+    }
+    
+    .sensitiveLabel {
+        margin-top: 3.2vh;
+    }
+
+    .genderInput {
+        width: 42vw;
+    }
+}  
+
+@media only screen and (min-width: 800px) {
+
+    .combinationLabel {
+        margin-top: 3.8vh;
+    }
+    
+    .sensitiveLabel {
+        margin-top: 3.8vh;
+        grid-column: 3 / 5;
+        grid-row: 15 / 16;
+    }
+
+    .buttonRegister {
+        width: 80vw;
+        margin-left: -14vw;
+    }
 }
 
-.fullnameInput {
-    border-radius: 5px;
-    grid-column: 2 / 5;
-    grid-row: 3 / 4;
-    width: 23vw;
-    height: 1.2vh;
-    margin: 1% 0;
-    background-color: #F7EDE1;
+@media only screen and (min-width: 900px) {
+
+    .headerContainer {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        padding-top: 100px;
+        padding-bottom: 25px;
+    }
+
+    .registerHeading {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+    }
+
+    .regContainer {
+        margin: 0 17% auto;
+        padding-top: 100px;
+        padding-bottom: 50px;
+    }
+
+    .RegistrationFormSection {
+        display: grid;
+        grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        height: 350px;
+        max-width: 900px;
+        padding-top: 100px;
+        padding-bottom: 250px;
+        background-color: #FCF9F6;
+    }
+     
+    .fullnameLabel {
+        grid-column: 2 / 5;
+        grid-row: 2 / 3;
+        text-align: left;
+        font-size: 14px;
+        font-weight: 400;
+        align-self: center;
+    }
+    
+    .fullnameInput {
+        border-radius: 5px;
+        grid-column: 2 / 5;
+        grid-row: 3 / 4;
+        width: 250px;
+        height: 12px;
+        margin: 1% 0;
+        background-color: #F7EDE1;
+    }
+    
+    .emailLabel {
+        grid-column: 2 / 5;
+        grid-row: 4 / 5;
+        text-align: left;
+        font-size: 14px;
+        font-weight: 400;
+        align-self: center;
+    }
+    
+    .emailInput {
+        grid-column: 2 / 5;
+        grid-row: 5 / 6;
+        border-radius: 5px;
+        width: 250px;
+        height: 12px;
+        margin: 1% 0;
+        background-color: #F7EDE1;
+    }
+    
+    .passwordLabel {
+        grid-column: 2 / 5;
+        grid-row: 6 / 7;
+        text-align: left;
+        font-size: 14px;
+        font-weight: 400;
+        align-self: center;
+    }
+    
+    .passwordInput {
+        grid-column: 2 / 5;
+        grid-row: 7 / 8;
+        border-radius: 5px;
+        width: 250px;
+        height: 12px;
+        margin: 1% 0;
+        background-color: #F7EDE1;
+    }
+    
+    .passwordCfmLabel {
+        grid-column: 2 / 5;
+        grid-row: 8 / 9;
+        text-align: left;
+        font-size: 14px;
+        font-weight: 400;
+        align-self: center;
+    }
+    
+    .passwordCfmInput {
+        grid-column: 2 / 5;
+        grid-row: 9 / 10;
+        border-radius: 5px;
+        width: 250px;
+        height: 12px;
+        margin: 1% 0;
+        background-color: #F7EDE1;
+    }
+    
+    .locationLabel {
+        grid-column: 2 / 5;
+        grid-row: 10 / 11;
+        text-align: left;
+        font-size: 14px;
+        font-weight: 400;
+        align-self: center;
+    }
+    
+    .locationInput {
+        grid-column: 2 / 4;
+        grid-row: 11 / 12;
+        border-radius: 5px;
+        width: 110px;
+        height: 12px;
+        margin: 1.5% 0;
+        background-color: #F7EDE1;
+    }
+    
+    .genderLabel {
+        grid-column: 3 / 4;
+        grid-row: 10 / 11;
+        display: flex;
+        flex-direction: column;
+        font-size: 14px;
+        font-weight: 400;
+        align-self: center;
+        text-align: left;
+        margin: 8%;
+        margin-left: 35px;
+    }
+    
+    .genderInput {
+        grid-column: 3 / 5;
+        grid-row: 11 / 12;
+        border-radius: 5px;
+        width: 130px;
+        height: 30px;
+        margin-left: 35px;
+        margin-top: 0.3vh;
+        background-color: #F7EDE1;
+    }
+    
+    .skintypeLabel {
+        grid-column: 5 / 7;
+        grid-row: 2 / 3;
+        font-size: 14px;
+        align-self: end;
+        height: 1vh;
+        margin: 8% 4%;
+        text-align: left;
+    }
+    
+    .Checkbox {
+        display: none;
+    }
+    
+    .dryLabel {
+        margin-top: 0.8vh;
+        grid-column: 5 / 6;
+        grid-row: 3 / 4;
+    }
+    
+    .normalLabel {
+        margin-top: 0.8vh;
+        grid-column: 6 / 7;
+        grid-row: 3 / 4;
+    }
+    
+    .oilyLabel {
+        margin-top: 0.8vh;
+        grid-column: 7 / 8;
+        grid-row: 3 / 4;
+    }
+    
+    .combinationLabel {
+        margin-top: 3vh;
+        grid-column: 5 / 6;
+        grid-row: 4 / 5;
+    }
+    
+    .sensitiveLabel {
+        margin-top: 3vh;
+        grid-column: 6 / 7;
+        grid-row: 4 / 5;
+    }
+    
+    .concernsLabel {
+        grid-column: 5 / 7;
+        grid-row: 6 / 7;
+        font-size: 14px;
+        text-align: left;
+        align-self: end;
+        margin: 5% 4%;
+    } 
+    
+    .acneLabel {
+        margin-top: 1.8vh;
+        grid-column: 5 / 6;
+        grid-row: 7 / 8;
+    }
+    
+    .drynessLabel  {
+        margin-top: 1.8vh;
+        grid-column: 6 / 7;
+        grid-row: 7 / 8;
+    }
+    
+    .oilynessLabel  {
+        margin-top: 1.8vh;
+        grid-column: 7 / 8;
+        grid-row: 7 / 8;
+    }
+    
+    .blemishesLabel {
+        margin-top: 4vh;
+        grid-column: 5 / 6;
+        grid-row: 8 / 9;
+    }
+    
+    .darkspotsLabel {
+        margin-top: 4vh;
+        grid-column: 6 / 7;
+        grid-row: 8 / 9;
+    }
+    
+    .poresLabel {
+        margin-top: 4vh;
+        grid-column: 7 / 8;
+        grid-row: 8 / 9;
+    }
+    
+    .redlinesLabel {
+        margin-top: 4.1vh;
+        grid-column: 5 / 6;
+        grid-row: 9 / 10;
+    }
+    
+    .finelinesLabel {
+        margin-top: 4.1vh;
+        grid-column: 6 / 7;
+        grid-row: 9 / 10;
+    }
+    
+    .buttonRegister {
+        grid-column: 3 / 7;
+        grid-row: 13 / 14;
+        height: 35px;
+        width: 225px;
+        justify-self: center;
+        color: white;
+        background-color:#67392A;
+        margin: 5% 0;
+        border: none;
+        border-radius: 5px;
+        font-size: 15px;
+    }
+    
+    .buttonRegister:hover {
+        background-color:#B68B7D;
+        color: white;
+    }
 }
-
-.emailLabel {
-    grid-column: 2 / 5;
-    grid-row: 4 / 5;
-    text-align: left;
-    font-size: 14px;
-    font-weight: 400;
-    align-self: center;
-}
-
-.emailInput {
-    grid-column: 2 / 5;
-    grid-row: 5 / 6;
-    border-radius: 5px;
-    width: 23vw;
-    height: 1.2vh;
-    margin: 1% 0;
-    background-color: #F7EDE1;
-}
-
-.passwordLabel {
-    grid-column: 2 / 5;
-    grid-row: 6 / 7;
-    text-align: left;
-    font-size: 14px;
-    font-weight: 400;
-    align-self: center;
-}
-
-.passwordInput {
-    grid-column: 2 / 5;
-    grid-row: 7 / 8;
-    border-radius: 5px;
-    width: 23vw;
-    height: 1.2vh;
-    margin: 1% 0;
-    background-color: #F7EDE1;
-}
-
-.passwordCfmLabel {
-    grid-column: 2 / 5;
-    grid-row: 8 / 9;
-    text-align: left;
-    font-size: 14px;
-    font-weight: 400;
-    align-self: center;
-}
-
-.passwordCfmInput {
-    grid-column: 2 / 5;
-    grid-row: 9 / 10;
-    border-radius: 5px;
-    width: 23vw;
-    height: 1.2vh;
-    margin: 1% 0;
-    background-color: #F7EDE1;
-}
-
-.locationLabel {
-    grid-column: 2 / 5;
-    grid-row: 10 / 11;
-    text-align: left;
-    font-size: 14px;
-    font-weight: 400;
-    align-self: center;
-}
-
-.locationInput {
-    grid-column: 2 / 4;
-    grid-row: 11 / 12;
-    border-radius: 5px;
-    width: 10vw;
-    height: 1vh;
-    margin: 1.5% 0;
-    background-color: #F7EDE1;
-}
-
-.genderLabel {
-    grid-column: 3 / 4;
-    grid-row: 10 / 11;
-    display: flex;
-    flex-direction: column;
-    font-size: 14px;
-    font-weight: 400;
-    align-self: center;
-    text-align: left;
-    margin: 8%;
-    margin-left: 2.6vw;
-}
-
-.genderInput {
-    grid-column: 3 / 5;
-    grid-row: 11 / 12;
-    border-radius: 5px;
-    width: 11vw;
-    height: 3.3vh;
-    margin-left: 2.7vw;
-    margin-top: 0.3vh;
-    background-color: #F7EDE1;
-}
-
-.skintypeLabel {
-    grid-column: 5 / 7;
-    grid-row: 2 / 3;
-    font-size: 14px;
-    align-self: end;
-    height: 1vh;
-    margin: 8% 0;
-    text-align: left;
-}
-
-.Checkbox {
-    display: none;
-}
-
-.dryLabel {
-    padding-top: 8%;
-    grid-column: 5 / 6;
-    grid-row: 3 / 4;
-}
-
-.normalLabel {
-    padding-top: 8%;
-    grid-column: 6 / 7;
-    grid-row: 3 / 4;
-}
-
-.oilyLabel {
-    padding-top: 8%;
-    grid-column: 7 / 8;
-    grid-row: 3 / 4;
-}
-
-.combinationLabel {
-    padding-top: 20%;
-    grid-column: 5 / 6;
-    grid-row: 4 / 5;
-}
-
-.sensitiveLabel {
-    padding-top: 20%;
-    grid-column: 6 / 7;
-    grid-row: 4 / 5;
-}
-
-
-
-.concernsLabel {
-    grid-column: 5 / 7;
-    grid-row: 6 / 7;
-    font-size: 15px;
-    text-align: left;
-    align-self: end;
-    margin: 3% 0;
-} 
-
-.acneLabel {
-    padding-top: 10%;
-    grid-column: 5 / 6;
-    grid-row: 7 / 8;
-}
-
-.drynessLabel  {
-    padding-top: 10%;
-    grid-column: 6 / 7;
-    grid-row: 7 / 8;
-}
-
-.oilynessLabel  {
-    padding-top: 10%;
-    grid-column: 7 / 8;
-    grid-row: 7 / 8;
-}
-
-.blemishesLabel {
-    padding-top: 21%;
-    grid-column: 5 / 6;
-    grid-row: 8 / 9;
-}
-
-.darkspotsLabel {
-    padding-top: 21%;
-    grid-column: 6 / 7;
-    grid-row: 8 / 9;
-}
-
-.poresLabel {
-    padding-top: 21%;
-    grid-column: 7 / 8;
-    grid-row: 8 / 9;
-}
-
-.redlinesLabel {
-    padding-top: 23%;
-    grid-column: 5 / 6;
-    grid-row: 9 / 10;
-}
-
-.finelinesLabel {
-    padding-top: 23%;
-    grid-column: 6 / 7;
-    grid-row: 9 / 10;
-}
-
-.buttonRegister {
-    grid-column: 3 / 7;
-    grid-row: 13 / 14;
-    height: 4vh;
-    width: 25vw;
-    justify-self: center;
-    color: white;
-    background-color:#67392A;
-    margin: 5% 0;
-    border: none;
-    border-radius: 5px;
-    font-size: 15px;
-}
-
-.buttonRegister:hover {
-    background-color:#B68B7D;
-    color: white;
-}
-
-

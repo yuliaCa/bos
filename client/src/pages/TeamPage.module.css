@@ -1,6 +1,7 @@
 p {
   /* 1rem equals 16px */
-  font-size: 1rem;
+  font-family: Khula;
+  font-size: 18px;
 }
 
 .wrapper {
@@ -8,12 +9,19 @@ p {
 }
 
 .section {
+  color: #3b3835;
   padding: 5rem 15%;
   background-color: #f7ede1;
 }
 
+.section div {
+  margin: 0 auto;
+  max-width: 800px;
+}
+
 .section h2 {
+  font-family: Sora;
   font-size: 32px;
-  margin-bottom: 6rem;
+  margin-bottom: 4rem;
   color: #3b3835;
 }

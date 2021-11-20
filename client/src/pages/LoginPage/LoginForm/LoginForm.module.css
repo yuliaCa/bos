@@ -1,62 +1,63 @@
 .LoginFormSection {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat 5(1fr);
-    padding: 15vh;
     background-color: #FCF9F6;
-}
-
-.inputEmail {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
-    width: 20vw;
-    height: 2vh;
-    margin: 3%;
-    border-radius: 5px;
-    background-color: #FCF9F6;
-
-}
-
-.inputPassword {
-    grid-column: 1 / 2;
-    grid-row: 2 / 3;
-    width: 20vw;
-    height: 2vh;
-    margin: 3%;
-    border-radius: 5px;
-    background-color: #FCF9F6;
+    height: 70%;
 }
 
 .formLayout {
- 
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;   
-    width: 21.5vw;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;  
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr; 
     margin-left: 2%;
+    padding: 10% 0;
+}
+
+
+.inputEmail {
+    align-self: center;
+    justify-self: center;
+    grid-column: 2 / 6;
+    grid-row: 1 / 2;
+    height: 10px;
+    width: 95%;
+    border-radius: 5px;
+    background-color: #F7EDE1;
+}
+
+.inputPassword {
+    align-self: center;
+    justify-self: center;
+    grid-column: 2 / 6;
+    grid-row: 2 / 3;
+    height: 10px;
+    width: 95%;
+    border-radius: 5px;
+    background-color: #F7EDE1;
 }
 
 .rememberCheckbox {
-    grid-column: 1 / 2;
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
     width: 12px;
-    justify-self: center;
-  
+    justify-self: left;
+    align-self: center;
 }
 
 .checkRemember {
-    grid-column: 2 / 3;
-    width: 8vw;
+    grid-column: 3 / 4;
+    grid-row: 3 / 4;
     font-weight: 100;
     margin: 1% 0;
+    margin-left: -50%;
+    align-self: center;
     font-size: 14px;
-  
 }
 
 .forgotPassword {
-    grid-column: 3 / 7;
+    grid-column: 4 / 6;
+    grid-row: 3 / 4;
     font-weight: 100;
     font-size: 14px;
     margin: 0;
-    width: 12vw;
     text-align: right;
     align-self: center;
 }
@@ -67,20 +68,19 @@
 }
 
 .loginButton {
-    grid-column: 1 / 7;
+    grid-column: 2 / 6;
     background-color: #67392A;
     border: none;
     border-radius: 5px;
-    height: 4vh;
+    padding: 0.5rem 2.75rem;
     font-size: 15px;
     color: white;
     margin-top: 4%;
     margin-bottom: 2%;
-
 }
 
 .registerLink {
-    grid-column: 1 / 4;
+    grid-column: 2 / 4;
     font-weight: 100;
     font-size: 14px;
 }
@@ -88,4 +88,105 @@
 .registerLink a {
     text-decoration: none;
     color: black;
+}
+
+
+@media only screen and (min-width: 600px) {
+
+
+    .LoginFormSection {
+        background-color: #FCF9F6;
+        height: 100%;
+    }
+    
+    .formLayout {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;  
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr; 
+        margin-left: 2%;
+        padding: 30% 0;
+    }
+    
+    
+    .inputEmail {
+        align-self: center;
+        justify-self: center;
+        grid-column: 2 / 6;
+        grid-row: 1 / 2;
+        height: 10px;
+        width: 95%;
+        border-radius: 5px;
+        background-color: #FCF9F6;
+    }
+    
+    .inputPassword {
+        align-self: center;
+        justify-self: center;
+        grid-column: 2 / 6;
+        grid-row: 2 / 3;
+        height: 10px;
+        width: 95%;
+        border-radius: 5px;
+        background-color: #FCF9F6;
+    }
+    
+    .rememberCheckbox {
+        grid-column: 2 / 3;
+        grid-row: 3 / 4;
+        width: 12px;
+        justify-self: left;
+        align-self: center;
+    }
+    
+    .checkRemember {
+        grid-column: 3 / 4;
+        grid-row: 3 / 4;
+        font-weight: 100;
+        margin: 1% 0;
+        margin-left: -50%;
+        align-self: center;
+        font-size: 14px;
+    }
+    
+    .forgotPassword {
+        grid-column: 4 / 6;
+        grid-row: 3 / 4;
+        font-weight: 100;
+        font-size: 14px;
+        margin: 0;
+        text-align: right;
+        align-self: center;
+    }
+    
+    .forgotPassword a {
+        text-decoration: none;
+        color: black;
+    }
+    
+    .loginButton {
+        grid-column: 2 / 6;
+        background-color: #67392A;
+        border: none;
+        border-radius: 5px;
+        padding: 0.5rem 2.75rem;
+        font-size: 15px;
+        color: white;
+        margin-top: 4%;
+        margin-bottom: 2%;
+    }
+    
+    .registerLink {
+        grid-column: 2 / 4;
+        font-weight: 100;
+        font-size: 14px;
+    }
+    
+    .registerLink a {
+        text-decoration: none;
+        color: black;
+    }
+
+
+
+
 }

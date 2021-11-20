@@ -1,17 +1,14 @@
-// To set up Firebase login, we referenced the source code from
-// https://github.com/Devalo/Firebase-auth-react-express-mongodb
+import { Link, useLocation, useHistory } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import styles from './ProfileSettingsPage.module.css';
+import ButtonSelect from "../../components/ButtonSelect/ButtonSelect";
+
+import axios from 'axios';
 
 //import functions from Firebase authentication SDK
 import * as firebase from "../../authentication";
 
-import { useLocation, useHistory } from "react-router-dom";
-import React, { useState, useEffect } from "react";
-import styles from "./RegistrationPage.module.css";
-import axios from "axios";
-
-import ButtonSelect from "./ButtonSelect";
-
-function RegistrationPage(props) {
+function ProfileSettingsPage(props) {
   
   const location = useLocation();
   const history = useHistory(); 
@@ -21,12 +18,11 @@ function RegistrationPage(props) {
   },[location, props]);
 
   const [input, setInput] = useState({
-    fullname: sessionStorage.username ? sessionStorage.username : "",
-    userEmailAddress: sessionStorage.email ? sessionStorage.email : "",
-    password: "",
-    ConfirmPassword: "",
+    fullname: "",
+    userEmailAddress: "",
     cityLocation: "",
     gender: "",
+    profile: "",
     dry: false,
     normal: false,
     combination: false,
@@ -41,6 +37,15 @@ function RegistrationPage(props) {
     fine_lines: false,
   });
 
+  
+  const updateUserProfile = (email, userProfile) => {
+    axios.put(`/profile/updateUserProfile/${email}`, userProfile)
+        .then(results => {
+            console.log(userProfile);
+            console.log('UPDATE SUCCESSFULL!')
+        })
+        .catch(error => console.log(error))
+};
 
   function handleChange(event) {
     const isCheckbox = event.target.type === "checkbox";
@@ -57,28 +62,16 @@ function RegistrationPage(props) {
   function handleClick(event) {
     event.preventDefault();
 
-        if (input.password !== undefined && input.password === input.ConfirmPassword) {
+        if (input.fullname !== undefined && input.userEmailAddress !== undefined && input.cityLocation !== undefined && input.gender !== undefined) {
 
-            firebase.createUserWithEmailAndPassword(firebase.auth, input.userEmailAddress, input.password)
-            .then((userCredential) => {
-            // const user = userCredential.user;
             firebase.updateProfile(firebase.auth.currentUser, {
                 displayName: input.fullname,
-                photoURL: ""
+                photoURL: input.profile
             }).then(() => {
                 console.log("user registered: " + firebase.auth.currentUser.uid)      
             }).catch((error) => {
                 console.error(`There was an error creating profile: ${error}`);
             });
-            })
-            .catch((error) => {
-              const errorCode = error.code;
-              const errorMessage = error.message;
-              console.error(
-                `There was an error signing up: ${errorCode}, ${errorMessage}`);
-              });
-          
-            history.push("/profile");
         }
       
     const newProfile = {
@@ -112,14 +105,11 @@ function RegistrationPage(props) {
     });
   }
 
-  return (
-    <>
-      
-      
-     
-      <div className={styles.regContainer}>
-      <h1 className={styles.registerHeading}>Register</h1>
-      <form 
+  return <>
+    <h2>Account Details</h2>
+    <img src="" />
+    <Link to="">Take a Photo</Link>
+    <form 
         className={styles.RegistrationFormSection}>
         <label 
           htmlFor="name" 
@@ -140,56 +130,15 @@ function RegistrationPage(props) {
         />
 
         <label 
-          htmlFor="email" 
-          className={styles.emailLabel}>
-          Email
+          htmlFor="profile">
+          Upload a photo
         </label>
-        <input
-          onChange={handleChange}
-          className={styles.emailInput}
-          type="email"
-          id="email"
-          name="userEmailAddress"
-          placeholder="sidney.crosby@gmail.com"
-          autoComplete="off"
-          value={input.userEmailAddress}
-          required
-        />
-
-        <label 
-          htmlFor="password" 
-          className={styles.passwordLabel}>
-          Password
-        </label>
-        <input
-          onChange={handleChange}
-          type="password"
-          className={styles.passwordInput}
-          value={input.password}
-          id="password"
-          name="password"
-          placeholder="Password (min 8 characters)"
-          minLength="8"
-          autoComplete="off"
-          required
-          pattern="[A-Za-z0-9]+"
-        />
-
-        <label 
-          htmlFor="confirmPassword" 
-          className={styles.passwordCfmLabel}>
-          Confirm Password
-        </label>
-        <input
-          onChange={handleChange}
-          type="password"
-          className={styles.passwordCfmInput}
-          value={input.ConfirmPassword}
-          id="confirmPassword"
-          name="ConfirmPassword"
-          autoComplete="off"
-          placeholder="Confirm Password"
-          required
+        <input 
+          onChange={handleChange} 
+          type="file" 
+          id="profile" 
+          name="profile" 
+          accept="image/png, image/jpeg" 
         />
 
         <label 
@@ -337,12 +286,12 @@ function RegistrationPage(props) {
           id="submit"
         >
           {" "}
-          REGISTER{" "}
+          SAVE{" "}
         </button>
-      </form>
-      </div>
-    </>
-  );
+
+    </form>
+
+  </>;
 }
 
-export default RegistrationPage;
+export default ProfileSettingsPage;

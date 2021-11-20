@@ -1,6 +1,6 @@
 import styles from './ProductCard.module.css';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FaTrash } from 'react-icons/fa';
 import axios from 'axios';
 
@@ -8,23 +8,39 @@ function ProductCard(props) {
 
     const [productIsUsed, setProductUsedState] = useState(false)
 
-    const productUsedBtnHandler = () => {
-        setProductUsedState(productIsUsed ? false : true);
-    }
+    // -----items for saving daily log - getting from the ProductCard----
+    const [productUsedMorning, setProductUsedMorning] = useState(false);
+    const [productName, setProductNameForLog] = useState();
+    const [productCategory, setProductCategoryForLog] = useState();
 
-    const deleteProductHandler = () => {
-        if (!props.evening) {
-            axios.delete(`/profile/deleteProductMorning/${props.email}/${props.name}`)
-                .then(result => console.log('Deleting the Morning product....')
-                )
-                .catch(error => console.log(error))
 
-        } else if (props.evening) {
-            axios.delete(`/profile/deleteProductEvening/${props.email}/${props.name}`)
-                .then(result => console.log('Deleting the Evening product....')
-                )
-                .catch(error => console.log(error))
-        }
+    useEffect(
+        function addUsedProdtoArray() {
+
+            if (!props.evening && productIsUsed) {
+
+                let objRoutineLog = {
+                    productName: props.name,
+                    category: props.category,
+                    isUsed: productIsUsed
+                }
+                props.arrayProductsForMorningLog.push(objRoutineLog)
+                console.log(props.arrayProductsForMorningLog)
+            } else if (props.evening && productIsUsed) {
+                let objRoutineLog = {
+                    productName: props.name,
+                    category: props.category,
+                    isUsed: productIsUsed
+                }
+                props.arrayProductsForEveningLog.push(objRoutineLog)
+                console.log(props.arrayProductsForEveningLog)
+            }
+
+        }, [productIsUsed])
+
+    const productUsedBtnHandler = (event) => {
+        setProductUsedState(true);
+
     }
 
 
@@ -52,9 +68,9 @@ function ProductCard(props) {
                     props.openDetailsMorning(event, props.id)}>
                     Product Details</p>
 
-                <FaTrash className={styles.trashCan} onClick={deleteProductHandler} />
+                <FaTrash className={styles.trashCan} onClick={event => props.deleteProductHandler(event, props.name, props.evening)} />
 
-                <button className={styles.useButton} onClick={productUsedBtnHandler}>{productIsUsed || props.checkAll ? 'Used' : 'Use Product'}</button>
+                <button className={styles.useButton} onClick={event => productUsedBtnHandler(event)}>{productIsUsed || props.checkAll ? 'Used' : 'Use Product'}</button>
             </div>
 
         </div>

@@ -3,7 +3,7 @@
 // ********************************************************************************************
 
 import { initializeApp } from 'firebase/app'
-import { getAuth, updateProfile, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "firebase/auth";
+import { getAuth, updateProfile, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, sendPasswordResetEmail } from "firebase/auth";
 
 console.log("Connected to firebase.js");
 
@@ -24,7 +24,7 @@ const firebaseApp = initializeApp(firebaseConfig);
 // Declare Firebase Auth and DB
 const auth = getAuth(firebaseApp);
 
-export { auth, updateProfile, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged };
+export { auth, updateProfile, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, sendPasswordResetEmail};
 
 
 

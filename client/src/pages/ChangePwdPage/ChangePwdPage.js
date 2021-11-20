@@ -1,27 +1,16 @@
 import { useLocation } from "react-router-dom";
-import React, { useState, useEffect } from "react";
+import { useEffect } from "react";
+import React from "react";
 import Welcome from "../../components/Welcome/Welcome";
-import LoginForm from "./LoginForm/LoginForm";
-import styles from "./LoginPage.module.css";
-import axios from 'axios';
+import ChangeForm from "./ChangeForm/ChangeForm";
+import styles from "./ChangePwdPage.module.css";
 
-function LoginPage(props) {
-
-  const [welcomeContent, setWelcomeContent] = useState({});
+function ChangePwdPage(props) {
   const location = useLocation();
 
   useEffect(() => {
     props.handleIsHome(location);
-
-    axios
-    .get("/pagecontents/")
-    .then((result) => {   
-    setWelcomeContent(result.data[7]);
-    })
-    .catch((error) => console.log(error));
-
   },[location, props]);
-
 
   return (
     <div className={styles.loginOuter}>
@@ -31,14 +20,14 @@ function LoginPage(props) {
           src="https://s3-us-west-2.amazonaws.com/bos-skincare/logo/logo_mobile.svg"
           alt="welcome image"
           heading="WELCOME!"
-          bodytext={welcomeContent.body}
+          bodytext="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae laboriosam obcaecati exercitationem."
         />
       </div>
       <div className={styles.loginRightSection}>
-        <LoginForm />
+        <ChangeForm />
       </div>
     </div>
   );
 }
 
-export default LoginPage;
+export default ChangePwdPage;

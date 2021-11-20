@@ -1,13 +1,16 @@
 .section {
   padding: 5rem 15%;
+  max-width: 800px;
 }
 
 .section h2 {
   font-size: 32px;
   margin-bottom: 3rem;
-  color: #3B3835;
+  color: #3b3835;
 }
 
-p {
+.section .bodytext {
+  max-width: 685px;
+  font-family: Khula;
   padding: 0;
 }

@@ -1,11 +1,68 @@
 import styles from "./UsageChart.module.css";
 import React from "react";
 import { Bar } from "react-chartjs-3";
+import axios from 'axios';
+import { useEffect } from "react";
+
 
 const UsageChart = () => {
+    const bosStorage = "https://s3-us-west-2.amazonaws.com/bos-skincare";
+
+    const getUserProductUsage = (email) => {
+
+      let routineEachDay = {};
+      let productUsedByCategory = {};
+     
+      let dailyUsage = [];
+
+        axios.get(`dailyroutine/${email}`)
+            .then(results => {
+     
+                routineEachDay = results.data;
+
+                for (let i=0; i<routineEachDay.length; i++){
+                  let category=[];
+
+                  for (let x=0; x<routineEachDay[i].objRoutineLog.length; x++){
+                    if (routineEachDay[i].objRoutineLog[x].isUsed){
+                      category.push(routineEachDay[i].objRoutineLog[x].category);
+                    }
+                  }
+
+                  console.log(category);
+                  let counts = {};
+                  category.forEach((x)=>{
+                    counts[x] = (counts[x]||0) + 1;
+                  });
+                 console.log(counts);
+
+                 productUsedByCategory = {
+                    "overallRate":routineEachDay[i].overallRate, 
+                    "dailyLogDate":(new Date(routineEachDay[i].dailyLogDate)).toLocaleDateString(),
+                    "productUsage": counts
+                 }
+                 dailyUsage.push(productUsedByCategory);
+                 console.log(dailyUsage);
+                }
+               
+                return dailyUsage;
+            }).catch(error => console.log(error));
+    }
+
+    const smileyData = [
+        "sad",
+        "neutral",
+        "happy",
+        "happy",
+        "neutral",
+        "happy",
+        "happy",
+    ];
+
   return (
     <div className={styles.chartStyle}>
-      <Bar className={styles.chart}
+      <Bar
+        className={styles.chart}
         data={{
           labels: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
           datasets: [
@@ -39,15 +96,15 @@ const UsageChart = () => {
             },
           ],
         }}
-        height={150}
+        height={200}
         width={400}
         options={{
           maintainAspectRatio: true,
           layout: {
             padding: {
               top: 0,
-              left: 100,
-              right: 100,
+              left: 0,
+              right: 0,
               bottom: 0,
             },
           },
@@ -79,6 +136,15 @@ const UsageChart = () => {
           },
         }}
       />
+      <div className={styles.smileyStyle}>
+        <ul>
+          {smileyData.map((smiley, key) => (
+            <li key={key}>
+              <img src={`${bosStorage}/icons/${smiley}.svg`} alt="smiley" />
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };

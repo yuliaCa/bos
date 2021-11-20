@@ -1,3 +1,28 @@
-.chart {
-  max-width: 600px;
+.chartStyle img {
+  max-width: 100%;
+  height: auto;
+}
+
+.chartStyle {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.smileyStyle {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 0.5rem;
+}
+
+.smileyStyle ul {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  justify-content: space-between;
+  position: relative;
+  left: 1.7vw;
+  bottom: 2rem;
+  margin: 2rem 0.5em;
+  padding: 0;
+  gap: 0.5rem;
 }
