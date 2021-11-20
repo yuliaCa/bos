@@ -16,14 +16,24 @@ const EveningRoutine = (props) => {
         { label: "Sunscreen", value: "sunscreen" }
     ]
 
-    const saveDailyLog = (email, objRoutineLog) => {
-        axios.post(`/dailyroutine/${email}`, `"objRoutineLog":${objRoutineLog}`)
+    const arrayProductsForEveningLog = [];
+
+
+    const saveDailyLog = (event, email, _objRoutineLog, _overallRate) => {
+        const today = new Date();
+        const dailyLog = {
+            objRoutineLog: _objRoutineLog,
+            overallRate: _overallRate,
+            dailyLogDate: today.toLocaleDateString("en-US")
+        }
+        axios.post(`/dailyroutine/${email}`, dailyLog)
             .then(results => {
-                console.log(objRoutineLog);
-                console.log('I AM GETTING POSTED YEA')
+                console.log(dailyLog);
+                console.log('SAVING THE LOG FOR TODAY')
             })
             .catch(error => console.log(error))
     }
+
 
     return (
         <div className={styles.eveningRoutine}>
@@ -56,10 +66,12 @@ const EveningRoutine = (props) => {
                         evening={props.evening}
                         setTheProductName={props.setTheProductName}
                         email={props.email}
+                        deleteProductHandler={props.deleteProductHandler}
+                        arrayProductsForEveningLog={arrayProductsForEveningLog}
                     />
                 ))}
             </div>
-            <button onClick={saveDailyLog(props.email,)} className={styles.saveButton}>Save</button>
+            <button onClick={event => saveDailyLog(event, props.email, arrayProductsForEveningLog)} className={styles.saveButton}>Save</button>
         </div>
 
     )
