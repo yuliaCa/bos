@@ -1,7 +1,7 @@
 p {
   /* 1rem equals 16px */
   font-family: Khula;
-  font-size: 1rem;
+  font-size: 18px;
 }
 
 .wrapper {
@@ -9,7 +9,7 @@ p {
 }
 
 .section {
-  color: #3B3835;
+  color: #3b3835;
   padding: 5rem 15%;
   background-color: #f7ede1;
 }

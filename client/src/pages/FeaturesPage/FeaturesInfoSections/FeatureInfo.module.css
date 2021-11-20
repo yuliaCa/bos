@@ -51,6 +51,7 @@
   padding: 0.75rem 2.5rem;
   min-width: 16px;
   font-size: 15px;
+  height: 48px;
 }
 
 .sectionRight button:hover {
