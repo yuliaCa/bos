@@ -72,31 +72,24 @@ function MyRoutines(props) {
 
     const [productObject, setProductObject] = useState({});
 
-    const [morningProductsArrayLength, setMorningProductsArrayLength] = useState();
 
 
     useEffect(() => {
-        axios.put(`/profile/addProductMorning/${props.email}`, productObject)
+
+        axios.get(`/profile/${props.email}/morningProducts`)
             .then(results => {
-                axios.get(`/profile/${props.email}/morningProducts`)
-                    .then(results => {
-                        console.log(results.data.objMorningRoutineLog)
-                        setMorningLoadedProducts(results.data.objMorningRoutineLog);
-                    })
+                console.log(results.data.objMorningRoutineLog)
+                setMorningLoadedProducts(results.data.objMorningRoutineLog);
             })
 
-        axios.put(`/profile/addProductEvening/${props.email}`, productObject)
+        axios.get(`/profile/${props.email}/eveningProducts`)
             .then(results => {
-                axios.get(`/profile/${props.email}/eveningProducts`)
-                    .then(results => {
-                        console.log(results.data.objEveningRoutineLog)
-                        setEveningLoadedProducts(results.data.objEveningRoutineLog);
-                    })
+                console.log(results.data.objEveningRoutineLog)
+                setEveningLoadedProducts(results.data.objEveningRoutineLog);
             })
-
             .catch(error => console.log(error));
 
-    }, [productObject])
+    }, [])
 
 
 
@@ -111,11 +104,11 @@ function MyRoutines(props) {
             strArray[x] = strArray[x].replace('-', '');
             strArray[x] = strArray[x].replace(':', '');
         }
-
         return strArray;
     }
 
-    const ProductSubmitMorningHandler = function (event) {
+
+    const submitMorningProduct = event => {
         event.preventDefault();
         if (product) {
             const options = {
@@ -130,11 +123,9 @@ function MyRoutines(props) {
                     'x-rapidapi-key': '2b5c9fd8d8msh0132ae34892c4f1p161c42jsnb732f5ff681a'
                 }
             };
-
             axios.request(options)
-                .then(function (response) {
-
-                    let theProductObj = {
+                .then(response => {
+                    let newProduct = {
                         objMorningRoutineLog: [{
                             productName: response.data.displayName,
                             images: response.data.currentSku.skuImages.image250,
@@ -146,17 +137,25 @@ function MyRoutines(props) {
                         }]
                     };
 
-                    setProductObject(theProductObj);
-                    console.log(productObject);
+                    return newProduct;
                 })
-                .catch(function (error) {
-                    console.error(error);
-                });
+                .then(newProduct => {
+                    console.log(newProduct)
+                    axios.put(`/profile/addProductMorning/${props.email}`, newProduct)
+                        .then(results => {
+
+                            axios.get(`/profile/${props.email}/morningProducts`)
+                                .then(results => {
+                                    console.log(results.data.objMorningRoutineLog)
+                                    setMorningLoadedProducts(results.data.objMorningRoutineLog);
+                                })
+                        })
+                })
+                .catch(error => console.log(error))
         }
-        setInput('');
     }
 
-    const ProductSubmitEveningHandler = async function (event) {
+    const submitEveningProduct = event => {
         event.preventDefault();
         if (product) {
             const options = {
@@ -171,12 +170,9 @@ function MyRoutines(props) {
                     'x-rapidapi-key': '2b5c9fd8d8msh0132ae34892c4f1p161c42jsnb732f5ff681a'
                 }
             };
-
-            await axios.request(options)
-                .then(function (response) {
-                    console.log(response.data);
-
-                    let theProductObj = {
+            axios.request(options)
+                .then(response => {
+                    let newProduct = {
                         objEveningRoutineLog: [{
                             productName: response.data.displayName,
                             images: response.data.currentSku.skuImages.image250,
@@ -188,14 +184,52 @@ function MyRoutines(props) {
                         }]
                     };
 
-                    setProductObject(theProductObj);
-
+                    return newProduct;
                 })
-                .catch(function (error) {
-                    console.error(error);
-                });
+                .then(newProduct => {
+                    console.log(newProduct)
+                    axios.put(`/profile/addProductEvening/${props.email}`, newProduct)
+                        .then(results => {
+
+                            axios.get(`/profile/${props.email}/eveningProducts`)
+                                .then(results => {
+                                    setEveningLoadedProducts(results.data.objEveningRoutineLog);
+                                })
+                        })
+                })
+                .catch(error => console.log(error))
         }
     }
+
+
+
+    const deleteProductHandler = (event, productName, evening) => {
+        if (!evening) {
+            axios.delete(`/profile/deleteProductMorning/${props.email}/${productName}`)
+                .then(result => {
+                    axios.get(`/profile/${props.email}/morningProducts`)
+                        .then(results => {
+                            console.log(results.data.objMorningRoutineLog)
+                            setMorningLoadedProducts(results.data.objMorningRoutineLog);
+                        })
+                }
+                )
+                .catch(error => console.log(error))
+
+        } else if (evening) {
+            axios.delete(`/profile/deleteProductEvening/${props.email}/${productName}`)
+                .then(result => {
+                    axios.get(`/profile/${props.email}/eveningProducts`)
+                        .then(results => {
+                            setEveningLoadedProducts(results.data.objEveningRoutineLog);
+                        })
+                })
+                .catch(error => console.log(error))
+        }
+    }
+
+
+
 
     return (
         <div>
@@ -207,9 +241,10 @@ function MyRoutines(props) {
                         closeDetailsMorning={closeDetailsMorning}
                         evening={false}
                         theProduct={prodObjForDetails}
-                        stringToArray={stringToArray} /> :
+                        stringToArray={stringToArray}
+                        deleteProductHandler={deleteProductHandler} /> :
                     <MorningRoutine
-                        ProductSubmitHandler={ProductSubmitMorningHandler}
+                        ProductSubmitHandler={submitMorningProduct}
                         checkAllHandler={checkAllMorningHandler}
                         checkedAll={checkedMorningAll}
                         loadedProducts={MorningLoadedProducts}
@@ -221,6 +256,7 @@ function MyRoutines(props) {
                         setInput={setInput}
                         input={input}
                         productObject={productObject}
+                        deleteProductHandler={deleteProductHandler}
                     />}
 
             </div>
@@ -232,9 +268,10 @@ function MyRoutines(props) {
                         closeDetailsEvening={closeDetailsEvening}
                         evening={true}
                         theProduct={prodObjForDetails}
-                        stringToArray={stringToArray} /> :
+                        stringToArray={stringToArray}
+                        deleteProductHandler={deleteProductHandler} /> :
                     <EveningRoutine
-                        ProductSubmitHandler={ProductSubmitEveningHandler}
+                        ProductSubmitHandler={submitEveningProduct}
                         checkAllHandler={checkAllEveningHandler}
                         checkedAll={checkedEveningAll}
                         loadedProducts={EveningLoadedProducts}
@@ -246,6 +283,7 @@ function MyRoutines(props) {
                         setInput={setInput}
                         input={input}
                         productObject={productObject}
+                        deleteProductHandler={deleteProductHandler}
                     />}
             </div>
         </div>

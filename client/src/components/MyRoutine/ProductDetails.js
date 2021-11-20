@@ -36,7 +36,7 @@ const ProductDetails = (props) => {
 
             <div dangerouslySetInnerHTML={{ __html: props.theProduct.suggestedUsage }} />
 
-            <button>Delete</button>
+            <button onClick={event => props.deleteProductHandler(event, props.theProduct.productName, props.evening)}>Delete</button>
 
         </div>
     )

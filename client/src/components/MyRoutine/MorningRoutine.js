@@ -69,7 +69,7 @@ const MorningRoutine = (props) => {
                         evening={props.evening}
                         setTheProductName={props.setTheProductName}
                         email={props.email}
-
+                        deleteProductHandler={props.deleteProductHandler}
                         arrayProductsForMorningLog={arrayProductsForMorningLog}
                     />
                 ))}

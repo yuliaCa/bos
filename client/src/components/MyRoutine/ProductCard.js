@@ -37,20 +37,29 @@ function ProductCard(props) {
 
 
 
-    const deleteProductHandler = () => {
-        if (!props.evening) {
-            axios.delete(`/profile/deleteProductMorning/${props.email}/${props.name}`)
-                .then(result => console.log('Deleting the Morning product....')
-                )
-                .catch(error => console.log(error))
+    // const deleteProductHandler = () => {
+    //     if (!props.evening) {
+    //         axios.delete(`/profile/deleteProductMorning/${props.email}/${props.name}`)
+    //             .then(result => console.log('Deleting the Morning product....')
+    //             )
+    //             .catch(error => console.log(error))
 
-        } else if (props.evening) {
-            axios.delete(`/profile/deleteProductEvening/${props.email}/${props.name}`)
-                .then(result => console.log('Deleting the Evening product....')
-                )
-                .catch(error => console.log(error))
-        }
-    }
+    //     } else if (props.evening) {
+    //         axios.delete(`/profile/deleteProductEvening/${props.email}/${props.name}`)
+    //             .then(result => console.log('Deleting the Evening product....')
+    //             )
+    //             .catch(error => console.log(error))
+    //     }
+    // }
+
+    //         const deleteProduct = (event, product) => {
+    //             event.preventDefault();
+    //             axios.delete('/products/${product.id}') /* delete the product on the back end using its ID*/
+    //                 .then(result => axios.get(/products)) / * get ALL products from your API * /
+    //                     .then(result => {
+    //                         setListOfProducts(result); /* update state with list of products. This should trigger a re-render */
+    //                     })
+    // }
 
 
     const getSkinConcerns = (string) => {
@@ -77,7 +86,7 @@ function ProductCard(props) {
                     props.openDetailsMorning(event, props.id)}>
                     Product Details</p>
 
-                <FaTrash className={styles.trashCan} onClick={deleteProductHandler} />
+                <FaTrash className={styles.trashCan} onClick={event => props.deleteProductHandler(event, props.name, props.evening)} />
 
                 <button className={styles.useButton} onClick={event => productUsedBtnHandler(event)}>{productIsUsed || props.checkAll ? 'Used' : 'Use Product'}</button>
             </div>

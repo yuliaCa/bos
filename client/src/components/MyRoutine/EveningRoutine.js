@@ -56,6 +56,7 @@ const EveningRoutine = (props) => {
                         evening={props.evening}
                         setTheProductName={props.setTheProductName}
                         email={props.email}
+                        deleteProductHandler={props.deleteProductHandler}
                     />
                 ))}
             </div>
