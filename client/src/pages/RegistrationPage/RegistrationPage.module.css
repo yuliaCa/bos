@@ -4,7 +4,7 @@
     }
 
     .registerHeading {
-        padding-left: 90px;
+        /* padding-left: 90px; */
     }
 
     .RegistrationFormSection {
@@ -319,24 +319,36 @@
 
 @media only screen and (min-width: 900px) {
 
+    .headerContainer {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        padding-top: 100px;
+        padding-bottom: 25px;
+    }
+
+    .registerHeading {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+    }
+
+    .regContainer {
+        margin: 0 17% auto;
+        padding-top: 100px;
+        padding-bottom: 50px;
+    }
 
     .RegistrationFormSection {
         display: grid;
         grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-        margin: 5% auto;
-        height: 50vh;
+        height: 350px;
         max-width: 900px;
-        padding-top: 8%;
-        padding-bottom: 15%;
+        padding-top: 100px;
+        padding-bottom: 250px;
         background-color: #FCF9F6;
     }
-    
-    .registerHeading {
-        margin-top: 12.5%;
-        margin-left: 10vw;
-    }
-    
+     
     .fullnameLabel {
         grid-column: 2 / 5;
         grid-row: 2 / 3;
