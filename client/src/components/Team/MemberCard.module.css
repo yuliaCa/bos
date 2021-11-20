@@ -54,12 +54,14 @@
 }
 
 .memberSection .content h2 {
+  font-weight: bold;
   font-size: 24px;
   margin-top: 0;
 }
 
 .memberSection .content p {
   margin-top: 1rem;
+  font-weight: 200;
 }
 
 .memberSection .icons1 {
