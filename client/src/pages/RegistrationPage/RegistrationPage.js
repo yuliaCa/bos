@@ -120,10 +120,11 @@ function RegistrationPage(props) {
 
   return (
     <>
-
+      
+      
+     
       <div className={styles.regContainer}>
       <h1 className={styles.registerHeading}>Register</h1>
-      
       <form 
         className={styles.RegistrationFormSection}>
         <label 
