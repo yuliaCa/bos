@@ -1,11 +1,10 @@
 .WelcomeSection {
     display: flex;
+    padding: 20% 0;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    /* margin: 5%; */
     background-color: #F7EDE1;
-    padding: 7.7vh;
 }
 
 .welcomeHeader, .welcomeBodyText {
@@ -20,12 +19,50 @@
 
 .welcomeBodyText {
     font-weight: 200;
-    line-height: 3vh;
     text-align: center;
 }
 
 .welcomeImage {
-    height: 15vh;
-    width: 15vw;
+    height: 150px;
+    width: 150px;
+}
+
+
+@media only screen and (min-width: 600px) {
+
+
+.WelcomeSection {
+    display: flex;
+    padding-top: 30%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+ 
+    /* margin: 5%; */
+    background-color: #F7EDE1;
+    /* padding: 5%; */
+}
+
+.welcomeHeader, .welcomeBodyText {
+    width: 200px;
+}
+
+.welcomeHeader {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.welcomeBodyText {
+    font-weight: 200;
+    /* line-height: 3vh; */
+    text-align: center;
+}
+
+.welcomeImage {
+    height: 150px;
+    width: 150px;
     /* margin-bottom: 3%; */
+}
+
 }

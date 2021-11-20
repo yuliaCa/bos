@@ -23,7 +23,7 @@ function LoginForm() {
         .then((user) => {
             if (user) {
               console.log("logged in! User ID: " + firebase.auth.currentUser.uid);
-              history.push("/");
+              history.push("/profile");
             }
           })
         .catch((error) => {
@@ -56,6 +56,7 @@ function LoginForm() {
         
     <div className={styles.LoginFormSection}>
         <form onSubmit={ handleSubmit }>
+            <div className={styles.formLayout}> 
             <input 
                 className={styles.inputEmail}
                 onChange ={handleInput} 
@@ -72,9 +73,7 @@ function LoginForm() {
                 value={input.password}
                 placeholder="password"
                 required />
-            
-            <div className={styles.formLayout}>
-            
+                
             <input className={styles.rememberCheckbox} 
                 onChange={event => handleCheckbox(event)} 
                 type="checkbox" />
