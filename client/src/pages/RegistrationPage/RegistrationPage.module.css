@@ -3,9 +3,9 @@
         flex-direction: column;
     }
 
-    .registerHeading {
-        /* padding-left: 90px; */
-    }
+    /* .registerHeading {
+        padding-left: 90px;
+    } */
 
     .RegistrationFormSection {
         display: grid;
@@ -319,6 +319,14 @@
 
 @media only screen and (min-width: 900px) {
 
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-left: -4%;
+    }
+
     .headerContainer {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -327,15 +335,14 @@
         padding-bottom: 25px;
     }
 
+    .regContainer {
+        padding-top: 110px;
+        padding-bottom: 50px;
+    }
+
     .registerHeading {
         grid-column: 1 / 2;
         grid-row: 1 / 2;
-    }
-
-    .regContainer {
-        margin: 0 17% auto;
-        padding-top: 100px;
-        padding-bottom: 50px;
     }
 
     .RegistrationFormSection {
