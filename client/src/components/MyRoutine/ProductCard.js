@@ -26,6 +26,14 @@ function ProductCard(props) {
                 }
                 props.arrayProductsForMorningLog.push(objRoutineLog)
                 console.log(props.arrayProductsForMorningLog)
+            } else if (props.evening && productIsUsed) {
+                let objRoutineLog = {
+                    productName: props.name,
+                    category: props.category,
+                    isUsed: productIsUsed
+                }
+                props.arrayProductsForEveningLog.push(objRoutineLog)
+                console.log(props.arrayProductsForEveningLog)
             }
 
         }, [productIsUsed])
@@ -34,32 +42,6 @@ function ProductCard(props) {
         setProductUsedState(true);
 
     }
-
-
-
-    // const deleteProductHandler = () => {
-    //     if (!props.evening) {
-    //         axios.delete(`/profile/deleteProductMorning/${props.email}/${props.name}`)
-    //             .then(result => console.log('Deleting the Morning product....')
-    //             )
-    //             .catch(error => console.log(error))
-
-    //     } else if (props.evening) {
-    //         axios.delete(`/profile/deleteProductEvening/${props.email}/${props.name}`)
-    //             .then(result => console.log('Deleting the Evening product....')
-    //             )
-    //             .catch(error => console.log(error))
-    //     }
-    // }
-
-    //         const deleteProduct = (event, product) => {
-    //             event.preventDefault();
-    //             axios.delete('/products/${product.id}') /* delete the product on the back end using its ID*/
-    //                 .then(result => axios.get(/products)) / * get ALL products from your API * /
-    //                     .then(result => {
-    //                         setListOfProducts(result); /* update state with list of products. This should trigger a re-render */
-    //                     })
-    // }
 
 
     const getSkinConcerns = (string) => {

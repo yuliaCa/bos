@@ -201,8 +201,6 @@ function MyRoutines(props) {
         }
     }
 
-
-
     const deleteProductHandler = (event, productName, evening) => {
         if (!evening) {
             axios.delete(`/profile/deleteProductMorning/${props.email}/${productName}`)
@@ -227,9 +225,6 @@ function MyRoutines(props) {
                 .catch(error => console.log(error))
         }
     }
-
-
-
 
     return (
         <div>
