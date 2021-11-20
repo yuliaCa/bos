@@ -26,6 +26,8 @@
         height: 100%;
         max-width: 800px;
         margin: 5% auto;
+        padding-top: 20px;
+
     }
 
     .loginLeftSection {
