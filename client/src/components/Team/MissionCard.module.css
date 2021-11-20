@@ -1,3 +1,4 @@
+
 .section {
   padding: 5rem 15%;
   max-width: 800px;
@@ -13,4 +14,13 @@
   max-width: 685px;
   font-family: Khula;
   padding: 0;
+  font-weight: 200;
+}
+
+@media (min-width: 885px) {
+
+  .MissionTitle {
+    margin-left: -5%;
+  }
+
 }
