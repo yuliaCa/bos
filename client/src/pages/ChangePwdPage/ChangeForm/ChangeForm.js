@@ -15,6 +15,7 @@ function ChangeForm() {
         email: ''
     });
    
+    const [resetSuccess, setResetSuccess] = useState(false);
   
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -24,9 +25,11 @@ function ChangeForm() {
         firebase.sendPasswordResetEmail(firebase.auth, input.email.trim())
           .then(() => {
             console.log('your password is reset!')
+            setResetSuccess(true);
             history.push("/login");
           })
           .catch((error) => {
+            setResetSuccess(false);
             const errorCode = error.code;
             const errorMessage = error.message;
           });   
@@ -48,16 +51,18 @@ function ChangeForm() {
         
     <div className={styles.LoginFormSection}>
         <form onSubmit={ handleSubmit }>
-            <input 
-                className={styles.inputEmail}
-                onChange ={handleInput} 
-                type="text" 
-                name="email"
-                value={input.email}
-                placeholder="e-mail"
-                required />
-            
             <div className={styles.formLayout}>
+              
+            <div className={styles.resetMessage}>{resetSuccess ? <p>Your password is reset. Please check your e-mail.</p> :""}</div>
+
+              <input 
+                  className={styles.inputEmail}
+                  onChange ={handleInput} 
+                  type="text" 
+                  name="email"
+                  value={input.email}
+                  placeholder="e-mail"
+                  required />
             
                 <button 
                     type="submit" 

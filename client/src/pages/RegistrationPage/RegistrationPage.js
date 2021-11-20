@@ -114,9 +114,7 @@ function RegistrationPage(props) {
 
   return (
     <>
-      
-      
-     
+    <div class={styles.wrapper}>
       <div className={styles.regContainer}>
       <h1 className={styles.registerHeading}>Register</h1>
       <form 
@@ -340,6 +338,7 @@ function RegistrationPage(props) {
           REGISTER{" "}
         </button>
       </form>
+      </div>
       </div>
     </>
   );
