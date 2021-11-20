@@ -3,6 +3,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-top: 15%;
 }
 
 .singleSection h3 {
@@ -15,7 +16,8 @@
 
 .singleSection p {
     padding: 0;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
+    margin-top: 0;
     font-weight: 200;
     text-align: center;
     color: #3b3835;
@@ -47,6 +49,7 @@
 
     .singleSection {
         padding: 0 3vh;
+        margin-top: 0;
     }
 
     .featHeader, .featBodyText {
