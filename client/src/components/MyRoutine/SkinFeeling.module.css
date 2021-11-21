@@ -3,7 +3,7 @@
   text-align: center;
 }
 
-.skinFeelingH2 {
+h2.skinFeelingH2 {
   color: #333333;
 }
 
@@ -33,10 +33,18 @@
   background-color: rgba(255, 255, 0, 0.2);
 }
 
+.skinFeelingButtonWrap {
+  text-align: right;
+  padding: 0.5rem 3rem;
+}
+
 .skinFeelingButton {
+  color: #fff;
+  font-size: 15px;
   background-color: #67392a;
   border: none;
   border-radius: 8px;
   font-size: 15px;
-  padding: 0.75rem 4rem;
+  height: 48px;
+  width: 80px;
 }

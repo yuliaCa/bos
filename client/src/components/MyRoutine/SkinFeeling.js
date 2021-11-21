@@ -7,10 +7,15 @@ const SkinFeeling = (props) => {
   const [sadFeeling, setSadFeeling] = useState(false);
   const [neutralFeeling, setNeutralFeeling] = useState(false);
   const [happyFeeling, setHappyFeeling] = useState(false);
+  const [skinFeelingSaved, setSkinFeelingSaved] = useState(false);
 
   const onClickFeeling = (e) => {
     console.log(e.alt);
   };
+
+  const onClickFeelingSave = () => {
+    setSkinFeelingSaved(!skinFeelingSaved);
+  }
 
   return (
     <div className={styles.skinFeelingSection}>
@@ -29,12 +34,16 @@ const SkinFeeling = (props) => {
             <img
               src={`${bosStorage}/icons/happy.svg`}
               alt="smiley"
-              onClick={onClickFeeling}
+              onClick={()=>onClickFeeling()}
             />
           </li>
         </ul>
-        <div>
-          <button className={styles.skinFeelingButton}>Save</button>
+        <div className={styles.skinFeelingButtonWrap}>
+          <button 
+          className={styles.skinFeelingButton}
+          onClick={onClickFeelingSave}>
+          {skinFeelingSaved? "SAVED" : "SAVE"}
+          </button>
         </div>
       </div>
     </div>
