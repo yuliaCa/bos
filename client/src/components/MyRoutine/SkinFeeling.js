@@ -22,7 +22,7 @@ const SkinFeeling = (props) => {
 
   const onClickFeelingSave = () => {
     setSkinFeelingSaved(!skinFeelingSaved);
-  }
+  };
 
   return (
     <div className={styles.skinFeelingSection}>
