@@ -15,34 +15,43 @@ const SkinFeeling = (props) => {
 
   const onClickFeelingSave = () => {
     setSkinFeelingSaved(!skinFeelingSaved);
-  }
+  };
 
   return (
     <div className={styles.skinFeelingSection}>
-    <div>
-      <h2 className={styles.skinFeelingH2}>How was the skin of the day?</h2>
-    </div>
+      <div>
+        <h2 className={styles.skinFeelingH2}>How was the skin of the day?</h2>
+      </div>
       <div className={styles.smileyStyle}>
-        <ul className={styles.skinFeelingUl}>
-          <li key="sad">
-            <img src={`${bosStorage}/icons/sad.svg`} alt="smiley" />
-          </li>
-          <li key="neutral">
-            <img src={`${bosStorage}/icons/neutral.svg`} alt="smiley" />
-          </li>
-          <li key="happy">
+        <form submit={onClickFeelingSave} onChange={()=>onClickFeeling()}>
+          <label>
+            <input type="radio" name="skinFeeling" value="Not so good" />
+            <img
+              src={`${bosStorage}/icons/sad.svg`}
+              alt="Sad Smiley"
+            />
+          </label>
+          <label>
+            <input type="radio" name="skinFeeling" value="Feeling OK" checked />
+            <img
+              src={`${bosStorage}/icons/neutral.svg`}
+              alt="Neutral Smiley"
+            />
+          </label>
+          <label>
+            <input type="radio" name="skinFeeling" value="Feeling good" />
             <img
               src={`${bosStorage}/icons/happy.svg`}
-              alt="smiley"
-              onClick={()=>onClickFeeling()}
+              alt="Happy Smiley"
             />
-          </li>
-        </ul>
+          </label>
+        </form>
         <div className={styles.skinFeelingButtonWrap}>
-          <button 
-          className={styles.skinFeelingButton}
-          onClick={onClickFeelingSave}>
-          {skinFeelingSaved? "SAVED" : "SAVE"}
+          <button
+            className={styles.skinFeelingButton}
+            
+          >
+            {skinFeelingSaved ? "SAVED" : "SAVE"}
           </button>
         </div>
       </div>
