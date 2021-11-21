@@ -30,10 +30,12 @@ const TeamPage = (props) => {
 
   return (
     <div className={styles.wrapper}>
+      <div className={styles.missionHeader}>
       <MissionCard
         header={missionContent.header}
         bodytext={missionContent.bodytext}
       />
+      </div>
       <div className={styles.section}>
         <div>
           <h2>Our Team</h2>

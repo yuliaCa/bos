@@ -5,7 +5,7 @@ const MissionCard = (props) => {
 
   return (
     <div className={styles.section}>
-      <h2>{props.header}</h2>
+      <h2 className={styles.MissionTitle}>{props.header}</h2>
       <p className={styles.bodytext}>{props.bodytext}</p>
     </div>
   );
