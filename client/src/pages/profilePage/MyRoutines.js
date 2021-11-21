@@ -227,10 +227,10 @@ function MyRoutines(props) {
     }
 
     return (
-        <div>
+        <div className={styles.myRoutines}>
 
-            <div>
-                <h1>Morning Routine</h1>
+            <div className={styles.morningRoutine}>
+                <h1 className={styles.heading}>Morning Routine</h1>
                 {showProductDetailsMorning ?
                     <ProductDetails
                         closeDetailsMorning={closeDetailsMorning}
