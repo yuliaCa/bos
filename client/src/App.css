@@ -3,17 +3,24 @@
 
 /* Main typography and sizes */
 
+html {
+  margin: 0;
+  padding: 0;
+}
+
 body {
-    font-family: Khula;
-    font-size: 16px;  
+  font-family: Khula;
+  font-size: 16px;
 }
 
 caption {
-    font-size: 14px;
+  font-size: 14px;
 }
 
-h1, h2, h3 {
-    font-family: Sora;  
+h1,
+h2,
+h3 {
+  font-family: Sora;
 }
 
 h1 {
@@ -28,7 +35,6 @@ h3 {
   font-size: 19px;
   font-weight: 300;
 }
-
 
 /* Generic APP settings */
 
