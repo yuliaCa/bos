@@ -1,23 +1,34 @@
-.morningRoutine {
-  background-color: #faf5f0;
+.morningRoutine,
+.eveningRoutine {
   padding: 2%;
   display: flex;
   flex-direction: column;
   justify-items: center;
   /* align-items: center; */
-  gap: 30px;
+  gap: 20px;
+}
+
+.morningRoutine {
+  background-color: #faf5f0;
 }
 
 .eveningRoutine {
   background-color: #f5e8da;
 }
 
-.myRoutines .morningRoutine .heading {
-  background-color: #faf5f0;
+.myRoutines .morningRoutine .heading,
+.myRoutines .eveningRoutine .heading {
   width: 100%;
   font-size: 18px;
   padding-bottom: 10px;
   border-bottom: 1px solid #b68b7d;
+}
+
+.myRoutines .morningRoutine .heading {
+  background-color: #faf5f0;
+}
+.myRoutines .eveningRoutine .heading {
+  background-color: #f5e8da;
 }
 
 .userInput {
