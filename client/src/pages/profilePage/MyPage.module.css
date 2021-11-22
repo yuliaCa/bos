@@ -81,7 +81,12 @@
   padding: 0;
 }
 
-@media (max-width: 720px) {
+@media (max-width: 450px) {
+  .myPageSection {
+    max-width: 98%;
+    margin: auto;
+  }
+  
   .userSection {
     gap: 1.2rem;
     padding-bottom: 1rem;
