@@ -5,6 +5,13 @@
   padding-bottom: 5rem;
 }
 
+@media (max-width: 450px) {
+  .myPageSection {
+    max-width: 98%;
+    margin: auto;
+  }
+}
+
 .userSection {
   display: grid;
   margin: auto;
