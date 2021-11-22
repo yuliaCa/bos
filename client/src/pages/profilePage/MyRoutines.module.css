@@ -64,7 +64,7 @@ form.userInput button {
   margin: auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  grid-template-rows: repeat(5, 1fr);
+  /* grid-template-rows: repeat(5, 1fr); */
   grid-gap: 2%;
 }
 

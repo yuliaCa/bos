@@ -2,7 +2,7 @@
   max-width: 100%;
   height: 250px;
   object-fit: contain;
-  grid-area: 1/ 1/ 5/ 2;
+  grid-area: 1/ 1/ 6/ 2;
   border: 1px solid #c9b6a1;
   border-radius: 5px;
   background-color: white;
@@ -26,16 +26,53 @@ h5.skinConcerns {
   font-family: Khula, sans-serif;
   font-size: 14px;
   grid-area: (2, 2, 3, 3);
-  margin: 1.5rem 0 0.5rem 0;
+  margin: 1.5rem 0 0.1rem 0;
+}
+.concernsList,
+.productCard p {
+  font-size: 14px;
+  font-family: Khula, sans-serif;
 }
 .concernsList {
-  list-style-type: disc;
+  max-height: 8.3vh;
+  overflow: hidden;
+}
+
+.productCard p {
+  text-align: right;
+  margin: 0;
+}
+
+.productCard .detailsAndDelete {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #3b3835;
 }
 
 .useButton {
-  display: block;
-  width: 30%;
-  margin: 3% auto;
+  width: 80%;
+  margin: 0 auto;
+  padding: 0.2rem;
+  grid-area: 5/2/6/3;
+  background: #b68b7d;
+  color: #ffffff;
+  /* font-size: 16px; */
+  /* font-weight: bolder; */
+  font-family: Khula, sans-serif;
+  border: 1px solid #b68b7d;
+  border-radius: 5px;
+}
+
+.usedButton {
+  width: 80%;
+  margin: 0 auto;
+  padding: 0.2rem;
+  grid-area: 5/2/6/3;
+  background-color: #fcf9f6;
+  border: 1px solid #b68b7d;
+  color: #b68b7d;
+  border-radius: 5px;
 }
 
 .trashCan {

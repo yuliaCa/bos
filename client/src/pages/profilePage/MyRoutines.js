@@ -103,6 +103,7 @@ function MyRoutines(props) {
             strArray[x] = strArray[x].replace('</b>', '');
             strArray[x] = strArray[x].replace('-', '');
             strArray[x] = strArray[x].replace(':', '');
+            strArray[x] = strArray[x].replace('<br>', '');
         }
         return strArray;
     }
