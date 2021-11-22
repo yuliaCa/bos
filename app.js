@@ -23,6 +23,10 @@ const router = require("./Backend/routes/index.js");
 app.use("/", router);
 /////////////////////////////////////////////////////////////
 
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('client/build'));
+}
+
 connected.on('open', () => {
-    app.listen(8080, () => console.log("Listening"));
+    app.listen(PORT, () => console.log(`Server is starting at ${PORT}`));
 });
