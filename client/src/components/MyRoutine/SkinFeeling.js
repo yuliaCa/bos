@@ -20,8 +20,10 @@ const SkinFeeling = (props) => {
 
   };
 
-  const onClickFeelingSave = () => {
+  const onClickFeelingSave = (e) => {
+    e.preventDefault();
     setSkinFeelingSaved(!skinFeelingSaved);
+
   };
 
   return (
