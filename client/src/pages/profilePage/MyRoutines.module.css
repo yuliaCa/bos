@@ -51,6 +51,7 @@ form.userInput button {
   height: 48px;
   color: #f8f5f0;
   text-transform: uppercase;
+  cursor: pointer;
 }
 
 .myRoutines h3 {
