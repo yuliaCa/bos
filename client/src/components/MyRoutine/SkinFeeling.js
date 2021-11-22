@@ -32,7 +32,7 @@ const SkinFeeling = (props) => {
             />
           </label>
           <label>
-            <input type="radio" name="skinFeeling" value="Feeling OK" checked />
+            <input type="radio" name="skinFeeling" value="Feeling OK" />
             <img
               src={`${bosStorage}/icons/neutral.svg`}
               alt="Neutral Smiley"
