@@ -1,6 +1,7 @@
 .morningRoutine {
   background-color: #faf5f0;
-  padding: 5%;
+  padding: 0;
+  padding: 2%;
 }
 
 .eveningRoutine {
@@ -52,11 +53,18 @@ form.userInput button {
   text-transform: uppercase;
 }
 
+.myRoutines h3 {
+  color: #b68b7d;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #ab8679;
+}
+
 .productsGrid {
-  width: 90%;
+  width: 98%;
   margin: auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-rows: repeat(5, 1fr);
   grid-gap: 2%;
 }
 
