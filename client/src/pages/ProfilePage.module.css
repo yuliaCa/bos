@@ -4,6 +4,17 @@
   margin-top: 10rem;
 }
 
+@media (max-width: 450px) {
+  .profilePage {
+    max-width: 98%;
+    margin: auto;
+    margin-top: 6rem;
+  }
+  .profilePage > h2 {
+    display: none;
+  }
+}
+
 .profilePage h2 {
   font-size: 32px;
   color: #67392a;

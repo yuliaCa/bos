@@ -1,41 +1,86 @@
 .morningRoutine {
-  border: 1px solid #000;
+  background-color: #faf5f0;
+  padding: 0;
+  padding: 2%;
 }
 
 .eveningRoutine {
-  border: 1px solid green;
+  background-color: #f5e8da;
 }
 
-.heading {
+.myRoutines .morningRoutine .heading {
+  background-color: #faf5f0;
   width: 100%;
-  background-color: rgb(168, 167, 167);
+  font-size: 18px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #b68b7d;
 }
 
 .userInput {
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+}
+
+form.userInput {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 15vh;
+  align-items: stretch;
+}
+
+.userInputSelect {
+  border: 1px solid #ad967d;
+  border-radius: 5px;
+}
+
+form.userInput input {
+  width: 98%;
+  border: 1px solid #ad967d;
+  border-radius: 5px;
+  height: 40px;
+}
+
+form.userInput button {
+  background-color: #67392a;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 2.5rem;
+  min-width: 16px;
+  font-size: 15px;
+  height: 48px;
+  color: #f8f5f0;
+  text-transform: uppercase;
+}
+
+.myRoutines h3 {
+  color: #b68b7d;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #ab8679;
 }
 
 .productsGrid {
-  width: 90%;
+  width: 98%;
   margin: auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-rows: repeat(5, 1fr);
   grid-gap: 2%;
 }
 
 .selectAll {
   margin: 4%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+}
+.selectAll p {
+  font-size: inherit;
 }
 
 .selectAllLabel {
-  width: 15%;
-}
-
-.selectAllInput {
-  width: 20%;
+  font-size: inherit;
 }
 
 .saveButton {

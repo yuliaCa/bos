@@ -60,9 +60,9 @@ function ProductCard(props) {
             <div className={styles.productCard}>
                 <img className={styles.productImg} src={props.image} />
 
-                <h5>{props.name}</h5>
-                <h5>Skincare Concerns</h5>
-                <div dangerouslySetInnerHTML={{ __html: getSkinConcerns(props.description) }} />
+                <h4>{props.name}</h4>
+                <h5 className={styles.skinConcerns}>Skincare Concerns</h5>
+                <div className={styles.concernsList} dangerouslySetInnerHTML={{ __html: getSkinConcerns(props.description) }} />
                 <p onClick={event => props.evening ?
                     props.openDetailsEvening(event, props.id) :
                     props.openDetailsMorning(event, props.id)}>
