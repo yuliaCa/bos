@@ -41,7 +41,7 @@ const MorningRoutine = (props) => {
         <div className={styles.morningRoutine}>
 
             <form className={styles.userInput} onSubmit={(event) => props.ProductSubmitHandler(event)}>
-                <Select options={categoryOptions} />
+                <Select className={styles.userInputSelect} options={categoryOptions} />
 
                 <SearchInput setProduct={props.setProduct} setInput={props.setInput} input={props.input} />
 
@@ -49,6 +49,7 @@ const MorningRoutine = (props) => {
             </form>
 
             <div className={styles.selectAll}>
+                <p>Added Products</p>
                 <label className={styles.selectAllLabel}> Select All
                     <input className={styles.selectAllInput} type="checkbox" value={props.checkedAll} onChange={props.checkAllHandler} />
                 </label>
