@@ -7,17 +7,23 @@
 
 @media (max-width: 1100px) {
   .profilePage {
-    padding: 0 4rem;
+    max-width: 80%;
   }
 }
 
 /* ipad and mobile view */
 @media (max-width: 768px) {
   .profilePageTitle {
-    text-align: center;
+    display: none;
   }
   .profilePage {
-    padding: 0;
+    max-width: 98%;
+  }
+  .profilePage .tabs {
+    max-width: 97.9%;
+  }
+  .profilePage h2 {
+    font-size: 28px;
   }
 }
 
@@ -39,6 +45,7 @@
 }
 
 .profilePage .tabs {
+  margin: auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
   text-align: center;

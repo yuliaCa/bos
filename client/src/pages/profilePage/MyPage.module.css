@@ -81,7 +81,7 @@
   padding: 0;
 }
 
-@media (max-width: 450px) {
+@media (max-width: 768px) {
   .myPageSection {
     max-width: 98%;
     margin: auto;
