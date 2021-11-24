@@ -1,9 +1,11 @@
 const express = require("express");
 const app = express();
 const morgan = require('morgan');
+require("dotenv").config();
 //const cookieParser = require("cookie-parser");
 const connected = require("./Backend/connection.js");
 const PORT = process.env.PORT || 8080;
+
 
 
 //app.use(cookieParser);
@@ -24,5 +26,5 @@ app.use("/", router);
 /////////////////////////////////////////////////////////////
 
 connected.on('open', () => {
-    app.listen(8080, () => console.log("Listening"));
+    app.listen(PORT, () => console.log(`Server is starting at ${PORT}`));
 });
