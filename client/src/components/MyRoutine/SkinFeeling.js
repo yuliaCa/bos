@@ -20,12 +20,6 @@ const SkinFeeling = (props) => {
 
   };
 
-  const onClickFeelingSave = (e) => {
-    e.preventDefault();
-    setSkinFeelingSaved(!skinFeelingSaved);
-
-  };
-
   return (
     <div className={styles.skinFeelingSection}>
       <div>
