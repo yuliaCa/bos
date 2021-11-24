@@ -49,14 +49,14 @@ form.userInput {
   border-radius: 5px;
 }
 
-form.userInput input {
+.myRoutines form.userInput input {
   width: 98%;
   border: 1px solid #ad967d;
   border-radius: 5px;
   height: 40px;
 }
 
-form.userInput button {
+.myRoutines form.userInput button {
   background-color: #67392a;
   border: none;
   border-radius: 8px;
@@ -85,7 +85,8 @@ form.userInput button {
 }
 
 .selectAll {
-  margin: 0 4%;
+  margin: 0;
+  padding: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -112,4 +113,10 @@ form.userInput button {
   color: #f8f5f0;
   text-transform: uppercase;
   cursor: pointer;
+}
+
+/*************************** PRODUCT DETAILS **************************** */
+.productDetails > p {
+  cursor: pointer;
+  color: red;
 }

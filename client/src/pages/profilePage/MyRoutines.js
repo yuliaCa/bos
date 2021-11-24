@@ -13,6 +13,7 @@ function MyRoutines(props) {
 
     //input when searching for the product 
     const [input, setInput] = useState("");
+
     // ================================================
     // Handlers for showing Product Details Section
     // ================================================
@@ -153,6 +154,7 @@ function MyRoutines(props) {
                         })
                 })
                 .catch(error => console.log(error))
+            setInput('');
         }
     }
 
@@ -199,6 +201,7 @@ function MyRoutines(props) {
                         })
                 })
                 .catch(error => console.log(error))
+            setInput('');
         }
     }
 
