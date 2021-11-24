@@ -26,7 +26,9 @@
 }
 .memberSection .imgCenterer img {
   display: block;
-  margin: 0 auto 0 0;
+  margin: 0 2rem 0 0;
+  position: absolute;
+  left: -10px;
 }
 .memberSection .section {
   margin: 0 auto;
@@ -52,12 +54,14 @@
 }
 
 .memberSection .content h2 {
+  font-weight: bold;
   font-size: 24px;
   margin-top: 0;
 }
 
 .memberSection .content p {
   margin-top: 1rem;
+  font-weight: 200;
 }
 
 .memberSection .icons1 {
@@ -84,4 +88,19 @@
 .memberSection li {
   margin: 0;
   padding: 0;
+}
+
+@media (max-width: 885px) {
+  .memberSection {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .memberSection ul {
+    margin: 1.5rem auto;
+    width: 100px;
+  }
+  .memberSection li {
+    margin: 0 auto;
+  }
+  
 }

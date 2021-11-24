@@ -23,7 +23,7 @@ function LoginForm() {
         .then((user) => {
             if (user) {
               console.log("logged in! User ID: " + firebase.auth.currentUser.uid);
-              history.push("/");
+              history.push("/profile");
             }
           })
         .catch((error) => {

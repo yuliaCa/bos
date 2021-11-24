@@ -15,21 +15,33 @@ const MorningRoutine = (props) => {
         { label: "Eyecare", value: "eyecare" },
         { label: "Sunscreen", value: "sunscreen" }
     ]
-    const saveDailyLog = (email, objRoutineLog) => {
-        axios.post(`/dailyroutine/${email}`, `"objRoutineLog":${objRoutineLog}`)
+
+    const arrayProductsForMorningLog = [];
+
+
+    const saveDailyLog = (event, email, _objRoutineLog, _overallRate) => {
+        const today = new Date();
+        const dailyLog = {
+            objRoutineLog: _objRoutineLog,
+            overallRate: _overallRate,
+            dailyLogDate: today.toLocaleDateString("en-US")
+        }
+        axios.post(`/dailyroutine/${email}`, dailyLog)
             .then(results => {
-                console.log(objRoutineLog);
+                console.log(dailyLog);
                 console.log('SAVING THE LOG FOR TODAY')
             })
             .catch(error => console.log(error))
     }
+
+
 
     return (
 
         <div className={styles.morningRoutine}>
 
             <form className={styles.userInput} onSubmit={(event) => props.ProductSubmitHandler(event)}>
-                <Select options={categoryOptions} />
+                <Select className={styles.userInputSelect} options={categoryOptions} />
 
                 <SearchInput setProduct={props.setProduct} setInput={props.setInput} input={props.input} />
 
@@ -37,6 +49,7 @@ const MorningRoutine = (props) => {
             </form>
 
             <div className={styles.selectAll}>
+                <p>Added Products</p>
                 <label className={styles.selectAllLabel}> Select All
                     <input className={styles.selectAllInput} type="checkbox" value={props.checkedAll} onChange={props.checkAllHandler} />
                 </label>
@@ -57,11 +70,12 @@ const MorningRoutine = (props) => {
                         evening={props.evening}
                         setTheProductName={props.setTheProductName}
                         email={props.email}
-
+                        deleteProductHandler={props.deleteProductHandler}
+                        arrayProductsForMorningLog={arrayProductsForMorningLog}
                     />
                 ))}
             </div>
-            <button className={styles.saveButton} onClick={saveDailyLog(props.email, props.productObject)}>Save</button>
+            <button className={styles.saveButton} onClick={event => saveDailyLog(event, props.email, arrayProductsForMorningLog)}>Save</button>
         </div>
 
     )

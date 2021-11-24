@@ -22,9 +22,10 @@
 
 .startRoutineInner .nameInput, .startRoutineInner .emailInput {
     width: 60vw;
-    height: 1.6vh;
+    height: 31px;
     margin: 3% 0;
     border: 1px solid #96807A;
+    background-color: #FCF9F6;
     border-radius: 8px;
     align-self: center;
  }
@@ -34,14 +35,14 @@
     margin: 6% 0;
     border: none;
     border-radius: 8px;
-    height: 4vh;
+    height: 48px;
     width: 40vw;
     font-size: 15px;
 }
 
 .startRoutineInner .register:hover {
-    background-color: #96807A;
-    opacity: 50%;
+    background-color:#B68B7D;
+    color: white;
 }
 
 .startRoutineInner .register:active {
@@ -125,7 +126,7 @@
 
     .startRoutineInner .nameInput, .startRoutineInner .emailInput {
         width: 15vw;
-        height: 1.6vh;
+        height: 31px;
         border: 1px solid #96807A;
         border-radius: 8px;
         align-self: center;

@@ -24,8 +24,11 @@
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
         height: 100%;
-        max-width: 800px;
+        max-width: 900px;
         margin: 5% auto;
+        margin-bottom: 3%;
+        padding-top: 20px;
+
     }
 
     .loginLeftSection {

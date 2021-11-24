@@ -21,8 +21,8 @@ function RegistrationPage(props) {
   },[location, props]);
 
   const [input, setInput] = useState({
-    fullname: sessionStorage.username,
-    userEmailAddress: sessionStorage.email,
+    fullname: sessionStorage.username ? sessionStorage.username : "",
+    userEmailAddress: sessionStorage.email ? sessionStorage.email : "",
     password: "",
     ConfirmPassword: "",
     cityLocation: "",
@@ -40,6 +40,7 @@ function RegistrationPage(props) {
     red_lines: false,
     fine_lines: false,
   });
+
 
   function handleChange(event) {
     const isCheckbox = event.target.type === "checkbox";
@@ -69,15 +70,6 @@ function RegistrationPage(props) {
             }).catch((error) => {
                 console.error(`There was an error creating profile: ${error}`);
             });
-            
-            firebase.signOut(firebase.auth).then(() => {
-              console.log("sign out successful");
-              }).catch((error) => {
-              console.error("Error signing out, ", error.message);
-              });
-          
-            history.push("/login");
-
             })
             .catch((error) => {
               const errorCode = error.code;
@@ -85,6 +77,8 @@ function RegistrationPage(props) {
               console.error(
                 `There was an error signing up: ${errorCode}, ${errorMessage}`);
               });
+          
+            history.push("/profile");
         }
       
     const newProfile = {
@@ -120,10 +114,9 @@ function RegistrationPage(props) {
 
   return (
     <>
-
+    <div class={styles.wrapper}>
       <div className={styles.regContainer}>
       <h1 className={styles.registerHeading}>Register</h1>
-      
       <form 
         className={styles.RegistrationFormSection}>
         <label 
@@ -345,6 +338,7 @@ function RegistrationPage(props) {
           REGISTER{" "}
         </button>
       </form>
+      </div>
       </div>
     </>
   );
