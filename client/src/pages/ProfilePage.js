@@ -44,7 +44,7 @@ function ProfilePage(props) {
 
   return (
     <div className={styles.profilePage}>
-      <h2>Profile</h2>
+      <h2 className={styles.profilePageTitle}>Profile</h2>
 
       <div className={styles.tabs}>
         <div
