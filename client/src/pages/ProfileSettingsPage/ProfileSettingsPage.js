@@ -1,7 +1,7 @@
-import { Link, useLocation, useHistory } from "react-router-dom";
+import { useLocation, useHistory } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import styles from './ProfileSettingsPage.module.css';
-import ButtonSelect from "../../components/ButtonSelect/ButtonSelect";
+import ButtonSelect from "./ButtonSelectSettings/ButtonSelectSettings"
 
 import axios from 'axios';
 
@@ -19,10 +19,9 @@ function ProfileSettingsPage(props) {
 
   const [input, setInput] = useState({
     fullname: "",
-    userEmailAddress: "",
     cityLocation: "",
+    image: "",
     gender: "",
-    profile: "",
     dry: false,
     normal: false,
     combination: false,
@@ -36,16 +35,6 @@ function ProfileSettingsPage(props) {
     red_lines: false,
     fine_lines: false,
   });
-
-  
-  const updateUserProfile = (email, userProfile) => {
-    axios.put(`/profile/updateUserProfile/${email}`, userProfile)
-        .then(results => {
-            console.log(userProfile);
-            console.log('UPDATE SUCCESSFULL!')
-        })
-        .catch(error => console.log(error))
-};
 
   function handleChange(event) {
     const isCheckbox = event.target.type === "checkbox";
@@ -62,21 +51,22 @@ function ProfileSettingsPage(props) {
   function handleClick(event) {
     event.preventDefault();
 
-        if (input.fullname !== undefined && input.userEmailAddress !== undefined && input.cityLocation !== undefined && input.gender !== undefined) {
+        const user = firebase.auth.currentUser;
 
-            firebase.updateProfile(firebase.auth.currentUser, {
+        if (input.fullname !== undefined  && input.cityLocation !== undefined && input.gender !== undefined) {
+
+            firebase.updateProfile(user, {
                 displayName: input.fullname,
-                photoURL: input.profile
+                photoURL: ""
             }).then(() => {
-                console.log("user registered: " + firebase.auth.currentUser.uid)      
+                console.log("user details updated: " + user.uid)      
             }).catch((error) => {
                 console.error(`There was an error creating profile: ${error}`);
             });
         }
       
-    const newProfile = {
+    const userProfile = {
       fullname: input.fullname,
-      userEmailAddress: input.userEmailAddress,
       cityLocation: input.cityLocation,
       gender: input.gender,
       skintype: {
@@ -96,21 +86,37 @@ function ProfileSettingsPage(props) {
         fine_lines: input.fine_lines,
       },
     };
-    console.log(newProfile);
+ 
+    const updateUserProfile = (email, profile) => {
+      axios.put(`/profile/updateUserProfile/${email}`, profile)
+          .then(results => {
+              console.log(profile);
+              console.log('UPDATE SUCCESSFUL!')
+          })
+          .catch(error => console.log(error))
+    };
 
-    axios.post("/register", newProfile).catch((error) => {
-      if (error.response) {
-        console.log(error.response.data);
-      }
-    });
+    if (user !== null) {
+    updateUserProfile(user.email, userProfile);
+    }
   }
 
+  const uploadPhoto = (email, profile) => {
+    axios.patch(`/profile/updateUserProfile/${email}`, profile)
+        .then(results => {
+            console.log(profile);
+            console.log('UPLOAD Successful!')
+        })
+        .catch(error => console.log(error))
+  };
+
   return <>
-    <h2>Account Details</h2>
-    <img src="" />
-    <Link to="">Take a Photo</Link>
     <form 
-        className={styles.RegistrationFormSection}>
+        className={styles.SettingsFormSection}>
+        <h2 className={styles.AccountHeader}>Account Details</h2>
+        <img 
+        src=""
+        className={styles.profileImage} />
         <label 
           htmlFor="name" 
           className={styles.fullnameLabel}>
@@ -128,13 +134,10 @@ function ProfileSettingsPage(props) {
           value={input.fullname}
           required
         />
-
-        <label 
-          htmlFor="profile">
-          Upload a photo
-        </label>
+    
         <input 
           onChange={handleChange} 
+          className={styles.imageUpload}
           type="file" 
           id="profile" 
           name="profile" 
