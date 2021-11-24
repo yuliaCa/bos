@@ -1,0 +1,80 @@
+.skinFeelingSection {
+  padding: 4.5rem 0;
+  text-align: center;
+  background-color: rgba(245, 232, 218, 0.8);
+}
+
+.skinFeelingSection h3 {
+  border-bottom: 0;
+  margin-bottom: 2rem;
+}
+
+/* Hide radio buttons */
+.skinFeelingSection [type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+h2.skinFeelingH2 {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  color: #333333;
+}
+
+.skinFeelingUl {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.skinFeelingSection img {
+  padding: 3px;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.skinFeelingSection li {
+  padding: 3px;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.skinFeelingSection img:hover {
+  cursor: pointer;
+}
+
+.skinFeelingStickBg img {
+  background-color: rgba(255, 255, 0, 0.2);
+}
+
+.skinFeelingButtonWrap {
+  margin: 0 7%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.skinFeelingButton {
+  color: #fff;
+  font-size: 15px;
+  background-color: #67392a;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  height: 48px;
+  width: 100px;
+}
+
+.skinFeelingButton:hover {
+  cursor: pointer;
+}
+
+.currentFeeling {
+  height: 1rem;
+}
+

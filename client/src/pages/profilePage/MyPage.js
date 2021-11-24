@@ -38,7 +38,7 @@ function MyPage(props) {
       <div className={styles.headerWrap}>
         <h2>Product Usage</h2>
       </div>
-      <UsageChart />
+      <UsageChart email={props.email} />
     </div>
   );
 }
