@@ -9,7 +9,7 @@
         align-self: center;
         background-color: #F7EDE1;
         border-radius: 5px;
-        border: solid 1px lightgrey;
+        border: solid 1px #96807A;
     }
 
     .dryLabel:hover {
@@ -18,7 +18,7 @@
     }
 
     .normalLabel {
-        border: solid 1px lightgrey;
+        border: solid 1px #96807A;
         padding-top: 8%;
         align-self: center;
         padding: 1.2vh 9vw;
@@ -35,7 +35,7 @@
     }
 
     .oilyLabel {
-        border: solid 1px lightgrey;
+        border: solid 1px #96807A;
         align-self: center;
         padding: 1.2vh 11.5vw;
         font-size: 13px;
@@ -57,7 +57,7 @@
         align-self: center;
         background-color: #F7EDE1;
         border-radius: 5px;
-        border: solid 1px lightgrey; 
+        border: solid 1px #96807A;
     }
     
     .combinationLabel:hover {
@@ -66,7 +66,7 @@
     }
 
     .sensitiveLabel {
-        border: solid 1px lightgrey;
+        border: solid 1px #96807A;
         align-self: center;
         padding: 1.2vh 8.4vw;
         font-size: 12px;
@@ -82,7 +82,7 @@
     }
 
     .acneLabel {
-        border: solid 1px lightgrey;
+        border: solid 1px #96807A;
         align-self: center;
         padding: 1.2vh 10.5vw;
         font-size: 13px;
@@ -97,7 +97,7 @@
     }
 
     .drynessLabel  {
-        border: solid 1px lightgrey;
+        border: solid 1px #96807A;
         align-self: center;
         padding: 1.2vh 8.4vw;
         font-size: 13px;
@@ -113,7 +113,7 @@
     }
 
     .oilynessLabel  {
-        border: solid 1px lightgrey;
+        border: solid 1px #96807A;
         align-self: center;
         padding: 1.2vh 8.6vw;
         font-size: 13px;
@@ -129,7 +129,7 @@
     }
 
     .blemishesLabel {
-        border: solid 1px lightgrey;
+        border: solid 1px #96807A;
         align-self: center;
         padding: 1.1vh 7vw;
         font-size: 13px;
@@ -144,7 +144,7 @@
     }
 
     .darkspotsLabel {
-        border: solid 1px lightgrey;
+        border: solid 1px #96807A;
         align-self: center;
         padding: 1.2vh 7.1vw;
         font-size: 12px;
@@ -160,7 +160,7 @@
     }
 
     .poresLabel {
-        border: solid 1px lightgrey;
+        border: solid 1px #96807A;
         align-self: center;
         padding: 1.1vh 10vw;
         font-size: 13px;
@@ -176,7 +176,7 @@
     }
 
     .redlinesLabel {
-        border: solid 1px lightgrey;
+        border: solid 1px #96807A;
         align-self: start;
         padding: 1.2vh 7.9vw;
         font-size: 13px;
@@ -191,7 +191,7 @@
     }
 
     .finelinesLabel {
-        border: solid 1px lightgrey;
+        border: solid 1px #96807A;
         align-self: start;
         padding: 1.2vh 7.5vw;
         font-size: 13px;
