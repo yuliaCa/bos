@@ -14,7 +14,7 @@ function ChangePwdPage(props) {
   useEffect(() => {
 
     axios
-    .get("/pagecontents/")
+    .get("https://bos-project2.herokuapp.com/pagecontents/")
     .then((result) => {   
     setWelcomeContent(result.data[7]);
     })
