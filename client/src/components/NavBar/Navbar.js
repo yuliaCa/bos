@@ -292,7 +292,7 @@ function Navbar(props) {
                           </span>
                           <span>
                             <Link
-                              to="/settings"
+                              to="/profileSettings"
                               style={
                                 props.isHome === "/" && !navbar ? whiteText : {}
                               }
