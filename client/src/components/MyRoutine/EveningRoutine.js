@@ -26,7 +26,7 @@ const EveningRoutine = (props) => {
             overallRate: _overallRate,
             dailyLogDate: today.toLocaleDateString("en-US")
         }
-        axios.post(`/dailyroutine/${email}`, dailyLog)
+        axios.post(`https://bos-project2.herokuapp.com/dailyroutine/${email}`, dailyLog)
             .then(results => {
                 console.log(dailyLog);
                 console.log('SAVING THE LOG FOR TODAY')
@@ -46,6 +46,7 @@ const EveningRoutine = (props) => {
             </form>
 
             <div className={styles.selectAll}>
+                <p>Added Products</p>
                 <label className={styles.selectAllLabel}> Select All
                     <input className={styles.selectAllInput} type="checkbox" value={props.checkedAll} onChange={props.checkAllHandler} />
                 </label>

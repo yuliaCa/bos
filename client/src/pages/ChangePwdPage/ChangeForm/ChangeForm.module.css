@@ -23,7 +23,8 @@
     justify-self: center;
     grid-column: 2 / 6;
     grid-row: 2 / 3;
-    height: 10px;
+    border: 1px solid #96807A;
+    height: 31px;
     width: 95%;
     border-radius: 5px;
     background-color: #F7EDE1;
@@ -31,11 +32,12 @@
 
 .loginButton {
     grid-column: 2 / 6;
-    grid-row: 3 / 4;
     background-color: #67392A;
     border: none;
     border-radius: 5px;
-    padding: 0.5rem 2.75rem;
+    width: 305px;
+    justify-self: center;
+    height: 48px;
     font-size: 15px;
     color: white;
     margin-top: 4%;
@@ -46,7 +48,9 @@
     grid-column: 2 / 4;
     grid-row: 4 / 5;
     font-weight: 200;
-    font-size: 14px;
+    font-size: 16px;
+    margin-top: 3%;
+    margin-left: 4%;
     text-decoration: none;
     color: black;
 }

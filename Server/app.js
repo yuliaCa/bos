@@ -12,6 +12,10 @@ const PORT = process.env.PORT || 8080;
 app.use(express.json());
 app.use(morgan('tiny'));
 
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    next();
+});
 
 app.get('/api/test', (req, res) => {
     const message = {

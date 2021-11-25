@@ -88,7 +88,7 @@ function ProfileSettingsPage(props) {
     };
  
     const updateUserProfile = (email, profile) => {
-      axios.put(`/profile/updateUserProfile/${email}`, profile)
+      axios.put(`https://bos-project2.herokuapp.com/profile/updateUserProfile/${email}`, profile)
           .then(results => {
               console.log(profile);
               console.log('UPDATE SUCCESSFUL!')
@@ -102,7 +102,7 @@ function ProfileSettingsPage(props) {
   }
 
   const uploadPhoto = (email, profile) => {
-    axios.patch(`/profile/updateUserProfile/${email}`, profile)
+    axios.patch(`https://bos-project2.herokuapp.com/profile/updateUserProfile/${email}`, profile)
         .then(results => {
             console.log(profile);
             console.log('UPLOAD Successful!')
@@ -115,7 +115,7 @@ function ProfileSettingsPage(props) {
         className={styles.SettingsFormSection}>
         <h2 className={styles.AccountHeader}>Account Details</h2>
         <img 
-        src=""
+        src="https://s3-us-west-2.amazonaws.com/bos-skincare/icons/profile.svg"
         className={styles.profileImage} />
         <label 
           htmlFor="name" 

@@ -10,7 +10,7 @@ const Advice = (props) => {
 
   useEffect(() => {
     axios
-      .get("/advicecontent/")
+      .get("https://bos-project2.herokuapp.com/advicecontent/")
       .then((result) => {
         setAdvice(result.data.data[0][props.weatherCode]);
       })

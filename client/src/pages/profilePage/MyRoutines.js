@@ -14,6 +14,7 @@ function MyRoutines(props) {
 
     //input when searching for the product 
     const [input, setInput] = useState("");
+
     // ================================================
     // Handlers for showing Product Details Section
     // ================================================
@@ -77,13 +78,13 @@ function MyRoutines(props) {
 
     useEffect(() => {
 
-        axios.get(`/profile/${props.email}/morningProducts`)
+        axios.get(`https://bos-project2.herokuapp.com/profile/${props.email}/morningProducts`)
             .then(results => {
                 console.log(results.data.objMorningRoutineLog)
                 setMorningLoadedProducts(results.data.objMorningRoutineLog);
             })
 
-        axios.get(`/profile/${props.email}/eveningProducts`)
+        axios.get(`https://bos-project2.herokuapp.com/profile/${props.email}/eveningProducts`)
             .then(results => {
                 console.log(results.data.objEveningRoutineLog)
                 setEveningLoadedProducts(results.data.objEveningRoutineLog);
@@ -104,6 +105,7 @@ function MyRoutines(props) {
             strArray[x] = strArray[x].replace('</b>', '');
             strArray[x] = strArray[x].replace('-', '');
             strArray[x] = strArray[x].replace(':', '');
+            strArray[x] = strArray[x].replace('<br>', '');
         }
         return strArray;
     }
@@ -142,10 +144,10 @@ function MyRoutines(props) {
                 })
                 .then(newProduct => {
                     console.log(newProduct)
-                    axios.put(`/profile/addProductMorning/${props.email}`, newProduct)
+                    axios.put(`https://bos-project2.herokuapp.com/profile/addProductMorning/${props.email}`, newProduct)
                         .then(results => {
 
-                            axios.get(`/profile/${props.email}/morningProducts`)
+                            axios.get(`https://bos-project2.herokuapp.com/profile/${props.email}/morningProducts`)
                                 .then(results => {
                                     console.log(results.data.objMorningRoutineLog)
                                     setMorningLoadedProducts(results.data.objMorningRoutineLog);
@@ -153,6 +155,7 @@ function MyRoutines(props) {
                         })
                 })
                 .catch(error => console.log(error))
+            setInput('');
         }
     }
 
@@ -189,24 +192,25 @@ function MyRoutines(props) {
                 })
                 .then(newProduct => {
                     console.log(newProduct)
-                    axios.put(`/profile/addProductEvening/${props.email}`, newProduct)
+                    axios.put(`https://bos-project2.herokuapp.com/profile/addProductEvening/${props.email}`, newProduct)
                         .then(results => {
 
-                            axios.get(`/profile/${props.email}/eveningProducts`)
+                            axios.get(`https://bos-project2.herokuapp.com/profile/${props.email}/eveningProducts`)
                                 .then(results => {
                                     setEveningLoadedProducts(results.data.objEveningRoutineLog);
                                 })
                         })
                 })
                 .catch(error => console.log(error))
+            setInput('');
         }
     }
 
     const deleteProductHandler = (event, productName, evening) => {
         if (!evening) {
-            axios.delete(`/profile/deleteProductMorning/${props.email}/${productName}`)
+            axios.delete(`https://bos-project2.herokuapp.com/profile/deleteProductMorning/${props.email}/${productName}`)
                 .then(result => {
-                    axios.get(`/profile/${props.email}/morningProducts`)
+                    axios.get(`https://bos-project2.herokuapp.com/profile/${props.email}/morningProducts`)
                         .then(results => {
                             console.log(results.data.objMorningRoutineLog)
                             setMorningLoadedProducts(results.data.objMorningRoutineLog);
@@ -216,9 +220,9 @@ function MyRoutines(props) {
                 .catch(error => console.log(error))
 
         } else if (evening) {
-            axios.delete(`/profile/deleteProductEvening/${props.email}/${productName}`)
+            axios.delete(`https://bos-project2.herokuapp.com/profile/deleteProductEvening/${props.email}/${productName}`)
                 .then(result => {
-                    axios.get(`/profile/${props.email}/eveningProducts`)
+                    axios.get(`https://bos-project2.herokuapp.com/profile/${props.email}/eveningProducts`)
                         .then(results => {
                             setEveningLoadedProducts(results.data.objEveningRoutineLog);
                         })
@@ -257,8 +261,8 @@ function MyRoutines(props) {
 
             </div>
 
-            <div>
-                <h1>Evening Routine</h1>
+            <div className={styles.eveningRoutine}>
+                <h1 className={styles.heading}>Evening Routine</h1>
                 {showProductDetailsEvening ?
                     <ProductDetails
                         closeDetailsEvening={closeDetailsEvening}

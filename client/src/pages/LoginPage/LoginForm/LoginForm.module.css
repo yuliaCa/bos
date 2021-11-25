@@ -18,8 +18,9 @@
     grid-column: 2 / 6;
     grid-row: 1 / 2;
     height: 31px;
+    border: 1px solid #96807A;
     width: 95%;
-    border-radius: 5px;
+    border-radius: 8px;
     background-color: #F7EDE1;
     margin-bottom: 7%;
 }
@@ -29,9 +30,10 @@
     justify-self: center;
     grid-column: 2 / 6;
     grid-row: 2 / 3;
+    border: 1px solid #96807A;
     height: 31px;
     width: 95%;
-    border-radius: 5px;
+    border-radius: 8px;
     background-color: #F7EDE1;
 }
 
@@ -123,7 +125,7 @@
         height: 31px;
         width: 95%;
         border-radius: 5px;
-        background-color: #FCF9F6;
+        background-color: #F7EDE1;
     }
     
     .inputPassword {
@@ -134,7 +136,7 @@
         height: 31px;
         width: 95%;
         border-radius: 5px;
-        background-color: #FCF9F6;
+        background-color: #F7EDE1;
     }
     
     .rememberCheckbox {

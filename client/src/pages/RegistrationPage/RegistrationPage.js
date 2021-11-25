@@ -105,7 +105,7 @@ function RegistrationPage(props) {
     };
     console.log(newProfile);
 
-    axios.post("/register", newProfile).catch((error) => {
+    axios.post("https://bos-project2.herokuapp.com/register", newProfile).catch((error) => {
       if (error.response) {
         console.log(error.response.data);
       }
@@ -130,7 +130,7 @@ function RegistrationPage(props) {
           type="text"
           id="name"
           name="fullname"
-          placeholder="Your full name here"
+          placeholder=" Your full name here"
           pattern="[A-Za-z]+"
           autoComplete="off"
           value={input.fullname}
@@ -148,7 +148,7 @@ function RegistrationPage(props) {
           type="email"
           id="email"
           name="userEmailAddress"
-          placeholder="sidney.crosby@gmail.com"
+          placeholder=" sidney.crosby@gmail.com"
           autoComplete="off"
           value={input.userEmailAddress}
           required
@@ -166,7 +166,7 @@ function RegistrationPage(props) {
           value={input.password}
           id="password"
           name="password"
-          placeholder="Password (min 8 characters)"
+          placeholder=" Password (min 8 characters)"
           minLength="8"
           autoComplete="off"
           required
@@ -186,7 +186,7 @@ function RegistrationPage(props) {
           id="confirmPassword"
           name="ConfirmPassword"
           autoComplete="off"
-          placeholder="Confirm Password"
+          placeholder=" Confirm Password"
           required
         />
 
@@ -200,7 +200,7 @@ function RegistrationPage(props) {
           className={styles.locationInput}
           id="cityLocation"
           name="cityLocation"
-          placeholder="i.e. Vancouver"
+          placeholder=" i.e. Vancouver"
           pattern="[A-Za-z]+"
           autoComplete="off"
           value={input.cityLocation}

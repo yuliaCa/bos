@@ -63,7 +63,7 @@ function LoginForm() {
                 type="text" 
                 name="email"
                 value={input.email}
-                placeholder="e-mail"
+                placeholder=" Email Address"
                 required />
             <input 
                 className={styles.inputPassword} 
@@ -71,7 +71,7 @@ function LoginForm() {
                 type="password" 
                 name="password" 
                 value={input.password}
-                placeholder="password"
+                placeholder=" Password"
                 required />
                 
             <input className={styles.rememberCheckbox} 

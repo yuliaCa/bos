@@ -15,7 +15,7 @@ function HomePage(props) {
     props.handleIsHome(location);
 
     axios
-      .get("/pagecontents/")
+      .get("https://bos-project2.herokuapp.com/pagecontents/")
       .then((result) => {
         setinsightsSectionContent(result.data[3]);
       })
