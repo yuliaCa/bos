@@ -61,7 +61,7 @@ function ChangeForm() {
                   type="text" 
                   name="email"
                   value={input.email}
-                  placeholder="e-mail"
+                  placeholder=" E-mail Address"
                   required />
             
                 <button 

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css";
 // styles can be substituted by any other word. It is the variable we declare that becomes an object. Any values from the file will be properties of the object that we can then assign to the components below.
 
-import { FaCircle } from "react-icons/fa";
+// import { FaCircle } from "react-icons/fa";
 import { RiArrowDownSLine } from "react-icons/ri";
 import { FiMenu } from "react-icons/fi";
 import Fade from "react-reveal/Fade";
@@ -148,7 +148,10 @@ function Navbar(props) {
                         }}
                         className={styles.icons}
                       >
-                        <FaCircle className={styles.faCircle} />
+                        {/* <FaCircle className={styles.faCircle} /> */}
+                        <img 
+                          src="https://s3-us-west-2.amazonaws.com/bos-skincare/icons/profile.svg"
+                          className={styles.navProfileImage} />
                         <RiArrowDownSLine
                           style={
                             props.isHome === "/" && !navbar ? whiteText : {}
@@ -292,7 +295,7 @@ function Navbar(props) {
                           </span>
                           <span>
                             <Link
-                              to="/settings"
+                              to="/profileSettings"
                               style={
                                 props.isHome === "/" && !navbar ? whiteText : {}
                               }
