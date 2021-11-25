@@ -7,6 +7,7 @@ import ProductDetails from '../../components/MyRoutine/ProductDetails';
 import Select from 'react-select';
 import ProductCard from '../../components/MyRoutine/ProductCard';
 import SearchInput from '../../components/MyRoutine/ProductAutocomplete/SearchInput';
+import SkinFeeling from '../../components/MyRoutine/SkinFeeling.js';
 
 
 function MyRoutines(props) {
@@ -285,6 +286,7 @@ function MyRoutines(props) {
                         deleteProductHandler={deleteProductHandler}
                     />}
             </div>
+            <SkinFeeling />
         </div>
     )
 

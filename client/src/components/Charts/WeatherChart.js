@@ -2,8 +2,8 @@ import styles from "./WeatherChart.module.css";
 import React from "react";
 import { Bar } from "react-chartjs-3";
 
-const randT = () => Math.round(Math.random() * 35);
-const randH = () => Math.round(Math.random() * 100);
+const randT = () => Math.round(Math.random() * (12-0)+0);
+const randH = () => Math.round(Math.random() * (100-70)+70);
 
 let temperatureData = [
   randT(),

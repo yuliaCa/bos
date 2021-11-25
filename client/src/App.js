@@ -12,6 +12,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import FeaturesPage from "./pages/FeaturesPage/FeaturesPage";
 
 import ProfilePage from "./pages/ProfilePage";
+import ProfileSettingsPage from "./pages/ProfileSettingsPage/ProfileSettingsPage";
 import TeamPage from "./pages/TeamPage";
 import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
@@ -49,6 +50,9 @@ function App() {
           </Route>
           <Route path="/profile">
             <ProfilePage isHome={isHome} handleIsHome={handleIsHome} />
+          </Route>
+          <Route path="/profileSettings">
+            <ProfileSettingsPage isHome={isHome} handleIsHome={handleIsHome} />
           </Route>
           <Route path="/policy">
             <PolicyPage isHome={isHome} handleIsHome={handleIsHome} />
