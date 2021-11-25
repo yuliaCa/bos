@@ -15,7 +15,7 @@ const UsageChart = (props) => {
   const getUserProductUsage = (email) => {
 
     axios
-      .get(`dailyroutine/${email}`)
+      .get(`https://bos-project2.herokuapp.com/dailyroutine/${email}`)
       .then((results) => {
         routineEachDay = results.data;
 
