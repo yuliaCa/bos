@@ -13,6 +13,9 @@ function ProfileSettingsPage(props) {
   const location = useLocation();
   const history = useHistory(); 
 
+  const initialStateProfilePhoto = { file: null,
+    base64URL: ""};
+
   useEffect(() => {
     props.handleIsHome(location);
   },[location, props]);
@@ -20,7 +23,7 @@ function ProfileSettingsPage(props) {
   const [input, setInput] = useState({
     fullname: "",
     cityLocation: "",
-    image: "",
+    image: initialStateProfilePhoto,
     gender: "",
     dry: false,
     normal: false,
@@ -33,7 +36,7 @@ function ProfileSettingsPage(props) {
     pores: false,
     dark_spots: false,
     red_lines: false,
-    fine_lines: false,
+    fine_lines: false
   });
 
   function handleChange(event) {
@@ -85,6 +88,7 @@ function ProfileSettingsPage(props) {
         red_lines: input.red_lines,
         fine_lines: input.fine_lines,
       },
+      image: stateImage
     };
  
     const updateUserProfile = (email, profile) => {
@@ -110,13 +114,75 @@ function ProfileSettingsPage(props) {
         .catch(error => console.log(error))
   };
 
+
+  
+  const [stateImage, setStateImage] = useState(initialStateProfilePhoto);
+
+  const getBase64 = (file) => {
+    return new Promise(resolve => {
+      let fileInfo;
+      let baseURL = "";
+      // Make new FileReader
+      let reader = new FileReader();
+
+      // Convert the file to base64 text
+      reader.readAsDataURL(file);
+
+      // on reader load somthing...
+      reader.onload = () => {
+        // Make a fileInfo Object
+        //console.log("Called", reader);
+        baseURL = reader.result;
+        //console.log(baseURL);
+        resolve(baseURL);
+      };
+      console.log(fileInfo);
+    });
+  };
+
+  const handleFileInputChange = (e) => {
+    console.log(e.target.files[0]);
+    let { file } = stateImage;
+
+    file = e.target.files[0];
+
+    getBase64(file)
+      .then(result => {
+        file["base64"] = result;
+        console.log("File Is:");
+        console.log(file);
+        console.log("base64 is:");
+        console.log(result);
+        
+        setStateImage({
+          base64URL: result,
+          file
+        }) ;
+      })
+      .catch(err => {
+        console.log(err);
+      });
+
+      setStateImage({
+        file: e.target.files[0]
+      });
+  };
+
   return <>
     <form 
         className={styles.SettingsFormSection}>
         <h2 className={styles.AccountHeader}>Account Details</h2>
+
+        {stateImage.base64URL ?
+         <img 
+         src={stateImage.base64URL} alt="profilephoto"
+         className={styles.profileImage} />
+        :
         <img 
-        src="https://s3-us-west-2.amazonaws.com/bos-skincare/icons/profile.svg"
+        src="https://s3-us-west-2.amazonaws.com/bos-skincare/icons/profile.svg" alt="profilephoto"
         className={styles.profileImage} />
+        }
+
         <label 
           htmlFor="name" 
           className={styles.fullnameLabel}>
@@ -136,7 +202,7 @@ function ProfileSettingsPage(props) {
         />
     
         <input 
-          onChange={handleChange} 
+          onChange={handleFileInputChange}
           className={styles.imageUpload}
           type="file" 
           id="profile" 

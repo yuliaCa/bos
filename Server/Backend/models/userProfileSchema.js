@@ -30,6 +30,10 @@ const concernsSubSchema = new dbSchema({
     fine_lines: { type: Boolean, default: false }
 });
 
+const imageSchema = new dbSchema({
+    file: { type: String, default: "" },
+    base64URL: { type: String, default: "" }
+})
 
 let userProfileSchema = new dbSchema({
     userEmailAddress: { type: String, required: true },
@@ -37,7 +41,7 @@ let userProfileSchema = new dbSchema({
     gender: { type: String },
     cityLocation: { type: String },
     skintype: skintypeSubSchema,
-    image: { type: String },
+    image: imageSchema,
     concerns: concernsSubSchema,
     birthDate: { type: Date, default: Date.now },
     objMorningRoutineLog: [productSubSchema],

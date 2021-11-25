@@ -50,6 +50,7 @@ exports.postNewUserProfile = (req, res) => {
         skintype: req.body.skintype,
         concerns: req.body.concerns,
         birthDate: req.body.birthDate,
+        image: req.body.image,
         objMorningRoutineLog: req.body.objMorningRoutineLog,
         objEveningRoutineLog: req.body.objEveningRoutineLog
     });
