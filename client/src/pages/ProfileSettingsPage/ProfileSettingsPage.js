@@ -115,7 +115,7 @@ function ProfileSettingsPage(props) {
         className={styles.SettingsFormSection}>
         <h2 className={styles.AccountHeader}>Account Details</h2>
         <img 
-        src=""
+        src="https://s3-us-west-2.amazonaws.com/bos-skincare/icons/profile.svg"
         className={styles.profileImage} />
         <label 
           htmlFor="name" 
