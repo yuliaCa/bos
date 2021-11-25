@@ -55,6 +55,12 @@ header .flexRow a {
   color: rgba(45, 18, 9, 0.5);
 }
 
+.navProfileImage {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
 .burgerStyle {
   height: auto;
   width: 32px;
