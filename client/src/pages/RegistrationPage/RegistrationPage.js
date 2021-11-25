@@ -105,7 +105,7 @@ function RegistrationPage(props) {
     };
     console.log(newProfile);
 
-    axios.post("/register", newProfile).catch((error) => {
+    axios.post("https://bos-project2.herokuapp.com/register", newProfile).catch((error) => {
       if (error.response) {
         console.log(error.response.data);
       }
