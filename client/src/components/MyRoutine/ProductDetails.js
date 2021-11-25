@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const ProductDetails = (props) => {
 
-    // axios.get(`/products/${props.theProductName}`)
+    // axios.get(`https://bos-project2.herokuapp.com/products/${props.theProductName}`)
     //     .then(result => {
     //         console.log(result)
     //     })

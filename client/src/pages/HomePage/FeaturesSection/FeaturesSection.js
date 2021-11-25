@@ -21,7 +21,7 @@ function FeaturesSection() {
     useEffect(() => {
 
     axios
-      .get("/pagecontents/")
+      .get("https://bos-project2.herokuapp.com/pagecontents/")
       .then((result) => {
          
       setRoutineContent(result.data[0]);

@@ -18,12 +18,12 @@ const TeamPage = (props) => {
     props.handleIsHome(location);
 
     axios
-      .get("/missioncontent/")
+      .get("https://bos-project2.herokuapp.com/missioncontent/")
       .then((result) => setMissionContent(result.data.data[0]))
       .catch((error) => console.log(error));
 
     axios
-      .get("/teamcontent/")
+      .get("https://bos-project2.herokuapp.com/teamcontent/")
       .then((result) => setTeamContent(result.data.data))
       .catch((error) => console.log(error));
   }, [location, props]);
