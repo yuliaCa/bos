@@ -63,14 +63,18 @@ function ProductCard(props) {
                 <h4>{props.name}</h4>
                 <h5 className={styles.skinConcerns}>Skincare Concerns</h5>
                 <div className={styles.concernsList} dangerouslySetInnerHTML={{ __html: getSkinConcerns(props.description) }} />
-                <p onClick={event => props.evening ?
-                    props.openDetailsEvening(event, props.id) :
-                    props.openDetailsMorning(event, props.id)}>
-                    Product Details</p>
+                <div className={styles.detailsAndDelete}>
+                    <FaTrash className={styles.trashCan} onClick={event => props.deleteProductHandler(event, props.name, props.evening)} />
+                    <p onClick={event => props.evening ?
+                        props.openDetailsEvening(event, props.id) :
+                        props.openDetailsMorning(event, props.id)}>
+                        Product Details</p>
+                </div>
 
-                <FaTrash className={styles.trashCan} onClick={event => props.deleteProductHandler(event, props.name, props.evening)} />
 
-                <button className={styles.useButton} onClick={event => productUsedBtnHandler(event)}>{productIsUsed || props.checkAll ? 'Used' : 'Use Product'}</button>
+
+
+                <button className={productIsUsed ? styles.usedButton : styles.useButton} onClick={event => productUsedBtnHandler(event)}>{productIsUsed || props.checkAll ? 'USED' : 'USE PRODUCT'}</button>
             </div>
 
         </div>

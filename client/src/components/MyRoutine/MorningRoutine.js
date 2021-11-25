@@ -16,6 +16,10 @@ const MorningRoutine = (props) => {
         { label: "Sunscreen", value: "sunscreen" }
     ]
 
+    const selectHandler = (event) => {
+
+    }
+
     const arrayProductsForMorningLog = [];
 
 

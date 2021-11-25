@@ -46,6 +46,7 @@ const EveningRoutine = (props) => {
             </form>
 
             <div className={styles.selectAll}>
+                <p>Added Products</p>
                 <label className={styles.selectAllLabel}> Select All
                     <input className={styles.selectAllInput} type="checkbox" value={props.checkedAll} onChange={props.checkAllHandler} />
                 </label>

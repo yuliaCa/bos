@@ -14,6 +14,7 @@ function MyRoutines(props) {
 
     //input when searching for the product 
     const [input, setInput] = useState("");
+
     // ================================================
     // Handlers for showing Product Details Section
     // ================================================
@@ -104,6 +105,7 @@ function MyRoutines(props) {
             strArray[x] = strArray[x].replace('</b>', '');
             strArray[x] = strArray[x].replace('-', '');
             strArray[x] = strArray[x].replace(':', '');
+            strArray[x] = strArray[x].replace('<br>', '');
         }
         return strArray;
     }
@@ -153,6 +155,7 @@ function MyRoutines(props) {
                         })
                 })
                 .catch(error => console.log(error))
+            setInput('');
         }
     }
 
@@ -199,6 +202,7 @@ function MyRoutines(props) {
                         })
                 })
                 .catch(error => console.log(error))
+            setInput('');
         }
     }
 
@@ -257,8 +261,8 @@ function MyRoutines(props) {
 
             </div>
 
-            <div>
-                <h1>Evening Routine</h1>
+            <div className={styles.eveningRoutine}>
+                <h1 className={styles.heading}>Evening Routine</h1>
                 {showProductDetailsEvening ?
                     <ProductDetails
                         closeDetailsEvening={closeDetailsEvening}
