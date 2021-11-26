@@ -5,7 +5,7 @@
     .dryLabel {
         font-size: 13px;
         text-align: center;
-        padding: 10px 58px;
+        padding: 10px 51px;
         align-self: center;
         border-radius: 5px;
         border: solid 1px #96807A;
@@ -18,12 +18,12 @@
     }
 
     .normalLabel {
-        padding: 10px 49px;
+        padding: 10px 41px;
         font-size: 13px;
         border-radius: 5px;
         text-align: center;
         align-self: center;
-        margin-left: -23px;
+        margin-left: -35px;
         border: solid 1px #96807A;
         background-color: #F7EDE1;
     }
@@ -34,12 +34,12 @@
     }
 
     .oilyLabel {
-        padding: 10px 57px;
+        padding: 10px 52px;
         font-size: 13px;
         border-radius: 5px;
         text-align: center;
         align-self: center;
-        margin-left: -67px;
+        margin-left: -101px;
         border: solid 1px #96807A;
         background-color: #F7EDE1;
     }
@@ -50,7 +50,7 @@
     }
 
     .combinationLabel {
-        padding: 10px 31px;
+        padding: 10px 24px;
         font-size: 13px;
         text-align: left;
         align-self: center;
@@ -66,8 +66,8 @@
 
     .sensitiveLabel {
         align-self: center;
-        padding: 10px 45px;
-        margin-left: -23px;
+        padding: 10px 36px;
+        margin-left: -35px;
         font-size: 13px;
         text-align: center;
         border-radius: 5px;
@@ -81,7 +81,7 @@
     }
 
     .acneLabel {
-        padding: 10px 54px;
+        padding: 10px 48px;
         font-size: 13px;
         border-radius: 5px;
         text-align: center;
@@ -96,9 +96,9 @@
     }
 
     .drynessLabel  {
-        padding: 10px 46px;
+        padding: 10px 38px;
         font-size: 13px;
-        margin-left: -23px;
+        margin-left: -32px;
         border-radius: 5px;
         align-self: center;
         text-align: center;
@@ -112,9 +112,9 @@
     }
 
     .oilynessLabel  {
-        padding: 10px 47px;
+        padding: 10px 39px;
         font-size: 13px;
-        margin-left: -70px;
+        margin-left: -100px;
         border-radius: 5px;
         align-self: center;
         text-align: center;
@@ -128,7 +128,7 @@
     }
 
     .blemishesLabel {
-        padding: 10px 39px;
+        padding: 10px 32px;
         font-size: 13px; 
         align-self: center;
         text-align: center;
@@ -143,11 +143,11 @@
     }
 
     .darkspotsLabel {
-        padding: 10px 40px;
+        padding: 10px 33px;
         font-size: 12px;
         align-self: center;
         text-align: center;
-        margin-left: -23px;
+        margin-left: -32px;
         border-radius: 5px;
         border: solid 1px #96807A;
         background-color: #F7EDE1;
@@ -159,12 +159,12 @@
     }
 
     .poresLabel {
-        padding: 10px 53.5px;
+        padding: 10px 45px;
         font-size: 13px;
         border-radius: 5px;
         align-self: center;
         text-align: center;
-        margin-left: -70px;
+        margin-left: -100px;
         border: solid 1px #96807A;
         background-color: #F7EDE1;
     }
@@ -175,7 +175,7 @@
     }
 
     .redlinesLabel {
-        padding: 10px 43px;
+        padding: 10px 36px;
         font-size: 13px;
         align-self: start;
         text-align: center;
@@ -190,9 +190,9 @@
     }
 
     .finelinesLabel {
-        padding: 10px 41.5px;
+        padding: 10px 34.5px;
         font-size: 13px;
-        margin-left: -23px;
+        margin-left: -32px;
         align-self: start;
         text-align: center;
         border-radius: 5px;
