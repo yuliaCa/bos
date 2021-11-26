@@ -54,6 +54,9 @@ form.userInput {
   border: 1px solid #ad967d;
   border-radius: 5px;
   height: 40px;
+  padding: 5px 0 0 10px;
+  font-family: inherit;
+  font-size: inherit;
 }
 
 .myRoutines form.userInput button {

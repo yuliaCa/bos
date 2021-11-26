@@ -83,7 +83,6 @@ const MorningRoutine = (props) => {
         axios.post(`https://bos-project2.herokuapp.com/dailyroutine/${email}`, dailyLog)
             .then(results => {
                 console.log(dailyLog);
-                console.log('SAVING THE LOG FOR TODAY')
             })
             .catch(error => console.log(error))
     }
