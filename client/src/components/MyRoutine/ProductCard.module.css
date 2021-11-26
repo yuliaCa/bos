@@ -46,6 +46,7 @@ h5.skinConcerns {
 }
 
 .productCard .detailsAndDelete {
+  max-width: 94%;
   display: flex;
   justify-content: space-between;
   align-items: center;
