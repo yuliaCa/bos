@@ -104,7 +104,7 @@ const MorningRoutine = (props) => {
         <div className={styles.morningRoutine}>
 
             <form className={styles.userInput} onSubmit={(event) => props.ProductSubmitHandler(event)}>
-                <Select styles={customStyles} className={styles.userInputSelect} options={categoryOptions} />
+                <Select placeholder="Select Category" styles={customStyles} className={styles.userInputSelect} options={categoryOptions} />
 
                 <SearchInput setProduct={props.setProduct} setInput={props.setInput} input={props.input} />
 

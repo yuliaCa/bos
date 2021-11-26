@@ -29,7 +29,7 @@ const ProductDetails = (props) => {
             <p onClick={props.evening ? props.closeDetailsEvening : props.closeDetailsMorning}>Back To Routine</p>
 
             <h3>{props.theProduct.productName}</h3>
-            <div>Category</div>
+            {/* <div>Category</div> */}
             <img src={props.theProduct.images[0]}></img>
             <h4>Description</h4>
             <div dangerouslySetInnerHTML={{ __html: getDescription(props.theProduct.description) }} />
