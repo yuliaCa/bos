@@ -6,12 +6,7 @@ import ProductCard from '../../components/MyRoutine/ProductCard';
 import SearchInput from '../../components/MyRoutine/ProductAutocomplete/SearchInput';
 
 const customStyles = {
-    // option: (provided, state) => ({
-    //     ...provided,
-    //     borderBottom: '5px dotted pink',
-    //     color: state.isSelected ? 'red' : 'blue',
-    //     padding: 5,
-    // }),
+
     control: (provided, state) => ({
         // none of react-select's styles are passed to <Control />
         ...provided,
@@ -31,6 +26,7 @@ const customStyles = {
         padding: "12.5px 0 15px 10px"
 
     }),
+
     indicatorSeparator: (provided, state) => ({
         ...provided,
         height: "35px",
@@ -44,12 +40,17 @@ const customStyles = {
         margin: "5px 0"
     }),
 
-    singleValue: (provided, state) => {
-        const opacity = state.isDisabled ? 0.5 : 1;
-        const transition = 'opacity 300ms';
+    singleValue: (provided, state) => ({
+        ...provided,
+        height: "45px",
+        padding: "12.5px 0 15px 10px"
+    }),
+    menu: (provided, state) => ({
+        ...provided,
+        position: "relative",
+        top: "-10px"
 
-        return { ...provided, opacity, transition };
-    }
+    })
 }
 
 
@@ -103,7 +104,8 @@ const MorningRoutine = (props) => {
 
             <div className={styles.selectAll}>
                 <p>Added Products</p>
-                <label className={styles.selectAllLabel}> Select All
+                <label className={styles.selectAllLabel}>
+                    <span>Select All</span>
                     <input className={styles.selectAllInput} type="checkbox" value={props.checkedAll} onChange={props.checkAllHandler} />
                 </label>
             </div>
