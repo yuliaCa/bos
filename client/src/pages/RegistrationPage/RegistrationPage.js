@@ -20,6 +20,8 @@ function RegistrationPage(props) {
     props.handleIsHome(location);
   },[location, props]);
 
+  const [errorMessages, setErrorMessages] = useState([]);
+
   const [input, setInput] = useState({
     fullname: sessionStorage.username ? sessionStorage.username : "",
     userEmailAddress: sessionStorage.email ? sessionStorage.email : "",
@@ -66,10 +68,11 @@ function RegistrationPage(props) {
                 displayName: input.fullname,
                 photoURL: ""
             }).then(() => {
-                console.log("user registered: " + firebase.auth.currentUser.uid)      
+                console.log("user registered: " + firebase.auth.currentUser.uid);      
             }).catch((error) => {
                 console.error(`There was an error creating profile: ${error}`);
             });
+            history.push("/profile");
             })
             .catch((error) => {
               const errorCode = error.code;
@@ -78,7 +81,7 @@ function RegistrationPage(props) {
                 `There was an error signing up: ${errorCode}, ${errorMessage}`);
               });
           
-            history.push("/profile");
+           
         }
       
     const newProfile = {
@@ -108,6 +111,7 @@ function RegistrationPage(props) {
     axios.post("https://bos-project2.herokuapp.com/register", newProfile).catch((error) => {
       if (error.response) {
         console.log(error.response.data);
+        setErrorMessages(error.response.data);
       }
     });
   }
@@ -122,7 +126,8 @@ function RegistrationPage(props) {
         <label 
           htmlFor="name" 
           className={styles.fullnameLabel}>
-          Name
+          Name <br/>
+          {errorMessages.length >= 1 && errorMessages.find(error => error.message.includes("full name")) ? <em style={{color:"red"}}> {errorMessages.find(error => error.message.includes("full name")).message} </em> : ""}
         </label>
         <input
           onChange={handleChange}
@@ -140,7 +145,8 @@ function RegistrationPage(props) {
         <label 
           htmlFor="email" 
           className={styles.emailLabel}>
-          Email
+          Email <br/>
+          {errorMessages.length >= 1 && errorMessages.find(error => error.message.includes("email")) ? <em style={{color:"red"}}> {errorMessages.find(error => error.message.includes("email")).message} </em> : ""}
         </label>
         <input
           onChange={handleChange}
@@ -157,7 +163,7 @@ function RegistrationPage(props) {
         <label 
           htmlFor="password" 
           className={styles.passwordLabel}>
-          Password
+          Password 
         </label>
         <input
           onChange={handleChange}
@@ -206,7 +212,10 @@ function RegistrationPage(props) {
           value={input.cityLocation}
           required
         />
-
+        <div className={styles.errorMessage}>
+          {errorMessages.length >= 1 && errorMessages.find(error => error.message.includes("location")) ? <em style={{color:"red"}}> {errorMessages.find(error => error.message.includes("location")).message} </em> : ""}
+          {errorMessages.length >= 1 && errorMessages.find(error => error.message.includes("identity")) ? <em style={{color:"red"}}> { errorMessages.find(error => error.message.includes("identity")).message} </em> : ""} 
+        </div>
         <label 
           htmlFor="gender" 
           className={styles.genderLabel}>
