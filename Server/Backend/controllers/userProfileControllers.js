@@ -178,12 +178,25 @@ exports.updateUserProfile = (req, res) => {
         birthDate: req.body.birthDate
     });
 
-    console.log(updatedUserProfile);
+    console.log("this is the email: " + updatedUserProfile.userEmailAddress);
 
-    userProfile.findOneAndUpdate({ userEmailAddress: updatedUserProfile.userEmailAddress }, { updatedUserProfile })
-        .then(result => {
-            res.status(201).json({
-                data: updatedUserProfile
-            });
-        }).catch(error => res.status(500).send(error));
+    userProfile.findOneAndUpdate({ userEmailAddress: updatedUserProfile.userEmailAddress }, {
+        "$set": {
+            "userEmailAddress": updatedUserProfile.userEmailAddress,
+            "fullname": updatedUserProfile.fullname,
+            "gender": updatedUserProfile.gender,
+            "image": updatedUserProfile.image,
+            "cityLocation": updatedUserProfile.cityLocation,
+            "skintype": updatedUserProfile.skintype,
+            "concerns": updatedUserProfile.concerns,
+            "birthDate": updatedUserProfile.birthDate
+        }
+    }, {
+        new: true,
+        upsert: true // Make this update into an upsert
+    }).exec().then(result => {
+        res.status(201).json({
+            data: updatedUserProfile
+        });
+    }).catch(error => res.status(500).send(error));
 };
