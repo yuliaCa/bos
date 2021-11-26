@@ -44,12 +44,17 @@ const customStyles = {
         margin: "5px 0"
     }),
 
-    singleValue: (provided, state) => {
-        const opacity = state.isDisabled ? 0.5 : 1;
-        const transition = 'opacity 300ms';
+    singleValue: (provided, state) => ({
+        ...provided,
+        height: "45px",
+        padding: "12.5px 0 15px 10px"
+    }),
+    menu: (provided, state) => ({
+        ...provided,
+        position: "relative",
+        top: "-10px"
 
-        return { ...provided, opacity, transition };
-    }
+    })
 }
 
 
