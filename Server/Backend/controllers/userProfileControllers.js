@@ -11,7 +11,7 @@ exports.getUserProfile = (req, res) => {
 
 exports.getUserProfileByEmail = (req, res) => {
     //req.params.userEmail
-    userProfile.findOne({ userEmailAddress: String(req.params.userEmail).toLowerCase() }).exec()
+    userProfile.findOne({ userEmailAddress: String(req.params.id).toLowerCase() }).exec()
         .then(results => {
             res.status(200).json(results);
         })

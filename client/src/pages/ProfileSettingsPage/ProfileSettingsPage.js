@@ -1,43 +1,60 @@
 import { useLocation, useHistory } from "react-router-dom";
-import React, { useState, useEffect } from "react";
+//import functions from Firebase authentication SDK
+import * as firebase from "../../authentication";
+import { getAuth } from "firebase/auth";
+import React, { useState, useEffect, useRef } from "react";
 import styles from './ProfileSettingsPage.module.css';
 import ButtonSelect from "./ButtonSelectSettings/ButtonSelectSettings"
 
 import axios from 'axios';
 
-//import functions from Firebase authentication SDK
-import * as firebase from "../../authentication";
+
 
 function ProfileSettingsPage(props) {
   
   const location = useLocation();
   const history = useHistory(); 
 
-  const initialStateProfilePhoto = { file: null,
-    base64URL: ""};
 
+
+  const initialStateProfilePhoto = { 
+    type: "",
+    base64URL: "",
+    name: ""};
+
+  const [stateImage, setStateImage] = useState(initialStateProfilePhoto);
+  const [retrievedData, setRetrievedData] = useState([]);
+  const loggedUser = useRef(getAuth());
+ 
   useEffect(() => {
+  
     props.handleIsHome(location);
+   
   },[location, props]);
 
-  const [input, setInput] = useState({
-    fullname: "",
-    cityLocation: "",
-    image: initialStateProfilePhoto,
-    gender: "",
-    dry: false,
-    normal: false,
-    combination: false,
-    sensitive: false,
-    acne: false,
-    dryness: false,
-    oilyness: false,
-    blemishes: false,
-    pores: false,
-    dark_spots: false,
-    red_lines: false,
-    fine_lines: false
-  });
+  const [input, setInput] = useState({});
+
+ 
+
+  useEffect(function fetchUserProfile(){
+    axios.get(`https://bos-project2.herokuapp.com/register/johnsmith@testing.com`)
+    .then(result => {
+ 
+      setInput(result.data);
+      console.log(result.data.image.length);
+
+      if(result.data.image.length > 0){
+        console.log(typeof result.data.image);
+          setStateImage(result.data.image[0]);
+      }else{
+        setStateImage({ 
+          type: "",
+          base64URL: "",
+          name: ""})
+      }
+    })
+    .catch(error=>console.log(error));
+  },[retrievedData]);
 
   function handleChange(event) {
     const isCheckbox = event.target.type === "checkbox";
@@ -116,7 +133,7 @@ function ProfileSettingsPage(props) {
 
 
   
-  const [stateImage, setStateImage] = useState(initialStateProfilePhoto);
+
 
   const getBase64 = (file) => {
     return new Promise(resolve => {
@@ -142,7 +159,8 @@ function ProfileSettingsPage(props) {
 
   const handleFileInputChange = (e) => {
     console.log(e.target.files[0]);
-    let { file } = stateImage;
+    console.log(input.image);
+    let { file } = input.image;
 
     file = e.target.files[0];
 
@@ -150,21 +168,18 @@ function ProfileSettingsPage(props) {
       .then(result => {
         file["base64"] = result;
         console.log("File Is:");
-        console.log(file);
+        console.log(e.target.files[0].type);
         console.log("base64 is:");
         console.log(result);
         
         setStateImage({
           base64URL: result,
-          file
+          type: e.target.files[0].type,
+          name: e.target.files[0].name
         }) ;
       })
       .catch(err => {
         console.log(err);
-      });
-
-      setStateImage({
-        file: e.target.files[0]
       });
   };
 
