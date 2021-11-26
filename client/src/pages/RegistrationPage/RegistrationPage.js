@@ -21,6 +21,7 @@ function RegistrationPage(props) {
   },[location, props]);
 
   const [errorMessages, setErrorMessages] = useState([]);
+  const [passwordMatch, setPasswordMatch] = useState(true);
 
   const [input, setInput] = useState({
     fullname: sessionStorage.username ? sessionStorage.username : "",
@@ -79,9 +80,9 @@ function RegistrationPage(props) {
               const errorMessage = error.message;
               console.error(
                 `There was an error signing up: ${errorCode}, ${errorMessage}`);
-              });
-          
-           
+              });  
+        } else {
+          setPasswordMatch(false);
         }
       
     const newProfile = {
@@ -182,7 +183,8 @@ function RegistrationPage(props) {
         <label 
           htmlFor="confirmPassword" 
           className={styles.passwordCfmLabel}>
-          Confirm Password
+          Confirm Password <br />
+          {passwordMatch ? "" : <em style={{color:"red"}}>{"Passwords do not match."}</em>}
         </label>
         <input
           onChange={handleChange}
