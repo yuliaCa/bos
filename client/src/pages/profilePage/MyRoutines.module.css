@@ -120,6 +120,16 @@ form.userInput {
 
 /*************************** PRODUCT DETAILS **************************** */
 .productDetails {
+  display: flex;
+  flex-direction: column;
   cursor: pointer;
-  color: red;
+  min-height: 30vh;
+}
+.productDetails img {
+  max-width: 70%;
+  margin: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 5px;
+  border: 1px solid #ab8679;
 }

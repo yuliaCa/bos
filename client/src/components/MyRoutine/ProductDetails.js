@@ -1,4 +1,5 @@
-import styles from './ProductDetails.module.css';
+// import styles from './ProductDetails.module.css';
+import styles from '../../pages/profilePage/MyRoutines.module.css';
 import axios from 'axios';
 
 const ProductDetails = (props) => {
@@ -36,7 +37,7 @@ const ProductDetails = (props) => {
 
             <div dangerouslySetInnerHTML={{ __html: props.theProduct.suggestedUsage }} />
 
-            <button onClick={event => props.deleteProductHandler(event, props.theProduct.productName, props.evening)}>Delete</button>
+            <button className={styles.saveButton} onClick={event => props.deleteProductHandler(event, props.theProduct.productName, props.evening)}>Delete</button>
 
         </div>
     )
