@@ -5,6 +5,54 @@ import Select from 'react-select';
 import ProductCard from '../../components/MyRoutine/ProductCard';
 import SearchInput from '../../components/MyRoutine/ProductAutocomplete/SearchInput';
 
+const customStyles = {
+    // option: (provided, state) => ({
+    //     ...provided,
+    //     borderBottom: '5px dotted pink',
+    //     color: state.isSelected ? 'red' : 'blue',
+    //     padding: 5,
+    // }),
+    control: (provided, state) => ({
+        // none of react-select's styles are passed to <Control />
+        ...provided,
+        border: "none",
+        height: "45px"
+
+    }),
+    container: () => ({
+        height: "45px"
+    }),
+    valueContainer: () => ({
+        height: "50px"
+    }),
+    placeholder: (provided, state) => ({
+        ...provided,
+        height: "45px",
+        padding: "12.5px 0 15px 10px"
+
+    }),
+    indicatorSeparator: (provided, state) => ({
+        ...provided,
+        height: "35px",
+        backgroundColor: "#ad967d",
+        margin: "5px 0"
+    }),
+    indicatorContainer: (provided, state) => ({
+        ...provided,
+        height: "35px",
+        color: "#ad967d",
+        margin: "5px 0"
+    }),
+
+    singleValue: (provided, state) => {
+        const opacity = state.isDisabled ? 0.5 : 1;
+        const transition = 'opacity 300ms';
+
+        return { ...provided, opacity, transition };
+    }
+}
+
+
 const EveningRoutine = (props) => {
 
     const categoryOptions = [
@@ -38,7 +86,7 @@ const EveningRoutine = (props) => {
     return (
         <div className={styles.eveningRoutine}>
             <form className={styles.userInput} onSubmit={(event) => props.ProductSubmitHandler(event)}>
-                <Select options={categoryOptions} />
+                <Select className={styles.userInputSelect} styles={customStyles} options={categoryOptions} />
 
                 <SearchInput setProduct={props.setProduct} setInput={props.setInput} input={props.input} />
 
