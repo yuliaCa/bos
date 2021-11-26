@@ -57,10 +57,12 @@ function MyRoutines(props) {
     // ================================================
     //"Check All" components for Evening and Morning
     // ================================================
-    const [checkedMorningAll, setCheckedMorningAll] = useState(false);
-    const checkAllMorningHandler = () => {
-        setCheckedMorningAll(checkedMorningAll ? false : true)
-    }
+
+    // const [checkedMorningAll, setCheckedMorningAll] = useState(false);
+    // const checkAllMorningHandler = () => {
+    //     setCheckedMorningAll(checkedMorningAll ? false : true)
+    // }
+
 
     const [checkedEveningAll, setCheckedEveningAll] = useState(false);
     const checkAllEveningHandler = () => {
@@ -245,8 +247,7 @@ function MyRoutines(props) {
                         deleteProductHandler={deleteProductHandler} /> :
                     <MorningRoutine
                         ProductSubmitHandler={submitMorningProduct}
-                        checkAllHandler={checkAllMorningHandler}
-                        checkedAll={checkedMorningAll}
+
                         loadedProducts={MorningLoadedProducts}
                         setProduct={setProduct}
                         openDetailsMorning={openDetailsMorning}

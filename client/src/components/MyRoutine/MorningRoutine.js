@@ -87,6 +87,16 @@ const MorningRoutine = (props) => {
             .catch(error => console.log(error))
     }
 
+    // ================================================
+    //"Check All" components 
+    // ================================================
+    const [productIsUsed, setProductUsedState] = useState(false)
+    const [checkAll, setCheckAll] = useState(false);
+    const checkAllHandler = () => {
+        setCheckAll(checkAll ? false : true);
+        setProductUsedState(true)
+    }
+
 
 
     return (
@@ -105,7 +115,7 @@ const MorningRoutine = (props) => {
                 <p>Added Products</p>
                 <label className={styles.selectAllLabel}>
                     <span>Select All</span>
-                    <input className={styles.selectAllInput} type="checkbox" value={props.checkedAll} onChange={props.checkAllHandler} />
+                    <input className={styles.selectAllInput} type="checkbox" value={props.checkedAll} onChange={checkAllHandler} />
                 </label>
             </div>
 
@@ -119,7 +129,9 @@ const MorningRoutine = (props) => {
                         name={eachProduct.productName}
                         description={eachProduct.description}
                         suggestedUsage={eachProduct.suggestedUsage}
-                        checkAll={props.checkedAll}
+                        checkAll={checkAll}
+                        productIsUsed={productIsUsed}
+                        setProductUsedState={setProductUsedState}
                         openDetailsMorning={props.openDetailsMorning}
                         evening={props.evening}
                         setTheProductName={props.setTheProductName}
