@@ -3,9 +3,10 @@
         grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr;
         grid-template-rows:1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
         height: 1000px;
-        width: 400px;
+        width: 420px;
         margin: 15px auto;
         padding: 20px 26px;
+        padding-left: 45px;
         background-color: #FCF9F6;
     }
 
