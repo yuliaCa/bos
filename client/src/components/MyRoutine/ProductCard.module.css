@@ -26,6 +26,7 @@ h5.skinConcerns {
   font-family: Khula, sans-serif;
   font-size: 14px;
   grid-area: (2, 2, 3, 3);
+  align-self: end;
   margin: 1.5rem 0 0.1rem 0;
 }
 .concernsList,
@@ -34,7 +35,7 @@ h5.skinConcerns {
   font-family: Khula, sans-serif;
 }
 .concernsList {
-  max-height: 8.3vh;
+  max-height: 9vh;
   overflow: hidden;
 }
 
