@@ -40,7 +40,6 @@ function ProductCard(props) {
 
     const productUsedBtnHandler = (event) => {
         setProductUsedState(true);
-
     }
 
 

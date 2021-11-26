@@ -5,6 +5,56 @@ import Select from 'react-select';
 import ProductCard from '../../components/MyRoutine/ProductCard';
 import SearchInput from '../../components/MyRoutine/ProductAutocomplete/SearchInput';
 
+const customStyles = {
+
+    control: (provided, state) => ({
+        // none of react-select's styles are passed to <Control />
+        ...provided,
+        border: "none",
+        height: "45px"
+
+    }),
+    container: () => ({
+        height: "45px"
+    }),
+    valueContainer: () => ({
+        height: "50px"
+    }),
+    placeholder: (provided, state) => ({
+        ...provided,
+        height: "45px",
+        padding: "12.5px 0 15px 10px"
+
+    }),
+
+    indicatorSeparator: (provided, state) => ({
+        ...provided,
+        height: "35px",
+        backgroundColor: "#ad967d",
+        margin: "5px 0"
+    }),
+    indicatorContainer: (provided, state) => ({
+        ...provided,
+        height: "35px",
+        color: "#ad967d",
+        margin: "5px 0"
+    }),
+
+    singleValue: (provided, state) => ({
+        ...provided,
+        height: "45px",
+        padding: "12.5px 0 15px 10px"
+    }),
+    menu: (provided, state) => ({
+        ...provided,
+        position: "relative",
+        top: "-10px"
+
+    })
+}
+
+
+
 const MorningRoutine = (props) => {
 
     const categoryOptions = [
@@ -33,9 +83,18 @@ const MorningRoutine = (props) => {
         axios.post(`https://bos-project2.herokuapp.com/dailyroutine/${email}`, dailyLog)
             .then(results => {
                 console.log(dailyLog);
-                console.log('SAVING THE LOG FOR TODAY')
             })
             .catch(error => console.log(error))
+    }
+
+    // ================================================
+    //"Check All" components 
+    // ================================================
+    const [productIsUsed, setProductUsedState] = useState(false)
+    const [checkAll, setCheckAll] = useState(false);
+    const checkAllHandler = () => {
+        setCheckAll(checkAll ? false : true);
+        setProductUsedState(true)
     }
 
 
@@ -45,7 +104,7 @@ const MorningRoutine = (props) => {
         <div className={styles.morningRoutine}>
 
             <form className={styles.userInput} onSubmit={(event) => props.ProductSubmitHandler(event)}>
-                <Select className={styles.userInputSelect} options={categoryOptions} />
+                <Select placeholder="Select Category" styles={customStyles} className={styles.userInputSelect} options={categoryOptions} />
 
                 <SearchInput setProduct={props.setProduct} setInput={props.setInput} input={props.input} />
 
@@ -54,8 +113,9 @@ const MorningRoutine = (props) => {
 
             <div className={styles.selectAll}>
                 <p>Added Products</p>
-                <label className={styles.selectAllLabel}> Select All
-                    <input className={styles.selectAllInput} type="checkbox" value={props.checkedAll} onChange={props.checkAllHandler} />
+                <label className={styles.selectAllLabel}>
+                    <span>Select All</span>
+                    <input className={styles.selectAllInput} type="checkbox" value={props.checkedAll} onChange={checkAllHandler} />
                 </label>
             </div>
 
@@ -69,7 +129,9 @@ const MorningRoutine = (props) => {
                         name={eachProduct.productName}
                         description={eachProduct.description}
                         suggestedUsage={eachProduct.suggestedUsage}
-                        checkAll={props.checkedAll}
+                        checkAll={checkAll}
+                        productIsUsed={productIsUsed}
+                        setProductUsedState={setProductUsedState}
                         openDetailsMorning={props.openDetailsMorning}
                         evening={props.evening}
                         setTheProductName={props.setTheProductName}
