@@ -50,7 +50,7 @@ form.userInput {
 }
 
 .myRoutines form.userInput input {
-  width: 98%;
+  width: stretch;
   border: 1px solid #ad967d;
   border-radius: 5px;
   height: 40px;
@@ -116,7 +116,7 @@ form.userInput {
 }
 
 /*************************** PRODUCT DETAILS **************************** */
-.productDetails > p {
+.productDetails {
   cursor: pointer;
   color: red;
 }
