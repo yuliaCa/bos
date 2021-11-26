@@ -194,7 +194,7 @@ function ProfileSettingsPage(props) {
           type="text"
           id="name"
           name="fullname"
-          placeholder="Your full name here"
+          placeholder=" Your full name here"
           pattern="[A-Za-z]+"
           autoComplete="off"
           value={input.fullname}
@@ -220,7 +220,7 @@ function ProfileSettingsPage(props) {
           className={styles.locationInput}
           id="cityLocation"
           name="cityLocation"
-          placeholder="i.e. Vancouver"
+          placeholder=" i.e. Vancouver"
           pattern="[A-Za-z]+"
           autoComplete="off"
           value={input.cityLocation}
