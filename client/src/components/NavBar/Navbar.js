@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { Link } from "react-router-dom";
 // Link is built-in with react-router-dom, that helps us stay on the same page, without reloading it, and not sent a request to the server every time we click a regular <a> tag.
 import styles from "./Navbar.module.css";
@@ -8,7 +8,7 @@ import styles from "./Navbar.module.css";
 import { RiArrowDownSLine } from "react-icons/ri";
 import { FiMenu } from "react-icons/fi";
 import Fade from "react-reveal/Fade";
-
+import axios from 'axios';
 import * as firebase from "../../authentication";
 
 function Navbar(props) {
@@ -70,6 +70,31 @@ function Navbar(props) {
       setNavbar(false);
     }
   };
+
+  const initialStateProfilePhoto = { 
+    type: "",
+    base64URL: "",
+    name: ""};
+
+  const [stateImage, setStateImage] = useState(initialStateProfilePhoto);
+  const [retrievedData, setRetrievedData] = useState([]);
+  
+  useEffect(function fetchUserProfile(){
+    console.log(localStorage);
+    axios.get(`https://bos-project2.herokuapp.com/register/${localStorage.email}`)
+    .then(result => {
+      if(result.data.image.length > 0){
+        console.log(typeof result.data.image);
+          setStateImage(result.data.image[0]);
+      }else{
+        setStateImage({ 
+          type: "",
+          base64URL: "",
+          name: ""})
+      }
+    })
+    .catch(error=>console.log(error));
+  },[retrievedData]);
 
   const addOpacity = {
     backgroundColor: "rgba(173, 150, 125, 1)",
@@ -149,9 +174,19 @@ function Navbar(props) {
                         className={styles.icons}
                       >
                         {/* <FaCircle className={styles.faCircle} /> */}
-                        <img 
-                          src="https://s3-us-west-2.amazonaws.com/bos-skincare/icons/profile.svg"
-                          className={styles.navProfileImage} />
+
+
+
+                        {stateImage.base64URL ?
+         <img 
+         src={stateImage.base64URL} alt="profilephoto"
+         className={styles.navProfileImage}  />
+        :
+        <img 
+        src="https://s3-us-west-2.amazonaws.com/bos-skincare/icons/profile.svg" alt="profilephoto"
+        className={styles.navProfileImage}  />
+        }
+
                         <RiArrowDownSLine
                           style={
                             props.isHome === "/" && !navbar ? whiteText : {}

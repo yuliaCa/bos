@@ -1,40 +1,60 @@
 import { useLocation, useHistory } from "react-router-dom";
+//import functions from Firebase authentication SDK
+import * as firebase from "../../authentication";
 import React, { useState, useEffect } from "react";
 import styles from './ProfileSettingsPage.module.css';
 import ButtonSelect from "./ButtonSelectSettings/ButtonSelectSettings"
 
 import axios from 'axios';
 
-//import functions from Firebase authentication SDK
-import * as firebase from "../../authentication";
+
 
 function ProfileSettingsPage(props) {
   
   const location = useLocation();
   const history = useHistory(); 
 
+
+
+  const initialStateProfilePhoto = { 
+    type: "",
+    base64URL: "",
+    name: ""};
+
+  const [stateImage, setStateImage] = useState(initialStateProfilePhoto);
+  const [retrievedData, setRetrievedData] = useState([]);
+
+ 
   useEffect(() => {
+  
     props.handleIsHome(location);
+   
   },[location, props]);
 
-  const [input, setInput] = useState({
-    fullname: "",
-    cityLocation: "",
-    image: "",
-    gender: "",
-    dry: false,
-    normal: false,
-    combination: false,
-    sensitive: false,
-    acne: false,
-    dryness: false,
-    oilyness: false,
-    blemishes: false,
-    pores: false,
-    dark_spots: false,
-    red_lines: false,
-    fine_lines: false,
-  });
+  const [input, setInput] = useState({});
+
+ 
+
+  useEffect(function fetchUserProfile(){
+    console.log(localStorage);
+    axios.get(`https://bos-project2.herokuapp.com/register/${localStorage.email}`)
+    .then(result => {
+ 
+      setInput(result.data);
+      console.log(result.data.image.length);
+
+      if(result.data.image.length > 0){
+        console.log(typeof result.data.image);
+          setStateImage(result.data.image[0]);
+      }else{
+        setStateImage({ 
+          type: "",
+          base64URL: "",
+          name: ""})
+      }
+    })
+    .catch(error=>console.log(error));
+  },[retrievedData]);
 
   function handleChange(event) {
     const isCheckbox = event.target.type === "checkbox";
@@ -85,6 +105,7 @@ function ProfileSettingsPage(props) {
         red_lines: input.red_lines,
         fine_lines: input.fine_lines,
       },
+      image: stateImage
     };
  
     const updateUserProfile = (email, profile) => {
@@ -110,13 +131,73 @@ function ProfileSettingsPage(props) {
         .catch(error => console.log(error))
   };
 
+
+  
+
+
+  const getBase64 = (file) => {
+    return new Promise(resolve => {
+      let fileInfo;
+      let baseURL = "";
+      // Make new FileReader
+      let reader = new FileReader();
+
+      // Convert the file to base64 text
+      reader.readAsDataURL(file);
+
+      // on reader load somthing...
+      reader.onload = () => {
+        // Make a fileInfo Object
+        //console.log("Called", reader);
+        baseURL = reader.result;
+        //console.log(baseURL);
+        resolve(baseURL);
+      };
+      console.log(fileInfo);
+    });
+  };
+
+  const handleFileInputChange = (e) => {
+    console.log(e.target.files[0]);
+    console.log(input.image);
+    let { file } = input.image;
+
+    file = e.target.files[0];
+
+    getBase64(file)
+      .then(result => {
+        file["base64"] = result;
+        console.log("File Is:");
+        console.log(e.target.files[0].type);
+        console.log("base64 is:");
+        console.log(result);
+        
+        setStateImage({
+          base64URL: result,
+          type: e.target.files[0].type,
+          name: e.target.files[0].name
+        }) ;
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
   return <>
     <form 
         className={styles.SettingsFormSection}>
         <h2 className={styles.AccountHeader}>Account Details</h2>
+
+        {stateImage.base64URL ?
+         <img 
+         src={stateImage.base64URL} alt="profilephoto"
+         className={styles.profileImage} />
+        :
         <img 
-        src="https://s3-us-west-2.amazonaws.com/bos-skincare/icons/profile.svg"
+        src="https://s3-us-west-2.amazonaws.com/bos-skincare/icons/profile.svg" alt="profilephoto"
         className={styles.profileImage} />
+        }
+
         <label 
           htmlFor="name" 
           className={styles.fullnameLabel}>
@@ -136,7 +217,7 @@ function ProfileSettingsPage(props) {
         />
     
         <input 
-          onChange={handleChange} 
+          onChange={handleFileInputChange}
           className={styles.imageUpload}
           type="file" 
           id="profile" 
