@@ -50,10 +50,13 @@ form.userInput {
 }
 
 .myRoutines form.userInput input {
-  width: 98%;
+  width: stretch;
   border: 1px solid #ad967d;
   border-radius: 5px;
   height: 40px;
+  padding: 5px 0 0 10px;
+  font-family: inherit;
+  font-size: inherit;
 }
 
 .myRoutines form.userInput button {
@@ -79,9 +82,9 @@ form.userInput {
   width: 98%;
   margin: auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   /* grid-template-rows: repeat(5, 1fr); */
-  /* grid-gap: 2%; */
+  grid-column-gap: 2%;
 }
 
 .selectAll {
@@ -116,7 +119,17 @@ form.userInput {
 }
 
 /*************************** PRODUCT DETAILS **************************** */
-.productDetails > p {
+.productDetails {
+  display: flex;
+  flex-direction: column;
   cursor: pointer;
-  color: red;
+  min-height: 30vh;
+}
+.productDetails img {
+  max-width: 70%;
+  margin: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 5px;
+  border: 1px solid #ab8679;
 }
