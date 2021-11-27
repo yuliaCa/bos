@@ -31,16 +31,31 @@ function ProfileSettingsPage(props) {
    
   },[location, props]);
 
-  const [input, setInput] = useState({});
-
- 
+  const [input, setInput] = useState({
+    fullname: "",
+    cityLocation: "",
+    image: "",
+    gender: "",
+    dry: false,
+    normal: false,
+    combination: false,
+    sensitive: false,
+    acne: false,
+    dryness: false,
+    oilyness: false,
+    blemishes: false,
+    pores: false,
+    dark_spots: false,
+    red_lines: false,
+    fine_lines: false,
+  });
 
   useEffect(function fetchUserProfile(){
     console.log(localStorage);
     axios.get(`https://bos-project2.herokuapp.com/register/${localStorage.email}`)
     .then(result => {
  
-      setInput(result.data);
+      // setInput(result.data);
       console.log(result.data.image.length);
 
       if(result.data.image.length > 0){
@@ -130,9 +145,6 @@ function ProfileSettingsPage(props) {
         })
         .catch(error => console.log(error))
   };
-
-
-  
 
 
   const getBase64 = (file) => {
