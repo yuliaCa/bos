@@ -1,8 +1,7 @@
 import { useLocation, useHistory } from "react-router-dom";
 //import functions from Firebase authentication SDK
 import * as firebase from "../../authentication";
-import { getAuth } from "firebase/auth";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import styles from './ProfileSettingsPage.module.css';
 import ButtonSelect from "./ButtonSelectSettings/ButtonSelectSettings"
 
@@ -24,7 +23,7 @@ function ProfileSettingsPage(props) {
 
   const [stateImage, setStateImage] = useState(initialStateProfilePhoto);
   const [retrievedData, setRetrievedData] = useState([]);
-  const loggedUser = useRef(getAuth());
+
  
   useEffect(() => {
   
@@ -37,7 +36,8 @@ function ProfileSettingsPage(props) {
  
 
   useEffect(function fetchUserProfile(){
-    axios.get(`https://bos-project2.herokuapp.com/register/johnsmith@testing.com`)
+    console.log(localStorage);
+    axios.get(`https://bos-project2.herokuapp.com/register/${localStorage.email}`)
     .then(result => {
  
       setInput(result.data);
