@@ -17,7 +17,7 @@
     justify-self: center;
     grid-column: 2 / 6;
     grid-row: 1 / 2;
-    height: 31px;
+    height: 40px;
     border: 1px solid #96807A;
     width: 95%;
     border-radius: 8px;
@@ -31,7 +31,7 @@
     grid-column: 2 / 6;
     grid-row: 2 / 3;
     border: 1px solid #96807A;
-    height: 31px;
+    height: 40px;
     width: 95%;
     border-radius: 8px;
     background-color: #F7EDE1;
@@ -102,7 +102,6 @@
 
 @media only screen and (min-width: 600px) {
 
-
     .LoginFormSection {
         background-color: #FCF9F6;
         height: 100%;
@@ -116,14 +115,13 @@
         padding: 30% 0;
     }
     
-    
     .inputEmail {
         align-self: center;
         justify-self: center;
         grid-column: 2 / 6;
         grid-row: 1 / 2;
-        height: 31px;
-        width: 95%;
+        height: 40px;
+        width: 345px;
         border-radius: 5px;
         background-color: #F7EDE1;
     }
@@ -133,8 +131,8 @@
         justify-self: center;
         grid-column: 2 / 6;
         grid-row: 2 / 3;
-        height: 31px;
-        width: 95%;
+        height: 40px;
+        width: 345px;
         border-radius: 5px;
         background-color: #F7EDE1;
     }

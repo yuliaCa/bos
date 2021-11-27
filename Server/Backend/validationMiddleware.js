@@ -19,7 +19,7 @@ exports.registration = (req,res,next) => {
         cityLocation: Joi.string().trim().allow(' ').min(1).max(30).empty('').required().messages({
             'string.min':'Name should at least be 1 character.',
             'string.max':'Please try to limit to 30 characters.',
-            'any.required':'Please enter your full name.'
+            'any.required':'Please enter your location.'
         }),
 
         skintype: {
