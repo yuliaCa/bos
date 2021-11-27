@@ -11,11 +11,13 @@ const UsageChart = (props) => {
   let productUsedByCategory = {};
 
   let dailyUsage = [];
+  console.log(dailyUsage);
 
-  const getUserProductUsage = (email) => {
-
+  const getUserProductUsage = () => {
     axios
-      .get(`https://bos-project2.herokuapp.com/dailyroutine/${email}`)
+      .get(
+        `https://bos-project2.herokuapp.com/dailyroutine/${localStorage.email}`
+      )
       .then((results) => {
         routineEachDay = results.data;
 
@@ -51,13 +53,48 @@ const UsageChart = (props) => {
       .catch((error) => console.log(error));
   };
 
-  let cleanserData = [1, 1, 1, 1, 1, 0, 1];
-  let moisturizerData = [1, 0, 1, 0, 1, 0, 0];
-  let treatmentData = [];
-  let maskData = [];
-  let eyecareData = [];
-  let sunscreenData = [];
-  
+  // Historical Data Inputs
+  let usageChartRaw = {
+    cleanserData: [1, 1, 1, 1, 1, 0, 1],
+    moisturizerData: [1, 0, 1, 0, 1, 0, 0],
+    treatmentData: [1, 0, 0, 0, 0, 0, 0],
+    maskData: [0, 0, 0, 0, 0, 1, 0],
+    eyecareData: [0, 0, 0, 0, 0, 1, 0],
+    unscreenData: [1, 0, 0, 0, 0, 0, 0],
+  };
+
+  let usageChartData = [];
+
+  // Fit Data to UsageChart
+  for (const [key, value] of Object.entries(usageChartRaw)) {
+    let array = value;
+    switch (props.currentDay) {
+      case "Sun":
+        usageChartData.push(array.slice(0, 1));
+        break;
+      case "Mon":
+        usageChartData.push(array.slice(0, 2));
+        break;
+      case "Tue":
+        usageChartData.push(array.slice(0, 3));
+        break;
+      case "Wed":
+        usageChartData.push(array.slice(0, 4));
+        break;
+      case "Thu":
+        usageChartData.push(array.slice(0, 5));
+        break;
+      case "Fri":
+        usageChartData.push(array.slice(0, 6));
+        break;
+      case "Sat":
+        usageChartData.push(array.slice(0, 7));
+        break;
+      default:
+        usageChartData.push(array);
+        break;
+    }
+  }
 
   const smileyData = [
     "sad",
@@ -68,15 +105,11 @@ const UsageChart = (props) => {
     "happy",
     "happy",
   ];
-  
+
   useEffect(() => {
-    getUserProductUsage(props.email);
-    console.log(dailyUsage);
-    // const cleanserData = dailyUsage.productUsage.map(dailyLog=>dailyLog.productUsage)
-
-  }, [props.email]);
-
-
+    const userUsageData = getUserProductUsage();
+    console.log(userUsageData);
+  }, [props.currentDay]);
 
   return (
     <div className={styles.chartStyle}>
@@ -87,42 +120,42 @@ const UsageChart = (props) => {
           datasets: [
             {
               label: "Cleanser",
-              data: cleanserData,
+              data: usageChartData[0],
               backgroundColor: "rgba(243, 186, 124, 0.7)",
               borderColor: "rgba(243, 186, 124, 0.5)",
               borderWidth: 0,
             },
             {
               label: "Moisturizer",
-              data: moisturizerData,
+              data: usageChartData[1],
               backgroundColor: "rgba(209, 152, 136, 0.8)",
               borderColor: "rgba(209, 152, 136, 0.5)",
               borderWidth: 0,
             },
             {
               label: "Treatment",
-              data: treatmentData,
+              data: usageChartData[2],
               backgroundColor: "rgba(209, 152, 156, 0.7)",
               borderColor: "rgba(209, 152, 136, 1)",
               borderWidth: 0,
             },
             {
               label: "Mask",
-              data: [0, 0, 0, 0, 0, 1, 0],
+              data: usageChartData[3],
               backgroundColor: "rgba(243, 186, 144, 0.8)",
               borderColor: "rgba(243, 186, 124, 1)",
               borderWidth: 0,
             },
             {
               label: "Eyecare",
-              data: [0, 0, 0, 0, 0, 1, 0],
+              data: usageChartData[4],
               backgroundColor: "rgba(182, 139, 125, 0.7)",
               borderColor: "rgba(182, 139, 125, 0.7)",
               borderWidth: 0,
             },
             {
               label: "Sunscreen",
-              data: [1, 0, 0, 0, 0, 0, 0],
+              data: usageChartData[5],
               backgroundColor: "rgba(182, 139, 155, 0.8)",
               borderColor: "rgba(182, 139, 125, 1)",
               borderWidth: 0,
