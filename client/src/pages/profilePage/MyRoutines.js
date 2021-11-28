@@ -1,12 +1,9 @@
 import styles from './MyRoutines.module.css';
 import axios from 'axios';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import MorningRoutine from '../../components/MyRoutine/MorningRoutine';
 import EveningRoutine from '../../components/MyRoutine/EveningRoutine';
 import ProductDetails from '../../components/MyRoutine/ProductDetails';
-import Select from 'react-select';
-import ProductCard from '../../components/MyRoutine/ProductCard';
-import SearchInput from '../../components/MyRoutine/ProductAutocomplete/SearchInput';
 import SkinFeeling from '../../components/MyRoutine/SkinFeeling.js';
 
 
@@ -112,6 +109,10 @@ function MyRoutines(props) {
         return strArray;
     }
 
+    // Getting Category value from Select component
+    const morningCategoryRef = useRef();
+    const eveningCategoryRef = useRef();
+
 
     const submitMorningProduct = event => {
         event.preventDefault();
@@ -136,7 +137,7 @@ function MyRoutines(props) {
                             images: response.data.currentSku.skuImages.image250,
                             brandName: response.data.brandName,
                             description: response.data.longDescription,
-                            category: response.data.parentCategory.displayName,
+                            category: morningCategoryRef.current.props.value.label,
                             ingredients: response.data.currentSku.ingredientDesc,
                             suggestedUsage: response.data.suggestedUsage
                         }]
@@ -184,7 +185,7 @@ function MyRoutines(props) {
                             images: response.data.currentSku.skuImages.image250,
                             brandName: response.data.brandName,
                             description: response.data.longDescription,
-                            category: response.data.parentCategory.displayName,
+                            category: eveningCategoryRef.current.props.value.label,
                             ingredients: response.data.currentSku.ingredientDesc,
                             suggestedUsage: response.data.suggestedUsage
                         }]
@@ -247,7 +248,7 @@ function MyRoutines(props) {
                         deleteProductHandler={deleteProductHandler} /> :
                     <MorningRoutine
                         ProductSubmitHandler={submitMorningProduct}
-
+                        morningCategoryRef={morningCategoryRef}
                         loadedProducts={MorningLoadedProducts}
                         setProduct={setProduct}
                         openDetailsMorning={openDetailsMorning}
@@ -273,6 +274,7 @@ function MyRoutines(props) {
                         deleteProductHandler={deleteProductHandler} /> :
                     <EveningRoutine
                         ProductSubmitHandler={submitEveningProduct}
+                        eveningCategoryRef={eveningCategoryRef}
                         checkAllHandler={checkAllEveningHandler}
                         checkedAll={checkedEveningAll}
                         loadedProducts={EveningLoadedProducts}
