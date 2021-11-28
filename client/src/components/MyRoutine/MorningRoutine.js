@@ -1,6 +1,6 @@
 import styles from '../../pages/profilePage/MyRoutines.module.css';
 import axios from 'axios';
-import { useState, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import Select from 'react-select';
 import ProductCard from '../../components/MyRoutine/ProductCard';
 import SearchInput from '../../components/MyRoutine/ProductAutocomplete/SearchInput';
@@ -66,9 +66,7 @@ const MorningRoutine = (props) => {
         { label: "Sunscreen", value: "sunscreen" }
     ]
 
-    const selectHandler = (event) => {
 
-    }
 
     const arrayProductsForMorningLog = [];
 
@@ -99,16 +97,26 @@ const MorningRoutine = (props) => {
 
 
 
+
+
     return (
 
         <div className={styles.morningRoutine}>
 
             <form className={styles.userInput} onSubmit={(event) => props.ProductSubmitHandler(event)}>
-                <Select placeholder="Select Category" styles={customStyles} className={styles.userInputSelect} options={categoryOptions} />
+                <Select
+                    value={props.value}
+                    onChange={(event) => props.selectHandler(event)}
+                    placeholder="Select Category"
+                    styles={customStyles}
+                    className={styles.userInputSelect}
+                    options={categoryOptions}
+                    isClearable
+                />
 
                 <SearchInput setProduct={props.setProduct} setInput={props.setInput} input={props.input} />
 
-                <button >Add Product</button>
+                <button>Add Product</button>
             </form>
 
             <div className={styles.selectAll}>
