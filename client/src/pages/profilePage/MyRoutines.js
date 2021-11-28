@@ -109,9 +109,17 @@ function MyRoutines(props) {
         return strArray;
     }
 
-    // Getting Category value from Select component
-    const morningCategoryRef = useRef();
-    const eveningCategoryRef = useRef();
+    // Getting Category value from Select component and then clearing
+
+    const [morningValue, setMorningValue] = useState('');
+    const selectMorningHandler = (event) => {
+        setMorningValue(event)
+    }
+
+    const [eveningValue, setEveningValue] = useState('');
+    const selectEveningHandler = (event) => {
+        setEveningValue(event)
+    }
 
 
     const submitMorningProduct = event => {
@@ -137,7 +145,7 @@ function MyRoutines(props) {
                             images: response.data.currentSku.skuImages.image250,
                             brandName: response.data.brandName,
                             description: response.data.longDescription,
-                            category: morningCategoryRef.current.props.value.label,
+                            category: morningValue,
                             ingredients: response.data.currentSku.ingredientDesc,
                             suggestedUsage: response.data.suggestedUsage
                         }]
@@ -159,11 +167,14 @@ function MyRoutines(props) {
                 })
                 .catch(error => console.log(error))
             setInput('');
+            setMorningValue(null);
+
         }
     }
 
     const submitEveningProduct = event => {
         event.preventDefault();
+
         if (product) {
             const options = {
                 method: 'GET',
@@ -185,7 +196,7 @@ function MyRoutines(props) {
                             images: response.data.currentSku.skuImages.image250,
                             brandName: response.data.brandName,
                             description: response.data.longDescription,
-                            category: eveningCategoryRef.current.props.value.label,
+                            category: eveningValue,
                             ingredients: response.data.currentSku.ingredientDesc,
                             suggestedUsage: response.data.suggestedUsage
                         }]
@@ -206,21 +217,27 @@ function MyRoutines(props) {
                 })
                 .catch(error => console.log(error))
             setInput('');
+            setEveningValue(null);
+
         }
+
     }
 
     const deleteProductHandler = (event, productName, evening) => {
         if (!evening) {
+
             axios.delete(`https://bos-project2.herokuapp.com/profile/deleteProductMorning/${props.email}/${productName}`)
                 .then(result => {
                     axios.get(`https://bos-project2.herokuapp.com/profile/${props.email}/morningProducts`)
                         .then(results => {
                             console.log(results.data.objMorningRoutineLog)
                             setMorningLoadedProducts(results.data.objMorningRoutineLog);
+
                         })
                 }
                 )
                 .catch(error => console.log(error))
+
 
         } else if (evening) {
             axios.delete(`https://bos-project2.herokuapp.com/profile/deleteProductEvening/${props.email}/${productName}`)
@@ -248,7 +265,8 @@ function MyRoutines(props) {
                         deleteProductHandler={deleteProductHandler} /> :
                     <MorningRoutine
                         ProductSubmitHandler={submitMorningProduct}
-                        morningCategoryRef={morningCategoryRef}
+                        value={morningValue}
+                        selectHandler={selectMorningHandler}
                         loadedProducts={MorningLoadedProducts}
                         setProduct={setProduct}
                         openDetailsMorning={openDetailsMorning}
@@ -274,7 +292,8 @@ function MyRoutines(props) {
                         deleteProductHandler={deleteProductHandler} /> :
                     <EveningRoutine
                         ProductSubmitHandler={submitEveningProduct}
-                        eveningCategoryRef={eveningCategoryRef}
+                        value={eveningValue}
+                        selectHandler={selectEveningHandler}
                         checkAllHandler={checkAllEveningHandler}
                         checkedAll={checkedEveningAll}
                         loadedProducts={EveningLoadedProducts}

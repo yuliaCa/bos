@@ -4,12 +4,6 @@ import axios from 'axios';
 
 const ProductDetails = (props) => {
 
-    // axios.get(`https://bos-project2.herokuapp.com/products/${props.theProductName}`)
-    //     .then(result => {
-    //         console.log(result)
-    //     })
-    //     .catch(error => console.log(error))
-
     const getDescription = (string) => {
         let descriptionClean = string.substring(
             string.indexOf('What') + 17,
