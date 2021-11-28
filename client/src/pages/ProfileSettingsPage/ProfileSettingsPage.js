@@ -14,7 +14,7 @@ function ProfileSettingsPage(props) {
   const location = useLocation();
   const history = useHistory(); 
 
-
+  const [errorMessage, setErrorMessage] = useState();
 
   const initialStateProfilePhoto = { 
     type: "",
@@ -88,7 +88,7 @@ function ProfileSettingsPage(props) {
 
         const user = firebase.auth.currentUser;
 
-        if (input.fullname !== undefined  && input.cityLocation !== undefined && input.gender !== undefined) {
+        if (input.fullname !== ""  && input.cityLocation !== "" && input.gender !== "") {
 
             firebase.updateProfile(user, {
                 displayName: input.fullname,
@@ -98,43 +98,45 @@ function ProfileSettingsPage(props) {
             }).catch((error) => {
                 console.error(`There was an error creating profile: ${error}`);
             });
-        }
-      
-    const userProfile = {
-      fullname: input.fullname,
-      cityLocation: input.cityLocation,
-      gender: input.gender,
-      skintype: {
-        dry: input.dry,
-        normal: input.normal,
-        combination: input.combination,
-        sensitive: input.sensitive,
-      },
-      concerns: {
-        acne: input.acne,
-        dryness: input.dryness,
-        oilyness: input.oilyness,
-        blemishes: input.blemishes,
-        dark_spots: input.dark_spots,
-        pores: input.pores,
-        red_lines: input.red_lines,
-        fine_lines: input.fine_lines,
-      },
-      image: stateImage
-    };
- 
-    const updateUserProfile = (email, profile) => {
-      axios.put(`https://bos-project2.herokuapp.com/profile/updateUserProfile/${email}`, profile)
-          .then(results => {
-              console.log(profile);
-              console.log('UPDATE SUCCESSFUL!')
-          })
-          .catch(error => console.log(error))
-    };
 
-    if (user !== null) {
-    updateUserProfile(user.email, userProfile);
-    }
+            const userProfile = {
+              fullname: input.fullname,
+              cityLocation: input.cityLocation,
+              gender: input.gender,
+              skintype: {
+                dry: input.dry,
+                normal: input.normal,
+                combination: input.combination,
+                sensitive: input.sensitive,
+              },
+              concerns: {
+                acne: input.acne,
+                dryness: input.dryness,
+                oilyness: input.oilyness,
+                blemishes: input.blemishes,
+                dark_spots: input.dark_spots,
+                pores: input.pores,
+                red_lines: input.red_lines,
+                fine_lines: input.fine_lines,
+              },
+              image: stateImage
+            };
+         
+            const updateUserProfile = (email, profile) => {
+              axios.put(`https://bos-project2.herokuapp.com/profile/updateUserProfile/${email}`, profile)
+                  .then(results => {
+                      console.log(profile);
+                      console.log('UPDATE SUCCESSFUL!')
+                  })
+                  .catch(error => console.log(error))
+            };
+        
+            if (user !== null) {
+            updateUserProfile(user.email, userProfile);
+            }
+        } else {
+          setErrorMessage("Please fill out all the fields.");
+        }
   }
 
   const uploadPhoto = (email, profile) => {
@@ -199,6 +201,8 @@ function ProfileSettingsPage(props) {
     <form 
         className={styles.SettingsFormSection}>
         <h2 className={styles.AccountHeader}>Account Details</h2>
+
+        <h3 className={styles.errorMessage}>{errorMessage !== undefined ? errorMessage : ""}</h3>
 
         {stateImage.base64URL ?
          <img 
