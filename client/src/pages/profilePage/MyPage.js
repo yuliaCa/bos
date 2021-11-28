@@ -36,8 +36,35 @@ function MyPage(props) {
       }
     })
     .catch(error=>console.log(error));
+    
   },[retrievedData]);
 
+
+  const [currentDay, setCurrentDay] = useState();
+  const cityId = "xvd6Yxj282PiZtGXN";
+
+  useEffect(() => {
+    const requestOptions = {
+      method: "GET",
+      url: `https://airvisual1.p.rapidapi.com/cities/get-information?id=${cityId}&lang=en_US&aqiIndex=us`,
+      headers: {
+        "x-rapidapi-host": "airvisual1.p.rapidapi.com",
+        "x-rapidapi-key": "2b5c9fd8d8msh0132ae34892c4f1p161c42jsnb732f5ff681a",
+      },
+      redirect: "follow",
+    };
+
+    axios
+      .request(requestOptions)
+      .then(function (response) {
+        const body = response.data;
+        let date = new Date(body.data.current_weather.ts);
+        let trimDate = date.toString().substring(0, 3);
+        setCurrentDay(trimDate);
+      })
+      .catch((error) => console.log(error));
+      
+  }, []);
 
   return (
     <div className={styles.myPageSection}>
@@ -77,11 +104,11 @@ function MyPage(props) {
       <div className={styles.headerWrap}>
         <h2>Weather</h2>
       </div>
-      <WeatherChart />
+      <WeatherChart currentDay={currentDay} />
       <div className={styles.headerWrap}>
         <h2>Product Usage</h2>
       </div>
-      <UsageChart email={props.email} />
+      <UsageChart email={props.email} currentDay={currentDay} />
     </div>
   );
 }
