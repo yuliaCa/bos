@@ -132,4 +132,28 @@ form.userInput {
   object-fit: contain;
   border-radius: 5px;
   border: 1px solid #ab8679;
+  order: 10;
+}
+
+.productDetails h3 {
+  font-size: 18px;
+  font-weight: bold;
+  order: 20;
+}
+
+.productDetails .descriptionH4 {
+  order: 30;
+  font-weight: bolder;
+  font-size: 16px;
+}
+
+.productDetails .description {
+  order: 40;
+}
+.productDetails .suggestedUsage {
+  order: 50;
+}
+
+.productDetails button {
+  order: 60;
 }
