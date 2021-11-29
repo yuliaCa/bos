@@ -19,7 +19,7 @@ function MyRoutines(props) {
     const [prodObjForDetails, setProdObjForDetails] = useState();
     const openDetailsMorning = (event, productID) => {
         const theProductForDetails = MorningLoadedProducts.filter(product => product._id === productID)
-        console.log(theProductForDetails[0])
+
         setProdObjForDetails(theProductForDetails[0]);
         setShowProductDetailsMorning(true);
     }
@@ -31,7 +31,7 @@ function MyRoutines(props) {
     const [showProductDetailsEvening, setShowProductDetailsEvening] = useState(false);
     const openDetailsEvening = (event, productID) => {
         const theProductForDetails = EveningLoadedProducts.filter(product => product._id === productID)
-        console.log(theProductForDetails[0])
+
         setProdObjForDetails(theProductForDetails[0]);
 
         setShowProductDetailsEvening(true);
@@ -79,13 +79,13 @@ function MyRoutines(props) {
 
         axios.get(`https://bos-project2.herokuapp.com/profile/${props.email}/morningProducts`)
             .then(results => {
-                console.log(results.data.objMorningRoutineLog)
+
                 setMorningLoadedProducts(results.data.objMorningRoutineLog);
             })
 
         axios.get(`https://bos-project2.herokuapp.com/profile/${props.email}/eveningProducts`)
             .then(results => {
-                console.log(results.data.objEveningRoutineLog)
+
                 setEveningLoadedProducts(results.data.objEveningRoutineLog);
             })
             .catch(error => console.log(error));
@@ -156,13 +156,13 @@ function MyRoutines(props) {
                     return newProduct;
                 })
                 .then(newProduct => {
-                    console.log(newProduct)
+
                     axios.put(`https://bos-project2.herokuapp.com/profile/addProductMorning/${props.email}`, newProduct)
                         .then(results => {
 
                             axios.get(`https://bos-project2.herokuapp.com/profile/${props.email}/morningProducts`)
                                 .then(results => {
-                                    console.log(results.data.objMorningRoutineLog)
+
                                     setMorningLoadedProducts(results.data.objMorningRoutineLog);
                                 })
                         })
@@ -207,7 +207,7 @@ function MyRoutines(props) {
                     return newProduct;
                 })
                 .then(newProduct => {
-                    console.log(newProduct)
+
                     axios.put(`https://bos-project2.herokuapp.com/profile/addProductEvening/${props.email}`, newProduct)
                         .then(results => {
 
@@ -232,7 +232,7 @@ function MyRoutines(props) {
                 .then(result => {
                     axios.get(`https://bos-project2.herokuapp.com/profile/${props.email}/morningProducts`)
                         .then(results => {
-                            console.log(results.data.objMorningRoutineLog)
+
                             setMorningLoadedProducts(results.data.objMorningRoutineLog);
 
                         })
