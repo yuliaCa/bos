@@ -11,25 +11,29 @@ import * as firebase from '../../../authentication';
 function LoginForm() {
 
     const history = useHistory();
+    const [errorMessage, setErrorMessage] = useState();
     const [input, setInput] = useState({
         password: '',
         email: localStorage.email
     });
    
-  
     const handleSubmit = (event) => {
         event.preventDefault();
-        firebase.signInWithEmailAndPassword(firebase.auth, input.email.trim(), input.password.trim())
-        .then((user) => {
-            if (user) {
-              console.log("logged in! User ID: " + firebase.auth.currentUser.uid);
-              history.push("/profile");
+
+        if(input.email !== "" && input.password !== "") {
+            firebase.signInWithEmailAndPassword(firebase.auth, input.email.trim(), input.password.trim())
+            .then((user) => {
+                if (user) {
+                history.push("/profile");
+                }
+            })
+            .catch((error) => {
+                setErrorMessage("Failed to login.  Please try again.")
+            });
+            } else {
+                setErrorMessage("You must enter your e-mail and password.");
             }
-          })
-        .catch((error) => {
-              console.error("Error signing in, ", error.message);
-          });
-    }
+        }
 
     function handleInput(event) {
         let { name, value } = event.target;
@@ -55,8 +59,13 @@ function LoginForm() {
     return (
         
     <div className={styles.LoginFormSection}>
+      
         <form onSubmit={ handleSubmit }>
-            <div className={styles.formLayout}> 
+            <div className={styles.formLayout}>
+            <h3
+                className={styles.errorMessage}>
+               {errorMessage !== undefined ? errorMessage : ""}
+            </h3> 
             <input 
                 className={styles.inputEmail}
                 onChange ={handleInput} 
@@ -64,7 +73,7 @@ function LoginForm() {
                 name="email"
                 value={input.email}
                 placeholder=" Email Address"
-                required />
+                 />
             <input 
                 className={styles.inputPassword} 
                 onChange ={handleInput} 
@@ -72,7 +81,7 @@ function LoginForm() {
                 name="password" 
                 value={input.password}
                 placeholder=" Password"
-                required />
+                 />
                 
             <input className={styles.rememberCheckbox} 
                 onChange={event => handleCheckbox(event)} 

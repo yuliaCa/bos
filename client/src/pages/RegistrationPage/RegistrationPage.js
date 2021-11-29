@@ -71,15 +71,12 @@ function RegistrationPage(props) {
             }).then(() => {
                 console.log("user registered: " + firebase.auth.currentUser.uid);      
             }).catch((error) => {
-                console.error(`There was an error creating profile: ${error}`);
             });
             history.push("/profile");
             })
             .catch((error) => {
               const errorCode = error.code;
               const errorMessage = error.message;
-              console.error(
-                `There was an error signing up: ${errorCode}, ${errorMessage}`);
               });  
         } else {
           setPasswordMatch(false);
@@ -107,11 +104,9 @@ function RegistrationPage(props) {
         fine_lines: input.fine_lines,
       },
     };
-    console.log(newProfile);
 
     axios.post("https://bos-project2.herokuapp.com/register", newProfile).catch((error) => {
       if (error.response) {
-        console.log(error.response.data);
         setErrorMessages(error.response.data);
       }
     });

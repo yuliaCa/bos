@@ -3,36 +3,34 @@
 
 import React, { useState } from 'react';
 import styles from './ChangeForm.module.css';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 //import functions from Firebase authentication SDK
 import * as firebase from '../../../authentication';
 
 function ChangeForm() {
 
-    const history = useHistory();
     const [input, setInput] = useState({
         email: ''
     });
    
     const [resetSuccess, setResetSuccess] = useState(false);
+    const [errorMessage, setErrorMessage] = useState();
   
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        if (input.email !== undefined) {
+        if (input.email !== "") {
 
         firebase.sendPasswordResetEmail(firebase.auth, input.email.trim())
           .then(() => {
-            console.log('your password is reset!')
             setResetSuccess(true);
-            history.push("/login");
           })
-          .catch((error) => {
+          .catch(() => {
             setResetSuccess(false);
-            const errorCode = error.code;
-            const errorMessage = error.message;
           });   
+        } else {
+          setErrorMessage("Please enter an e-mail.")
         }
     }
 
@@ -52,7 +50,10 @@ function ChangeForm() {
     <div className={styles.LoginFormSection}>
         <form onSubmit={ handleSubmit }>
             <div className={styles.formLayout}>
-              
+            <h3 
+              className={styles.errorMessage}>
+              {errorMessage}
+            </h3>  
             <div className={styles.resetMessage}>{resetSuccess ? <p>Your password is reset. Please check your e-mail.</p> :""}</div>
 
               <input 
@@ -62,7 +63,7 @@ function ChangeForm() {
                   name="email"
                   value={input.email}
                   placeholder=" E-mail Address"
-                  required />
+                   />
             
                 <button 
                     type="submit" 
