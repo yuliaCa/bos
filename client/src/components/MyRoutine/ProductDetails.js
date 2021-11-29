@@ -1,5 +1,6 @@
 // import styles from './ProductDetails.module.css';
 import styles from '../../pages/profilePage/MyRoutines.module.css';
+import { FaArrowLeft } from 'react-icons/fa';
 import axios from 'axios';
 
 const ProductDetails = (props) => {
@@ -20,7 +21,7 @@ const ProductDetails = (props) => {
 
     return (
         <div className={styles.productDetails}>
-            <p onClick={props.evening ? props.closeDetailsEvening : props.closeDetailsMorning}>Back To Routine</p>
+            <FaArrowLeft onClick={props.evening ? props.closeDetailsEvening : props.closeDetailsMorning}>Back To Routine</FaArrowLeft>
 
             <h3>{props.theProduct.productName}</h3>
             {/* <div>Category</div> */}
