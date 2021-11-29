@@ -113,11 +113,13 @@ function MyRoutines(props) {
 
     const [morningValue, setMorningValue] = useState('');
     const selectMorningHandler = (event) => {
+        // console.log(event)
         setMorningValue(event)
     }
 
     const [eveningValue, setEveningValue] = useState('');
     const selectEveningHandler = (event) => {
+        // console.log(event)
         setEveningValue(event)
     }
 
@@ -145,7 +147,7 @@ function MyRoutines(props) {
                             images: response.data.currentSku.skuImages.image250,
                             brandName: response.data.brandName,
                             description: response.data.longDescription,
-                            category: morningValue,
+                            category: morningValue.label,
                             ingredients: response.data.currentSku.ingredientDesc,
                             suggestedUsage: response.data.suggestedUsage
                         }]
@@ -196,7 +198,7 @@ function MyRoutines(props) {
                             images: response.data.currentSku.skuImages.image250,
                             brandName: response.data.brandName,
                             description: response.data.longDescription,
-                            category: eveningValue,
+                            category: eveningValue.label,
                             ingredients: response.data.currentSku.ingredientDesc,
                             suggestedUsage: response.data.suggestedUsage
                         }]
