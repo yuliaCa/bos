@@ -145,6 +145,13 @@ form.userInput {
   cursor: pointer;
   width: 80%;
 }
+@media (min-width: 630px) {
+  .saveButton {
+    width: 20%;
+    justify-self: flex-end;
+    margin: 30px 0 15px auto;
+  }
+}
 
 /*************************** PRODUCT DETAILS **************************** */
 .productDetails {
