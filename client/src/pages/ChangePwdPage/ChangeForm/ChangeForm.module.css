@@ -18,6 +18,15 @@
     font-weight: 200;
 }
 
+.errorMessage {
+    grid-column: 2 / 6;
+    grid-row: 1 / 2;
+    font-size: 14px;
+    font-style: italic;
+    color: red;
+    justify-self: center;
+}
+
 .inputEmail {
     align-self: center;
     justify-self: center;
