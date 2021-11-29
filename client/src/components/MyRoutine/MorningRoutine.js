@@ -114,7 +114,7 @@ const MorningRoutine = (props) => {
                     isClearable
                 />
 
-                <SearchInput setProduct={props.setProduct} setInput={props.setInput} input={props.input} />
+                <SearchInput className={styles.productName} setProduct={props.setProduct} setInput={props.setInput} input={props.input} />
 
                 <button>Add Product</button>
             </form>
