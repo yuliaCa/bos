@@ -65,7 +65,8 @@ h5.skinConcerns {
   font-family: Khula, sans-serif;
   border: 1px solid #b68b7d;
   border-radius: 8px;
-  /* height: 42px; */
+  height: 42px;
+  align-self: end;
 }
 
 .usedButton {
@@ -80,6 +81,8 @@ h5.skinConcerns {
   color: #b68b7d;
   border-radius: 8px;
   font-weight: 600;
+  height: 42px;
+  align-self: end;
 }
 
 .trashCan {
