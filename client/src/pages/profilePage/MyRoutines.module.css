@@ -160,6 +160,14 @@ form.userInput {
   cursor: pointer;
   min-height: 30vh;
 }
+@media (min-width: 630px) {
+  .productDetails {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: 5% repeat(3, 10%) repeat(4, min-content);
+  }
+}
+
 .productDetails img {
   max-width: 70%;
   margin: auto;
@@ -171,6 +179,11 @@ form.userInput {
   padding: 1%;
   background-color: #fff;
 }
+@media (min-width: 630px) {
+  .productDetails img {
+    grid-area: 2/1/4/4;
+  }
+}
 
 .productDetails h3 {
   font-size: 18px;
@@ -179,6 +192,11 @@ form.userInput {
   border-bottom: none;
   color: #3b3835;
 }
+@media (min-width: 630px) {
+  .productDetails h3 {
+    grid-area: 2/4/3/7;
+  }
+}
 
 .productDetails .descriptionH4 {
   order: 30;
@@ -186,19 +204,42 @@ form.userInput {
   font-size: 16px;
   margin-bottom: 5px;
 }
+@media (min-width: 630px) {
+  .productDetails .descriptionH4 {
+    grid-area: 3/4/4/8;
+    align-self: end;
+  }
+}
 
 .description {
   order: 40;
   margin-bottom: 5px;
   border-bottom: 1px solid #3b3835;
 }
+@media (min-width: 630px) {
+  .description {
+    grid-area: 4/4/6/9;
+  }
+}
 .productDetails .suggestedUsage {
   margin-top: 15px;
   margin-bottom: 15px;
   order: 50;
 }
+@media (min-width: 630px) {
+  .productDetails .suggestedUsage {
+    grid-area: 7/4/9/8;
+  }
+}
 
 .productDetails button {
   order: 60;
   margin: 30px 0;
+}
+@media (min-width: 630px) {
+  .productDetails button {
+    grid-area: 2/7/3/9;
+    width: 80%;
+    margin: auto;
+  }
 }
