@@ -239,7 +239,7 @@ form.userInput {
 @media (min-width: 630px) {
   .productDetails button {
     grid-area: 2/7/3/9;
-    width: 80%;
-    margin: auto;
+    width: 60%;
+    margin: 0 0 0 auto;
   }
 }
