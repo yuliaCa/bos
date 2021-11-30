@@ -1,5 +1,6 @@
 // import styles from './ProductDetails.module.css';
 import styles from '../../pages/profilePage/MyRoutines.module.css';
+import { FaArrowLeft } from 'react-icons/fa';
 import axios from 'axios';
 
 const ProductDetails = (props) => {
@@ -20,16 +21,16 @@ const ProductDetails = (props) => {
 
     return (
         <div className={styles.productDetails}>
-            <p onClick={props.evening ? props.closeDetailsEvening : props.closeDetailsMorning}>Back To Routine</p>
+            <FaArrowLeft onClick={props.evening ? props.closeDetailsEvening : props.closeDetailsMorning}>Back To Routine</FaArrowLeft>
 
-            <h3>{props.theProduct.productName}</h3>
+            <h3 >{props.theProduct.productName}</h3>
             {/* <div>Category</div> */}
             <img src={props.theProduct.images[0]}></img>
-            <h4>Description</h4>
-            <div dangerouslySetInnerHTML={{ __html: getDescription(props.theProduct.description) }} />
+            <h4 className={styles.descriptionH4}>Description</h4>
+            <div className={styles.description} dangerouslySetInnerHTML={{ __html: getDescription(props.theProduct.description) }} />
 
 
-            <div dangerouslySetInnerHTML={{ __html: props.theProduct.suggestedUsage }} />
+            <div className={styles.suggestedUsage} dangerouslySetInnerHTML={{ __html: props.theProduct.suggestedUsage }} />
 
             <button className={styles.saveButton} onClick={event => props.deleteProductHandler(event, props.theProduct.productName, props.evening)}>Delete</button>
 

@@ -54,28 +54,35 @@ h5.skinConcerns {
 }
 
 .useButton {
-  width: 80%;
+  width: 70%;
   margin: 0 auto;
-  padding: 0.2rem;
+  padding-top: 5px;
   grid-area: 5/2/6/3;
   background: #b68b7d;
   color: #ffffff;
-  /* font-size: 16px; */
-  /* font-weight: bolder; */
+  font-size: 16px;
+  font-weight: 600;
   font-family: Khula, sans-serif;
   border: 1px solid #b68b7d;
-  border-radius: 5px;
+  border-radius: 8px;
+  height: 42px;
+  align-self: end;
 }
 
 .usedButton {
-  width: 80%;
+  font-family: Khula, sans-serif;
+  font-size: 16px;
+  width: 70%;
   margin: 0 auto;
-  padding: 0.2rem;
+  padding-top: 5px;
   grid-area: 5/2/6/3;
   background-color: #fcf9f6;
   border: 1px solid #b68b7d;
   color: #b68b7d;
-  border-radius: 5px;
+  border-radius: 8px;
+  font-weight: 600;
+  height: 42px;
+  align-self: end;
 }
 
 .trashCan {

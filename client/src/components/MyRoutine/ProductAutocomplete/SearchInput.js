@@ -1,6 +1,7 @@
 import Autocomplete from './Autocomplete';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import styles from '../../../pages/profilePage/MyRoutines.module.css';
 
 function SearchInput(props) {
 
@@ -29,7 +30,7 @@ function SearchInput(props) {
 
 
     return (
-        <div>
+        <div className={styles.productName}>
             <Autocomplete setProduct={props.setProduct} suggestions={
                 suggestions} setInput={props.setInput} input={props.input} />
         </div>
