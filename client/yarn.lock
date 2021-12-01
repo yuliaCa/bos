@@ -3339,9 +3339,9 @@
     "moize" "^6.0.0"
     "path-exists" "^4.0.0"
 
-"@netlify/local-functions-proxy-darwin-arm64@1.1.1":
-  "integrity" "sha512-lphJ9qqZ3glnKWEqlemU1LMqXxtJ/tKf7VzakqqyjigwLscXSZSb6fupSjQfd4tR1xqxA76ylws/2HDhc/gs+Q=="
-  "resolved" "https://registry.npmjs.org/@netlify/local-functions-proxy-darwin-arm64/-/local-functions-proxy-darwin-arm64-1.1.1.tgz"
+"@netlify/local-functions-proxy-darwin-x64@1.1.1":
+  "integrity" "sha512-4CRB0H+dXZzoEklq5Jpmg+chizXlVwCko94d8+UHWCgy/bA3M/rU/BJ8OLZisnJaAktHoeLABKtcLOhtRHpxZQ=="
+  "resolved" "https://registry.npmjs.org/@netlify/local-functions-proxy-darwin-x64/-/local-functions-proxy-darwin-x64-1.1.1.tgz"
   "version" "1.1.1"
 
 "@netlify/local-functions-proxy@^1.1.1":
@@ -3401,9 +3401,9 @@
   "resolved" "https://registry.npmjs.org/@netlify/plugins-list/-/plugins-list-5.0.0.tgz"
   "version" "5.0.0"
 
-"@netlify/routing-local-proxy-darwin-arm64@^0.34.1":
-  "integrity" "sha512-QswoXdmvmwx76bNdA0TcwfbK1NUIo5BjcS4bpE96wtUPr3SNn4pSoOip9/Tae2JbLGl7efdEkgBE1J6rMiu/kA=="
-  "resolved" "https://registry.npmjs.org/@netlify/routing-local-proxy-darwin-arm64/-/routing-local-proxy-darwin-arm64-0.34.1.tgz"
+"@netlify/routing-local-proxy-darwin-x64@^0.34.1":
+  "integrity" "sha512-x5mukoDWGl+jpVsyNZjRBrP1m93AFrVI/afodQbu45nyW78fpNALhqJPGoI2ixe/Z5HKaYl+ItvI+J4wAVFseQ=="
+  "resolved" "https://registry.npmjs.org/@netlify/routing-local-proxy-darwin-x64/-/routing-local-proxy-darwin-x64-0.34.1.tgz"
   "version" "0.34.1"
 
 "@netlify/routing-local-proxy@^0.34.1":
