@@ -3,7 +3,8 @@ import { MdOutlineLocationOn } from "react-icons/md";
 import Weather from "../../components/Weather/Weather.js";
 import WeatherChart from "../../components/Charts/WeatherChart.js";
 import UsageChart from "../../components/Charts/UsageChart.js";
-import { useState } from "react";
+import { useState,useEffect } from "react";
+import axios from 'axios';
 
 function MyPage(props) {
   const [isProfile, setIsProfile] = useState(true);
@@ -11,10 +12,79 @@ function MyPage(props) {
   let skinTypes = ["Normal", "Acne", "Redness", "Pores"];
   let city = "Vancouver";
 
+
+  const initialStateProfilePhoto = { 
+    type: "",
+    base64URL: "",
+    name: ""};
+
+  const [stateImage, setStateImage] = useState(initialStateProfilePhoto);
+  const [retrievedData, setRetrievedData] = useState([]);
+  
+  useEffect(function fetchUserProfile(){
+    console.log(localStorage);
+    axios.get(`https://bos-project2.herokuapp.com/register/${localStorage.email}`)
+    .then(result => {
+      if(result.data.image.length > 0){
+        console.log(typeof result.data.image);
+          setStateImage(result.data.image[0]);
+      }else{
+        setStateImage({ 
+          type: "",
+          base64URL: "",
+          name: ""})
+      }
+    })
+    .catch(error=>console.log(error));
+    
+  },[retrievedData]);
+
+
+  const [currentDay, setCurrentDay] = useState();
+  const cityId = "xvd6Yxj282PiZtGXN";
+
+  useEffect(() => {
+    const requestOptions = {
+      method: "GET",
+      url: `https://airvisual1.p.rapidapi.com/cities/get-information?id=${cityId}&lang=en_US&aqiIndex=us`,
+      headers: {
+        "x-rapidapi-host": "airvisual1.p.rapidapi.com",
+        "x-rapidapi-key": "2b5c9fd8d8msh0132ae34892c4f1p161c42jsnb732f5ff681a",
+      },
+      redirect: "follow",
+    };
+
+    axios
+      .request(requestOptions)
+      .then(function (response) {
+        const body = response.data;
+        let date = new Date(body.data.current_weather.ts);
+        let trimDate = date.toString().substring(0, 3);
+        setCurrentDay(trimDate);
+      })
+      .catch((error) => console.log(error));
+      
+  }, []);
+
   return (
     <div className={styles.myPageSection}>
       <div className={styles.userSection}>
-        <div className={styles.profileImage} />
+
+      
+
+
+        <div className={styles.profileImage}>
+        {stateImage.base64URL ?
+        <img 
+         src={stateImage.base64URL} alt="profilephoto"
+         className={styles.profileImage}  />
+        :
+        <img 
+        src="https://s3-us-west-2.amazonaws.com/bos-skincare/icons/profile.svg" alt="profilephoto"
+        className={styles.profileImage}  />
+        }
+
+          </div>
         <div className={styles.profileData}>
           <ul>
             <li className={styles.profileName}>{`${props.displayName}`}</li>
@@ -34,11 +104,11 @@ function MyPage(props) {
       <div className={styles.headerWrap}>
         <h2>Weather</h2>
       </div>
-      <WeatherChart />
+      <WeatherChart currentDay={currentDay} />
       <div className={styles.headerWrap}>
         <h2>Product Usage</h2>
       </div>
-      <UsageChart email={props.email} />
+      <UsageChart email={props.email} currentDay={currentDay} />
     </div>
   );
 }

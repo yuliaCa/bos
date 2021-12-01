@@ -22,7 +22,7 @@
 
 .startRoutineInner .nameInput, .startRoutineInner .emailInput {
     width: 60vw;
-    height: 31px;
+    height: 40px;
     margin: 3% 0;
     border: 1px solid #96807A;
     background-color: #FCF9F6;
@@ -126,7 +126,7 @@
 
     .startRoutineInner .nameInput, .startRoutineInner .emailInput {
         width: 15vw;
-        height: 31px;
+        height: 40px;
         border: 1px solid #96807A;
         border-radius: 8px;
         align-self: center;

@@ -11,7 +11,7 @@ exports.getUserProfile = (req, res) => {
 
 exports.getUserProfileByEmail = (req, res) => {
     //req.params.userEmail
-    userProfile.findOne({ userEmailAddress: String(req.params.userEmail).toLowerCase() }).exec()
+    userProfile.findOne({ userEmailAddress: String(req.params.id).toLowerCase() }).exec()
         .then(results => {
             res.status(200).json(results);
         })
@@ -50,6 +50,7 @@ exports.postNewUserProfile = (req, res) => {
         skintype: req.body.skintype,
         concerns: req.body.concerns,
         birthDate: req.body.birthDate,
+        image: req.body.image,
         objMorningRoutineLog: req.body.objMorningRoutineLog,
         objEveningRoutineLog: req.body.objEveningRoutineLog
     });
@@ -177,12 +178,25 @@ exports.updateUserProfile = (req, res) => {
         birthDate: req.body.birthDate
     });
 
-    console.log(updatedUserProfile);
+    console.log("this is the email: " + updatedUserProfile.userEmailAddress);
 
-    userProfile.findOneAndUpdate({ userEmailAddress: updatedUserProfile.userEmailAddress }, { updatedUserProfile })
-        .then(result => {
-            res.status(201).json({
-                data: updatedUserProfile
-            });
-        }).catch(error => res.status(500).send(error));
+    userProfile.findOneAndUpdate({ userEmailAddress: updatedUserProfile.userEmailAddress }, {
+        "$set": {
+            "userEmailAddress": updatedUserProfile.userEmailAddress,
+            "fullname": updatedUserProfile.fullname,
+            "gender": updatedUserProfile.gender,
+            "image": updatedUserProfile.image,
+            "cityLocation": updatedUserProfile.cityLocation,
+            "skintype": updatedUserProfile.skintype,
+            "concerns": updatedUserProfile.concerns,
+            "birthDate": updatedUserProfile.birthDate
+        }
+    }, {
+        new: true,
+        upsert: true // Make this update into an upsert
+    }).exec().then(result => {
+        res.status(201).json({
+            data: updatedUserProfile
+        });
+    }).catch(error => res.status(500).send(error));
 };

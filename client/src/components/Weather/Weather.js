@@ -8,7 +8,7 @@ import { RiWindyFill } from "react-icons/ri";
 import { GoPrimitiveDot } from "react-icons/go";
 import axios from "axios";
 
-const Weather = () => {
+const Weather = (props) => {
   // const city = "Vancouver"; // Get city from questionnaire
   // const cityId = SearchCityId(city);
   const cityId = "xvd6Yxj282PiZtGXN";
@@ -54,6 +54,7 @@ const Weather = () => {
         setIsLoading(false);
       })
       .catch((error) => console.log(error));
+      
   }, []);
 
   const spinnerFx = (

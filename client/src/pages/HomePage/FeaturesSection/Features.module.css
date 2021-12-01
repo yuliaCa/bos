@@ -42,7 +42,8 @@
   border-radius: 8px;
   /* padding: 0.75rem 2.5rem; */
   height: 48px;
-  min-width: 16vw;
+  min-width: 275px;
+  max-width: 325px;
   font-size: 15px;
 }
 

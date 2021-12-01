@@ -67,7 +67,7 @@ function Autocomplete(props) {
 
     return (
         <div>
-            <input type="text" onChange={onChangeHandler}
+            <input placeholder="Select Product" type="text" onChange={onChangeHandler}
                 value={props.input} />
             {showSuggestions && props.input && <SuggestionsListComponent />}
         </div>

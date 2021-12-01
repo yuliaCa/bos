@@ -17,7 +17,7 @@
     justify-self: center;
     grid-column: 2 / 6;
     grid-row: 1 / 2;
-    height: 31px;
+    height: 40px;
     border: 1px solid #96807A;
     width: 95%;
     border-radius: 8px;
@@ -31,7 +31,7 @@
     grid-column: 2 / 6;
     grid-row: 2 / 3;
     border: 1px solid #96807A;
-    height: 31px;
+    height: 40px;
     width: 95%;
     border-radius: 8px;
     background-color: #F7EDE1;
@@ -102,7 +102,6 @@
 
 @media only screen and (min-width: 600px) {
 
-
     .LoginFormSection {
         background-color: #FCF9F6;
         height: 100%;
@@ -111,19 +110,27 @@
     .formLayout {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;  
-        grid-template-rows: 1fr 1fr 1fr 1fr 1fr; 
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr; 
         margin-left: 2%;
         padding: 30% 0;
     }
     
+    .errorMessage {
+        color: red;
+        font-size: 14px;
+        font-style: italic;
+        grid-column: 2 / 6;
+        grid-row: 1 / 2;
+        justify-self: center;
+    }
     
     .inputEmail {
         align-self: center;
         justify-self: center;
         grid-column: 2 / 6;
-        grid-row: 1 / 2;
-        height: 31px;
-        width: 95%;
+        grid-row: 2 / 3;
+        height: 40px;
+        width: 345px;
         border-radius: 5px;
         background-color: #F7EDE1;
     }
@@ -132,16 +139,16 @@
         align-self: center;
         justify-self: center;
         grid-column: 2 / 6;
-        grid-row: 2 / 3;
-        height: 31px;
-        width: 95%;
+        grid-row: 3 / 4;
+        height: 40px;
+        width: 345px;
         border-radius: 5px;
         background-color: #F7EDE1;
     }
     
     .rememberCheckbox {
         grid-column: 2 / 3;
-        grid-row: 3 / 4;
+        grid-row: 4 / 5;
         width: 12px;
         justify-self: left;
         align-self: center;
@@ -149,7 +156,7 @@
     
     .checkRemember {
         grid-column: 3 / 4;
-        grid-row: 3 / 4;
+        grid-row: 4 / 5;
         font-weight: 100;
         margin: 1% 0;
         margin-left: -50%;
@@ -159,7 +166,7 @@
     
     .forgotPassword {
         grid-column: 4 / 6;
-        grid-row: 3 / 4;
+        grid-row: 4 / 5;
         font-weight: 100;
         font-size: 16px;
         margin: 0;

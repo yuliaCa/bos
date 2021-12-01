@@ -1,8 +1,7 @@
 import styles from './ProductCard.module.css';
-import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { FaTrash } from 'react-icons/fa';
-import axios from 'axios';
+
 
 function ProductCard(props) {
 
@@ -40,7 +39,6 @@ function ProductCard(props) {
 
     const productUsedBtnHandler = (event) => {
         setProductUsedState(true);
-
     }
 
 

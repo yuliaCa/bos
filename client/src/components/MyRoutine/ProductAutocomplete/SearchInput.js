@@ -1,6 +1,7 @@
 import Autocomplete from './Autocomplete';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import styles from '../../../pages/profilePage/MyRoutines.module.css';
 
 function SearchInput(props) {
 
@@ -11,7 +12,7 @@ function SearchInput(props) {
         const options = {
             method: 'GET',
             url: 'https://sephora.p.rapidapi.com/products/list',
-            params: { categoryId: 'cat150006', pageSize: '60', currentPage: '1' },
+            params: { categoryId: 'cat150006' },
             headers: {
                 'x-rapidapi-host': 'sephora.p.rapidapi.com',
                 'x-rapidapi-key': '2b5c9fd8d8msh0132ae34892c4f1p161c42jsnb732f5ff681a'
@@ -29,7 +30,7 @@ function SearchInput(props) {
 
 
     return (
-        <div>
+        <div className={styles.productName}>
             <Autocomplete setProduct={props.setProduct} suggestions={
                 suggestions} setInput={props.setInput} input={props.input} />
         </div>

@@ -5,428 +5,205 @@
     .dryLabel {
         font-size: 13px;
         text-align: center;
-        padding: 1.2vh 11.5vw;
+        padding: 10px 45px;
         align-self: center;
-        background-color: #F7EDE1;
         border-radius: 5px;
         border: solid 1px #96807A;
+        background-color: #F7EDE1;
     }
 
     .dryLabel:hover {
-        background-color:#B68B7D;
         color: black;
+        background-color:#B68B7D;
     }
 
     .normalLabel {
-        border: solid 1px #96807A;
-        padding-top: 8%;
-        align-self: center;
-        padding: 1.2vh 9vw;
+        padding: 10px 34px;
         font-size: 13px;
-        background-color: #F7EDE1;
         border-radius: 5px;
         text-align: center;
-        margin-left: -2.5vw;
+        align-self: center;
+        margin-left: -29px;
+        border: solid 1px #96807A;
+        background-color: #F7EDE1;
     }
 
     .normalLabel:hover {
-        background-color: #B68B7D;
         color: black;
+        background-color: #B68B7D;
     }
 
     .oilyLabel {
-        border: solid 1px #96807A;
-        align-self: center;
-        padding: 1.2vh 11.5vw;
+        padding: 10px 46px;
         font-size: 13px;
-        background-color: #F7EDE1;
         border-radius: 5px;
         text-align: center;
-        margin-left: -6vw;
+        align-self: center;
+        margin-left: -89px;
+        border: solid 1px #96807A;
+        background-color: #F7EDE1;
     }
 
     .oilyLabel:hover {
-        background-color: #B68B7D;
         color: black;
+        background-color: #B68B7D;
     }
 
     .combinationLabel {
-        font-size: 12px;
+        padding: 10px 18px;
+        font-size: 13px;
         text-align: left;
-        padding: 1.2vh 6.2vw;
         align-self: center;
-        background-color: #F7EDE1;
         border-radius: 5px;
         border: solid 1px #96807A;
+        background-color: #F7EDE1;
     }
     
     .combinationLabel:hover {
-        background-color: #B68B7D;
         color: black;
+        background-color: #B68B7D;
     }
 
     .sensitiveLabel {
-        border: solid 1px #96807A;
         align-self: center;
-        padding: 1.2vh 8.4vw;
-        font-size: 12px;
-        background-color: #F7EDE1;
-        border-radius: 5px;
+        padding: 10px 29px;
+        margin-left: -29px;
+        font-size: 13px;
         text-align: center;
-        margin-left: -2.6vw;
+        border-radius: 5px;
+        border: solid 1px #96807A;
+        background-color: #F7EDE1;
     }
 
     .sensitiveLabel:hover {
-        background-color:#B68B7D;
         color: black;
+        background-color:#B68B7D;
     }
 
     .acneLabel {
-        border: solid 1px #96807A;
-        align-self: center;
-        padding: 1.2vh 10.5vw;
+        padding: 10px 40px;
         font-size: 13px;
-        background-color: #F7EDE1;
         border-radius: 5px;
         text-align: center;
+        align-self: center;
+        border: solid 1px #96807A;
+        background-color: #F7EDE1;
     }
 
     .acneLabel:hover {
-        background-color: #B68B7D;
         color: black;
+        background-color: #B68B7D;
     }
 
     .drynessLabel  {
-        border: solid 1px #96807A;
-        align-self: center;
-        padding: 1.2vh 8.4vw;
+        padding: 10px 33px;
         font-size: 13px;
-        background-color: #F7EDE1;
+        margin-left: -32.5px;
         border-radius: 5px;
+        align-self: center;
         text-align: center;
-        margin-left: -2.8vw;
+        border: solid 1px #96807A;
+        background-color: #F7EDE1;
     }
 
     .drynessLabel:hover {
-        background-color: #B68B7D;
         color: black;
+        background-color: #B68B7D;
     }
 
     .oilynessLabel  {
-        border: solid 1px #96807A;
-        align-self: center;
-        padding: 1.2vh 8.6vw;
+        padding: 10px 35px;
         font-size: 13px;
-        background-color: #F7EDE1;
+        margin-left: -93px;
         border-radius: 5px;
+        align-self: center;
         text-align: center;
-        margin-left: -6.7vw;
+        border: solid 1px #96807A;
+        background-color: #F7EDE1;
     }
 
     .oilynessLabel:hover {
-        background-color: #B68B7D;
         color: black;
+        background-color: #B68B7D;
     }
 
     .blemishesLabel {
-        border: solid 1px #96807A;
+        padding: 10px 25px;
+        font-size: 13px; 
         align-self: center;
-        padding: 1.1vh 7vw;
-        font-size: 13px;
-        background-color: #F7EDE1;
-        border-radius: 5px;
         text-align: center;
+        border-radius: 5px;
+        border: solid 1px #96807A;
+        background-color: #F7EDE1;
     }
 
     .blemishesLabel:hover {
-        background-color: #B68B7D;
         color: black;
+        background-color: #B68B7D;
     }
 
     .darkspotsLabel {
-        border: solid 1px #96807A;
-        align-self: center;
-        padding: 1.2vh 7.1vw;
+        padding: 10px 27px;
         font-size: 12px;
-        background-color: #F7EDE1;
-        border-radius: 5px;
+        align-self: center;
         text-align: center;
-        margin-left: -2.8vw;
+        margin-left: -32.5px;
+        border-radius: 5px;
+        border: solid 1px #96807A;
+        background-color: #F7EDE1;
     }
 
     .darkspotsLabel:hover {
-        background-color: #B68B7D;
         color: black;
+        background-color: #B68B7D;
     }
 
     .poresLabel {
-        border: solid 1px #96807A;
-        align-self: center;
-        padding: 1.1vh 10vw;
+        padding: 10px 41px;
         font-size: 13px;
-        background-color: #F7EDE1;
         border-radius: 5px;
+        align-self: center;
         text-align: center;
-        margin-left: -6.7vw;
+        margin-left: -93px;
+        border: solid 1px #96807A;
+        background-color: #F7EDE1;
     }
 
     .poresLabel:hover {
-        background-color: #B68B7D;
         color: black;
+        background-color: #B68B7D;
     }
 
     .redlinesLabel {
-        border: solid 1px #96807A;
-        align-self: start;
-        padding: 1.2vh 7.9vw;
+        padding: 10px 29px;
         font-size: 13px;
-        background-color: #F7EDE1;
-        border-radius: 5px;
+        align-self: start;
         text-align: center;
+        border-radius: 5px;
+        border: solid 1px #96807A;
+        background-color: #F7EDE1;
     }
 
     .redlinesLabel:hover {
-        background-color: #B68B7D;
         color: black;
+        background-color: #B68B7D;
     }
 
     .finelinesLabel {
-        border: solid 1px #96807A;
-        align-self: start;
-        padding: 1.2vh 7.5vw;
+        padding: 10px 29px;
         font-size: 13px;
-        background-color: #F7EDE1;
-        border-radius: 5px;
+        margin-left: -32.5px;
+        align-self: start;
         text-align: center;
-        margin-left: -2.8vw;
+        border-radius: 5px;
+        border: solid 1px #96807A;
+        background-color: #F7EDE1;
     }
 
     .finelinesLabel:hover {
-        background-color: #B68B7D;
         color: black;
+        background-color: #B68B7D;
     }
-
-@media only screen and (min-width: 440px) {
-
-    .combinationLabel {
-        padding: 1.2vh 6.8vw;
-    }
-
-    .sensitiveLabel {
-        padding: 1.2vh 8.6vw;
-    }
-
-    .normalLabel {
-        padding: 1.2vh 9.1vw;
-    }
-
-    .oilyLabel {
-        margin-left: -6.4vw;
-    }
-
-    .oilynessLabel  {
-        padding: 1.2vh 9vw;
-    }
-
-    .poresLabel {
-        padding: 1.1vh 10.2vw;
-    }
-
-    .darkspotsLabel {
-        padding: 1.2vh 7.8vw;
-    }
-
-    .drynessLabel  {
-        padding: 1.2vh 8.8vw;
-    }
-
-    .blemishesLabel {
-        padding: 1.2vh 7.4vw;
-    }
-
-    .finelinesLabel { 
-        padding: 1.2vh 8.1vw;
-    }
-
-
-    .redlinesLabel {
-        padding: 1.2vh 8.2vw;
-    }
-
-}
-
-@media only screen and (min-width: 550px) {
-
-    .dryLabel {
-        padding: 1.2vh 11.4vw;
-    }
-
-    .normalLabel {
-        padding: 1.2vh 9.6vw;
-        margin-left: -2.7vw;
-    }
-
-    .oilyLabel {
-        padding: 1.2vh 11.5vw;
-    }
-
-    .combinationLabel {
-        padding: 1.2vh 7.6vw; 
-    }
-    
-    .sensitiveLabel {
-        padding: 1.2vh 9.1vw;
-        margin-left: -2.7vw;
-    }
-
-    .acneLabel {
-        padding: 1.2vh 10.7vw;
-    }
-
-    .drynessLabel  {
-        padding: 1.2vh 9.4vw;
-        margin-left: -2.8vw;
-    }
-
-    .oilynessLabel  {
-        padding: 1.2vh 9.3vw;
-        margin-left: -6.4vw;
-    }
-
-    .blemishesLabel {
-        padding: 1.2vh 8.2vw;
-    }
-
-    .darkspotsLabel {
-        padding: 1.2vh 8.5vw;
-    }
-
-    .poresLabel {
-        padding: 1.1vh 10.5vw;
-    }
-
-    .redlinesLabel {
-        padding: 1.2vh 8.8vw;
-    }
-
-    .finelinesLabel {
-        padding: 1.2vh 8.8vw;
-    }
-
-
-}
-
-@media only screen and (min-width: 700px) {
-
-    .normalLabel {
-        padding: 1.2vh 10vw;
-        margin-left: -2.8vw;
-    }
-
-    .combinationLabel {
-        padding: 1.2vh 8.2vw; 
-    }
-    
-    .sensitiveLabel {
-        padding: 1.2vh 9.7vw;
-        margin-left: -3vw;
-    }
-
-    .acneLabel {
-        padding: 1.2vh 10.9vw;
-    }
-
-    .drynessLabel  {
-        padding: 1.2vh 9.9vw;
-        margin-left: -3vw;
-    }
-
-    .oilynessLabel  {
-        padding: 1.2vh 9.7vw;
-        margin-left: -6.3vw;
-    }
-
-    .blemishesLabel {
-        padding: 1.2vh 8.8vw;
-    }
-
-    .darkspotsLabel {
-        padding: 1.2vh 9.2vw;
-        margin-left: -3vw;
-    }
-
-    .poresLabel {
-        padding: 1.1vh 10.6vw;
-        margin-left: -6.3vw;
-    }
-
-    .redlinesLabel {
-        padding: 1.2vh 9.4vw;
-    }
-
-    .finelinesLabel {
-        padding: 1.2vh 9.4vw;
-        margin-left: -3vw;
-    }
-}
-
-@media only screen and (min-width: 800px) {
-
-    .dryLabel {
-        padding: 1.2vh 11.3vw;
-    }
-
-    .normalLabel {
-        padding: 1.2vh 10.1vw;
-        margin-left: -3.3vw;
-    }
-
-    .combinationLabel {
-        padding: 1.2vh 8.6vw; 
-    }
-    
-    .sensitiveLabel {
-        padding: 1.2vh 9.85vw;
-        margin-left: -3.4vw;
-    }
-
-    .acneLabel {
-        padding: 1.2vh 10.75vw;
-    }
-
-    .drynessLabel  {
-        padding: 1.2vh 9.8vw;
-        margin-left: -3.5vw;
-    }
-
-    .oilynessLabel  {
-        padding: 1.2vh 10.1vw;
-        margin-left: -6.6vw;
-    }
-
-    .blemishesLabel {
-        padding: 1.2vh 9vw;
-    }
-
-    .darkspotsLabel {
-        padding: 1.2vh 9.2vw;
-        margin-left: -3.6vw;
-    }
-
-    .poresLabel {
-        padding: 1.1vh 10.8vw;
-        margin-left: -6.6vw;
-    }
-
-    .redlinesLabel {
-        padding: 1.2vh 9.5vw;
-    }
-
-    .finelinesLabel {
-        padding: 1.2vh 9.4vw;
-        margin-left: -3.6vw;
-    }
-}
 
 @media only screen and (min-width: 900px) {
 
@@ -446,12 +223,12 @@
     }
 
     .combinationLabel {
-        padding: 10px 20px;
+        padding: 10px 18px;
         margin: 0 10px;
     }
     
     .sensitiveLabel {
-        padding: 10px 30.5px;
+        padding: 10px 29px;
         margin: 0 10px;
     }
 
@@ -481,7 +258,7 @@
     }
 
     .poresLabel {
-        padding: 10px 38px; 
+        padding: 10px 38.5px; 
         margin: 0 10px;
     }
 

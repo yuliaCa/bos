@@ -31,6 +31,7 @@
   background-color: #f5e8da;
 }
 
+/* adding product into routine */
 .userInput {
   display: flex;
   flex-direction: column;
@@ -43,17 +44,41 @@ form.userInput {
   min-height: 15vh;
   align-items: stretch;
 }
+@media (min-width: 630px) {
+  form.userInput {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 5vh;
+  }
+}
 
 .userInputSelect {
   border: 1px solid #ad967d;
   border-radius: 5px;
 }
+@media (min-width: 630px) {
+  .userInputSelect {
+    min-width: 45px;
+    flex: 1 0 auto;
+  }
+}
 
 .myRoutines form.userInput input {
-  width: 98%;
+  width: stretch;
   border: 1px solid #ad967d;
   border-radius: 5px;
   height: 40px;
+  padding: 5px 0 0 10px;
+  font-family: inherit;
+  font-size: inherit;
+}
+@media (min-width: 630px) {
+  .productName {
+    flex: 2 0 auto;
+    /* min-width: 75px; */
+  }
 }
 
 .myRoutines form.userInput button {
@@ -68,6 +93,11 @@ form.userInput {
   text-transform: uppercase;
   cursor: pointer;
 }
+@media (min-width: 630px) {
+  .myRoutines form.userInput button {
+    flex-grow: 0;
+  }
+}
 
 .myRoutines h3 {
   color: #b68b7d;
@@ -79,9 +109,9 @@ form.userInput {
   width: 98%;
   margin: auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   /* grid-template-rows: repeat(5, 1fr); */
-  /* grid-gap: 2%; */
+  grid-column-gap: 3%;
 }
 
 .selectAll {
@@ -101,22 +131,115 @@ form.userInput {
 }
 
 .saveButton {
-  padding: 1%;
-
+  /* padding: 1%; */
+  margin: 30px auto 15px auto;
   background-color: #67392a;
   border: none;
   border-radius: 8px;
-  padding: 0.75rem 2.5rem;
-  min-width: 16px;
-  font-size: 15px;
+  /* padding: 0.75rem 2.5rem; */
+  font-size: 16px;
+  font-weight: 600;
   height: 48px;
   color: #f8f5f0;
   text-transform: uppercase;
   cursor: pointer;
+  width: 80%;
+}
+@media (min-width: 630px) {
+  .saveButton {
+    width: 20%;
+    justify-self: flex-end;
+    margin: 30px 0 15px auto;
+  }
 }
 
 /*************************** PRODUCT DETAILS **************************** */
-.productDetails > p {
+.productDetails {
+  display: flex;
+  flex-direction: column;
   cursor: pointer;
-  color: red;
+  min-height: 30vh;
+}
+@media (min-width: 630px) {
+  .productDetails {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: 5% repeat(3, 10%) repeat(4, min-content);
+  }
+}
+
+.productDetails img {
+  max-width: 70%;
+  margin: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 5px;
+  border: 1px solid #ab8679;
+  order: 10;
+  padding: 1%;
+  background-color: #fff;
+}
+@media (min-width: 630px) {
+  .productDetails img {
+    grid-area: 2/1/4/4;
+  }
+}
+
+.productDetails h3 {
+  font-size: 18px;
+  font-weight: bolder;
+  order: 20;
+  border-bottom: none;
+  color: #3b3835;
+}
+@media (min-width: 630px) {
+  .productDetails h3 {
+    grid-area: 2/4/3/7;
+  }
+}
+
+.productDetails .descriptionH4 {
+  order: 30;
+  font-weight: bolder;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+@media (min-width: 630px) {
+  .productDetails .descriptionH4 {
+    grid-area: 3/4/4/8;
+    align-self: end;
+  }
+}
+
+.description {
+  order: 40;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #3b3835;
+}
+@media (min-width: 630px) {
+  .description {
+    grid-area: 4/4/6/9;
+  }
+}
+.productDetails .suggestedUsage {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  order: 50;
+}
+@media (min-width: 630px) {
+  .productDetails .suggestedUsage {
+    grid-area: 7/4/9/8;
+  }
+}
+
+.productDetails button {
+  order: 60;
+  margin: 30px 0;
+}
+@media (min-width: 630px) {
+  .productDetails button {
+    grid-area: 2/7/3/9;
+    width: 60%;
+    margin: 0 0 0 auto;
+  }
 }

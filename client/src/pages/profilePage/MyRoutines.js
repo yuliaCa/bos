@@ -1,12 +1,9 @@
 import styles from './MyRoutines.module.css';
 import axios from 'axios';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import MorningRoutine from '../../components/MyRoutine/MorningRoutine';
 import EveningRoutine from '../../components/MyRoutine/EveningRoutine';
 import ProductDetails from '../../components/MyRoutine/ProductDetails';
-import Select from 'react-select';
-import ProductCard from '../../components/MyRoutine/ProductCard';
-import SearchInput from '../../components/MyRoutine/ProductAutocomplete/SearchInput';
 import SkinFeeling from '../../components/MyRoutine/SkinFeeling.js';
 
 
@@ -22,7 +19,7 @@ function MyRoutines(props) {
     const [prodObjForDetails, setProdObjForDetails] = useState();
     const openDetailsMorning = (event, productID) => {
         const theProductForDetails = MorningLoadedProducts.filter(product => product._id === productID)
-        console.log(theProductForDetails[0])
+
         setProdObjForDetails(theProductForDetails[0]);
         setShowProductDetailsMorning(true);
     }
@@ -34,7 +31,7 @@ function MyRoutines(props) {
     const [showProductDetailsEvening, setShowProductDetailsEvening] = useState(false);
     const openDetailsEvening = (event, productID) => {
         const theProductForDetails = EveningLoadedProducts.filter(product => product._id === productID)
-        console.log(theProductForDetails[0])
+
         setProdObjForDetails(theProductForDetails[0]);
 
         setShowProductDetailsEvening(true);
@@ -57,10 +54,12 @@ function MyRoutines(props) {
     // ================================================
     //"Check All" components for Evening and Morning
     // ================================================
-    const [checkedMorningAll, setCheckedMorningAll] = useState(false);
-    const checkAllMorningHandler = () => {
-        setCheckedMorningAll(checkedMorningAll ? false : true)
-    }
+
+    // const [checkedMorningAll, setCheckedMorningAll] = useState(false);
+    // const checkAllMorningHandler = () => {
+    //     setCheckedMorningAll(checkedMorningAll ? false : true)
+    // }
+
 
     const [checkedEveningAll, setCheckedEveningAll] = useState(false);
     const checkAllEveningHandler = () => {
@@ -80,13 +79,13 @@ function MyRoutines(props) {
 
         axios.get(`https://bos-project2.herokuapp.com/profile/${props.email}/morningProducts`)
             .then(results => {
-                console.log(results.data.objMorningRoutineLog)
+
                 setMorningLoadedProducts(results.data.objMorningRoutineLog);
             })
 
         axios.get(`https://bos-project2.herokuapp.com/profile/${props.email}/eveningProducts`)
             .then(results => {
-                console.log(results.data.objEveningRoutineLog)
+
                 setEveningLoadedProducts(results.data.objEveningRoutineLog);
             })
             .catch(error => console.log(error));
@@ -108,6 +107,20 @@ function MyRoutines(props) {
             strArray[x] = strArray[x].replace('<br>', '');
         }
         return strArray;
+    }
+
+    // Getting Category value from Select component and then clearing
+
+    const [morningValue, setMorningValue] = useState('');
+    const selectMorningHandler = (event) => {
+        // console.log(event)
+        setMorningValue(event)
+    }
+
+    const [eveningValue, setEveningValue] = useState('');
+    const selectEveningHandler = (event) => {
+        // console.log(event)
+        setEveningValue(event)
     }
 
 
@@ -134,7 +147,7 @@ function MyRoutines(props) {
                             images: response.data.currentSku.skuImages.image250,
                             brandName: response.data.brandName,
                             description: response.data.longDescription,
-                            category: response.data.parentCategory.displayName,
+                            category: morningValue.label,
                             ingredients: response.data.currentSku.ingredientDesc,
                             suggestedUsage: response.data.suggestedUsage
                         }]
@@ -143,24 +156,27 @@ function MyRoutines(props) {
                     return newProduct;
                 })
                 .then(newProduct => {
-                    console.log(newProduct)
+
                     axios.put(`https://bos-project2.herokuapp.com/profile/addProductMorning/${props.email}`, newProduct)
                         .then(results => {
 
                             axios.get(`https://bos-project2.herokuapp.com/profile/${props.email}/morningProducts`)
                                 .then(results => {
-                                    console.log(results.data.objMorningRoutineLog)
+
                                     setMorningLoadedProducts(results.data.objMorningRoutineLog);
                                 })
                         })
                 })
                 .catch(error => console.log(error))
             setInput('');
+            setMorningValue(null);
+
         }
     }
 
     const submitEveningProduct = event => {
         event.preventDefault();
+
         if (product) {
             const options = {
                 method: 'GET',
@@ -182,7 +198,7 @@ function MyRoutines(props) {
                             images: response.data.currentSku.skuImages.image250,
                             brandName: response.data.brandName,
                             description: response.data.longDescription,
-                            category: response.data.parentCategory.displayName,
+                            category: eveningValue.label,
                             ingredients: response.data.currentSku.ingredientDesc,
                             suggestedUsage: response.data.suggestedUsage
                         }]
@@ -191,7 +207,7 @@ function MyRoutines(props) {
                     return newProduct;
                 })
                 .then(newProduct => {
-                    console.log(newProduct)
+
                     axios.put(`https://bos-project2.herokuapp.com/profile/addProductEvening/${props.email}`, newProduct)
                         .then(results => {
 
@@ -203,21 +219,27 @@ function MyRoutines(props) {
                 })
                 .catch(error => console.log(error))
             setInput('');
+            setEveningValue(null);
+
         }
+
     }
 
     const deleteProductHandler = (event, productName, evening) => {
         if (!evening) {
+
             axios.delete(`https://bos-project2.herokuapp.com/profile/deleteProductMorning/${props.email}/${productName}`)
                 .then(result => {
                     axios.get(`https://bos-project2.herokuapp.com/profile/${props.email}/morningProducts`)
                         .then(results => {
-                            console.log(results.data.objMorningRoutineLog)
+
                             setMorningLoadedProducts(results.data.objMorningRoutineLog);
+
                         })
                 }
                 )
                 .catch(error => console.log(error))
+
 
         } else if (evening) {
             axios.delete(`https://bos-project2.herokuapp.com/profile/deleteProductEvening/${props.email}/${productName}`)
@@ -245,8 +267,8 @@ function MyRoutines(props) {
                         deleteProductHandler={deleteProductHandler} /> :
                     <MorningRoutine
                         ProductSubmitHandler={submitMorningProduct}
-                        checkAllHandler={checkAllMorningHandler}
-                        checkedAll={checkedMorningAll}
+                        value={morningValue}
+                        selectHandler={selectMorningHandler}
                         loadedProducts={MorningLoadedProducts}
                         setProduct={setProduct}
                         openDetailsMorning={openDetailsMorning}
@@ -272,6 +294,8 @@ function MyRoutines(props) {
                         deleteProductHandler={deleteProductHandler} /> :
                     <EveningRoutine
                         ProductSubmitHandler={submitEveningProduct}
+                        value={eveningValue}
+                        selectHandler={selectEveningHandler}
                         checkAllHandler={checkAllEveningHandler}
                         checkedAll={checkedEveningAll}
                         loadedProducts={EveningLoadedProducts}
