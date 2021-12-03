@@ -55,18 +55,26 @@ function ProfileSettingsPage(props) {
     axios.get(`https://bos-project2.herokuapp.com/register/${localStorage.email}`)
     .then(result => {
  
-      // setInput(result.data);
+      console.log(result.data);
+      setInput(result.data);
       console.log(result.data.image.length);
-
+   
       if(result.data.image.length > 0){
-        console.log(typeof result.data.image);
-          setStateImage(result.data.image[0]);
+       
+        for(let i=0; i< result.data.image.length; i++){
+          console.log(result.data.image[i]);
+          setStateImage(result.data.image[i]);
+        }
+       
+      
       }else{
         setStateImage({ 
           type: "",
           base64URL: "",
           name: ""})
       }
+
+      console.log(stateImage);
     })
     .catch(error=>console.log(error));
   },[retrievedData]);
