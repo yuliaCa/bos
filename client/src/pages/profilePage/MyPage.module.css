@@ -64,7 +64,13 @@
   font-size: 24px;
 }
 
+.skinTypes {
+  display: flex;
+  flex-flow: row wrap;
+}
+
 .skinTypes li {
+  flex: 0 0 10%;
   background-color: #f3ba7c;
   border-radius: 8px;
   font-size: 14px;
