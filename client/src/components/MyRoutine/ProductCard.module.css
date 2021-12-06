@@ -85,8 +85,10 @@ h5.skinConcerns {
   align-self: end;
 }
 
-.trashCan {
+img.trashCan {
+  height: 27px;
   margin: 5px;
   cursor: pointer;
   color: #67392a;
 }
+
