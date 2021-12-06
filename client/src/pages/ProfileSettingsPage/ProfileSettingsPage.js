@@ -100,7 +100,7 @@ function ProfileSettingsPage(props) {
 
             firebase.updateProfile(user, {
                 displayName: input.fullname,
-                photoURL: ""
+                photoURL: stateImage.base64URL
             }).then(() => {
                 console.log("user details updated: " + user.uid)      
             }).catch((error) => {
@@ -134,7 +134,7 @@ function ProfileSettingsPage(props) {
               axios.put(`https://bos-project2.herokuapp.com/profile/updateUserProfile/${email}`, profile)
                   .then(results => {
                       console.log(profile);
-                      console.log('UPDATE SUCCESSFUL!')
+                      history.push("/profile");
                   })
                   .catch(error => console.log(error))
             };
