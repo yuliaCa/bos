@@ -11,8 +11,8 @@
 
 .productCard {
   display: grid;
-  grid-template-columns: 40% 60%;
-  grid-column-gap: 3%;
+  grid-template-columns: 40% 55%;
+  grid-column-gap: 5%;
 }
 
 .productCard h4 {
