@@ -86,7 +86,8 @@ header .filter {
 }
 
 .dropdown .icons {
-  padding-top: 4%;
+  display: flex;
+  align-items: center;
 }
 
 .dropdownItem {
