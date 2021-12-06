@@ -1,5 +1,6 @@
 .productImg {
-  max-width: 100%;
+  width: 100%;
+  margin: auto;
   height: 220px;
   object-fit: contain;
   grid-area: 1/ 1/ 6/ 2;
@@ -54,8 +55,8 @@ h5.skinConcerns {
 }
 
 .useButton {
-  width: 100%;
-  margin: 0 auto;
+  width: 95%;
+  /* margin: 0 auto; */
   padding-top: 5px;
   grid-area: 5/2/6/3;
   background: #b68b7d;
@@ -71,9 +72,8 @@ h5.skinConcerns {
 
 .usedButton {
   font-family: Khula, sans-serif;
+  width: 95%;
   font-size: 16px;
-  width: 70%;
-  margin: 0 auto;
   padding-top: 5px;
   grid-area: 5/2/6/3;
   background-color: #fcf9f6;

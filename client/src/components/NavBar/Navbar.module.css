@@ -67,6 +67,7 @@ header .flexRow a {
   position: absolute;
   right: 1.5rem;
   top: 1.5rem;
+  color: #67392a;
 }
 
 header .flexRow a:hover {
