@@ -46,20 +46,15 @@
     color: white;
 }
 
-/* .startRoutineInner .register:active {
-    background-color: #F8F5F0;
-    color: #96807A;
-    border: 2px solid #96807A;
-} */
+.startRoutineInner .register:active {  
+    transition: 0.2s all ease;
+    transform: scale(1.015);
+}
 
 .startRoutineInner .register a {
     text-decoration: none;
     color: white;
 }
-
-/* .startRoutineInner .register a:active {
-    color: #96807A;
-} */
 
 @media only screen and (min-width: 600px) {
 
@@ -111,16 +106,6 @@
         background-color:  #67392A;
         opacity: 50%;
     }
-
-    /* .startRoutineInner .register:active {
-        background-color: #F8F5F0;
-        color: #96807A;
-        border: 2px solid #96807A;
-    } */
-
-    /* .startRoutineInner .register a:active {
-        color: #96807A;
-    } */
 
     .startRoutineInner .nameInput, .startRoutineInner .emailInput {
         width: 15vw;
