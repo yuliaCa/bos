@@ -106,10 +106,10 @@ form.userInput {
 }
 
 .productsGrid {
-  width: 98%;
-  margin: auto;
+  width: 100%;
+  /* margin: auto; */
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, max-content));
+  grid-template-columns: repeat(auto-fit, minmax(320px, max-content));
   /* grid-template-rows: repeat(5, 1fr); */
   grid-column-gap: 3%;
 }

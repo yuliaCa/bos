@@ -55,7 +55,7 @@ h5.skinConcerns {
 }
 
 .useButton {
-  width: 95%;
+  width: 100%;
   /* margin: 0 auto; */
   padding-top: 5px;
   grid-area: 5/2/6/3;
