@@ -1,6 +1,7 @@
 .productImg {
-  max-width: 100%;
-  height: 250px;
+  width: 100%;
+  margin: auto;
+  height: 220px;
   object-fit: contain;
   grid-area: 1/ 1/ 6/ 2;
   border: 1px solid #c9b6a1;
@@ -10,8 +11,8 @@
 
 .productCard {
   display: grid;
-  grid-template-columns: 40% 60%;
-  grid-column-gap: 3%;
+  grid-template-columns: 40% 55%;
+  grid-column-gap: 5%;
 }
 
 .productCard h4 {
@@ -27,7 +28,7 @@ h5.skinConcerns {
   font-size: 14px;
   grid-area: (2, 2, 3, 3);
   align-self: end;
-  margin: 1.5rem 0 0.1rem 0;
+  margin: 0.5rem 0 0.1rem 0;
 }
 .concernsList,
 .productCard p {
@@ -54,8 +55,8 @@ h5.skinConcerns {
 }
 
 .useButton {
-  width: 70%;
-  margin: 0 auto;
+  width: 100%;
+  /* margin: 0 auto; */
   padding-top: 5px;
   grid-area: 5/2/6/3;
   background: #b68b7d;
@@ -71,9 +72,8 @@ h5.skinConcerns {
 
 .usedButton {
   font-family: Khula, sans-serif;
+  width: 95%;
   font-size: 16px;
-  width: 70%;
-  margin: 0 auto;
   padding-top: 5px;
   grid-area: 5/2/6/3;
   background-color: #fcf9f6;
@@ -88,4 +88,5 @@ h5.skinConcerns {
 .trashCan {
   margin: 5px;
   cursor: pointer;
+  color: #67392a;
 }

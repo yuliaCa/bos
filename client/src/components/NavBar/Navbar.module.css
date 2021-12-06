@@ -67,6 +67,7 @@ header .flexRow a {
   position: absolute;
   right: 1.5rem;
   top: 1.5rem;
+  color: #67392a;
 }
 
 header .flexRow a:hover {
@@ -85,7 +86,8 @@ header .filter {
 }
 
 .dropdown .icons {
-  padding-top: 4%;
+  display: flex;
+  align-items: center;
 }
 
 .dropdownItem {
