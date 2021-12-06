@@ -20,7 +20,7 @@ function SearchInput(props) {
         };
 
         axios.request(options).then(function (response) {
-            console.log(response.data.products);
+
             setSuggestions(response.data.products)
         }).catch(function (error) {
             console.error(error);
