@@ -53,6 +53,11 @@
     margin-bottom: 2%;
 }
 
+.loginButton:hover {
+    background-color:  #67392A;
+    opacity: 50%;
+}
+
 .backtologin {
     grid-column: 2 / 4;
     grid-row: 4 / 5;
