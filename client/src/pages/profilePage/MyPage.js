@@ -19,14 +19,45 @@ function MyPage(props) {
     name: ""};
 
   const [stateImage, setStateImage] = useState(initialStateProfilePhoto);
+  const [skinTypeAndConcern, setSkinTypeAndConcern] = useState([]);
   const [retrievedData, setRetrievedData] = useState([]);
   
+  function convertStringToUpper(stringVar){
+    stringVar = stringVar.replace("_", " ");
+    const words = stringVar.split(" ");
+
+    console.log(words);
+
+    for (let i = 0; i < words.length; i++) {
+      words[i] = words[i][0].toUpperCase() + words[i].substr(1);
+    }
+    return words.toString().replace(",", " ");
+  };
+
   useEffect(function fetchUserProfile(){
     console.log(localStorage);
     axios.get(`https://bos-project2.herokuapp.com/register/${localStorage.email}`)
     .then(result => {
+
+      let skinConcernArray = [];
+
+        for (const [key, value] of Object.entries(result.data.skintype)) {
+   
+          if (value && key!=="_id"){
+            skinConcernArray.push(convertStringToUpper(key));
+          }
+        }
+
+        for (const [key, value] of Object.entries(result.data.concerns)) {
+          if (value && key!=="_id"){
+            skinConcernArray.push(convertStringToUpper(key));
+          }
+        }
+
+        console.log(skinConcernArray);
+        setSkinTypeAndConcern(skinConcernArray);
+
       if(result.data.image.length > 0){
-        console.log(typeof result.data.image);
           setStateImage(result.data.image[0]);
       }else{
         setStateImage({ 
@@ -94,7 +125,7 @@ function MyPage(props) {
             </li>
           </ul>
           <ul className={styles.skinTypes}>
-            {skinTypes.map((element, key) => (
+            {skinTypeAndConcern.map((element, key) => (
               <li key={key}>{element}</li>
             ))}
           </ul>
