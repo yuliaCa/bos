@@ -56,6 +56,12 @@
     color: white;
 }
 
+.featureSection .register:active {  
+    transition: 0.2s all ease;
+    transform: scale(1.015);
+}
+
+
 @media only screen and (min-width: 600px) {
 
   .featureSection {

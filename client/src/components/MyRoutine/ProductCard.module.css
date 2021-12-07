@@ -85,8 +85,18 @@ h5.skinConcerns {
   align-self: end;
 }
 
+.usedButton:active {
+  transition: 0.2s all ease;
+  transform: scale(1.015);    
+}
+
 .trashCan {
   margin: 5px;
   cursor: pointer;
   color: #67392a;
+}
+
+.trashCan:active {
+  transition: 0.5s all ease;
+  transform: scale(1.1);    
 }
