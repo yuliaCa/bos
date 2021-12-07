@@ -27,7 +27,8 @@ import TosPage from "./pages/TosPage";
 import Footer from "./components/Footer/Footer";
 
 import { ProfileImageContext } from "./contexts/ProfileImageContext.js";
-import * as firebase from "./authentication.js";
+// import * as firebase from "./authentication.js";
+import { MdExposureZero } from "react-icons/md";
 
 function App() {
   const [isHome, setIsHome] = useState();
@@ -50,29 +51,29 @@ const [input, setInput] = useState({
     name: ""};
 
   const [stateImage, setStateImage] = useState(initialStateProfilePhoto);
-  const [retrievedData, setRetrievedData] = useState([]);
+  // const [retrievedData, setRetrievedData] = useState([]);
 
-  const user = firebase.auth.currentUser;
+  // const user = firebase.auth.currentUser;
 
   useEffect(function fetchUserProfile(){
     console.log(localStorage);
 
-    if (user.email !== null) {
-    axios.get(`https://bos-project2.herokuapp.com/register/${user.email}`)
+    if(sessionStorage.email !== "") {
+    axios.get(`https://bos-project2.herokuapp.com/register/${sessionStorage.email}`)
     .then(result => {
  
       console.log(result.data);
       setInput(result.data);
       console.log(result.data.image.length);
    
-      if(result.data.image.length > 0){
+      if(result.data.image.length > 0) {
        
         for(let i=0; i< result.data.image.length; i++){
           console.log(result.data.image[i]);
           setStateImage(result.data.image[i]);
         }
       
-      }else{
+      } else {
         setStateImage({ 
           type: "",
           base64URL: "",
@@ -82,7 +83,7 @@ const [input, setInput] = useState({
       console.log(stateImage);
     })
     .catch(error=>console.log(error));
-  }},[retrievedData]);
+  }},[sessionStorage.email]);
 
   const getBase64 = (file) => {
     return new Promise(resolve => {
