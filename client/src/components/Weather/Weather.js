@@ -9,9 +9,7 @@ import { GoPrimitiveDot } from "react-icons/go";
 import axios from "axios";
 
 const Weather = (props) => {
-  // const city = "Vancouver"; // Get city from questionnaire
-  // const cityId = SearchCityId(city);
-  const cityId = "xvd6Yxj282PiZtGXN";
+  
   const iconURL =
     "https://s3-us-west-2.amazonaws.com/bos-skincare/weatherIcons/";
   const [time, setTime] = useState();
@@ -28,7 +26,7 @@ const Weather = (props) => {
   useEffect(() => {
     const requestOptions = {
       method: "GET",
-      url: `https://airvisual1.p.rapidapi.com/cities/get-information?id=${cityId}&lang=en_US&aqiIndex=us`,
+      url: `https://airvisual1.p.rapidapi.com/cities/get-information?id=${props.cityId}&lang=en_US&aqiIndex=us`,
       headers: {
         "x-rapidapi-host": "airvisual1.p.rapidapi.com",
         "x-rapidapi-key": "2b5c9fd8d8msh0132ae34892c4f1p161c42jsnb732f5ff681a",
@@ -36,6 +34,7 @@ const Weather = (props) => {
       redirect: "follow",
     };
 
+    if (props.cityId) {
     axios
       .request(requestOptions)
       .then(function (response) {
@@ -54,8 +53,9 @@ const Weather = (props) => {
         setIsLoading(false);
       })
       .catch((error) => console.log(error));
-      
-  }, []);
+    }
+
+  }, [props.cityId]);
 
   const spinnerFx = (
     <>

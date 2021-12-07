@@ -20,8 +20,11 @@
     grid-column: 1 / 5;
     grid-row: 2 / 8;
     width: 250px;
+    height: 315px;
     justify-self: center;
     align-self: center;
+    position: center;
+    object-fit: cover;
     border: 3px dotted #96807A;
     border-radius: 10px;
 }

@@ -92,7 +92,7 @@ img.trashCan {
   color: #67392a;
 }
 
-.trashCan:active {
+/* .trashCan:active {
   transition: 0.5s all ease;
   transform: scale(1.1);    
-}
+} */
