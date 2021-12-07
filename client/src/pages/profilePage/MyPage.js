@@ -3,8 +3,10 @@ import { MdOutlineLocationOn } from "react-icons/md";
 import Weather from "../../components/Weather/Weather.js";
 import WeatherChart from "../../components/Charts/WeatherChart.js";
 import UsageChart from "../../components/Charts/UsageChart.js";
-import { useState,useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import axios from 'axios';
+
+import { ProfileImageContext } from "../../contexts/ProfileImageContext";
 
 function MyPage(props) {
   const [isProfile, setIsProfile] = useState(true);
@@ -12,15 +14,14 @@ function MyPage(props) {
   let skinTypes = ["Normal", "Acne", "Redness", "Pores"];
   let city = "Vancouver";
 
+  // const initialStateProfilePhoto = { 
+  //   type: "",
+  //   base64URL: "",
+  //   name: ""};
 
-  const initialStateProfilePhoto = { 
-    type: "",
-    base64URL: "",
-    name: ""};
-
-  const [stateImage, setStateImage] = useState(initialStateProfilePhoto);
+  // const [stateImage, setStateImage] = useState(initialStateProfilePhoto);
   const [skinTypeAndConcern, setSkinTypeAndConcern] = useState([]);
-  const [retrievedData, setRetrievedData] = useState([]);
+  // const [retrievedData, setRetrievedData] = useState([]);
   
   function convertStringToUpper(stringVar){
     stringVar = stringVar.replace("_", " ");
@@ -34,42 +35,44 @@ function MyPage(props) {
     return words.toString().replace(",", " ");
   };
 
-  useEffect(function fetchUserProfile(){
-    console.log(localStorage);
-    axios.get(`https://bos-project2.herokuapp.com/register/${localStorage.email}`)
-    .then(result => {
+  // useEffect(function fetchUserProfile(){
+  //   console.log(localStorage);
+  //   axios.get(`https://bos-project2.herokuapp.com/register/${localStorage.email}`)
+  //   .then(result => {
 
-      let skinConcernArray = [];
+  //     let skinConcernArray = [];
 
-        for (const [key, value] of Object.entries(result.data.skintype)) {
+  //       for (const [key, value] of Object.entries(result.data.skintype)) {
    
-          if (value && key!=="_id"){
-            skinConcernArray.push(convertStringToUpper(key));
-          }
-        }
+  //         if (value && key!=="_id"){
+  //           skinConcernArray.push(convertStringToUpper(key));
+  //         }
+  //       }
 
-        for (const [key, value] of Object.entries(result.data.concerns)) {
-          if (value && key!=="_id"){
-            skinConcernArray.push(convertStringToUpper(key));
-          }
-        }
+  //       for (const [key, value] of Object.entries(result.data.concerns)) {
+  //         if (value && key!=="_id"){
+  //           skinConcernArray.push(convertStringToUpper(key));
+  //         }
+  //       }
 
-        console.log(skinConcernArray);
-        setSkinTypeAndConcern(skinConcernArray);
+  //       console.log(skinConcernArray);
+  //       setSkinTypeAndConcern(skinConcernArray);
 
-      if(result.data.image.length > 0){
-          setStateImage(result.data.image[0]);
-      }else{
-        setStateImage({ 
-          type: "",
-          base64URL: "",
-          name: ""})
-      }
-    })
-    .catch(error=>console.log(error));
+  //     if(result.data.image.length > 0){
+  //         setStateImage(result.data.image[0]);
+  //     }else{
+  //       setStateImage({ 
+  //         type: "",
+  //         base64URL: "",
+  //         name: ""})
+  //     }
+  //   })
+  //   .catch(error=>console.log(error));
     
-  },[retrievedData]);
+  // },[retrievedData]);
 
+
+  const image = useContext(ProfileImageContext);
 
   const [currentDay, setCurrentDay] = useState();
   const cityId = "xvd6Yxj282PiZtGXN";
@@ -105,9 +108,9 @@ function MyPage(props) {
 
 
         <div className={styles.profileImage}>
-        {stateImage.base64URL ?
+        {image.base64URL ?
         <img 
-         src={stateImage.base64URL} alt="profilephoto"
+         src={image.base64URL} alt="profilephoto"
          className={styles.profileImage}  />
         :
         <img 
