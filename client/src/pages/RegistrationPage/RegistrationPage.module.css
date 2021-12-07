@@ -4,9 +4,9 @@
         grid-template-rows:1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
         height: 1000px;
         width: 380px;
-        margin: 15px auto;
-        padding: 20px 26px;
-        padding-left: 45px;
+        margin: 0 auto;
+        padding: 20px 42px;
+        padding-left: 60px;
         background-color: #FCF9F6;
     }
 
@@ -265,10 +265,10 @@
         color: white;
     }
 
-    .buttonRegister:active {
+    /* .buttonRegister:active {
         transition: 0.2s all ease;
         transform: scale(1.015);    
-    }
+    } */
 
 @media only screen and (min-width: 900px) {
 
