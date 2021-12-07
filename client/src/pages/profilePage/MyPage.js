@@ -3,26 +3,62 @@ import { MdOutlineLocationOn } from "react-icons/md";
 import Weather from "../../components/Weather/Weather.js";
 import WeatherChart from "../../components/Charts/WeatherChart.js";
 import UsageChart from "../../components/Charts/UsageChart.js";
-import { useState,useEffect } from "react";
-import axios from 'axios';
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 function MyPage(props) {
   const [isProfile, setIsProfile] = useState(true);
 
-  let skinTypes = ["Normal", "Acne", "Redness", "Pores"];
-  let city = "Vancouver";
+  const [city, setCity] = useState();
+  // get city location
+  useEffect(function fetchCityLocation() {
+    axios
+      .get(`https://bos-project2.herokuapp.com/profile/${localStorage.email}`)
+      .then((result) => {
+        console.log(result.data);
+        setCity(result.data.cityLocation);
+      })
+      .catch((error) => console.log(error));
+  }, []);
 
+  const [cityId, setCityId] = useState();
+  // get city id
+  useEffect(() => {
+    const requestOptions = {
+      method: "GET",
+      url: "https://airvisual1.p.rapidapi.com/auto-complete",
+      params: {
+        query: city,
+      },
+      headers: {
+        "x-rapidapi-host": "airvisual1.p.rapidapi.com",
+        "x-rapidapi-key": "2b5c9fd8d8msh0132ae34892c4f1p161c42jsnb732f5ff681a",
+      },
+    };
+    if (city) {
+      axios
+        .request(requestOptions)
+        .then(function (response) {
+          console.log(response.data.data.cities[0].id);
+          setCityId(response.data.data.cities[0].id);
+        })
+        .catch(function (error) {
+          console.error(error);
+        });
+    }
+  }, [city]);
 
-  const initialStateProfilePhoto = { 
+  const initialStateProfilePhoto = {
     type: "",
     base64URL: "",
-    name: ""};
+    name: "",
+  };
 
   const [stateImage, setStateImage] = useState(initialStateProfilePhoto);
   const [skinTypeAndConcern, setSkinTypeAndConcern] = useState([]);
   const [retrievedData, setRetrievedData] = useState([]);
-  
-  function convertStringToUpper(stringVar){
+
+  function convertStringToUpper(stringVar) {
     stringVar = stringVar.replace("_", " ");
     const words = stringVar.split(" ");
 
@@ -32,47 +68,49 @@ function MyPage(props) {
       words[i] = words[i][0].toUpperCase() + words[i].substr(1);
     }
     return words.toString().replace(",", " ");
-  };
+  }
 
-  useEffect(function fetchUserProfile(){
-    console.log(localStorage);
-    axios.get(`https://bos-project2.herokuapp.com/register/${localStorage.email}`)
-    .then(result => {
+  useEffect(
+    function fetchUserProfile() {
+      console.log(localStorage);
+      axios
+        .get(
+          `https://bos-project2.herokuapp.com/register/${localStorage.email}`
+        )
+        .then((result) => {
+          let skinConcernArray = [];
 
-      let skinConcernArray = [];
-
-        for (const [key, value] of Object.entries(result.data.skintype)) {
-   
-          if (value && key!=="_id"){
-            skinConcernArray.push(convertStringToUpper(key));
+          for (const [key, value] of Object.entries(result.data.skintype)) {
+            if (value && key !== "_id") {
+              skinConcernArray.push(convertStringToUpper(key));
+            }
           }
-        }
 
-        for (const [key, value] of Object.entries(result.data.concerns)) {
-          if (value && key!=="_id"){
-            skinConcernArray.push(convertStringToUpper(key));
+          for (const [key, value] of Object.entries(result.data.concerns)) {
+            if (value && key !== "_id") {
+              skinConcernArray.push(convertStringToUpper(key));
+            }
           }
-        }
 
-        console.log(skinConcernArray);
-        setSkinTypeAndConcern(skinConcernArray);
+          console.log(skinConcernArray);
+          setSkinTypeAndConcern(skinConcernArray);
 
-      if(result.data.image.length > 0){
-          setStateImage(result.data.image[0]);
-      }else{
-        setStateImage({ 
-          type: "",
-          base64URL: "",
-          name: ""})
-      }
-    })
-    .catch(error=>console.log(error));
-    
-  },[retrievedData]);
-
+          if (result.data.image.length > 0) {
+            setStateImage(result.data.image[0]);
+          } else {
+            setStateImage({
+              type: "",
+              base64URL: "",
+              name: "",
+            });
+          }
+        })
+        .catch((error) => console.log(error));
+    },
+    [retrievedData]
+  );
 
   const [currentDay, setCurrentDay] = useState();
-  const cityId = "xvd6Yxj282PiZtGXN";
 
   useEffect(() => {
     const requestOptions = {
@@ -84,38 +122,37 @@ function MyPage(props) {
       },
       redirect: "follow",
     };
-
-    axios
-      .request(requestOptions)
-      .then(function (response) {
-        const body = response.data;
-        let date = new Date(body.data.current_weather.ts);
-        let trimDate = date.toString().substring(0, 3);
-        setCurrentDay(trimDate);
-      })
-      .catch((error) => console.log(error));
-      
-  }, []);
+    if (cityId) {
+      axios
+        .request(requestOptions)
+        .then(function (response) {
+          const body = response.data;
+          let date = new Date(body.data.current_weather.ts);
+          let trimDate = date.toString().substring(0, 3);
+          setCurrentDay(trimDate);
+        })
+        .catch((error) => console.log(error));
+    }
+  }, [cityId]);
 
   return (
     <div className={styles.myPageSection}>
       <div className={styles.userSection}>
-
-      
-
-
         <div className={styles.profileImage}>
-        {stateImage.base64URL ?
-        <img 
-         src={stateImage.base64URL} alt="profilephoto"
-         className={styles.profileImage}  />
-        :
-        <img 
-        src="https://s3-us-west-2.amazonaws.com/bos-skincare/icons/profile.svg" alt="profilephoto"
-        className={styles.profileImage}  />
-        }
-
-          </div>
+          {stateImage.base64URL ? (
+            <img
+              src={stateImage.base64URL}
+              alt="profilephoto"
+              className={styles.profileImage}
+            />
+          ) : (
+            <img
+              src="https://s3-us-west-2.amazonaws.com/bos-skincare/icons/profile.svg"
+              alt="profilephoto"
+              className={styles.profileImage}
+            />
+          )}
+        </div>
         <div className={styles.profileData}>
           <ul>
             <li className={styles.profileName}>{`${props.displayName}`}</li>
@@ -131,7 +168,7 @@ function MyPage(props) {
           </ul>
         </div>
       </div>
-      <Weather />
+      <Weather cityId={cityId} />
       <div className={styles.headerWrap}>
         <h2>Weather</h2>
       </div>
