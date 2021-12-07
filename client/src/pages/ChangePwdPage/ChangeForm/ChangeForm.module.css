@@ -58,10 +58,10 @@
     opacity: 50%;
 }
 
-.loginButton:active {
+/* .loginButton:active {
     transition: 0.2s all ease;
     transform: scale(1.015);    
-}
+} */
 
 .backtologin {
     grid-column: 2 / 4;
