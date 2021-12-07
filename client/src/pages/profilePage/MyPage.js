@@ -5,7 +5,6 @@ import WeatherChart from "../../components/Charts/WeatherChart.js";
 import UsageChart from "../../components/Charts/UsageChart.js";
 import { useState, useEffect, useContext } from "react";
 import axios from 'axios';
-
 import { ProfileImageContext } from "../../contexts/ProfileImageContext";
 
 function MyPage(props) {
@@ -23,18 +22,6 @@ function MyPage(props) {
       .catch((error) => console.log(error));
   }, []);
 
-<<<<<<< HEAD
-  // const initialStateProfilePhoto = { 
-  //   type: "",
-  //   base64URL: "",
-  //   name: ""};
-
-  // const [stateImage, setStateImage] = useState(initialStateProfilePhoto);
-  const [skinTypeAndConcern, setSkinTypeAndConcern] = useState([]);
-  // const [retrievedData, setRetrievedData] = useState([]);
-  
-  function convertStringToUpper(stringVar){
-=======
   const [cityId, setCityId] = useState();
   // get city id
   useEffect(() => {
@@ -62,18 +49,18 @@ function MyPage(props) {
     }
   }, [city]);
 
-  const initialStateProfilePhoto = {
-    type: "",
-    base64URL: "",
-    name: "",
-  };
+  // const initialStateProfilePhoto = {
+  //   type: "",
+  //   base64URL: "",
+  //   name: "",
+  // };
 
-  const [stateImage, setStateImage] = useState(initialStateProfilePhoto);
+  // const [stateImage, setStateImage] = useState(initialStateProfilePhoto);
+  
   const [skinTypeAndConcern, setSkinTypeAndConcern] = useState([]);
   const [retrievedData, setRetrievedData] = useState([]);
 
   function convertStringToUpper(stringVar) {
->>>>>>> dev
     stringVar = stringVar.replace("_", " ");
     const words = stringVar.split(" ");
 
@@ -85,43 +72,6 @@ function MyPage(props) {
     return words.toString().replace(",", " ");
   }
 
-<<<<<<< HEAD
-  // useEffect(function fetchUserProfile(){
-  //   console.log(localStorage);
-  //   axios.get(`https://bos-project2.herokuapp.com/register/${localStorage.email}`)
-  //   .then(result => {
-
-  //     let skinConcernArray = [];
-
-  //       for (const [key, value] of Object.entries(result.data.skintype)) {
-   
-  //         if (value && key!=="_id"){
-  //           skinConcernArray.push(convertStringToUpper(key));
-  //         }
-  //       }
-
-  //       for (const [key, value] of Object.entries(result.data.concerns)) {
-  //         if (value && key!=="_id"){
-  //           skinConcernArray.push(convertStringToUpper(key));
-  //         }
-  //       }
-
-  //       console.log(skinConcernArray);
-  //       setSkinTypeAndConcern(skinConcernArray);
-
-  //     if(result.data.image.length > 0){
-  //         setStateImage(result.data.image[0]);
-  //     }else{
-  //       setStateImage({ 
-  //         type: "",
-  //         base64URL: "",
-  //         name: ""})
-  //     }
-  //   })
-  //   .catch(error=>console.log(error));
-    
-  // },[retrievedData]);
-=======
   useEffect(
     function fetchUserProfile() {
       console.log(localStorage);
@@ -146,17 +96,16 @@ function MyPage(props) {
 
           console.log(skinConcernArray);
           setSkinTypeAndConcern(skinConcernArray);
->>>>>>> dev
 
-          if (result.data.image.length > 0) {
-            setStateImage(result.data.image[0]);
-          } else {
-            setStateImage({
-              type: "",
-              base64URL: "",
-              name: "",
-            });
-          }
+          // if (result.data.image.length > 0) {
+          //   setStateImage(result.data.image[0]);
+          // } else {
+          //   setStateImage({
+          //     type: "",
+          //     base64URL: "",
+          //     name: "",
+          //   });
+          // }
         })
         .catch((error) => console.log(error));
     },
@@ -194,7 +143,6 @@ function MyPage(props) {
     <div className={styles.myPageSection}>
       <div className={styles.userSection}>
         <div className={styles.profileImage}>
-<<<<<<< HEAD
         {image.base64URL ?
         <img 
          src={image.base64URL} alt="profilephoto"
@@ -206,22 +154,6 @@ function MyPage(props) {
         }
 
           </div>
-=======
-          {stateImage.base64URL ? (
-            <img
-              src={stateImage.base64URL}
-              alt="profilephoto"
-              className={styles.profileImage}
-            />
-          ) : (
-            <img
-              src="https://s3-us-west-2.amazonaws.com/bos-skincare/icons/profile.svg"
-              alt="profilephoto"
-              className={styles.profileImage}
-            />
-          )}
-        </div>
->>>>>>> dev
         <div className={styles.profileData}>
           <ul>
             <li className={styles.profileName}>{`${props.displayName}`}</li>

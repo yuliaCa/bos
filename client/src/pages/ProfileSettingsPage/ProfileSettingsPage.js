@@ -1,11 +1,10 @@
 import { useLocation, useHistory } from "react-router-dom";
-//import functions from Firebase authentication SDK
-import * as firebase from "../../authentication.js";
 import React, { useState, useEffect, useContext } from "react";
+import { ProfileImageContext } from "../../contexts/ProfileImageContext";
 import styles from './ProfileSettingsPage.module.css';
 import ButtonSelect from "./ButtonSelectSettings/ButtonSelectSettings";
-import { ProfileImageContext } from "../../contexts/ProfileImageContext";
 
+import * as firebase from "../../authentication.js";
 import axios from 'axios';
 
 

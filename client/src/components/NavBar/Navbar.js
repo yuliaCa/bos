@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { ProfileImageContext } from "../../contexts/ProfileImageContext";
 import { Link } from "react-router-dom";
 // Link is built-in with react-router-dom, that helps us stay on the same page, without reloading it, and not sent a request to the server every time we click a regular <a> tag.
@@ -9,7 +9,6 @@ import styles from "./Navbar.module.css";
 import { RiArrowDownSLine } from "react-icons/ri";
 import { FiMenu } from "react-icons/fi";
 import Fade from "react-reveal/Fade";
-import axios from 'axios';
 import * as firebase from "../../authentication.js";
 
 function Navbar(props) {
@@ -51,10 +50,6 @@ function Navbar(props) {
     backgroundColor: "rgba(173, 150, 125, 0.7)",
     // marginBottom: "-5rem",
   };
-
-  // const transparentBgChange = {
-  //   backgroundColor: "rgba(173, 150, 125, 0.9)"
-  // }
 
   const transparentBg2 = {
     backgroundColor: "rgba(190, 173, 157,0.9)",
@@ -177,8 +172,6 @@ function Navbar(props) {
                         className={styles.icons}
                       >
                         {/* <FaCircle className={styles.faCircle} /> */}
-
-
 
                         {image.base64URL ?
          <img 
