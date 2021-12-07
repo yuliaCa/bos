@@ -14,7 +14,7 @@ function MyPage(props) {
   // get city location
   useEffect(function fetchCityLocation() {
     axios
-      .get(`https://bos-project2.herokuapp.com/profile/${localStorage.email}`)
+      .get(`https://bos-project2.herokuapp.com/profile/${sessionStorage.email}`)
       .then((result) => {
         console.log(result.data);
         setCity(result.data.cityLocation);
@@ -56,7 +56,7 @@ function MyPage(props) {
   // };
 
   // const [stateImage, setStateImage] = useState(initialStateProfilePhoto);
-  
+
   const [skinTypeAndConcern, setSkinTypeAndConcern] = useState([]);
   const [retrievedData, setRetrievedData] = useState([]);
 
@@ -77,7 +77,7 @@ function MyPage(props) {
       console.log(localStorage);
       axios
         .get(
-          `https://bos-project2.herokuapp.com/register/${localStorage.email}`
+          `https://bos-project2.herokuapp.com/register/${sessionStorage.email}`
         )
         .then((result) => {
           let skinConcernArray = [];
