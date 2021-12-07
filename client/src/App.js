@@ -107,6 +107,7 @@ const [input, setInput] = useState({
   const handleFileInputChange = (e) => {
     console.log(e.target.files[0]);
     console.log(input.image);
+    if(input.image !== "") {
     let { file } = input.image;
 
     file = e.target.files[0];
@@ -128,7 +129,7 @@ const [input, setInput] = useState({
       .catch(err => {
         console.log(err);
       });
-  };
+  }};
 
   return (
     <div className="App">
