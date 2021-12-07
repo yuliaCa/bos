@@ -122,17 +122,18 @@ function MyPage(props) {
       },
       redirect: "follow",
     };
-
-    axios
-      .request(requestOptions)
-      .then(function (response) {
-        const body = response.data;
-        let date = new Date(body.data.current_weather.ts);
-        let trimDate = date.toString().substring(0, 3);
-        setCurrentDay(trimDate);
-      })
-      .catch((error) => console.log(error));
-  }, []);
+    if (cityId) {
+      axios
+        .request(requestOptions)
+        .then(function (response) {
+          const body = response.data;
+          let date = new Date(body.data.current_weather.ts);
+          let trimDate = date.toString().substring(0, 3);
+          setCurrentDay(trimDate);
+        })
+        .catch((error) => console.log(error));
+    }
+  }, [cityId]);
 
   return (
     <div className={styles.myPageSection}>
