@@ -93,6 +93,14 @@ form.userInput {
   text-transform: uppercase;
   cursor: pointer;
 }
+
+.myRoutines form.userInput button:active {
+  transition: 0.2s all ease;
+  transform: scale(1.015);    
+}
+
+
+
 @media (min-width: 630px) {
   .myRoutines form.userInput button {
     flex-grow: 0;
@@ -145,6 +153,12 @@ form.userInput {
   cursor: pointer;
   width: 100%;
 }
+
+.saveButton:active {
+  transition: 0.2s all ease;
+  transform: scale(1.015);    
+}
+
 @media (min-width: 630px) {
   .saveButton {
     width: 15%;

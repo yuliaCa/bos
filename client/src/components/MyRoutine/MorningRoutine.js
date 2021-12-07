@@ -4,6 +4,7 @@ import { useState, useRef } from 'react';
 import Select from 'react-select';
 import ProductCard from '../../components/MyRoutine/ProductCard';
 import SearchInput from '../../components/MyRoutine/ProductAutocomplete/SearchInput';
+import Fade from "react-reveal/Fade";
 
 const customStyles = {
 
@@ -129,6 +130,7 @@ const MorningRoutine = (props) => {
 
             <div className={styles.productsGrid}>
                 {props.loadedProducts.map((eachProduct) => (
+                    <Fade right>
                     <ProductCard
                         key={eachProduct._id}
                         id={eachProduct._id}
@@ -147,6 +149,7 @@ const MorningRoutine = (props) => {
                         deleteProductHandler={props.deleteProductHandler}
                         arrayProductsForMorningLog={arrayProductsForMorningLog}
                     />
+                    </Fade>
                 ))}
             </div>
             <button className={styles.saveButton} onClick={event => saveDailyLog(event, props.email, arrayProductsForMorningLog)}>Save</button>
