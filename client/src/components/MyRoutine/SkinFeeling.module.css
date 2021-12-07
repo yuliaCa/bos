@@ -74,10 +74,10 @@ h2.skinFeelingH2 {
   cursor: pointer;
 }
 
-.skinFeelingButton:active {
+/* .skinFeelingButton:active {
   transition: 0.2s all ease;
   transform: scale(1.015);    
-}
+} */
 
 
 .currentFeeling {

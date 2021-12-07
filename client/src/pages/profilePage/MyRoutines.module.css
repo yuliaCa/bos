@@ -94,10 +94,10 @@ form.userInput {
   cursor: pointer;
 }
 
-.myRoutines form.userInput button:active {
+/* .myRoutines form.userInput button:active {
   transition: 0.2s all ease;
   transform: scale(1.015);    
-}
+} */
 
 
 
@@ -154,10 +154,10 @@ form.userInput {
   width: 100%;
 }
 
-.saveButton:active {
+/* .saveButton:active {
   transition: 0.2s all ease;
   transform: scale(1.015);    
-}
+} */
 
 @media (min-width: 630px) {
   .saveButton {
