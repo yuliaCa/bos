@@ -54,7 +54,7 @@ h2.skinFeelingH2 {
 }
 
 .skinFeelingButtonWrap {
-  margin: 0 7%;
+  margin: 0 4%;
   display: flex;
   justify-content: flex-end;
 }
@@ -74,7 +74,12 @@ h2.skinFeelingH2 {
   cursor: pointer;
 }
 
+/* .skinFeelingButton:active {
+  transition: 0.2s all ease;
+  transform: scale(1.015);    
+} */
+
+
 .currentFeeling {
   height: 1rem;
 }
-

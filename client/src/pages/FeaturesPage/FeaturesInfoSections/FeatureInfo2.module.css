@@ -45,14 +45,14 @@
 }
 
 .featureOuter button:hover {
-  background-color: #96807a;
+  background-color: #67392a;
   opacity: 50%;
 }
 
-.featureOuter button:active {
-  background-color: #f8f5f0;
-  border: 2px solid #96807a;
-}
+/* .featureOuter button:active {  
+  transition: 0.2s all ease;
+  transform: scale(1.015);
+} */
 
 .featureOuter .imageContainer {
   display: flex;

@@ -59,10 +59,10 @@
   opacity: 50%;
 }
 
-.sectionRight button:active {
-  background-color: #f8f5f0;
-  border: 2px solid #96807a;
-}
+/* .sectionRight button:active {  
+  transition: 0.2s all ease;
+  transform: scale(1.015);
+} */
 
 @media only screen and (min-width: 750px) {
 

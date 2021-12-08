@@ -1,4 +1,5 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useContext } from "react";
+import { ProfileImageContext } from "../../contexts/ProfileImageContext";
 import { Link } from "react-router-dom";
 // Link is built-in with react-router-dom, that helps us stay on the same page, without reloading it, and not sent a request to the server every time we click a regular <a> tag.
 import styles from "./Navbar.module.css";
@@ -8,8 +9,7 @@ import styles from "./Navbar.module.css";
 import { RiArrowDownSLine } from "react-icons/ri";
 import { FiMenu } from "react-icons/fi";
 import Fade from "react-reveal/Fade";
-import axios from 'axios';
-import * as firebase from "../../authentication";
+import * as firebase from "../../authentication.js";
 
 function Navbar(props) {
   // first div is for logo
@@ -51,10 +51,6 @@ function Navbar(props) {
     // marginBottom: "-5rem",
   };
 
-  // const transparentBgChange = {
-  //   backgroundColor: "rgba(173, 150, 125, 0.9)"
-  // }
-
   const transparentBg2 = {
     backgroundColor: "rgba(190, 173, 157,0.9)",
   };
@@ -71,30 +67,32 @@ function Navbar(props) {
     }
   };
 
-  const initialStateProfilePhoto = { 
-    type: "",
-    base64URL: "",
-    name: ""};
+  const image = useContext(ProfileImageContext);
 
-  const [stateImage, setStateImage] = useState(initialStateProfilePhoto);
-  const [retrievedData, setRetrievedData] = useState([]);
+  // const initialStateProfilePhoto = { 
+  //   type: "",
+  //   base64URL: "",
+  //   name: ""};
+
+  // const [stateImage, setStateImage] = useState(initialStateProfilePhoto);
+  // const [retrievedData, setRetrievedData] = useState([]);
   
-  useEffect(function fetchUserProfile(){
-    console.log(localStorage);
-    axios.get(`https://bos-project2.herokuapp.com/register/${localStorage.email}`)
-    .then(result => {
-      if(result.data.image.length > 0){
-        console.log(typeof result.data.image);
-          setStateImage(result.data.image[0]);
-      }else{
-        setStateImage({ 
-          type: "",
-          base64URL: "",
-          name: ""})
-      }
-    })
-    .catch(error=>console.log(error));
-  },[retrievedData]);
+  // useEffect(function fetchUserProfile(){
+  //   console.log(localStorage);
+  //   axios.get(`https://bos-project2.herokuapp.com/register/${localStorage.email}`)
+  //   .then(result => {
+  //     if(result.data.image.length > 0){
+  //       console.log(typeof result.data.image);
+  //         setStateImage(result.data.image[0]);
+  //     }else{
+  //       setStateImage({ 
+  //         type: "",
+  //         base64URL: "",
+  //         name: ""})
+  //     }
+  //   })
+  //   .catch(error=>console.log(error));
+  // },[retrievedData]);
 
   const addOpacity = {
     backgroundColor: "rgba(173, 150, 125, 1)",
@@ -175,11 +173,9 @@ function Navbar(props) {
                       >
                         {/* <FaCircle className={styles.faCircle} /> */}
 
-
-
-                        {stateImage.base64URL ?
+                        {image.base64URL ?
          <img 
-         src={stateImage.base64URL} alt="profilephoto"
+         src={image.base64URL} alt="profilephoto"
          className={styles.navProfileImage}  />
         :
         <img 

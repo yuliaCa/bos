@@ -40,22 +40,10 @@
   margin-top: 5%;
   border: none;
   border-radius: 8px;
-  /* padding: 0.75rem 2.5rem; */
   height: 48px;
   min-width: 275px;
   max-width: 325px;
   font-size: 15px;
-}
-
-.featureSection .register:hover {
-    background-color:#B68B7D;
-    color: white;
-}
-
-
-.featureSection .register:active {
-  background-color: #f8f5f0;
-  border: 2px solid #96807a;
 }
 
 .featureSection .register a {
@@ -63,9 +51,15 @@
   color: white;
 }
 
-.featureSection .register a:active {
-  color: #96807a;
+.featureSection .register:hover {
+    background-color:#B68B7D;
+    color: white;
 }
+/* 
+.featureSection .register:active {  
+    transition: 0.2s all ease;
+    transform: scale(1.015);
+} */
 
 @media only screen and (min-width: 600px) {
 

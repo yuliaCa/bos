@@ -4,9 +4,9 @@
         grid-template-rows:1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
         height: 1000px;
         width: 380px;
-        margin: 15px auto;
-        padding: 20px 26px;
-        padding-left: 45px;
+        margin: 0 auto;
+        padding: 20px 42px;
+        padding-left: 60px;
         background-color: #FCF9F6;
     }
 
@@ -265,13 +265,18 @@
         color: white;
     }
 
+    /* .buttonRegister:active {
+        transition: 0.2s all ease;
+        transform: scale(1.015);    
+    } */
+
 @media only screen and (min-width: 900px) {
 
     .RegistrationFormSection {
         display: grid;
         grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-        height: 425px;
+        max-height: 475px;
         width: 1000px;
         padding-top: 100px;
         padding-bottom: 250px;
@@ -445,31 +450,31 @@
     }
     
     .dryLabel {
-        margin-top: 0.8vh;
+        margin-top: 8px;
         grid-column: 5 / 6;
         grid-row: 3 / 4;
     }
     
     .normalLabel {
-        margin-top: 0.8vh;
+        margin-top: 8px;
         grid-column: 6 / 7;
         grid-row: 3 / 4;
     }
     
     .oilyLabel {
-        margin-top: 0.8vh;
+        margin-top: 8px;
         grid-column: 7 / 8;
         grid-row: 3 / 4;
     }
     
     .combinationLabel {
-        margin-top: 2.2vh;
+        margin-top: 22px;
         grid-column: 5 / 6;
         grid-row: 4 / 5;
     }
     
     .sensitiveLabel {
-        margin-top: 2.2vh;
+        margin-top: 22px;
         grid-column: 6 / 7;
         grid-row: 4 / 5;
     }
@@ -484,49 +489,49 @@
     } 
     
     .acneLabel {
-        margin-top: 1.8vh;
+        margin-top: 14px;
         grid-column: 5 / 6;
         grid-row: 7 / 8;
     }
     
     .drynessLabel  {
-        margin-top: 1.8vh;
+        margin-top: 14px;
         grid-column: 6 / 7;
         grid-row: 7 / 8;
     }
     
     .oilynessLabel  {
-        margin-top: 1.8vh;
+        margin-top: 14px;
         grid-column: 7 / 8;
         grid-row: 7 / 8;
     }
     
     .blemishesLabel {
-        margin-top: 3.1vh;
+        margin-top: 24px;
         grid-column: 5 / 6;
         grid-row: 8 / 9;
     }
     
     .darkspotsLabel {
-        margin-top: 3.1vh;
+        margin-top: 24px;
         grid-column: 6 / 7;
         grid-row: 8 / 9;
     }
     
     .poresLabel {
-        margin-top: 3.1vh;
+        margin-top: 24px;
         grid-column: 7 / 8;
         grid-row: 8 / 9;
     }
     
     .redlinesLabel {
-        margin-top: 3.1vh;
+        margin-top: 34px;
         grid-column: 5 / 6;
         grid-row: 9 / 10;
     }
     
     .finelinesLabel {
-        margin-top: 3.1vh;
+        margin-top: 34px;
         grid-column: 6 / 7;
         grid-row: 9 / 10;
     }
@@ -535,7 +540,7 @@
         grid-column: 3 / 7;
         grid-row: 13 / 14;
         height: 48px;
-        width: 225px;
+        width: 370px;
         justify-self: center;
         color: white;
         background-color:#67392A;

@@ -62,7 +62,12 @@ function ProductCard(props) {
                 <h5 className={styles.skinConcerns}>Skincare Concerns</h5>
                 <div className={styles.concernsList} dangerouslySetInnerHTML={{ __html: getSkinConcerns(props.description) }} />
                 <div className={styles.detailsAndDelete}>
-                    <FaTrash className={styles.trashCan} onClick={event => props.deleteProductHandler(event, props.name, props.evening)} />
+                    <img
+                    onClick={event => props.deleteProductHandler(event, props.name, props.evening)}
+                    className={styles.trashCan}
+                    src={"https://s3-us-west-2.amazonaws.com/bos-skincare/icons/delete.svg"}
+                    alt="Trash Icon"
+                    />
                     <p onClick={event => props.evening ?
                         props.openDetailsEvening(event, props.id) :
                         props.openDetailsMorning(event, props.id)}>

@@ -56,6 +56,12 @@ function LoginForm() {
         }
     }
 
+    function handleSession() {
+
+        sessionStorage.setItem("email",input.email);
+
+    }
+
     return (
         
     <div className={styles.LoginFormSection}>
@@ -95,7 +101,9 @@ function LoginForm() {
 
                 <button 
                     type="submit" 
+                    onClick={handleSession}
                     className={styles.loginButton}>LOG IN
+                    
                 </button>
 
                 <p className={styles.registerLink}>
