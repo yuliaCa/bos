@@ -27,6 +27,7 @@
   height: 7rem;
   background: rgb(168, 167, 167);
   border-radius: 50%;
+  object-fit: cover;
   grid-row: 1 / 3;
 }
 
