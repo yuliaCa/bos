@@ -3,8 +3,6 @@ import styles from './Features.module.css';
 import Feature from "./Feature/Feature";
 import { Link } from 'react-router-dom';
 import axios from "axios";
-
-//import functions from Firebase authentication SDK
 import * as firebase from '../../../authentication.js';
 
 function FeaturesSection() {

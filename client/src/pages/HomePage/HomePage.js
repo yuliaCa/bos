@@ -24,11 +24,8 @@ function HomePage(props) {
 
   return (
     <div>
-      <HeroSection
-        // src="https://s3-us-west-2.amazonaws.com/bos-skincare/home/hero-image/1920-1080.jpg"
-        // alt="hero image"
-      />
-
+      <HeroSection />
+      
       <FeaturesSection />
 
       <InsightsSection

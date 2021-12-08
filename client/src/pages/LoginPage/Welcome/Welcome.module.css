@@ -3,7 +3,6 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    /* margin: 5%; */
     background-color: #F7EDE1;
     padding: 7.7vh;
 }
@@ -27,5 +26,4 @@
 .welcomeImage {
     height: 15vh;
     width: 15vw;
-    /* margin-bottom: 3%; */
 }

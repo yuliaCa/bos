@@ -301,9 +301,7 @@ function ProfileSettingsPage(props) {
           {" "}
           SAVE{" "}
         </button>
-
     </form>
-
   </>;
 }
 

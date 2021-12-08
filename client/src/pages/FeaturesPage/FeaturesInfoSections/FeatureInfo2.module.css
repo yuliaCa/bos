@@ -49,11 +49,6 @@
   opacity: 50%;
 }
 
-/* .featureOuter button:active {  
-  transition: 0.2s all ease;
-  transform: scale(1.015);
-} */
-
 .featureOuter .imageContainer {
   display: flex;
   justify-content: center;

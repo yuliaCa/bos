@@ -1,7 +1,7 @@
     .RegistrationFormSection {
         display: grid;
         grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr;
-        grid-template-rows:1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows:1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
         height: 1000px;
         width: 380px;
         margin: 0 auto;
@@ -265,10 +265,11 @@
         color: white;
     }
 
-    /* .buttonRegister:active {
-        transition: 0.2s all ease;
-        transform: scale(1.015);    
-    } */
+    .firebaseErrorMsg {
+        margin-left: -20px;
+        grid-column: 4 / 7;
+        grid-row: 23 / 24;
+    }
 
 @media only screen and (min-width: 900px) {
 

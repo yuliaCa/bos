@@ -1,8 +1,6 @@
 import React, {useState} from 'react';
 import styles from './FeatureInfo.module.css';
 import { Link } from 'react-router-dom';
-
-//import functions from Firebase authentication SDK
 import * as firebase from '../../../authentication.js';
 
 function FeatureInfoSection(props) {

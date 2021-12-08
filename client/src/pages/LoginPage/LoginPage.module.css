@@ -1,4 +1,3 @@
-
    .loginOuter {
         display: flex;
         flex-direction: column;
@@ -7,7 +6,6 @@
     .loginHeader {
         order: 1;
     }
-
 
     .loginLeftSection {
         background-color: #F7EDE1;
@@ -28,13 +26,11 @@
         margin: 5% auto;
         margin-bottom: 3%;
         padding-top: 20px;
-
     }
 
     .loginLeftSection {
         grid-column: 1 / 3;
         background-color: #F7EDE1;
-        
     }
 
     .loginRightSection {
