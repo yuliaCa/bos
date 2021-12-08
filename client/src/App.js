@@ -106,8 +106,8 @@ const [input, setInput] = useState({
 
   const handleFileInputChange = (e) => {
     console.log(e.target.files[0]);
-    console.log(input.image);
-    if(input.image !== "") {
+    // console.log(input.image);
+    if(input.image.length >= 1) {
     let { file } = input.image;
 
     file = e.target.files[0];
