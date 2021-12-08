@@ -1,34 +1,23 @@
-// import logo from './logo.svg';
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "./App.css";
 import axios from 'axios';
 
-// Route component checks all paths and returns ALL results that start with matching path. This would result in nested pages. Not always the desired outcome.
-
-// Switch component helps us navigate to the path that matches EXACTLY the path indicated.
-
 import HomePage from "./pages/HomePage/HomePage";
 import FeaturesPage from "./pages/FeaturesPage/FeaturesPage";
-
 import ProfilePage from "./pages/ProfilePage";
 import ProfileSettingsPage from "./pages/ProfileSettingsPage/ProfileSettingsPage";
 import TeamPage from "./pages/TeamPage";
 import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import ChangePwdPage from "./pages/ChangePwdPage/ChangePwdPage";
-
-import Navbar from "./components/NavBar/Navbar";
-
 import PolicyPage from "./pages/PolicyPage";
 import TosPage from "./pages/TosPage";
 
+import Navbar from "./components/NavBar/Navbar";
 import Footer from "./components/Footer/Footer";
 
 import { ProfileImageContext } from "./contexts/ProfileImageContext.js";
-// import * as firebase from "./authentication.js";
-import { MdExposureZero } from "react-icons/md";
 
 function App() {
   const [isHome, setIsHome] = useState();
@@ -51,13 +40,9 @@ const [input, setInput] = useState({
     name: ""};
 
   const [stateImage, setStateImage] = useState(initialStateProfilePhoto);
-  // const [retrievedData, setRetrievedData] = useState([]);
-
-  // const user = firebase.auth.currentUser;
 
   useEffect(function fetchUserProfile(){
-    console.log(localStorage);
-
+  
     if(sessionStorage.email !== "") {
     axios.get(`https://bos-project2.herokuapp.com/register/${sessionStorage.email}`)
     .then(result => {
@@ -106,11 +91,10 @@ const [input, setInput] = useState({
 
   const handleFileInputChange = (e) => {
     console.log(e.target.files[0]);
-    // console.log(input.image);
-    if(input.image.length >= 1) {
-    let { file } = input.image;
+    
+    // let { file } = input.image;
 
-    file = e.target.files[0];
+    let file = e.target.files[0];
 
     getBase64(file)
       .then(result => {
@@ -129,7 +113,7 @@ const [input, setInput] = useState({
       .catch(err => {
         console.log(err);
       });
-  }};
+  };
 
   return (
     <div className="App">

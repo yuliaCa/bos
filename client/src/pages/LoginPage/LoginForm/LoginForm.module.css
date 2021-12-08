@@ -11,6 +11,15 @@
     padding: 10% 0;
 }
 
+.errorMessage {
+    color: red;
+    font-size: 14px;
+    font-style: italic;
+    grid-column: 2 / 6;
+    grid-row: 1 / 2;
+    justify-self: center;
+}
+
 .inputEmail {
     align-self: center;
     justify-self: center;
@@ -86,11 +95,6 @@
     color: white;
 }
 
-/* .loginButton:active {
-    transition: 0.2s all ease;
-    transform: scale(1.015);    
-} */
-
 .registerLink {
     grid-column: 2 / 4;
     font-weight: 100;
@@ -102,29 +106,15 @@
     color: black;
 }
 
-
 @media only screen and (min-width: 600px) {
 
     .LoginFormSection {
-        background-color: #FCF9F6;
         height: 100%;
     }
     
-    .formLayout {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;  
+    .formLayout { 
         grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr; 
-        margin-left: 2%;
         padding: 30% 0;
-    }
-    
-    .errorMessage {
-        color: red;
-        font-size: 14px;
-        font-style: italic;
-        grid-column: 2 / 6;
-        grid-row: 1 / 2;
-        justify-self: center;
     }
     
     .inputEmail {
@@ -139,32 +129,17 @@
     }
     
     .inputPassword {
-        align-self: center;
-        justify-self: center;
-        grid-column: 2 / 6;
         grid-row: 3 / 4;
-        height: 40px;
         width: 345px;
         border-radius: 5px;
-        background-color: #F7EDE1;
     }
     
     .rememberCheckbox {
-        grid-column: 2 / 3;
         grid-row: 4 / 5;
-        width: 12px;
-        justify-self: left;
-        align-self: center;
     }
     
     .checkRemember {
-        grid-column: 3 / 4;
         grid-row: 4 / 5;
-        font-weight: 100;
-        margin: 1% 0;
-        margin-left: -50%;
-        align-self: center;
-        font-size: 16px;
     }
     
     .forgotPassword {
@@ -183,25 +158,6 @@
     }
     
     .loginButton {
-        grid-column: 2 / 6;
-        background-color: #67392A;
-        border: none;
-        border-radius: 5px;
         padding: 0.5rem 2.75rem;
-        font-size: 15px;
-        color: white;
-        margin-top: 4%;
-        margin-bottom: 2%;
-    }
-    
-    .registerLink {
-        grid-column: 2 / 4;
-        font-weight: 100;
-        font-size: 16px;
-    }
-    
-    .registerLink a {
-        text-decoration: none;
-        color: black;
     }
 }
