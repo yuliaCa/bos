@@ -1,12 +1,11 @@
 import { useLocation, useHistory } from "react-router-dom";
-//import functions from Firebase authentication SDK
-import * as firebase from "../../authentication";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { ProfileImageContext } from "../../contexts/ProfileImageContext";
 import styles from './ProfileSettingsPage.module.css';
-import ButtonSelect from "./ButtonSelectSettings/ButtonSelectSettings"
+import ButtonSelect from "./ButtonSelectSettings/ButtonSelectSettings";
 
+import * as firebase from "../../authentication.js";
 import axios from 'axios';
-
 
 
 function ProfileSettingsPage(props) {
@@ -16,15 +15,8 @@ function ProfileSettingsPage(props) {
 
   const [errorMessage, setErrorMessage] = useState();
 
-  const initialStateProfilePhoto = { 
-    type: "",
-    base64URL: "",
-    name: ""};
+  const image = useContext(ProfileImageContext);
 
-  const [stateImage, setStateImage] = useState(initialStateProfilePhoto);
-  const [retrievedData, setRetrievedData] = useState([]);
-
- 
   useEffect(() => {
   
     props.handleIsHome(location);
@@ -50,35 +42,6 @@ function ProfileSettingsPage(props) {
     fine_lines: false,
   });
 
-  useEffect(function fetchUserProfile(){
-    console.log(localStorage);
-    axios.get(`https://bos-project2.herokuapp.com/register/${localStorage.email}`)
-    .then(result => {
- 
-      console.log(result.data);
-      setInput(result.data);
-      console.log(result.data.image.length);
-   
-      if(result.data.image.length > 0){
-       
-        for(let i=0; i< result.data.image.length; i++){
-          console.log(result.data.image[i]);
-          setStateImage(result.data.image[i]);
-        }
-       
-      
-      }else{
-        setStateImage({ 
-          type: "",
-          base64URL: "",
-          name: ""})
-      }
-
-      console.log(stateImage);
-    })
-    .catch(error=>console.log(error));
-  },[retrievedData]);
-
   function handleChange(event) {
     const isCheckbox = event.target.type === "checkbox";
     let { name, value } = event.target;
@@ -100,7 +63,7 @@ function ProfileSettingsPage(props) {
 
             firebase.updateProfile(user, {
                 displayName: input.fullname,
-                photoURL: stateImage.base64URL
+                photoURL: image.base64URL
             }).then(() => {
                 console.log("user details updated: " + user.uid)      
             }).catch((error) => {
@@ -127,7 +90,7 @@ function ProfileSettingsPage(props) {
                 red_lines: input.red_lines,
                 fine_lines: input.fine_lines,
               },
-              image: stateImage
+              image: image
             };
          
             const updateUserProfile = (email, profile) => {
@@ -147,64 +110,6 @@ function ProfileSettingsPage(props) {
         }
   }
 
-  const uploadPhoto = (email, profile) => {
-    axios.patch(`https://bos-project2.herokuapp.com/profile/updateUserProfile/${email}`, profile)
-        .then(results => {
-            console.log(profile);
-            console.log('UPLOAD Successful!')
-        })
-        .catch(error => console.log(error))
-  };
-
-
-  const getBase64 = (file) => {
-    return new Promise(resolve => {
-      let fileInfo;
-      let baseURL = "";
-      // Make new FileReader
-      let reader = new FileReader();
-
-      // Convert the file to base64 text
-      reader.readAsDataURL(file);
-
-      // on reader load somthing...
-      reader.onload = () => {
-        // Make a fileInfo Object
-        //console.log("Called", reader);
-        baseURL = reader.result;
-        //console.log(baseURL);
-        resolve(baseURL);
-      };
-      console.log(fileInfo);
-    });
-  };
-
-  const handleFileInputChange = (e) => {
-    console.log(e.target.files[0]);
-    console.log(input.image);
-    let { file } = input.image;
-
-    file = e.target.files[0];
-
-    getBase64(file)
-      .then(result => {
-        file["base64"] = result;
-        console.log("File Is:");
-        console.log(e.target.files[0].type);
-        console.log("base64 is:");
-        console.log(result);
-        
-        setStateImage({
-          base64URL: result,
-          type: e.target.files[0].type,
-          name: e.target.files[0].name
-        }) ;
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  };
-
   return <>
     <form 
         className={styles.SettingsFormSection}>
@@ -212,9 +117,9 @@ function ProfileSettingsPage(props) {
 
         <h3 className={styles.errorMessage}>{errorMessage !== undefined ? errorMessage : ""}</h3>
 
-        {stateImage.base64URL ?
+        {image.base64URL ?
          <img 
-         src={stateImage.base64URL} alt="profilephoto"
+         src={image.base64URL} alt="profilephoto"
          className={styles.profileImage} />
         :
         <img 
@@ -241,7 +146,7 @@ function ProfileSettingsPage(props) {
         />
     
         <input 
-          onChange={handleFileInputChange}
+          onChange={props.handleFileInputChange}
           className={styles.imageUpload}
           type="file" 
           id="profile" 
