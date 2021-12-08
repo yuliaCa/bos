@@ -92,10 +92,9 @@ const [input, setInput] = useState({
   const handleFileInputChange = (e) => {
     console.log(e.target.files[0]);
     
-    if(input.image.length >= 1) {
-    let { file } = input.image;
+    // let { file } = input.image;
 
-    file = e.target.files[0];
+    let file = e.target.files[0];
 
     getBase64(file)
       .then(result => {
@@ -114,7 +113,7 @@ const [input, setInput] = useState({
       .catch(err => {
         console.log(err);
       });
-  }};
+  };
 
   return (
     <div className="App">
