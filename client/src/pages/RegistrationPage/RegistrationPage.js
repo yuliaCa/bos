@@ -65,14 +65,14 @@ function RegistrationPage(props) {
             firebase.createUserWithEmailAndPassword(firebase.auth, input.userEmailAddress, input.password)
             .then((userCredential) => {
             // const user = userCredential.user;
-            firebase.updateProfile(firebase.auth.currentUser, {
-                displayName: input.fullname,
-                photoURL: ""
-            }).then(() => {
-                console.log("user registered: " + firebase.auth.currentUser.uid);      
-            }).catch((error) => {
-            });
-            history.push("/profile");
+              firebase.updateProfile(firebase.auth.currentUser, {
+                  displayName: input.fullname,
+                  photoURL: ""
+              }).then(() => {
+                  console.log("user registered: " + firebase.auth.currentUser.uid);      
+              }).catch((error) => {
+              });
+           
             })
             .catch((error) => {
               const errorCode = error.code;
@@ -105,11 +105,17 @@ function RegistrationPage(props) {
       },
     };
 
-    axios.post("https://bos-project2.herokuapp.com/register", newProfile).catch((error) => {
+    axios.post("https://bos-project2.herokuapp.com/register", newProfile)
+    .then(()=>{
+      history.push("/profile");
+      sessionStorage.setItem("email",input.userEmailAddress);
+    })
+    .catch((error) => {
       if (error.response) {
         setErrorMessages(error.response.data);
       }
     });
+
   }
 
   return (
