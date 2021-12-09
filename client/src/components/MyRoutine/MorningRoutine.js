@@ -70,9 +70,10 @@ const MorningRoutine = (props) => {
 
 
     const arrayProductsForMorningLog = [];
-
+    const [saved, setSaved] = useState(false);
 
     const saveDailyLog = (event, email, _objRoutineLog, _overallRate) => {
+        setSaved(true);
         const today = new Date();
         const dailyLog = {
             objRoutineLog: _objRoutineLog,
@@ -124,35 +125,35 @@ const MorningRoutine = (props) => {
                 <p>Added Products</p>
                 <label className={styles.selectAllLabel}>
                     <span>Select All</span>
-                    <input className={styles.selectAllInput} type="checkbox" value={props.checkedAll} onChange={checkAllHandler} />
+                    <input className={styles.selectAllInput} type="checkbox" value={checkAll} onChange={checkAllHandler} />
                 </label>
             </div>
 
             <div className={styles.productsGrid}>
                 {props.loadedProducts.map((eachProduct) => (
                     <Fade right>
-                    <ProductCard
-                        key={eachProduct._id}
-                        id={eachProduct._id}
-                        image={eachProduct.images}
-                        category={eachProduct.category}
-                        name={eachProduct.productName}
-                        description={eachProduct.description}
-                        suggestedUsage={eachProduct.suggestedUsage}
-                        checkAll={checkAll}
-                        productIsUsed={productIsUsed}
-                        setProductUsedState={setProductUsedState}
-                        openDetailsMorning={props.openDetailsMorning}
-                        evening={props.evening}
-                        setTheProductName={props.setTheProductName}
-                        email={props.email}
-                        deleteProductHandler={props.deleteProductHandler}
-                        arrayProductsForMorningLog={arrayProductsForMorningLog}
-                    />
+                        <ProductCard
+                            key={eachProduct._id}
+                            id={eachProduct._id}
+                            image={eachProduct.images}
+                            category={eachProduct.category}
+                            name={eachProduct.productName}
+                            description={eachProduct.description}
+                            suggestedUsage={eachProduct.suggestedUsage}
+                            checkAll={checkAll}
+                            productIsUsed={productIsUsed}
+                            setProductUsedState={setProductUsedState}
+                            openDetailsMorning={props.openDetailsMorning}
+                            evening={props.evening}
+                            setTheProductName={props.setTheProductName}
+                            email={props.email}
+                            deleteProductHandler={props.deleteProductHandler}
+                            arrayProductsForMorningLog={arrayProductsForMorningLog}
+                        />
                     </Fade>
                 ))}
             </div>
-            <button className={styles.saveButton} onClick={event => saveDailyLog(event, props.email, arrayProductsForMorningLog)}>Save</button>
+            <button className={styles.saveButton} onClick={event => saveDailyLog(event, props.email, arrayProductsForMorningLog)}>{saved ? 'Saved' : 'Save'}</button>
         </div>
 
     )

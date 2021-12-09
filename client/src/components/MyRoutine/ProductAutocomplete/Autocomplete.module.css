@@ -1,28 +1,26 @@
-<<<<<<< HEAD
-=======
-body {
-  /* font-family: sans-serif; BODY it's affecting other components */
-}
->>>>>>> dev
-input {
-  border: 1px solid #999;
+.morningRoutine input,
+.eveningRoutine input {
+  border: 1px solid #67392a;
   padding: 0.5rem;
+  /* flex: 1 1 auto; */
 }
 .no_suggestions {
   color: #999;
   padding: 0.5rem;
 }
 .suggestions {
+  background-color: white;
   display: flex;
   flex-direction: column;
-  border: 1px solid #999;
+  border: 1px solid #67392a;
+  border-radius: 0 0 8px 8px;
   border-top-width: 0;
   list-style: none;
   margin-top: 0;
   max-height: 343px;
   overflow-y: auto;
   padding-left: 0;
-  width: calc(300px + 1rem);
+  /* width: calc(300px + 1rem); */
 }
 .suggestions li {
   padding: 0.5rem;
@@ -31,8 +29,9 @@ input {
 .suggestions li:hover {
   color: grey;
   cursor: pointer;
-  font-weight: 700;
+  font-weight: 600;
+  font-family: inherit;
 }
 .suggestions li:not(:last-of-type) {
-  border-bottom: 1px solid #999;
+  border-bottom: 1px solid #67392a;
 }

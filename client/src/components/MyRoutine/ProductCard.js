@@ -24,7 +24,7 @@ function ProductCard(props) {
                     isUsed: productIsUsed
                 }
                 props.arrayProductsForMorningLog.push(objRoutineLog)
-                console.log(props.arrayProductsForMorningLog)
+
             } else if (props.evening && productIsUsed) {
                 let objRoutineLog = {
                     productName: props.name,
@@ -32,7 +32,7 @@ function ProductCard(props) {
                     isUsed: productIsUsed
                 }
                 props.arrayProductsForEveningLog.push(objRoutineLog)
-                console.log(props.arrayProductsForEveningLog)
+
             }
 
         }, [productIsUsed])
@@ -63,10 +63,10 @@ function ProductCard(props) {
                 <div className={styles.concernsList} dangerouslySetInnerHTML={{ __html: getSkinConcerns(props.description) }} />
                 <div className={styles.detailsAndDelete}>
                     <img
-                    onClick={event => props.deleteProductHandler(event, props.name, props.evening)}
-                    className={styles.trashCan}
-                    src={"https://s3-us-west-2.amazonaws.com/bos-skincare/icons/delete.svg"}
-                    alt="Trash Icon"
+                        onClick={event => props.deleteProductHandler(event, props.name, props.evening)}
+                        className={styles.trashCan}
+                        src={"https://s3-us-west-2.amazonaws.com/bos-skincare/icons/delete.svg"}
+                        alt="Trash Icon"
                     />
                     <p onClick={event => props.evening ?
                         props.openDetailsEvening(event, props.id) :
@@ -77,7 +77,7 @@ function ProductCard(props) {
 
 
 
-                <button className={productIsUsed ? styles.usedButton : styles.useButton} onClick={event => productUsedBtnHandler(event)}>{productIsUsed || props.checkAll ? 'USED' : 'USE PRODUCT'}</button>
+                <button className={productIsUsed ? styles.usedButton : styles.useButton} onClick={event => productUsedBtnHandler(event)}>{productIsUsed ? 'USED' : 'USE PRODUCT'}</button>
             </div>
 
         </div>
