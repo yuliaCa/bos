@@ -16,6 +16,7 @@ import TosPage from "./pages/TosPage";
 
 import Navbar from "./components/NavBar/Navbar";
 import Footer from "./components/Footer/Footer";
+import ScrollToTop from "./components/ScrollToTop";
 
 import { ProfileImageContext } from "./contexts/ProfileImageContext.js";
 
@@ -118,6 +119,7 @@ const [input, setInput] = useState({
   return (
     <div className="App">
       <BrowserRouter>
+        <ScrollToTop />
         <ProfileImageContext.Provider value={stateImage}>
           <Navbar isHome={isHome} handleIsHome={handleIsHome} />
           <Switch>
