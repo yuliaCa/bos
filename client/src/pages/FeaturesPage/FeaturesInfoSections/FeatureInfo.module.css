@@ -55,8 +55,9 @@
 }
 
 .sectionRight button:hover {
-  background-color: #96807a;
-  opacity: 50%;
+  cursor: pointer;
+  background-color:#B68B7D;
+  color: white;
 }
 
 @media only screen and (min-width: 750px) {

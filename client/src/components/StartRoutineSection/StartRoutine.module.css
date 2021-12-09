@@ -41,15 +41,10 @@
 }
 
 .startRoutineInner .register:hover {
-    background-color:#67392A;
-    opacity: 50%;
+    cursor: pointer;
+    background-color:#B68B7D;
     color: white;
 }
-
-/* .startRoutineInner .register:active {  
-    transition: 0.2s all ease;
-    transform: scale(1.015);
-} */
 
 .startRoutineInner .register a {
     text-decoration: none;

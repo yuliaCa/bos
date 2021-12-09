@@ -16,6 +16,7 @@ import TosPage from "./pages/TosPage";
 
 import Navbar from "./components/NavBar/Navbar";
 import Footer from "./components/Footer/Footer";
+import ScrollToTop from "./components/ScrollToTop";
 
 import { ProfileImageContext } from "./contexts/ProfileImageContext.js";
 
@@ -65,6 +66,7 @@ function App() {
                 })
                 .catch(error => console.log(error));
         }
+<<<<<<< HEAD
     }, [sessionStorage.email]);
 
     const getBase64 = (file) => {
@@ -120,6 +122,72 @@ function App() {
               </Route>
             </Switch>
           </ProfileImageContext.Provider>
+=======
+      
+      } else {
+        setStateImage({ 
+          type: "",
+          base64URL: "",
+          name: ""})
+      }
+
+      console.log(stateImage);
+    })
+    .catch(error=>console.log(error));
+  }},[sessionStorage.email]);
+
+  const getBase64 = (file) => {
+    return new Promise(resolve => {
+      let fileInfo;
+      let baseURL = "";
+      // Make new FileReader
+      let reader = new FileReader();
+
+      // Convert the file to base64 text
+      reader.readAsDataURL(file);
+
+      reader.onload = () => {
+        // Make a fileInfo Object
+        baseURL = reader.result;
+        resolve(baseURL);
+      };
+      console.log(fileInfo);
+    });
+  };
+
+  const handleFileInputChange = (e) => {
+    console.log(e.target.files[0]);
+    
+    // let { file } = input.image;
+
+    let file = e.target.files[0];
+
+    getBase64(file)
+      .then(result => {
+        file["base64"] = result;
+        console.log("File Is:");
+        console.log(e.target.files[0].type);
+        console.log("base64 is:");
+        console.log(result);
+        
+        setStateImage({
+          base64URL: result,
+          type: e.target.files[0].type,
+          name: e.target.files[0].name
+        }) ;
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
+  return (
+    <div className="App">
+      <BrowserRouter>
+        <ScrollToTop />
+        <ProfileImageContext.Provider value={stateImage}>
+          <Navbar isHome={isHome} handleIsHome={handleIsHome} />
+>>>>>>> 538d0037b148d7ca7d75bbfdb1f20ed276042c46
           <Switch>
             <Route path="/" exact>
               <HomePage isHome={isHome} handleIsHome={handleIsHome} />
