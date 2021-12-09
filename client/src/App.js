@@ -20,145 +20,136 @@ import Footer from "./components/Footer/Footer";
 import { ProfileImageContext } from "./contexts/ProfileImageContext.js";
 
 function App() {
-  const [isHome, setIsHome] = useState();
+    const [isHome, setIsHome] = useState();
 
-  const handleIsHome = (home) => {
-    setIsHome(home.pathname);
-  };
+    const handleIsHome = (home) => {
+        setIsHome(home.pathname);
+    };
 
-  console.log(isHome);
+    console.log(isHome);
 
-//Upload and update profile image.  Elevated to parent App level
+    //Upload and update profile image.  Elevated to parent App level
 
-const [input, setInput] = useState({
-  image: ""
-});
- 
-  const initialStateProfilePhoto = { 
-    type: "",
-    base64URL: "",
-    name: ""};
-
-  const [stateImage, setStateImage] = useState(initialStateProfilePhoto);
-
-  useEffect(function fetchUserProfile(){
-  
-    if(sessionStorage.email !== "") {
-    axios.get(`https://bos-project2.herokuapp.com/register/${sessionStorage.email}`)
-    .then(result => {
- 
-      console.log(result.data);
-      setInput(result.data);
-      console.log(result.data.image.length);
-   
-      if(result.data.image.length > 0) {
-       
-        for(let i=0; i< result.data.image.length; i++){
-          console.log(result.data.image[i]);
-          setStateImage(result.data.image[i]);
-        }
-      
-      } else {
-        setStateImage({ 
-          type: "",
-          base64URL: "",
-          name: ""})
-      }
-
-      console.log(stateImage);
-    })
-    .catch(error=>console.log(error));
-  }},[sessionStorage.email]);
-
-  const getBase64 = (file) => {
-    return new Promise(resolve => {
-      let fileInfo;
-      let baseURL = "";
-      // Make new FileReader
-      let reader = new FileReader();
-
-      // Convert the file to base64 text
-      reader.readAsDataURL(file);
-
-      reader.onload = () => {
-        // Make a fileInfo Object
-        baseURL = reader.result;
-        resolve(baseURL);
-      };
-      console.log(fileInfo);
+    const [input, setInput] = useState({
+        image: ""
     });
-  };
 
-  const handleFileInputChange = (e) => {
-    console.log(e.target.files[0]);
-    
-    // let { file } = input.image;
+    const initialStateProfilePhoto = {
+        type: "",
+        base64URL: "",
+        name: ""
+    };
 
-    let file = e.target.files[0];
+    const [stateImage, setStateImage] = useState(initialStateProfilePhoto);
 
-    getBase64(file)
-      .then(result => {
-        file["base64"] = result;
-        console.log("File Is:");
-        console.log(e.target.files[0].type);
-        console.log("base64 is:");
-        console.log(result);
-        
-        setStateImage({
-          base64URL: result,
-          type: e.target.files[0].type,
-          name: e.target.files[0].name
-        }) ;
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  };
+    useEffect(function fetchUserProfile() {
 
-  return (
-    <div className="App">
-      <BrowserRouter>
-        <ProfileImageContext.Provider value={stateImage}>
-          <Navbar isHome={isHome} handleIsHome={handleIsHome} />
+        if (sessionStorage.email !== "") {
+            axios.get(`https://bos-project2.herokuapp.com/register/${sessionStorage.email}`)
+                .then(result => {
+                    setInput(result.data);
+                    if (result.data.image.length > 0) {
+
+                        for (let i = 0; i < result.data.image.length; i++) {
+
+                            setStateImage(result.data.image[i]);
+                        }
+
+                    } else {
+                        setStateImage({
+                            type: "",
+                            base64URL: "",
+                            name: ""
+                        })
+                    }
+                })
+                .catch(error => console.log(error));
+        }
+    }, [sessionStorage.email]);
+
+    const getBase64 = (file) => {
+        return new Promise(resolve => {
+            let fileInfo;
+            let baseURL = "";
+            // Make new FileReader
+            let reader = new FileReader();
+
+            // Convert the file to base64 text
+            reader.readAsDataURL(file);
+
+            reader.onload = () => {
+                // Make a fileInfo Object
+                baseURL = reader.result;
+                resolve(baseURL);
+            };
+
+        });
+    };
+
+    const handleFileInputChange = (e) => {
+
+        let file = e.target.files[0];
+
+        getBase64(file)
+            .then(result => {
+                file["base64"] = result;
+
+                setStateImage({
+                    base64URL: result,
+                    type: e.target.files[0].type,
+                    name: e.target.files[0].name
+                });
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    };
+
+   
+    return (
+      <div className="App">
+        <BrowserRouter>
+          <ProfileImageContext.Provider value={stateImage}>
+            <Navbar isHome={isHome} handleIsHome={handleIsHome} />
+            <Switch>
+              <Route path="/profile">
+                <ProfilePage isHome={isHome} handleIsHome={handleIsHome} />
+              </Route>
+              <Route path="/profileSettings">
+                <ProfileSettingsPage handleFileInputChange={handleFileInputChange} isHome={isHome} handleIsHome={handleIsHome} />
+              </Route>
+            </Switch>
+          </ProfileImageContext.Provider>
           <Switch>
-            <Route path="/profile">
-              <ProfilePage isHome={isHome} handleIsHome={handleIsHome} />
+            <Route path="/" exact>
+              <HomePage isHome={isHome} handleIsHome={handleIsHome} />
             </Route>
-            <Route path="/profileSettings">
-              <ProfileSettingsPage handleFileInputChange={handleFileInputChange} isHome={isHome} handleIsHome={handleIsHome} />
+            <Route path="/features">
+              <FeaturesPage isHome={isHome} handleIsHome={handleIsHome} />
+            </Route>
+            <Route path="/team">
+              <TeamPage isHome={isHome} handleIsHome={handleIsHome} />
+            </Route>
+            <Route path="/policy">
+              <PolicyPage isHome={isHome} handleIsHome={handleIsHome} />
+            </Route>
+            <Route path="/tos">
+              <TosPage isHome={isHome} handleIsHome={handleIsHome} />
+            </Route>
+            <Route path="/registration">
+              <RegistrationPage isHome={isHome} handleIsHome={handleIsHome} />
+            </Route>
+            <Route path="/login">
+              <LoginPage isHome={isHome} handleIsHome={handleIsHome} />
+            </Route>
+            <Route path="/change">
+              <ChangePwdPage isHome={isHome} handleIsHome={handleIsHome} />
             </Route>
           </Switch>
-        </ProfileImageContext.Provider>
-        <Switch>
-          <Route path="/" exact>
-            <HomePage isHome={isHome} handleIsHome={handleIsHome} />
-          </Route>
-          <Route path="/features">
-            <FeaturesPage isHome={isHome} handleIsHome={handleIsHome} />
-          </Route>
-          <Route path="/team">
-            <TeamPage isHome={isHome} handleIsHome={handleIsHome} />
-          </Route>
-          <Route path="/policy">
-            <PolicyPage isHome={isHome} handleIsHome={handleIsHome} />
-          </Route>
-          <Route path="/tos">
-            <TosPage isHome={isHome} handleIsHome={handleIsHome} />
-          </Route>
-          <Route path="/registration">
-            <RegistrationPage isHome={isHome} handleIsHome={handleIsHome} />
-          </Route>
-          <Route path="/login">
-            <LoginPage isHome={isHome} handleIsHome={handleIsHome} />
-          </Route>
-          <Route path="/change">
-            <ChangePwdPage isHome={isHome} handleIsHome={handleIsHome} />
-          </Route>
-        </Switch>
-        <Footer />
-      </BrowserRouter>
-    </div>
-  );
-}
-
-export default App;
+          <Footer />
+        </BrowserRouter>
+      </div>
+    );
+  }
+  
+  export default App;
