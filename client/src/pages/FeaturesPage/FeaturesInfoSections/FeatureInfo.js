@@ -12,6 +12,7 @@ function FeatureInfoSection(props) {
     });
 
     return (
+        <div className={styles.backgroundColor}>
         <div className={styles.featureOuter}>
             <div className={styles.sectionLeft}>
                 <img className={styles.feat1_3Image} src={props.src} alt={props.alt}/>
@@ -29,6 +30,7 @@ function FeatureInfoSection(props) {
                 </button>   
             </div>
         </div> 
+        </div>
     )
 }
 
