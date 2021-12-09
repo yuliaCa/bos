@@ -11,8 +11,6 @@ import TeamPage from "./pages/TeamPage";
 import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import ChangePwdPage from "./pages/ChangePwdPage/ChangePwdPage";
-import PolicyPage from "./pages/PolicyPage";
-import TosPage from "./pages/TosPage";
 
 import Navbar from "./components/NavBar/Navbar";
 import Footer from "./components/Footer/Footer";
@@ -124,12 +122,6 @@ function App() {
           </Route>
           <Route path="/team">
             <TeamPage isHome={isHome} handleIsHome={handleIsHome} />
-          </Route>
-          <Route path="/policy">
-            <PolicyPage isHome={isHome} handleIsHome={handleIsHome} />
-          </Route>
-          <Route path="/tos">
-            <TosPage isHome={isHome} handleIsHome={handleIsHome} />
           </Route>
           <Route path="/registration">
             <RegistrationPage isHome={isHome} handleIsHome={handleIsHome} />
