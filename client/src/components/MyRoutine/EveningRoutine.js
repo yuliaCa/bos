@@ -7,12 +7,7 @@ import SearchInput from '../../components/MyRoutine/ProductAutocomplete/SearchIn
 import Fade from "react-reveal/Fade";
 
 const customStyles = {
-    // option: (provided, state) => ({
-    //     ...provided,
-    //     borderBottom: '5px dotted pink',
-    //     color: state.isSelected ? 'red' : 'blue',
-    //     padding: 5,
-    // }),
+
     control: (provided, state) => ({
         // none of react-select's styles are passed to <Control />
         ...provided,
@@ -82,11 +77,7 @@ const EveningRoutine = (props) => {
             dailyLogDate: today.toLocaleDateString("en-US")
         }
         axios.post(`https://bos-project2.herokuapp.com/dailyroutine/${email}`, dailyLog)
-            .then(results => {
-                console.log(dailyLog);
-                console.log('SAVING THE LOG FOR TODAY')
-            })
-            .catch(error => console.log(error))
+
     }
 
 
