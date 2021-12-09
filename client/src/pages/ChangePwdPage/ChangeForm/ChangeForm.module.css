@@ -54,14 +54,10 @@
 }
 
 .loginButton:hover {
-    background-color:  #67392A;
-    opacity: 50%;
+    cursor: pointer;
+    background-color:#B68B7D;
+    color: white;
 }
-
-/* .loginButton:active {
-    transition: 0.2s all ease;
-    transform: scale(1.015);    
-} */
 
 .backtologin {
     grid-column: 2 / 4;

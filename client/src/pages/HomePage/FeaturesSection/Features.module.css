@@ -52,6 +52,7 @@
 }
 
 .featureSection .register:hover {
+    cursor: pointer;
     background-color:#B68B7D;
     color: white;
 }
