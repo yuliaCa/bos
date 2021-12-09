@@ -45,8 +45,9 @@
 }
 
 .featureOuter button:hover {
-  background-color: #67392a;
-  opacity: 50%;
+  cursor: pointer;
+  background-color:#B68B7D;
+  color: white;
 }
 
 .featureOuter .imageContainer {

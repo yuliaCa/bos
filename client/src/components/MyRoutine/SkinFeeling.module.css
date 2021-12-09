@@ -72,13 +72,9 @@ h2.skinFeelingH2 {
 
 .skinFeelingButton:hover {
   cursor: pointer;
+  background-color:#B68B7D;
+  color: white;
 }
-
-/* .skinFeelingButton:active {
-  transition: 0.2s all ease;
-  transform: scale(1.015);    
-} */
-
 
 .currentFeeling {
   height: 1rem;
