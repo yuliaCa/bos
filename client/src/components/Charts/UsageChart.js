@@ -158,9 +158,22 @@ const UsageChart = (props) => {
       arrayWeeklyUsage.push({Sunscreen:arraySunscreen});
 
       setProductUsageData(arrayWeeklyUsage);
+      for (const [key, value] of Object.entries(arrayWeeklyUsage[0].Mask)){
+        console.log(`${value.dailyLogDate} to ${value._mask}`);
+      }
       console.log(arrayWeeklyUsage);
     }
 
+    function insertAt(array, index) {
+      var arrayToInsert = Array.prototype.splice.apply(arguments, [2]);
+      return insertArrayAt(array, index, arrayToInsert);
+  }
+  
+  function insertArrayAt(array, index, arrayToInsert) {
+      Array.prototype.splice.apply(array, [index, 0].concat(arrayToInsert));
+      return array;
+  }
+  
     // Historical Data Inputs
     let usageChartRaw = {
         cleanserData: [1, 1, 1, 1, 1, 0, 1],
@@ -217,7 +230,7 @@ const UsageChart = (props) => {
 
 
     useEffect(() => {
-        const userUsageData = getUserProductUsage();
+      getUserProductUsage();
     }, [props.currentDay]);
 
     return (
