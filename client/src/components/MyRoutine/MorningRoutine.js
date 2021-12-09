@@ -125,7 +125,7 @@ const MorningRoutine = (props) => {
                 <p>Added Products</p>
                 <label className={styles.selectAllLabel}>
                     <span>Select All</span>
-                    <input className={styles.selectAllInput} type="checkbox" value={props.checkedAll} onChange={checkAllHandler} />
+                    <input className={styles.selectAllInput} type="checkbox" value={checkAll} onChange={checkAllHandler} />
                 </label>
             </div>
 
