@@ -11,8 +11,6 @@ import TeamPage from "./pages/TeamPage";
 import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import ChangePwdPage from "./pages/ChangePwdPage/ChangePwdPage";
-import PolicyPage from "./pages/PolicyPage";
-import TosPage from "./pages/TosPage";
 
 import Navbar from "./components/NavBar/Navbar";
 import Footer from "./components/Footer/Footer";
@@ -21,20 +19,20 @@ import ScrollToTop from "./components/ScrollToTop";
 import { ProfileImageContext } from "./contexts/ProfileImageContext.js";
 
 function App() {
-  const [isHome, setIsHome] = useState();
 
+//Settings for navbar change color when home
+
+  const [isHome, setIsHome] = useState();
   const handleIsHome = (home) => {
     setIsHome(home.pathname);
   };
 
-  console.log(isHome);
-
 //Upload and update profile image.  Elevated to parent App level
 
-const [input, setInput] = useState({
-  image: ""
-});
- 
+  const [input, setInput] = useState({
+    image: ""
+  });
+
   const initialStateProfilePhoto = { 
     type: "",
     base64URL: "",
@@ -47,26 +45,19 @@ const [input, setInput] = useState({
     if(sessionStorage.email !== "") {
     axios.get(`https://bos-project2.herokuapp.com/register/${sessionStorage.email}`)
     .then(result => {
- 
-      console.log(result.data);
+
       setInput(result.data);
-      console.log(result.data.image.length);
    
-      if(result.data.image.length > 0) {
-       
-        for(let i=0; i< result.data.image.length; i++){
-          console.log(result.data.image[i]);
+      if(result.data.image.length > 0) {  
+        for(let i=0; i< result.data.image.length; i++){   
           setStateImage(result.data.image[i]);
         }
-      
       } else {
         setStateImage({ 
           type: "",
           base64URL: "",
           name: ""})
       }
-
-      console.log(stateImage);
     })
     .catch(error=>console.log(error));
   }},[sessionStorage.email]);
@@ -75,7 +66,6 @@ const [input, setInput] = useState({
     return new Promise(resolve => {
       let fileInfo;
       let baseURL = "";
-      // Make new FileReader
       let reader = new FileReader();
 
       // Convert the file to base64 text
@@ -86,24 +76,16 @@ const [input, setInput] = useState({
         baseURL = reader.result;
         resolve(baseURL);
       };
-      console.log(fileInfo);
     });
   };
 
   const handleFileInputChange = (e) => {
-    console.log(e.target.files[0]);
     
-    // let { file } = input.image;
-
     let file = e.target.files[0];
 
     getBase64(file)
       .then(result => {
         file["base64"] = result;
-        console.log("File Is:");
-        console.log(e.target.files[0].type);
-        console.log("base64 is:");
-        console.log(result);
         
         setStateImage({
           base64URL: result,
@@ -140,12 +122,6 @@ const [input, setInput] = useState({
           </Route>
           <Route path="/team">
             <TeamPage isHome={isHome} handleIsHome={handleIsHome} />
-          </Route>
-          <Route path="/policy">
-            <PolicyPage isHome={isHome} handleIsHome={handleIsHome} />
-          </Route>
-          <Route path="/tos">
-            <TosPage isHome={isHome} handleIsHome={handleIsHome} />
           </Route>
           <Route path="/registration">
             <RegistrationPage isHome={isHome} handleIsHome={handleIsHome} />

@@ -68,21 +68,28 @@
 
   .featureOuter {
     display: grid;
+    max-width: 1200px;
+    margin: 0 auto;
     grid-template-columns: 1fr 1fr;
     padding: 3% 2%;
   }
   
   .featureOuter .content {
     align-items: start;
-    padding-left: 18%;
     order: 1;
   }
 
   .featureOuter p {
     text-align: left;
+    max-width: 650px;
   }
     
+  .featureOuter .imageContainer {
+    justify-content: end;
+    align-items: end;
+  }
+
   .feat2Image {
-    max-width: 27vw;
+    max-width: 350px;
   }
 }
