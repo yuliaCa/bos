@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { ProfileImageContext } from "../../contexts/ProfileImageContext";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import styles from "./Navbar.module.css";
 import * as firebase from "../../authentication.js";
 
@@ -19,6 +19,8 @@ function Navbar(props) {
 
   const [burger, setBurger] = useState(false);
 
+  const history = useHistory();
+
   firebase.onAuthStateChanged(firebase.auth, (user) => {
     return user ? setIsLoggedIn(true) : setIsLoggedIn(false);
   });
@@ -27,7 +29,7 @@ function Navbar(props) {
     firebase
       .signOut(firebase.auth)
       .then(() => {
-        console.log("sign out successful");
+        history.push("/");
       })
       .catch((error) => {
         console.error("Error signing out, ", error.message);
