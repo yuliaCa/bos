@@ -10,12 +10,12 @@ const UsageChart = (props) => {
 
     let routineEachDay = {};
     let productUsedByCategory = {};
-    let weeklyMask = [];
-    let weeklyCleanser = [];
-    let weeklyTreatment = [];
-    let weeklyMoisturizer= [];
-    let weeklyEyecare = [];
-    let weeklySunscreen = [];
+    let weeklyMask = [0,0,0,0,0,0,0];
+    let weeklyCleanser = [0,0,0,0,0,0,0];
+    let weeklyTreatment = [0,0,0,0,0,0,0];
+    let weeklyMoisturizer= [0,0,0,0,0,0,0];
+    let weeklyEyecare = [0,0,0,0,0,0,0];
+    let weeklySunscreen = [0,0,0,0,0,0,0];
 
     
 
@@ -24,6 +24,13 @@ const UsageChart = (props) => {
     const [productUsageData, setProductUsageData] = useState([]);
     const [usageChartRaw, setUsageChartRaw] = useState({});
 
+    function addDays(originalDate, days){
+      let cloneDate = new Date(originalDate.valueOf());
+      cloneDate.setDate(cloneDate.getDate() + days);
+      return cloneDate;
+    }
+
+    
     const getUserProductUsage = () => {
         axios
             .get(
@@ -31,7 +38,7 @@ const UsageChart = (props) => {
             )
             .then((results) => {
                 routineEachDay = results.data;
-
+               
                 for (let i = 0; i < routineEachDay.length; i++) {
                     let category = [];
 
@@ -46,19 +53,19 @@ const UsageChart = (props) => {
                     category.forEach((x) => {
                         counts[x] = (counts[x] || 0) + 1;
                     });
-                    // console.log(counts);
+              
 
+                    let convertedDay = new Date(routineEachDay[i].dailyLogDate);
+                    
                     productUsedByCategory = {
                         overallRate: routineEachDay[i].overallRate,
-                        dailyLogDate: new Date(
-                            routineEachDay[i].dailyLogDate
-                        ).toLocaleDateString(),
+                        dailyLogDate: addDays(convertedDay,1).toLocaleDateString(),
                         productUsage: counts,
                     };
                     dailyUsage.push(productUsedByCategory);
 
                 }
-                console.log(dailyUsage);
+               
                 getUsageForChart(dailyUsage);
                 return dailyUsage;
             })
@@ -177,6 +184,7 @@ const UsageChart = (props) => {
 
       for (const [key, value] of Object.entries(arrayWeeklyUsage[1].Cleanser)){
         const dailydate = new Date(value.dailyLogDate);
+     
         insertArrayAt(weeklyCleanser, dailydate.getDay(), value._cleanser);
       }
 
@@ -187,6 +195,7 @@ const UsageChart = (props) => {
 
       for (const [key, value] of Object.entries(arrayWeeklyUsage[3].Moisturizer)){
         const dailydate = new Date(value.dailyLogDate);
+      
         insertArrayAt(weeklyMoisturizer, dailydate.getDay(), value._moisturizer);
       }
 
@@ -210,9 +219,6 @@ const UsageChart = (props) => {
         unscreenData: weeklySunscreen,
     });
    
-      console.log(arrayWeeklyUsage);
-
-
     }
 
   
