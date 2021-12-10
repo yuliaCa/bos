@@ -9,7 +9,7 @@ import { ProfileImageContext } from "../../contexts/ProfileImageContext";
 
 function MyPage(props) {
   const [isProfile, setIsProfile] = useState(true);
-
+  const [fullname, setFullname] = useState();
   const [city, setCity] = useState();
   // get city location
   useEffect(function fetchCityLocation() {
@@ -80,6 +80,9 @@ function MyPage(props) {
           `https://bos-project2.herokuapp.com/register/${sessionStorage.email}`
         )
         .then((result) => {
+          
+          setFullname(result.data.fullname);
+
           let skinConcernArray = [];
 
           for (const [key, value] of Object.entries(result.data.skintype)) {
@@ -156,7 +159,7 @@ function MyPage(props) {
           </div>
         <div className={styles.profileData}>
           <ul>
-            <li className={styles.profileName}>{`${props.displayName}`}</li>
+            <li className={styles.profileName}>{fullname}</li>
             <li className={styles.city}>
               <MdOutlineLocationOn className={styles.locIcon} />
               <div>{city}</div>

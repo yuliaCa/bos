@@ -4,14 +4,10 @@ import { useState, useEffect } from 'react';
 import Select from 'react-select';
 import ProductCard from '../../components/MyRoutine/ProductCard';
 import SearchInput from '../../components/MyRoutine/ProductAutocomplete/SearchInput';
+import Fade from "react-reveal/Fade";
 
 const customStyles = {
-    // option: (provided, state) => ({
-    //     ...provided,
-    //     borderBottom: '5px dotted pink',
-    //     color: state.isSelected ? 'red' : 'blue',
-    //     padding: 5,
-    // }),
+
     control: (provided, state) => ({
         // none of react-select's styles are passed to <Control />
         ...provided,
@@ -70,9 +66,10 @@ const EveningRoutine = (props) => {
     ]
 
     const arrayProductsForEveningLog = [];
-
+    const [saved, setSaved] = useState(false);
 
     const saveDailyLog = (event, email, _objRoutineLog, _overallRate) => {
+        setSaved(true);
         const today = new Date();
         const dailyLog = {
             objRoutineLog: _objRoutineLog,
@@ -80,11 +77,7 @@ const EveningRoutine = (props) => {
             dailyLogDate: today.toLocaleDateString("en-US")
         }
         axios.post(`https://bos-project2.herokuapp.com/dailyroutine/${email}`, dailyLog)
-            .then(results => {
-                console.log(dailyLog);
-                console.log('SAVING THE LOG FOR TODAY')
-            })
-            .catch(error => console.log(error))
+
     }
 
 
@@ -113,25 +106,27 @@ const EveningRoutine = (props) => {
 
             <div className={styles.productsGrid}>
                 {props.loadedProducts.map((eachProduct) => (
-                    <ProductCard
-                        key={eachProduct._id}
-                        id={eachProduct._id}
-                        image={eachProduct.images}
-                        category={eachProduct.category}
-                        name={eachProduct.productName}
-                        description={eachProduct.description}
-                        suggestedUsage={eachProduct.suggestedUsage}
-                        checkAll={props.checkedAll}
-                        openDetailsEvening={props.openDetailsEvening}
-                        evening={props.evening}
-                        setTheProductName={props.setTheProductName}
-                        email={props.email}
-                        deleteProductHandler={props.deleteProductHandler}
-                        arrayProductsForEveningLog={arrayProductsForEveningLog}
-                    />
+                    <Fade right>
+                        <ProductCard
+                            key={eachProduct._id}
+                            id={eachProduct._id}
+                            image={eachProduct.images}
+                            category={eachProduct.category}
+                            name={eachProduct.productName}
+                            description={eachProduct.description}
+                            suggestedUsage={eachProduct.suggestedUsage}
+                            checkAll={props.checkedAll}
+                            openDetailsEvening={props.openDetailsEvening}
+                            evening={props.evening}
+                            setTheProductName={props.setTheProductName}
+                            email={props.email}
+                            deleteProductHandler={props.deleteProductHandler}
+                            arrayProductsForEveningLog={arrayProductsForEveningLog}
+                        />
+                    </Fade>
                 ))}
             </div>
-            <button onClick={event => saveDailyLog(event, props.email, arrayProductsForEveningLog)} className={styles.saveButton}>Save</button>
+            <button onClick={event => saveDailyLog(event, props.email, arrayProductsForEveningLog)} className={styles.saveButton}>{saved ? 'Saved' : 'Save'}</button>
         </div>
 
     )

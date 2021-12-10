@@ -74,19 +74,14 @@ form.userInput {
   font-family: inherit;
   font-size: inherit;
 }
-@media (min-width: 630px) {
-  .productName {
-    flex: 2 0 auto;
-    /* min-width: 75px; */
-  }
-}
 
 .myRoutines form.userInput button {
   background-color: #67392a;
   border: none;
   border-radius: 8px;
   padding: 0.75rem 2.5rem;
-  min-width: 16px;
+  min-width: 190px;
+  /* width: max-content; */
   font-size: 15px;
   height: 48px;
   color: #f8f5f0;
@@ -94,12 +89,10 @@ form.userInput {
   cursor: pointer;
 }
 
-/* .myRoutines form.userInput button:active {
-  transition: 0.2s all ease;
-  transform: scale(1.015);    
-} */
-
-
+.myRoutines form.userInput button:hover {
+  background-color: #b68b7d;
+  color: white;
+}
 
 @media (min-width: 630px) {
   .myRoutines form.userInput button {
@@ -154,10 +147,10 @@ form.userInput {
   width: 100%;
 }
 
-/* .saveButton:active {
-  transition: 0.2s all ease;
-  transform: scale(1.015);    
-} */
+.saveButton:hover {
+  background-color: #b68b7d;
+  color: white;
+}
 
 @media (min-width: 630px) {
   .saveButton {

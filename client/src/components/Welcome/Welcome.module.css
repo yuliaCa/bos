@@ -37,10 +37,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
- 
-    /* margin: 5%; */
     background-color: #F7EDE1;
-    /* padding: 5%; */
 }
 
 .welcomeHeader, .welcomeBodyText {
@@ -55,14 +52,12 @@
 
 .welcomeBodyText {
     font-weight: 200;
-    /* line-height: 3vh; */
     text-align: center;
 }
 
 .welcomeImage {
     height: 150px;
     width: 150px;
-    /* margin-bottom: 3%; */
 }
 
 }

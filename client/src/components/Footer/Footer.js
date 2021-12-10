@@ -13,17 +13,17 @@ function Footer() {
             <nav className={styles.flexRow}>
                 <ul className={styles.flexRow}>
                     <li>
-                        <Link to='/policy'>Privacy Policy</Link>
+                        <Link to='#'>Privacy Policy</Link>
                     </li>
                     <li>
-                        <Link to='/tos'>Terms of Service</Link>
+                        <Link to='#'>Terms of Service</Link>
                     </li>
                 </ul>
             </nav>
             </div>
         </footer>
          <div className={styles.footerBottom}>
-         <p>Designed and Developed by Pink Team</p>
+         <p>Designed and Developed by Langara College Canada, Web & Mobile Development Program Term 3 Students 2021-2022</p>
          </div>
          </>
     )

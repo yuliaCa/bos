@@ -14,6 +14,7 @@ function ProfileSettingsPage(props) {
   const history = useHistory(); 
 
   const [errorMessage, setErrorMessage] = useState();
+  const [saveButton, setSaveButton] = useState("SAVE");
 
   const image = useContext(ProfileImageContext);
 
@@ -56,6 +57,8 @@ function ProfileSettingsPage(props) {
 
   function handleClick(event) {
     event.preventDefault();
+
+    setSaveButton("SAVED");
 
         const user = firebase.auth.currentUser;
 
@@ -145,14 +148,19 @@ function ProfileSettingsPage(props) {
           required
         />
     
-        <input 
-          onChange={props.handleFileInputChange}
-          className={styles.imageUpload}
-          type="file" 
-          id="profile" 
-          name="profile" 
-          accept="image/png, image/jpeg" 
-        />
+        <label
+          htmlFor="profile"
+          className={styles.imageUploadLabel}>
+          UPLOAD IMAGE
+          <input 
+            onChange={props.handleFileInputChange}
+            className={styles.imageUpload}
+            type="file" 
+            id="profile" 
+            name="profile" 
+            accept="image/png, image/jpeg"
+          />
+        </label>
 
         <label 
           htmlFor="cityLocation" 
@@ -299,11 +307,9 @@ function ProfileSettingsPage(props) {
           id="submit"
         >
           {" "}
-          SAVE{" "}
+          {saveButton}{" "}
         </button>
-
     </form>
-
   </>;
 }
 

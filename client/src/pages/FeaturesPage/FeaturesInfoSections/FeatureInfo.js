@@ -1,8 +1,6 @@
 import React, {useState} from 'react';
 import styles from './FeatureInfo.module.css';
 import { Link } from 'react-router-dom';
-
-//import functions from Firebase authentication SDK
 import * as firebase from '../../../authentication.js';
 
 function FeatureInfoSection(props) {
@@ -14,6 +12,7 @@ function FeatureInfoSection(props) {
     });
 
     return (
+        <div className={styles.backgroundColor}>
         <div className={styles.featureOuter}>
             <div className={styles.sectionLeft}>
                 <img className={styles.feat1_3Image} src={props.src} alt={props.alt}/>
@@ -31,6 +30,7 @@ function FeatureInfoSection(props) {
                 </button>   
             </div>
         </div> 
+        </div>
     )
 }
 

@@ -1,11 +1,6 @@
-// To set up Firebase login, we referenced the source code from 
-// https://github.com/Devalo/Firebase-auth-react-express-mongodb/blob/master/phone-frontend/src/components/session/Login.jsx
-
 import React, { useState } from 'react';
 import styles from './LoginForm.module.css';
 import { Link, useHistory } from 'react-router-dom';
-
-//import functions from Firebase authentication SDK
 import * as firebase from '../../../authentication';
 
 function LoginForm() {
@@ -27,7 +22,7 @@ function LoginForm() {
                 history.push("/profile");
                 }
             })
-            .catch((error) => {
+            .catch(() => {
                 setErrorMessage("Failed to login.  Please try again.")
             });
             } else {
