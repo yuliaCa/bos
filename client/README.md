@@ -4,7 +4,7 @@ Bureau Of Skincare
 
 There is an inherent need in all human beings to be accepted and loved for who they truly are.  The design elements of our interface are intimately crafted to exude a warm and inviting ambience for individuals desiring a personalized experience in managing their facial skincare routines through simple, yet empowering online tools.
 
-Description: Our application tracks users’ daily facial skincare routines and provide simple charts that illustrate the connections between environmental factors, product usage and skin health.  What makes our platform unique is that it serves to encourage users to embrace their appearance and identity, advocating against the cultural obsession with flawlessness and unattainable perfection.
+Description: Our application tracks users’ daily facial skincare routines and provide simple charts that illustrate the connections between environmental factors, product usage and skin health.  What makes our platform unique is that it serves to encourage users to embrace their natural appearance and self-identity, advocating against the cultural obsession with flawlessness and unattainable perfection.
 
 Software Development Achievements and Future Goals
 
