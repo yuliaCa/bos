@@ -10,10 +10,19 @@ const UsageChart = (props) => {
 
     let routineEachDay = {};
     let productUsedByCategory = {};
+    let weeklyMask = [];
+    let weeklyCleanser = [];
+    let weeklyTreatment = [];
+    let weeklyMoisturizer= [];
+    let weeklyEyecare = [];
+    let weeklySunscreen = [];
+
+    
 
     let dailyUsage = [];
 
     const [productUsageData, setProductUsageData] = useState([]);
+    const [usageChartRaw, setUsageChartRaw] = useState({});
 
     const getUserProductUsage = () => {
         axios
@@ -158,31 +167,70 @@ const UsageChart = (props) => {
       arrayWeeklyUsage.push({Sunscreen:arraySunscreen});
 
       setProductUsageData(arrayWeeklyUsage);
+
+      
+    
       for (const [key, value] of Object.entries(arrayWeeklyUsage[0].Mask)){
-        console.log(`${value.dailyLogDate} to ${value._mask}`);
+        const dailydate = new Date(value.dailyLogDate);
+        insertArrayAt(weeklyMask, dailydate.getDay(), value._mask);
       }
+
+      for (const [key, value] of Object.entries(arrayWeeklyUsage[1].Cleanser)){
+        const dailydate = new Date(value.dailyLogDate);
+        insertArrayAt(weeklyCleanser, dailydate.getDay(), value._cleanser);
+      }
+
+      for (const [key, value] of Object.entries(arrayWeeklyUsage[2].Treatment)){
+        const dailydate = new Date(value.dailyLogDate);
+        insertArrayAt(weeklyTreatment, dailydate.getDay(), value._treatment);
+      }
+
+      for (const [key, value] of Object.entries(arrayWeeklyUsage[3].Moisturizer)){
+        const dailydate = new Date(value.dailyLogDate);
+        insertArrayAt(weeklyMoisturizer, dailydate.getDay(), value._moisturizer);
+      }
+
+      for (const [key, value] of Object.entries(arrayWeeklyUsage[4].Eyecare)){
+        const dailydate = new Date(value.dailyLogDate);
+        insertArrayAt(weeklyEyecare, dailydate.getDay(), value._eyecare);
+      }
+
+      for (const [key, value] of Object.entries(arrayWeeklyUsage[5].Sunscreen)){
+        const dailydate = new Date(value.dailyLogDate);
+        insertArrayAt(weeklySunscreen, dailydate.getDay(), value._sunscreen);
+      }
+
+
+      setUsageChartRaw({
+        cleanserData: weeklyCleanser,
+        moisturizerData: weeklyMoisturizer,
+        treatmentData: weeklyTreatment,
+        maskData: weeklyMask,
+        eyecareData: weeklyEyecare,
+        unscreenData: weeklySunscreen,
+    });
+   
       console.log(arrayWeeklyUsage);
+
+
     }
 
-    function insertAt(array, index) {
-      var arrayToInsert = Array.prototype.splice.apply(arguments, [2]);
-      return insertArrayAt(array, index, arrayToInsert);
-  }
   
   function insertArrayAt(array, index, arrayToInsert) {
       Array.prototype.splice.apply(array, [index, 0].concat(arrayToInsert));
       return array;
   }
   
+ 
     // Historical Data Inputs
-    let usageChartRaw = {
-        cleanserData: [1, 1, 1, 1, 1, 0, 1],
-        moisturizerData: [1, 0, 1, 0, 1, 0, 0],
-        treatmentData: [1, 0, 0, 0, 0, 0, 0],
-        maskData: [0, 0, 0, 0, 0, 1, 0],
-        eyecareData: [0, 0, 0, 0, 0, 1, 0],
-        unscreenData: [1, 0, 0, 0, 0, 0, 0],
-    };
+    //let usageChartRaw = {
+        //cleanserData: weeklyCleanser,
+        //moisturizerData: weeklyMoisturizer,
+       //treatmentData: weeklyTreatment,
+       // maskData: weeklyMask,
+        //eyecareData: weeklyEyecare,
+       // unscreenData: weeklySunscreen,
+    //};
 
     let usageChartData = [];
 
