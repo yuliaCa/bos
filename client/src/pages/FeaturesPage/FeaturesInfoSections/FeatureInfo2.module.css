@@ -85,8 +85,8 @@
   }
     
   .featureOuter .imageContainer {
-    justify-content: end;
-    align-items: end;
+    /* justify-content: end; */
+    align-items: center;
   }
 
   .feat2Image {

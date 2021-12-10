@@ -95,16 +95,7 @@
     }
 
     .startRoutineInner .register {
-        background-color: #67392A;
-        border: none;
-        border-radius: 8px;
         width: 20vw;
-        font-size: 15px;
-    }
-
-    .startRoutineInner .register:hover {
-        background-color:  #67392A;
-        opacity: 50%;
     }
 
     .startRoutineInner .nameInput, .startRoutineInner .emailInput {
@@ -119,13 +110,7 @@
     @media only screen and (min-width: 1200px) {
 
         .startRoutineInner .register {
-            background-color: #67392A;
-            border: none;
-            border-radius: 8px;
             width: 13vw;
-            font-size: 15px;
         }
-
-
     }
 }
