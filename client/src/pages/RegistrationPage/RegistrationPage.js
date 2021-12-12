@@ -148,7 +148,7 @@ function RegistrationPage(props) {
             type="email"
             id="email"
             name="userEmailAddress"
-            placeholder=" sidney.crosby@gmail.com"
+            placeholder=" douglas.leung@bosmail.com"
             autoComplete="off"
             value={input.userEmailAddress}
             required
