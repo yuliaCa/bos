@@ -53,8 +53,9 @@ function LoginForm() {
 
     function handleSession() {
 
+        if (input.email !== undefined) {
         sessionStorage.setItem("email",input.email);
-
+        }
     }
 
     return (

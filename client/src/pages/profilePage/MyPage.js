@@ -49,14 +49,6 @@ function MyPage(props) {
     }
   }, [city]);
 
-  // const initialStateProfilePhoto = {
-  //   type: "",
-  //   base64URL: "",
-  //   name: "",
-  // };
-
-  // const [stateImage, setStateImage] = useState(initialStateProfilePhoto);
-
   const [skinTypeAndConcern, setSkinTypeAndConcern] = useState([]);
   const [retrievedData, setRetrievedData] = useState([]);
 
@@ -100,15 +92,6 @@ function MyPage(props) {
           console.log(skinConcernArray);
           setSkinTypeAndConcern(skinConcernArray);
 
-          // if (result.data.image.length > 0) {
-          //   setStateImage(result.data.image[0]);
-          // } else {
-          //   setStateImage({
-          //     type: "",
-          //     base64URL: "",
-          //     name: "",
-          //   });
-          // }
         })
         .catch((error) => console.log(error));
     },
