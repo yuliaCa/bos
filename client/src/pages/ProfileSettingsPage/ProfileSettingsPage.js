@@ -18,6 +18,8 @@ function ProfileSettingsPage(props) {
 
   const image = useContext(ProfileImageContext);
 
+  const user = firebase.auth.currentUser;
+
   useEffect(() => {
   
     props.handleIsHome(location);
@@ -25,7 +27,7 @@ function ProfileSettingsPage(props) {
   },[location, props]);
 
   const [input, setInput] = useState({
-    fullname: "",
+    fullname: user ? user.displayName : "",
     cityLocation: "",
     image: "",
     gender: "",
@@ -59,8 +61,6 @@ function ProfileSettingsPage(props) {
     event.preventDefault();
 
     setSaveButton("SAVED");
-
-        const user = firebase.auth.currentUser;
 
         if (input.fullname !== ""  && input.cityLocation !== "" && input.gender !== "") {
 
