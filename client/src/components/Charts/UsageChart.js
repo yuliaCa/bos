@@ -30,11 +30,11 @@ const UsageChart = (props) => {
       return cloneDate;
     }
 
-    
+  
     const getUserProductUsage = () => {
         axios
             .get(
-                `https://bos-project2.herokuapp.com/dailyroutine/${localStorage.email}`
+                `https://bos-project2.herokuapp.com/dailyroutine/${sessionStorage.email}`
             )
             .then((results) => {
                 routineEachDay = results.data;
