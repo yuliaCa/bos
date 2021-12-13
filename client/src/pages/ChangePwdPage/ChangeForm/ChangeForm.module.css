@@ -34,8 +34,8 @@
     grid-row: 2 / 3;
     border: 1px solid #96807A;
     height: 40px;
-    width: 345px;
-    border-radius: 5px;
+    width: 97%;
+    border-radius: 8px;
     background-color: #F7EDE1;
 }
 
@@ -44,7 +44,7 @@
     background-color: #67392A;
     border: none;
     border-radius: 5px;
-    width: 350px;
+    width: 100%;
     justify-self: center;
     height: 48px;
     font-size: 15px;
@@ -63,6 +63,7 @@
     grid-column: 2 / 4;
     grid-row: 4 / 5;
     font-weight: 200;
+    margin-left: 5px;
     font-size: 16px;
     margin-top: 12px;
     text-decoration: none;
@@ -71,6 +72,11 @@
 
 @media only screen and (min-width: 600px) {
 
+    .inputEmail {
+        width: 355px;  
+        border-radius: 5px;
+    }
+    
     .LoginFormSection {
         background-color: #FCF9F6;
         height: 100%;

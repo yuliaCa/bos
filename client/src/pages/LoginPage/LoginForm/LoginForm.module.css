@@ -11,7 +11,6 @@
     padding: 10% 0;
 }
 
-
 .errorMessage {
     color: red;
     font-size: 14px;
@@ -20,7 +19,6 @@
     grid-row: 1 / 2;
     justify-self: center;
 }
-
 
 .inputEmail {
     align-self: center;
