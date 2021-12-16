@@ -36,11 +36,11 @@
 
 .startRoutineInner .register {
     background-color: #67392A;
-    margin: 6% 0;
+    margin: 3% 0;
     border: none;
     border-radius: 8px;
     height: 48px;
-    width: 40vw;
+    width: 60vw;
     font-size: 15px;
     color: white;
 }
@@ -64,9 +64,9 @@
     }
 
     .startRoutineInner .register {
-        width: 225px;
-        margin: 4% 0;
+        width: 350px;
     }
+
 }
 
 @media only screen and (min-width: 900px) {
