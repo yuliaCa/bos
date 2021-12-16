@@ -114,8 +114,8 @@ function ProfileSettingsPage(props) {
   }
 
   return <>
-    <form 
-        className={styles.SettingsFormSection}>
+    <form>
+      <div className={styles.SettingsFormSectionTop}>
         <h2 className={styles.AccountHeader}>Account Details</h2>
 
         <h3 className={styles.errorMessage}>{errorMessage !== undefined ? errorMessage : ""}</h3>
@@ -195,7 +195,9 @@ function ProfileSettingsPage(props) {
           <option value="binary"> non-binary </option>
           <option value="other"> other </option>
         </select>
+      </div>
 
+      <div className={styles.SettingsFormSectionBottom}>
         <legend className={styles.skintypeLabel}>
           {" "}
           What is your skin type ?{" "}
@@ -309,6 +311,7 @@ function ProfileSettingsPage(props) {
           {" "}
           {saveButton}{" "}
         </button>
+      </div>
     </form>
   </>;
 }
