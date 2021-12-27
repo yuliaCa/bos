@@ -5,6 +5,7 @@
   justify-content: center;
   background-color: #F8F5F0;
   height: 150px;
+  /* max-width: 380px; */
 }
 
 .footerTop .flexRow {
@@ -37,6 +38,7 @@ footer img {
   justify-content: center;
   align-items: center;
   text-align: center;
+  /* max-width: 380px; */
 }
 
 .footerBottom p {
