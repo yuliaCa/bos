@@ -115,8 +115,8 @@ function RegistrationPage(props) {
     <div class={styles.wrapper}>
         <div className={styles.regContainer}>
         <h1 className={styles.registerHeading}>Register</h1>
-        <form 
-          className={styles.RegistrationFormSection}>
+        <form >
+          <div className={styles.RegistrationFormSectionTop}>
           <label 
             htmlFor="name" 
             className={styles.fullnameLabel}>
@@ -148,7 +148,7 @@ function RegistrationPage(props) {
             type="email"
             id="email"
             name="userEmailAddress"
-            placeholder=" sidney.crosby@gmail.com"
+            placeholder=" douglas.leung@bosmail.com"
             autoComplete="off"
             value={input.userEmailAddress}
             required
@@ -227,7 +227,8 @@ function RegistrationPage(props) {
             <option value="binary"> non-binary </option>
             <option value="other"> other </option>
           </select>
-
+          </div>
+          <div className={styles.RegistrationFormSectionBottom}>
           <legend className={styles.skintypeLabel}>
             {" "}
             What is your skin type ?{" "}
@@ -330,7 +331,6 @@ function RegistrationPage(props) {
               name="fine_lines" 
               custom="finelinesLabel" />
           </div>
-        
           <button
             onClick={handleClick}
             className={styles.buttonRegister}
@@ -341,9 +341,10 @@ function RegistrationPage(props) {
             {" "}
             REGISTER{" "}
           </button>
-          <div className={styles.firebaseErrorMsg}>
-            <em style={{color:"red"}}>{firebaseErrorMsg}</em>
           </div>
+          {/* <div className={styles.firebaseErrorMsg}>
+            <em style={{color:"red"}}>{firebaseErrorMsg}</em>
+          </div> */}
         </form>
         </div>
       </div>

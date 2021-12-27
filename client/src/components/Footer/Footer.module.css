@@ -36,6 +36,7 @@ footer img {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 .footerBottom p {

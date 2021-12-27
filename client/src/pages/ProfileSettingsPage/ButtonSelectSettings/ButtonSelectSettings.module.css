@@ -6,9 +6,8 @@
         border-radius: 5px;
         text-align: center;
         border: 1px solid #96807A;
-        padding: 10px 36px;
-        align-self: center;
-        margin-left: 1px;
+        padding: 10px 50px;
+        align-self: left;
         font-size: 13px;
         background-color: #F7EDE1;
     }
@@ -22,8 +21,7 @@
         border-radius: 5px;
         text-align: center;
         border: 1px solid #96807A;
-        padding: 10px 25px;
-        margin-left: 2px;
+        padding: 10px 39px;
         align-self: center;
         font-size: 13px;
         background-color: #F7EDE1;
@@ -38,8 +36,7 @@
         border-radius: 5px;
         text-align: center;
         border: 1px solid #96807A;
-        padding: 10px 35px;
-        margin-left: 5px;
+        padding: 10px 49px;
         align-self: center;
         font-size: 13px;
         background-color: #F7EDE1;
@@ -54,9 +51,8 @@
         border-radius: 5px;
         text-align: center;
         border: 1px solid #96807A;
-        padding: 10px 9px;
-        margin-left: 8px;
-        font-size: 13px;
+        padding: 11px 26px;
+        font-size: 12px;
         background-color: #F7EDE1;
     }
 
@@ -67,7 +63,7 @@
 
     .sensitiveLabel {
         border: 1px solid #96807A;
-        padding: 10px 22.4px;
+        padding: 10px 36.5px;
         align-self: center;
         font-size: 12px;
         background-color: #F7EDE1;
@@ -84,7 +80,7 @@
         border-radius: 5px;
         text-align: center;
         border: 1px solid #96807A;
-        padding: 10px 32px;
+        padding: 10px 45.5px;
         align-self: center;
         font-size: 13px;
         background-color: #F7EDE1;
@@ -99,7 +95,7 @@
         border-radius: 5px;
         text-align: center;
         border: 1px solid #96807A;
-        padding: 10px 23px;
+        padding: 10px 37px;
         font-size: 13px;
         background-color: #F7EDE1;
     }
@@ -113,9 +109,8 @@
         border-radius: 5px;
         text-align: center;
         border: 1px solid #96807A;
-        padding: 10px 23px;
+        padding: 10px 36px;
         align-self: center;
-        margin-left: 2px;
         font-size: 13px;
         background-color: #F7EDE1;
     }
@@ -129,9 +124,8 @@
         border-radius: 5px;
         text-align: center;
         border: 1px solid #96807A;
-        padding: 10px 16px;
+        padding: 10px 30px;
         align-self: center;
-        margin-left: 5px;
         font-size: 13px;
         background-color: #F7EDE1;
     }
@@ -145,7 +139,7 @@
         border-radius: 5px;
         text-align: center;
         border: 1px solid #96807A;
-        padding: 10px 15px;
+        padding: 10px 30px;
         align-self: center;
         font-size: 13px;
         background-color: #F7EDE1;
@@ -160,7 +154,7 @@
         border-radius: 5px;
         text-align: center;
         border: 1px solid #96807A;
-        padding: 10px 29px;
+        padding: 10px 42px;
         align-self: center;
         font-size: 13px;
         background-color: #F7EDE1;
@@ -175,9 +169,8 @@
         border-radius: 5px;
         text-align: center;
         border: 1px solid #96807A;
-        padding: 10px 21px;
+        padding: 10px 34px;
         align-self: center;
-        margin-left: 2px;
         font-size: 13px;
         background-color: #F7EDE1;
     }
@@ -191,9 +184,8 @@
         border-radius: 5px;
         text-align: center;
         border: 1px solid #96807A;
-        padding: 10px 19px;
+        padding: 10px 33.5px;
         align-self: center;
-        margin-left: 5px;
         font-size: 13px;
         background-color: #F7EDE1;
     }
@@ -253,22 +245,22 @@
     }
 
     .darkspotsLabel {
-        padding: 8% 24.5%;
+        padding: 8% 23%;
         margin: 3% 5%;
     }
 
     .poresLabel {
-        padding: 8% 31%;
+        padding: 8% 30.7%;
         margin: 3% 5%;
     }
 
     .redlinesLabel {
-        padding: 8% 26.5%;
+        padding: 8% 26%;
         margin: 3% 5%;
     }
 
     .finelinesLabel {
-        padding: 8% 25.5%;
+        padding: 8% 26%;
         margin: 3% 5%;
     }
 

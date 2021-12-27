@@ -30,15 +30,15 @@ const UsageChart = (props) => {
       return cloneDate;
     }
 
-    
+  
     const getUserProductUsage = () => {
         axios
             .get(
-                `https://bos-project2.herokuapp.com/dailyroutine/${localStorage.email}`
+                `https://bos-project2.herokuapp.com/dailyroutine/${sessionStorage.email}`
             )
             .then((results) => {
                 routineEachDay = results.data;
-               
+        
                 for (let i = 0; i < routineEachDay.length; i++) {
                     let category = [];
 
@@ -48,7 +48,7 @@ const UsageChart = (props) => {
                         }
                     }
 
-                    // console.log(category);
+                  
                     let counts = {};
                     category.forEach((x) => {
                         counts[x] = (counts[x] || 0) + 1;
@@ -63,7 +63,7 @@ const UsageChart = (props) => {
                         productUsage: counts,
                     };
                     dailyUsage.push(productUsedByCategory);
-
+                    
                 }
                
                 getUsageForChart(dailyUsage);
@@ -163,7 +163,49 @@ const UsageChart = (props) => {
             };
             arraySunscreen.push(arrayDayUsage);
             Sunscreen=0;
-          }   
+          }else if (rawData.length === 1){
+               //Mask
+            arrayDayUsage  = { dailyLogDate: rawData[i].dailyLogDate,
+              _mask: Mask
+            };
+            arrayMask.push(arrayDayUsage);
+            Mask=0;
+
+            //Cleanser
+            arrayDayUsage  = { dailyLogDate: rawData[i].dailyLogDate,
+              _cleanser: Cleanser
+            };
+            arrayCleanser.push(arrayDayUsage);
+            Cleanser=0;
+
+             //Treatment
+             arrayDayUsage  = { dailyLogDate: rawData[i].dailyLogDate,
+              _treatment: Treatment
+            };
+            arrayTreatment.push(arrayDayUsage);
+            Treatment=0;
+
+             //Moisturizer
+             arrayDayUsage  = { dailyLogDate: rawData[i].dailyLogDate,
+              _moisturizer: Moisturizer
+            };
+            arrayMoisturizer.push(arrayDayUsage);
+            Moisturizer=0;
+
+             //Eyecare
+             arrayDayUsage  = { dailyLogDate: rawData[i].dailyLogDate,
+              _eyecare: Eyecare
+            };
+            arrayEyecare.push(arrayDayUsage);
+            Eyecare=0;
+
+             //Sunscreen
+             arrayDayUsage  = { dailyLogDate: rawData[i].dailyLogDate,
+              _sunscreen: Sunscreen
+            };
+            arraySunscreen.push(arrayDayUsage);
+            Sunscreen=0;
+          }  
       }
       
       arrayWeeklyUsage.push({Mask: arrayMask});
@@ -210,6 +252,7 @@ const UsageChart = (props) => {
       }
 
 
+      console.log(arrayWeeklyUsage);
       setUsageChartRaw({
         cleanserData: weeklyCleanser,
         moisturizerData: weeklyMoisturizer,
@@ -219,7 +262,7 @@ const UsageChart = (props) => {
         unscreenData: weeklySunscreen,
     });
    
-    }
+  };
 
   
   function insertArrayAt(array, index, arrayToInsert) {

@@ -18,6 +18,8 @@ function ProfileSettingsPage(props) {
 
   const image = useContext(ProfileImageContext);
 
+  const user = firebase.auth.currentUser;
+
   useEffect(() => {
   
     props.handleIsHome(location);
@@ -25,7 +27,7 @@ function ProfileSettingsPage(props) {
   },[location, props]);
 
   const [input, setInput] = useState({
-    fullname: "",
+    fullname: user ? user.displayName : "",
     cityLocation: "",
     image: "",
     gender: "",
@@ -59,8 +61,6 @@ function ProfileSettingsPage(props) {
     event.preventDefault();
 
     setSaveButton("SAVED");
-
-        const user = firebase.auth.currentUser;
 
         if (input.fullname !== ""  && input.cityLocation !== "" && input.gender !== "") {
 
@@ -114,8 +114,8 @@ function ProfileSettingsPage(props) {
   }
 
   return <>
-    <form 
-        className={styles.SettingsFormSection}>
+    <form>
+      <div className={styles.SettingsFormSectionTop}>
         <h2 className={styles.AccountHeader}>Account Details</h2>
 
         <h3 className={styles.errorMessage}>{errorMessage !== undefined ? errorMessage : ""}</h3>
@@ -195,7 +195,9 @@ function ProfileSettingsPage(props) {
           <option value="binary"> non-binary </option>
           <option value="other"> other </option>
         </select>
+      </div>
 
+      <div className={styles.SettingsFormSectionBottom}>
         <legend className={styles.skintypeLabel}>
           {" "}
           What is your skin type ?{" "}
@@ -309,6 +311,7 @@ function ProfileSettingsPage(props) {
           {" "}
           {saveButton}{" "}
         </button>
+      </div>
     </form>
   </>;
 }
