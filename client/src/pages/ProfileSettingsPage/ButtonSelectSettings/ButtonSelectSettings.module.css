@@ -3,197 +3,199 @@
     }
 
     .dryLabel {
-        border-radius: 5px;
-        text-align: center;
-        border: 1px solid #96807A;
-        padding: 10px 50px;
-        align-self: left;
         font-size: 13px;
+        text-align: center;
+        padding: 10px 37.5px;
+        align-self: center;
+        border-radius: 5px;
+        border: solid 1px #96807A;
         background-color: #F7EDE1;
     }
 
     .dryLabel:hover {
-        background-color:#B68B7D;
         color: black;
+        background-color:#B68B7D;
     }
 
     .normalLabel {
+        padding: 10px 26px;
+        font-size: 13px;
         border-radius: 5px;
         text-align: center;
-        border: 1px solid #96807A;
-        padding: 10px 39px;
         align-self: center;
-        font-size: 13px;
+        border: solid 1px #96807A;
         background-color: #F7EDE1;
     }
 
     .normalLabel:hover {
-        background-color: #B68B7D;
         color: black;
+        background-color: #B68B7D;
     }
 
     .oilyLabel {
+        padding: 10px 36px;
+        font-size: 13px;
         border-radius: 5px;
         text-align: center;
-        border: 1px solid #96807A;
-        padding: 10px 49px;
         align-self: center;
-        font-size: 13px;
+        border: solid 1px #96807A;
         background-color: #F7EDE1;
     }
 
     .oilyLabel:hover {
-        background-color: #B68B7D;
         color: black;
+        background-color: #B68B7D;
     }
 
     .combinationLabel {
+        padding: 10px 11px;
+        font-size: 13px;
+        text-align: left;
+        align-self: center;
         border-radius: 5px;
-        text-align: center;
-        border: 1px solid #96807A;
-        padding: 11px 26px;
-        font-size: 12px;
+        border: solid 1px #96807A;
         background-color: #F7EDE1;
     }
-
+    
     .combinationLabel:hover {
-        background-color: #B68B7D;
         color: black;
+        background-color: #B68B7D;
     }
 
     .sensitiveLabel {
-        border: 1px solid #96807A;
-        padding: 10px 36.5px;
         align-self: center;
-        font-size: 12px;
-        background-color: #F7EDE1;
-        border-radius: 5px;
+        padding: 10px 21px;
+        font-size: 13px;
         text-align: center;
+        border-radius: 5px;
+        border: solid 1px #96807A;
+        background-color: #F7EDE1;
     }
 
     .sensitiveLabel:hover {
-        background-color:#B68B7D;
         color: black;
+        background-color:#B68B7D;
     }
-
     .acneLabel {
+        padding: 10px 33px;
+        font-size: 13px;
         border-radius: 5px;
         text-align: center;
-        border: 1px solid #96807A;
-        padding: 10px 45.5px;
         align-self: center;
-        font-size: 13px;
+        border: solid 1px #96807A;
         background-color: #F7EDE1;
     }
 
     .acneLabel:hover {
-        background-color: #B68B7D;
         color: black;
+        background-color: #B68B7D;
     }
 
     .drynessLabel  {
-        border-radius: 5px;
-        text-align: center;
-        border: 1px solid #96807A;
-        padding: 10px 37px;
+        padding: 10px 24px;
         font-size: 13px;
+        border-radius: 5px;
+        align-self: center;
+        text-align: center;
+        border: solid 1px #96807A;
         background-color: #F7EDE1;
     }
 
     .drynessLabel:hover {
-        background-color: #B68B7D;
         color: black;
+        background-color: #B68B7D;
     }
 
     .oilynessLabel  {
-        border-radius: 5px;
-        text-align: center;
-        border: 1px solid #96807A;
-        padding: 10px 36px;
-        align-self: center;
+        padding: 10px 23px;
         font-size: 13px;
+        border-radius: 5px;
+        align-self: center;
+        text-align: center;
+        border: solid 1px #96807A;
         background-color: #F7EDE1;
     }
 
     .oilynessLabel:hover {
-        background-color: #B68B7D;
         color: black;
+        background-color: #B68B7D;
     }
 
     .blemishesLabel {
-        border-radius: 5px;
-        text-align: center;
-        border: 1px solid #96807A;
-        padding: 10px 30px;
+        padding: 10px 18px;
+        font-size: 13px; 
         align-self: center;
-        font-size: 13px;
+        text-align: center;
+        border-radius: 5px;
+        border: solid 1px #96807A;
         background-color: #F7EDE1;
     }
 
     .blemishesLabel:hover {
-        background-color: #B68B7D;
         color: black;
+        background-color: #B68B7D;
     }
 
     .darkspotsLabel {
-        border-radius: 5px;
-        text-align: center;
-        border: 1px solid #96807A;
-        padding: 10px 30px;
+        padding: 10px 19px;
+        font-size: 12px;
         align-self: center;
-        font-size: 13px;
+        text-align: center;
+        border-radius: 5px;
+        border: solid 1px #96807A;
         background-color: #F7EDE1;
     }
 
     .darkspotsLabel:hover {
-        background-color: #B68B7D;
         color: black;
+        background-color: #B68B7D;
     }
 
     .poresLabel {
-        border-radius: 5px;
-        text-align: center;
-        border: 1px solid #96807A;
-        padding: 10px 42px;
-        align-self: center;
+        padding: 10px 30px;
         font-size: 13px;
+        border-radius: 5px;
+        align-self: center;
+        text-align: center;
+        border: solid 1px #96807A;
         background-color: #F7EDE1;
     }
 
     .poresLabel:hover {
-        background-color: #B68B7D;
         color: black;
+        background-color: #B68B7D;
     }
 
     .redlinesLabel {
-        border-radius: 5px;
-        text-align: center;
-        border: 1px solid #96807A;
-        padding: 10px 34px;
-        align-self: center;
+        padding: 10px 22px;
         font-size: 13px;
+        align-self: start;
+        text-align: center;
+        border-radius: 5px;
+        border: solid 1px #96807A;
         background-color: #F7EDE1;
     }
 
     .redlinesLabel:hover {
-        background-color: #B68B7D;
         color: black;
+        background-color: #B68B7D;
     }
 
     .finelinesLabel {
-        border-radius: 5px;
-        text-align: center;
-        border: 1px solid #96807A;
-        padding: 10px 33.5px;
-        align-self: center;
+        padding: 10px 20px;
         font-size: 13px;
+        align-self: start;
+        text-align: center;
+        border-radius: 5px;
+        border: solid 1px #96807A;
         background-color: #F7EDE1;
     }
 
     .finelinesLabel:hover {
-        background-color: #B68B7D;
         color: black;
+        background-color: #B68B7D;
     }
+
 
 @media only screen and (min-width: 900px) {
 

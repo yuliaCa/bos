@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { ProfileImageContext } from "../../contexts/ProfileImageContext";
 import { Link, useHistory } from "react-router-dom";
 import styles from "./Navbar.module.css";
@@ -67,6 +67,14 @@ function Navbar(props) {
   const image = useContext(ProfileImageContext);
 
   window.addEventListener("scroll", changeBackground);
+
+  useEffect(function reportWindowSize() {
+    if (window.innerWidth < 750) {
+      setBurger(true);
+    } else {
+      setBurger(false);
+    }
+  },[]);
 
   const reportWindowSize = () => {
     if (window.innerWidth < 750) {
