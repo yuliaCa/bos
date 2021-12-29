@@ -89,6 +89,7 @@ function Navbar(props) {
   return (
     <div style={fixedHeader}>
       <header style={props.isHome === "/" && !navbar ? transparentBg : {}}>
+        <Link to='/'>
         <img
           className={styles.filter}
           src={
@@ -98,7 +99,7 @@ function Navbar(props) {
           }
           alt="Footer Logo"
         ></img>
-
+        </Link>
         {!burger ? (
           <nav>
             <ul className={styles.flexRow}>
