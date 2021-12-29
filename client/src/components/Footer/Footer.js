@@ -23,7 +23,7 @@ function Footer() {
             </div>
         </footer>
          <div className={styles.footerBottom}>
-         <p>Designed and Developed by Langara College Canada, Web & Mobile Development Program Term 3 Students 2021-2022</p>
+         <p>Langara College Canada, Web & Mobile Design and Development Program Students 2021-2022</p>
          </div>
          </>
     )

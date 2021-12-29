@@ -115,7 +115,7 @@ function RegistrationPage(props) {
     <div class={styles.wrapper}>
         <div className={styles.regContainer}>
         <h1 className={styles.registerHeading}>Register</h1>
-        <form >
+        <form className={ styles.regForm }>
           <div className={styles.RegistrationFormSectionTop}>
           <label 
             htmlFor="name" 

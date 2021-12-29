@@ -1,3 +1,7 @@
+.settingsForm {
+    background-color: #FCF9F6;
+}
+
 .SettingsFormSectionTop {
     display: grid;
     grid-template-columns:repeat 4(1fr);
@@ -110,6 +114,7 @@
     grid-column: 1 / 5;
     grid-row: 14 / 15;
     border-radius: 5px;
+    border: 1px solid black;
     max-width: 310px;
     height: 45px;
     background-color: #F7EDE1;
@@ -262,9 +267,10 @@
 
 @media only screen and (min-width: 900px) {
 
-    form {
+    .settingsForm {
         display: flex;
         flex-direction: column;
+        background-color: white;
     }
 
     .SettingsFormSectionTop {
@@ -339,7 +345,7 @@
         border-radius: 5px;
         grid-column: 3 / 5;
         grid-row: 3 / 4;
-        width: 335px;
+        max-width: 325px;
         height: 40px;
         background-color: #F7EDE1;
     }
@@ -357,7 +363,7 @@
         grid-column: 3 / 5;
         grid-row: 5 / 6;
         border-radius: 5px;
-        width: 335px;
+        max-width: 325px;
         height: 40px;
         background-color: #F7EDE1;
     }
@@ -377,7 +383,7 @@
         grid-column: 3 / 5;
         grid-row: 7 / 8;
         border-radius: 5px;
-        width: 340px;
+        max-width: 330px;
         height: 45px;
         background-color: #F7EDE1;
     }
@@ -404,6 +410,7 @@
     .dryLabel {
         grid-column: 1 / 2;
         grid-row: 2 / 3;
+        justify-self: stretch;
     }
 
     .normalLabel {
@@ -421,13 +428,16 @@
     .combinationLabel {
         grid-column: 4 / 5;
         grid-row: 2 / 3;
+        justify-self: stretch;
+        align-self: start;
+        margin-top: 6px;
     }
 
     .sensitiveLabel {
         grid-column: 1 / 2;
         grid-row: 3 / 4;
         justify-self: stretch;
-        margin-top: 20px;
+        margin-top: 40px;
     }
 
     .concernsLabel {
@@ -442,50 +452,57 @@
     .acneLabel {
         grid-column: 1 / 2;
         grid-row: 5 / 6;
+        justify-self: stretch;
+        margin-top: 6px;
     }
 
     .drynessLabel  {
         grid-column: 2 / 3;
         grid-row: 5 / 6;
         justify-self: stretch;
+        margin-top: 6px;
     }
 
     .oilynessLabel  {
         grid-column: 3 / 4;
         grid-row: 5 / 6;
         justify-self: stretch;
+        margin-top: 6px;
     }
 
     .blemishesLabel {
         grid-column: 4 / 5;
         grid-row: 5 / 6;
+        justify-self: stretch;
+        margin-top: 6px;
     }
 
     .darkspotsLabel {
         grid-column: 1 / 2;
         grid-row: 6 / 7;
         justify-self: stretch;
-        margin-top: 20px;
+        margin-top: 40px;
     }
 
     .poresLabel {
         grid-column: 2 / 3;
         grid-row: 6 / 7;
         justify-self: stretch;
-        margin-top: 20px;
+        margin-top: 40px;
     }
 
     .redlinesLabel {
         grid-column: 3 / 4;
         grid-row: 6 / 7;
-        margin-top: 20px;
+        margin-top: 40px;
+        justify-self: stretch;
     }
 
     .finelinesLabel {
         grid-column: 4 / 5;
         grid-row: 6 / 7;
         justify-self: stretch;
-        margin-top: 20px;
+        margin-top: 40px;
     }
 
     .buttonRegister {
@@ -500,7 +517,7 @@
         font-size: 15px;
         justify-self: stretch;
         margin-left: 10px;
-        margin-top: 10px;
+        margin-top: 40px;
     }
 
     .buttonRegister:hover {
