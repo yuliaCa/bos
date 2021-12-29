@@ -114,9 +114,9 @@
     grid-column: 1 / 5;
     grid-row: 14 / 15;
     border-radius: 5px;
-    border: 1px solid black;
+    border: 1px solid #96807A;
     max-width: 310px;
-    height: 45px;
+    height: 47px;
     background-color: #F7EDE1;
 }
 

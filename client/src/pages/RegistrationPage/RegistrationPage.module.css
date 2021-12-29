@@ -145,9 +145,9 @@
         grid-column: 3 / 5;
         grid-row: 11 / 12;
         max-width: 184px;
-        height: 45px;
+        height: 47px;
         margin-top: 4px;
-        border: 1px solid black;
+        border: 1px solid #96807A;
         border-radius: 5px;
         background-color: #F7EDE1;
         margin-left: 6px;
@@ -338,7 +338,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin-left: -4%;
+        margin-left: -5%;
     }
 
     .headerContainer {
