@@ -1,3 +1,7 @@
+footer {
+  background-color: #F8F5F0;
+}
+
 .footerTop {
   display: flex;
   flex-direction: column;

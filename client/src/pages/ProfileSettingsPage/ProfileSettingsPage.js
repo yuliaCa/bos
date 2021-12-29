@@ -114,7 +114,7 @@ function ProfileSettingsPage(props) {
   }
 
   return <>
-    <form>
+    <form className={ styles.settingsForm }>
       <div className={styles.SettingsFormSectionTop}>
         <h2 className={styles.AccountHeader}>Account Details</h2>
 

@@ -1,3 +1,7 @@
+    .wrapper {
+        background-color: #FCF9F6;
+    }
+
     .RegistrationFormSectionTop {
         display: grid;
         grid-template-columns:1fr 1fr 1fr 1fr;
@@ -143,6 +147,7 @@
         max-width: 184px;
         height: 45px;
         margin-top: 4px;
+        border: 1px solid black;
         border-radius: 5px;
         background-color: #F7EDE1;
         margin-left: 6px;
@@ -293,7 +298,11 @@
 
 @media only screen and (min-width: 900px) {
 
-    form {
+    .wrapper {
+        background-color: white;
+    }
+
+    .regForm {
         display: flex;
         flex-direction: row;
     }
