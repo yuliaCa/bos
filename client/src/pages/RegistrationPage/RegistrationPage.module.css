@@ -145,7 +145,7 @@
         grid-column: 3 / 5;
         grid-row: 11 / 12;
         max-width: 184px;
-        height: 47px;
+        height: 46px;
         margin-top: 4px;
         border: 1px solid #96807A;
         border-radius: 5px;
@@ -160,6 +160,7 @@
         align-self: end;
         height: 1vh;
         margin: 8% 0;
+        margin-bottom: 12%;
         text-align: left;
     }
 
@@ -278,6 +279,7 @@
         height: 48px;
         width: 310px;
         margin: 8% 0;
+        margin-top: 12%;
         font-size: 15px;
         color: white;
         border: none;
