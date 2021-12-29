@@ -56,6 +56,7 @@
         font-size: 16px;
         font-weight: 400;
         align-self: center;
+        margin-top: 5%;
     }
     
     .emailInput {
@@ -76,6 +77,7 @@
         font-size: 16px;
         font-weight: 400;
         align-self: center;
+        margin-top: 5%;
     }
     
     .passwordInput {
@@ -96,6 +98,7 @@
         font-size: 16px;
         font-weight: 400;
         align-self: center;
+        margin-top: 5%;
     }
     
     .passwordCfmInput {
@@ -116,6 +119,7 @@
         font-size: 16px;
         font-weight: 400;
         align-self: center;
+        margin-top: 10%;
     }
     
     .locationInput {
@@ -139,6 +143,7 @@
         font-weight: 400;
         align-self: center;
         margin-left: 6px;
+        margin-top: 10%;
     }
     
     .genderInput {
@@ -160,7 +165,7 @@
         align-self: end;
         height: 1vh;
         margin: 8% 0;
-        margin-bottom: 12%;
+        margin-bottom: 8%;
         text-align: left;
     }
 
@@ -209,7 +214,7 @@
     }
     
     .concernsLabel {
-        margin: 10% 0 3% 0;
+        margin-top: 12%;
         grid-column: 1 / 4;
         grid-row: 5 / 6;
         font-size: 15px;
@@ -444,6 +449,7 @@
         font-size: 16px;
         font-weight: 400;
         align-self: center;
+        margin-top: 3%;
     }
     
     .locationInput {
@@ -470,9 +476,9 @@
         flex-direction: column;
         font-size: 16px;
         font-weight: 400;
-        align-self: center;
+        align-self: end;
         text-align: left;
-        margin: 7% 0;
+        margin-top: 3%;
         margin-left: 10px;
     }
     
