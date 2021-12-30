@@ -259,7 +259,7 @@ function Navbar(props) {
                           style={
                             props.isHome === "/" && !navbar
                               ? transparentBg2
-                              : {}
+                              : beigeBg
                           }
                           id="dropdown"
                           className={styles.dropdownItem}
