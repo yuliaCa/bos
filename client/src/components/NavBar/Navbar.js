@@ -52,6 +52,10 @@ function Navbar(props) {
     backgroundColor: "rgba(190, 173, 157,0.9)"
   };
 
+  const beigeBg = {
+    backgroundColor: "rgb(247, 237, 225)"
+  }
+
   const whiteText = {
     color: "#fff",
   };
@@ -173,7 +177,7 @@ function Navbar(props) {
                           style={
                             props.isHome === "/" && !navbar
                               ? transparentBg2
-                              : {}
+                              : beigeBg
                           }
                           id="dropdown"
                           className={styles.dropdownItem}

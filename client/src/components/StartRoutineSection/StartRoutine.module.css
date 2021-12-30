@@ -108,6 +108,10 @@
         margin-right: 2vw;
     }
 
+    .startRoutineInner .register {
+        margin-bottom: 3%;
+    }
+
     @media only screen and (min-width: 1200px) {
 
         .startRoutineInner .register {
