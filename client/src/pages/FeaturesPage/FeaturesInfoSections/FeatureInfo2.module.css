@@ -1,5 +1,6 @@
 .featureOuter {
   padding: 8%;
+  padding-bottom: 12%;
   display: flex;
   flex-direction: column;
   justify-content: center;
