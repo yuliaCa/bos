@@ -25,7 +25,7 @@ function ChangePwdPage(props) {
 
   return (
     <div className={styles.loginOuter}>
-      <h1 className={styles.loginHeader}>Login</h1>
+      <h1 className={styles.loginHeader}>Reset Password</h1>
       <div className={styles.loginLeftSection}>
         <Welcome
           src="https://s3-us-west-2.amazonaws.com/bos-skincare/logo/logo_mobile.svg"

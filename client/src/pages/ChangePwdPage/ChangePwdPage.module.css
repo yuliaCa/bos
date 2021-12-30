@@ -4,6 +4,10 @@
         flex-direction: column;
     }
 
+    .loginOuter h1 {
+        grid-column: 1 / 3;
+    }
+
     .loginHeader {
         order: 1;
     }
