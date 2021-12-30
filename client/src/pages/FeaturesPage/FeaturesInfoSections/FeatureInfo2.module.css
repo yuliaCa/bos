@@ -1,5 +1,6 @@
 .featureOuter {
   padding: 8%;
+  padding-bottom: 12%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -16,7 +17,7 @@
 
 .featureOuter p {
   text-align: center;
-  margin-bottom: 5%;
+  margin-bottom: 10%;
   font-weight: 200;
   color: #3b3835;
   font-size: 18px;
@@ -27,6 +28,7 @@
   font-weight: 500;
   font-size: 32px;
   justify-self: end;
+  margin-top: 10%;
 }
 
 .featureOuter button a {

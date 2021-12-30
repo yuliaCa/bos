@@ -9,6 +9,7 @@
   justify-content: center;
   align-items: center;
   background-color: #fcf9f6;
+  padding-bottom: 12%;
 }
 
 .sectionLeft {
@@ -25,7 +26,7 @@
 
 .sectionRight p {
   text-align: center;
-  margin-bottom: 5%;
+  margin-bottom: 10%;
   font-weight: 200;
   color: #3b3835;
   font-size: 18px;
@@ -35,6 +36,7 @@
   color: #3b3835;
   font-weight: 500;
   font-size: 32px;
+  margin-top: 10%;
 }
 
 .feat1_3Image {

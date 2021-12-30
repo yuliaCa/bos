@@ -68,6 +68,7 @@
     font-size: 16px;
     font-weight: 400;
     align-self: center;
+    margin-top: 5%;
 }
 
 .fullnameInput {
@@ -87,6 +88,7 @@
     font-size: 16px;
     font-weight: 400;
     align-self: center;
+    margin-top: 5%;
 }
 
 .locationInput {
@@ -108,15 +110,16 @@
     font-weight: 400;
     align-self: center;
     text-align: left;
+    margin-top: 5%;
 }
 
 .genderInput {
     grid-column: 1 / 5;
     grid-row: 14 / 15;
     border-radius: 5px;
-    border: 1px solid black;
+    border: 1px solid #96807A;
     max-width: 310px;
-    height: 45px;
+    height: 47px;
     background-color: #F7EDE1;
 }
 
@@ -131,7 +134,7 @@
     margin: 0 auto;
     width: 310px;
     height: 500px;
-    padding: 8%;
+    padding: 5%;
     padding-top: 0;
     background-color: #FCF9F6;
 }
@@ -142,7 +145,6 @@
     font-size: 16px;
     align-self: end;
     text-align: left;
-    margin-bottom: 10%;
 }
 
 .dryLabel {
@@ -167,24 +169,24 @@
 }
 
 .combinationLabel {
-    margin-top: 30px;
+    margin-top: 20px;
     grid-column: 1 / 2;
     grid-row: 4 / 5;
     justify-self: left;
 }
 
 .sensitiveLabel {
-    margin-top: 30px;
+    margin-top: 20px;
     grid-column: 2 / 3;
     grid-row: 4 / 5;
     justify-self: center;
 }
 
 .concernsLabel {
-    margin: 10% 0 3% 0;
+    margin-top: 8%;
     grid-column: 1 / 4;
     grid-row: 5 / 6;
-    font-size: 15px;
+    font-size: 16px;
     text-align: left;
     align-self: center;
 } 
@@ -211,35 +213,35 @@
 }
 
 .blemishesLabel {
-    margin-top: 30px;
+    margin-top: 20px;
     grid-column: 1 / 2;
     grid-row: 7 / 8;
     justify-self: left;
 }
 
 .darkspotsLabel {
-    margin-top: 30px;
+    margin-top: 20px;
     grid-column: 2 / 3;
     grid-row: 7 / 8;
     justify-self: center;
 }
 
 .poresLabel {
-    margin-top: 30px;
+    margin-top: 20px;
     grid-column: 3 / 4;
     grid-row: 7 / 8;
     justify-self: right;
 }
 
 .redlinesLabel {
-    margin-top: 30px;
+    margin-top: 20px;
     grid-column: 1 / 2;
     grid-row: 8 / 9;
     justify-self: left;
 }
 
 .finelinesLabel {
-    margin-top: 30px;
+    margin-top: 20px;
     grid-column: 2 / 3;
     grid-row: 8 / 9;
     justify-self: center;
@@ -338,7 +340,6 @@
         text-align: left;
         font-size: 16px;
         font-weight: 400;
-        align-self: center;
     }
 
     .fullnameInput {
@@ -348,6 +349,7 @@
         max-width: 325px;
         height: 40px;
         background-color: #F7EDE1;
+        align-self: start;
     }
 
     .locationLabel {

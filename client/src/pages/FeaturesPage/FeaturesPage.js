@@ -42,7 +42,7 @@ function FeaturesPage(props) {
         heading={adviceContent.header}
         bodytext={adviceContent.body}
         buttonTitle="CREATE YOUR PROFILE"
-        link="/registration"
+        link="/profileSettings"
       />
 
       <FeatureInfo2Section
