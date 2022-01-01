@@ -139,7 +139,7 @@ function RegistrationPage(props) {
           <label 
             htmlFor="email" 
             className={styles.emailLabel}>
-            Email <br/>
+            E-mail <br/>
             {errorMessages.length >= 1 && errorMessages.find(error => error.message.includes("email")) ? <em style={{color:"red"}}> {errorMessages.find(error => error.message.includes("email")).message} </em> : ""}
           </label>
           <input
