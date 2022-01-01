@@ -74,7 +74,7 @@ function LoginForm() {
                 type="text" 
                 name="email"
                 value={input.email}
-                placeholder=" Email Address"
+                placeholder=" E-mail Address"
                  />
             <input 
                 className={styles.inputPassword} 
