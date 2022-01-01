@@ -43,7 +43,7 @@ function StartRoutineSection(props) {
             </div>
             <div className={styles.startRoutineInner}>
                 <input className={styles.nameInput} onChange={handleChange} value={input.fullname} id="username" type="text" name="fullname" placeholder="  Your Name" />
-                <input className={styles.emailInput} onChange={handleChange} value={input.email} id="useraddress" type="text" name="email" placeholder="  Email Address" />
+                <input className={styles.emailInput} onChange={handleChange} value={input.email} id="useraddress" type="text" name="email" placeholder="  E-mail Address" />
 
                 <button onClick={handleClick} className={styles.register}>
                 SIGN UP NOW
