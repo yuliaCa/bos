@@ -10,6 +10,7 @@
 
     .loginHeader {
         order: 1;
+        visibility: hidden;
     }
 
     .loginLeftSection {
@@ -31,6 +32,10 @@
         margin: 5% auto;
         margin-bottom: 3%;
         padding-top: 20px;
+    }
+
+    .loginHeader {
+        visibility: visible;
     }
 
     .loginLeftSection {
