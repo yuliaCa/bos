@@ -14,8 +14,8 @@ function SearchInput(props) {
             url: 'https://sephora.p.rapidapi.com/products/list',
             params: { categoryId: 'cat150006' },
             headers: {
-                'x-rapidapi-host': 'sephora.p.rapidapi.com',
-                'x-rapidapi-key': '2b5c9fd8d8msh0132ae34892c4f1p161c42jsnb732f5ff681a'
+                'x-rapidapi-host': process.env.REACT_APP_SEPHORA_API_HOST,
+                'x-rapidapi-key': process.env.REACT_APP_RAPID_API_KEY
             }
         };
 
