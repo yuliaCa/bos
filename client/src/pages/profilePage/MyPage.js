@@ -32,7 +32,7 @@ function MyPage(props) {
         query: city,
       },
       headers: {
-        "x-rapidapi-host": process.env.REACT_APP_RAPID_API_HOST,
+        "x-rapidapi-host": process.env.REACT_APP_AIRVISUAL_API_HOST,
         "x-rapidapi-key": process.env.REACT_APP_RAPID_API_KEY,
       },
     };
