@@ -32,8 +32,8 @@ function MyPage(props) {
         query: city,
       },
       headers: {
-        "x-rapidapi-host": "airvisual1.p.rapidapi.com",
-        "x-rapidapi-key": "2b5c9fd8d8msh0132ae34892c4f1p161c42jsnb732f5ff681a",
+        "x-rapidapi-host": process.env.REACT_APP_RAPID_API_HOST,
+        "x-rapidapi-key": process.env.REACT_APP_RAPID_API_KEY,
       },
     };
     if (city) {
