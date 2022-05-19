@@ -135,8 +135,8 @@ function MyRoutines(props) {
                     preferedSku: product['currentSku']['skuId']
                 },
                 headers: {
-                    'x-rapidapi-host': 'sephora.p.rapidapi.com',
-                    'x-rapidapi-key': '2b5c9fd8d8msh0132ae34892c4f1p161c42jsnb732f5ff681a'
+                    'x-rapidapi-host': "sephora.p.rapidapi.com",
+                    'x-rapidapi-key': process.env.REACT_APP_RAPID_API_KEY
                 }
             };
             axios.request(options)
@@ -187,7 +187,7 @@ function MyRoutines(props) {
                 },
                 headers: {
                     'x-rapidapi-host': 'sephora.p.rapidapi.com',
-                    'x-rapidapi-key': '2b5c9fd8d8msh0132ae34892c4f1p161c42jsnb732f5ff681a'
+                    'x-rapidapi-key': process.env.REACT_APP_RAPID_API_KEY
                 }
             };
             axios.request(options)
