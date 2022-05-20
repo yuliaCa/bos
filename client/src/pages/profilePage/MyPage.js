@@ -33,7 +33,7 @@ function MyPage(props) {
       },
       headers: {
         "x-rapidapi-host": "airvisual1.p.rapidapi.com",
-        "x-rapidapi-key": "2b5c9fd8d8msh0132ae34892c4f1p161c42jsnb732f5ff681a",
+        "x-rapidapi-key": process.env.REACT_APP_RAPID_API_KEY,
       },
     };
     if (city) {
@@ -108,7 +108,7 @@ function MyPage(props) {
       url: `https://airvisual1.p.rapidapi.com/cities/get-information?id=${cityId}&lang=en_US&aqiIndex=us`,
       headers: {
         "x-rapidapi-host": "airvisual1.p.rapidapi.com",
-        "x-rapidapi-key": "2b5c9fd8d8msh0132ae34892c4f1p161c42jsnb732f5ff681a",
+        "x-rapidapi-key": process.env.REACT_APP_RAPID_API_KEY,
       },
       redirect: "follow",
     };

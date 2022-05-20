@@ -28,7 +28,7 @@ const Weather = (props) => {
       method: "GET",
       url: `https://airvisual1.p.rapidapi.com/cities/get-information?id=${props.cityId}&lang=en_US&aqiIndex=us`,
       headers: {
-        "x-rapidapi-host": process.env.REACT_APP_RAPID_API_HOST,
+        "x-rapidapi-host": "airvisual1.p.rapidapi.com",
         "x-rapidapi-key": process.env.REACT_APP_RAPID_API_KEY
       },
       redirect: "follow",
